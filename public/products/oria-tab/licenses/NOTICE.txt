@@ -1,0 +1,14 @@
+motion: /licenses/motion.txt
+animejs: /licenses/animejs.txt
+lucide: /licenses/lucide.txt
+oriatheme: /licenses/oriatheme.txt
+react: /licenses/react.txt
+react-dom: /licenses/react-dom.txt
+base-ui: /licenses/base-ui.txt
+i18next: /licenses/i18next.txt
+react-i18next: /licenses/react-i18next.txt
+tailwindcss: /licenses/tailwindcss.txt
+simple-icons (11.15.0, CC0): /licenses/simple-icons.txt
+SVG Logos (Edge and Chrome, CC0): https://github.com/gilbarbara/logos — /licenses/simple-icons.txt
+html-to-image: /licenses/html-to-image.txt
+LiquidGlass shader adaptation (MIT): /licenses/liquidglass.txt

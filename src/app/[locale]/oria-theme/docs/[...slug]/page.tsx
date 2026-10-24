@@ -1,0 +1,28 @@
+import {pageMetadata} from "@/lib/seo";
+import {isLocale as isSiteLocale} from "@/i18n/config";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { DocsShell, docsPages } from "@/features/oria-theme/components/docs/docs-shell";
+import { getDocsPage, type DocsPageSlug } from "@/features/oria-theme/components/docs/docs-pages";
+import { isLocale, locales } from "@/features/oria-theme/lib/i18n";
+
+const slugs = docsPages.map(page => page.slug);
+function validSlug(value: string): value is DocsPageSlug { return (slugs as readonly string[]).includes(value); }
+
+export function generateStaticParams() { return locales.flatMap(locale => docsPages.map(page => ({ locale: locale === "zh" ? "zh-CN" : locale, slug: page.slug.split("/") }))); }
+
+export default async function DocumentationArticle({ params }: { readonly params: Promise<{ locale: string; slug: string[] }> }) {
+  const { locale: siteLocale, slug } = await params; const locale = siteLocale === "zh-CN" ? "zh" : siteLocale;
+  const key = slug.join("/");
+  if (!isLocale(locale) || !validSlug(key)) notFound();
+  const page = getDocsPage(locale, key);
+  return <DocsShell locale={locale} current={key} toc={page.toc}><header className="docs-article-header"><p>{page.eyebrow}</p><h1>{page.title}</h1><span>{page.description}</span></header>{page.body}</DocsShell>;
+}
+
+export async function generateMetadata({params}:{params:Promise<{locale:string;slug:string[]}>}) {
+ const {locale,slug}=await params;
+ const key=slug.join('/');
+ if(!isSiteLocale(locale)||!validSlug(key))return {};
+ const page=getDocsPage(locale==='zh-CN'?'zh':'en',key);
+ return pageMetadata(locale, '/oria-theme/docs/'+key, page.title+' · OriaTheme', page.description);
+}

@@ -1,0 +1,10 @@
+'use client'
+import Link from 'next/link'
+import {Popover} from '@base-ui/react/popover'
+import {Palette} from 'lucide-react'
+import {SiteControls} from '@/components/site/controls'
+import {FamilyMenu} from '@/components/site/family-menu'
+import {localizedPath,type Locale} from '@/i18n/config'
+import {WebsiteStateProvider} from './website/state'
+import {AppearanceControls} from './website/appearance'
+export function TabShell({locale,children}:{locale:Locale;children:React.ReactNode}){return <WebsiteStateProvider locale={locale}><div className="oria-tab-shell"><header className="tab-site-header"><Link className="tab-brand tab-header-island" href={localizedPath(locale,'/oria-tab')}><img src="/products/oria-tab/assets/logo.svg" alt="" width={28} height={28}/><span>OriaTab</span></Link><div className="tab-header-island product-header-actions"><SiteControls/><Popover.Root><Popover.Trigger className="family-trigger" aria-label={locale==='en'?'Demo appearance':'演示外观'}><Palette size={17}/></Popover.Trigger><Popover.Portal><Popover.Positioner sideOffset={10} align="end" className="z-50"><Popover.Popup className="tab-appearance-popover floating-surface"><Popover.Title>{locale==='en'?'Appearance':'外观设置'}</Popover.Title><AppearanceControls/></Popover.Popup></Popover.Positioner></Popover.Portal></Popover.Root><FamilyMenu locale={locale} current="oria-tab"/></div></header>{children}</div></WebsiteStateProvider>}

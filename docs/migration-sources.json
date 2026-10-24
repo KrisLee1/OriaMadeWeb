@@ -1,0 +1,1001 @@
+{
+  "themeRevision": "2916b7a4422d3d4de2ce6a0ea1c4c03ba46d03b1",
+  "files": [
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/editor-panel-provider.tsx",
+      "destination": "src/features/oria-theme/components/editor-panel-provider.tsx",
+      "sha256": "2ee12ffb8f47e1ec327eff10fbab5c29f964144e8eed35c97661e5de6b9ebb68"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/editor-page/editor-workspace.tsx",
+      "destination": "src/features/oria-theme/components/editor-page/editor-workspace.tsx",
+      "sha256": "933a31f82f01fad2dd588f2c8b8af7f00ddf98373cc9e3c4c0e17f848ae7a347"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/editor-page/token-showcase.tsx",
+      "destination": "src/features/oria-theme/components/editor-page/token-showcase.tsx",
+      "sha256": "173c42c27cb51af89044b3c4c351cea86f73432f99f66177e394030ec211525a"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/editor-page/editor-stage.tsx",
+      "destination": "src/features/oria-theme/components/editor-page/editor-stage.tsx",
+      "sha256": "904d3fdbd6cab21688ddb0be1d32b79fe5d970e68837f12620167ca548daa0a8"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/editor-page/token-gallery.tsx",
+      "destination": "src/features/oria-theme/components/editor-page/token-gallery.tsx",
+      "sha256": "3512f9ea1fdcf8c71006c19c9d5f5ea8b26394471f8ca18fa8702b934de84055"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/editor-page/editor-i18n.tsx",
+      "destination": "src/features/oria-theme/components/editor-page/editor-i18n.tsx",
+      "sha256": "f27759a7e6f5ebe2e1080e8ac1a2081aeba29b7fc4734b8fcfc7ab4efcdcbea7"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/editor-page/editor-panel.tsx",
+      "destination": "src/features/oria-theme/components/editor-page/editor-panel.tsx",
+      "sha256": "e89df9f7a28d5342be134ca55d2f6dc6159e309efee26026374afe4299d5d915"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/ui/card.tsx",
+      "destination": "src/features/oria-theme/components/ui/card.tsx",
+      "sha256": "159f324d1c4b1e4207122404a4fa3d8d4507fd025e2e71290fcaf7118fbcba00"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/ui/badge.tsx",
+      "destination": "src/features/oria-theme/components/ui/badge.tsx",
+      "sha256": "6de39b61c7d4930b31c4b26d1006aa59fd25a1ef898a722b65e64f6cca036ee8"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/ui/button.tsx",
+      "destination": "src/features/oria-theme/components/ui/button.tsx",
+      "sha256": "9a7315aa12beee38f265a053051a75a61ebd34d4f26aef771af8e3f72138e75b"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/home/install-command.tsx",
+      "destination": "src/features/oria-theme/components/home/install-command.tsx",
+      "sha256": "e479411c86488309953bf6db0be9b5a6219b0032e0fbab8ec9d5e0b68908dcc1"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/home/home-features.tsx",
+      "destination": "src/features/oria-theme/components/home/home-features.tsx",
+      "sha256": "cb02ae69f4dd45ffa9e7d0c7380744951cd4a941588c5f856972475d210d0340"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/home/home-presets.tsx",
+      "destination": "src/features/oria-theme/components/home/home-presets.tsx",
+      "sha256": "ff2e065107caeb72a79869063d29df89885c3d84b339fa343afd7115c7e936c0"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/home/home-start.tsx",
+      "destination": "src/features/oria-theme/components/home/home-start.tsx",
+      "sha256": "bd8255ae958c13fa88c3659bbe37a833153ffecc9c669312683c50519fbc89a2"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/home/home-hero.tsx",
+      "destination": "src/features/oria-theme/components/home/home-hero.tsx",
+      "sha256": "79f2db1d82523aefa19d0c8b3a842549e2f7d793be09f426b283431f3b6b276c"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/home/reveal.tsx",
+      "destination": "src/features/oria-theme/components/home/reveal.tsx",
+      "sha256": "349ebdb95c7c518ff7819a5de150525dd7a21d8de48dce27b4008783391416de"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/docs/docs-pages.tsx",
+      "destination": "src/features/oria-theme/components/docs/docs-pages.tsx",
+      "sha256": "37265f0e7ffd58b487a23e134b9425d8b16e60af9c48b1aa679a0ce569fb5617"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/docs/color-library-display.tsx",
+      "destination": "src/features/oria-theme/components/docs/color-library-display.tsx",
+      "sha256": "320dcb7fd2494193d021a3ccd1d43e8d2eaa281c922c66536bd7740233cf4caf"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/docs/api-pages.tsx",
+      "destination": "src/features/oria-theme/components/docs/api-pages.tsx",
+      "sha256": "8632f76ffdd44f005c863ad6ddfc4d2a2548235fd4f8bc7813433ed113ce162f"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/docs/package-manager-tabs.tsx",
+      "destination": "src/features/oria-theme/components/docs/package-manager-tabs.tsx",
+      "sha256": "f85c7814fa5c05355de0197eaa8defdc72888b8a4e55ed49615a167cf2171762"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/docs/code-block.tsx",
+      "destination": "src/features/oria-theme/components/docs/code-block.tsx",
+      "sha256": "862ff23705a5a337e8f3e451f9a46a17b679815b2568c1bff25994ebafc1dc0d"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/docs/docs-shell.tsx",
+      "destination": "src/features/oria-theme/components/docs/docs-shell.tsx",
+      "sha256": "1271354f7f09a478c47bbaad147b19d0a0b40cdf9a972ecc5073cc054760fde0"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/docs/docs-home.tsx",
+      "destination": "src/features/oria-theme/components/docs/docs-home.tsx",
+      "sha256": "66040e87b3bd5b6c01b2cb6dff6a098068ae78726c5f5d4fa25ff6639c8f1964"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/theme-editor.css",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/theme-editor.css",
+      "sha256": "7a4a2eca1e99f47c1504f148d24990429a93be1046e00ae3dc44970cb678bad5"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/editor-tabs.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/editor-tabs.tsx",
+      "sha256": "25dbaf6534cef5c9156f599e84ada15feb01539bf625b18bea202b6a586655f4"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/token-field.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/token-field.tsx",
+      "sha256": "1e017ab867a2fc6e9472abf2b35047c25b357e87cd3da05bd965a97da6ef5031"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/themes-workspace.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/themes-workspace.tsx",
+      "sha256": "7cd6e576631ec80e2d3adbae4ead34834ddd46e0a44906ece72765c37f544380"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/export-theme-code.ts",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/export-theme-code.ts",
+      "sha256": "115eb0cb81c1cc09db67a72cac296908c869fa464f8645b43cdaab1442eb781c"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/theme-list-item.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/theme-list-item.tsx",
+      "sha256": "61eb1bb8b577f8f745c763f85125843d464f3a272f15d40e5701bb1247c2c60d"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/LICENSE",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/LICENSE",
+      "sha256": "1aac9da5e0298f48b491d88c459adec73a228a4e5eb768f221ad5459355b9991"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/editor-search.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/editor-search.tsx",
+      "sha256": "2bfd48061b8010558af2e49d727a8d518621c5db8fcf7a3a87ab665a1aebe04a"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/editor-workspace.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/editor-workspace.tsx",
+      "sha256": "95a7068d570ab3d5133960eb7460a6f14d47e2d887b0c7ef2300af73fac383c3"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/theme-editor.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/theme-editor.tsx",
+      "sha256": "119bfefa4faec97c5bc08dc97f8c57c2594c9c53187ff0950c295b90650165f6"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/editor-shell.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/editor-shell.tsx",
+      "sha256": "171a692d819599f86c972003bf18e08fafb77132b3862060a0f07f0d00344824"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/theme-accordion.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/theme-accordion.tsx",
+      "sha256": "8dd022cba10c705c714ec1103e923a494e171bb4def5e10224508d9eb097feb2"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/token-accordion.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/token-accordion.tsx",
+      "sha256": "54d2bb5e3ce12336a4703601cd7bc51475db257ec71c32baef5aee60206e483d"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/types.ts",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/types.ts",
+      "sha256": "e6e15569b7c59285814905441544f0f4fc43aaf39b4536fb83707b6df2114cf9"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/editor-preview.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/editor-preview.tsx",
+      "sha256": "f43789b725d6cd924d201290ff93f616671b9ddced2efd291904fc08f34bf022"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/editor-toolbar.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/editor-toolbar.tsx",
+      "sha256": "7ca0ee1ebcff04113ef8a391b8624c0edc9ceaa218485aa72114eb9994ce8422"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/index.ts",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/index.ts",
+      "sha256": "af3836222c9bf585e9e3a7d96a283a3efc303b4afb981980a34bb8df8a93a247"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/editor-layout.ts",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/editor-layout.ts",
+      "sha256": "135e040e5fecbf1f7aa603f6a3ab120c693bed6aa48414fcba89945e092462bf"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/editor-mode-switch.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/editor-mode-switch.tsx",
+      "sha256": "4b69804d0673d6a97fe2df8a278c1dace058fa1f2c50c0ca1bed805f8175acdf"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/shadows/shadow-preview.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/shadows/shadow-preview.tsx",
+      "sha256": "8dadc9e15765a1ba62f84946e6022f55531fe37c3a5c99c83e7ca266074ec7f8"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/shadows/shadow-layer-editor.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/shadows/shadow-layer-editor.tsx",
+      "sha256": "474d88f821620e7370dda017525255627d1355c9a217dad1e462aa902bb1ecbf"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/overlays/reset-menu.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/overlays/reset-menu.tsx",
+      "sha256": "252d9f6e52cc027c0b674cfacd5c1b7437db618be46efef9501f0a1feb8e9020"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/overlays/import-dialog.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/overlays/import-dialog.tsx",
+      "sha256": "f177048d37ac4732307d9771aa75c2c7c4d670fde3459f4d095069b16e7a4f09"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/overlays/issues-popover.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/overlays/issues-popover.tsx",
+      "sha256": "faab8c3bfcb00173f3c34439310cd783ecf1f0c064c03fc4b1f92b1e6a9d1af9"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/overlays/confirmation-dialog.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/overlays/confirmation-dialog.tsx",
+      "sha256": "e303719a3641ddb5f5f3168a4b1ea20c889e6726eb2c498453bf3799da62e9de"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/overlays/export-menu.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/overlays/export-menu.tsx",
+      "sha256": "91183d97fafdefef5577190b92ca0278aedbfbb1052190f7e2070a2828a54c4d"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/hooks/use-editor-layout.ts",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/hooks/use-editor-layout.ts",
+      "sha256": "4a77be5efd14c99ed8ab2af192b6fc6b915c50aacf516f07ec96f4341bc1479f"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/hooks/use-token-search.ts",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/hooks/use-token-search.ts",
+      "sha256": "1b2dc4e73bcd5b15909931eff1b2cae5daa570046aa0f3f4c0286dab76b38b46"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/hooks/use-field-buffer.ts",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/hooks/use-field-buffer.ts",
+      "sha256": "0f01c5992acf554ca9befde977e22a9651ab742f2670b21b97e36d6916717260"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/hooks/use-details-dismiss.ts",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/hooks/use-details-dismiss.ts",
+      "sha256": "554c7ae48319b669e8da0ecdaaa47b7b30a8e7caeee5de1d45353c6df68a642d"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/fields/slider-ranges.ts",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/fields/slider-ranges.ts",
+      "sha256": "50a44ac8c66d05b0349a448c7a5afea28104266b454feec0f108b0fe0dd6a761"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/fields/shadow-field.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/fields/shadow-field.tsx",
+      "sha256": "a175968ebdeb3ba4ee85fb01f6f67db50ac73ab8d84d7c61bc06cbf021e803c2"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/fields/gradient-field.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/fields/gradient-field.tsx",
+      "sha256": "44008b6f5fcf3af7a6496f876e741de6566e8b176429851905287c0326a4ba83"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/fields/duration-field.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/fields/duration-field.tsx",
+      "sha256": "fdd9e669f4b7569b881e6b719ff08ab465fb279aa5de30fd40d0c0761e63fad7"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/fields/pattern-field.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/fields/pattern-field.tsx",
+      "sha256": "38b86994d46e4bdd38a26ae752259b6e0e44494d68089b4f768d7af46f2970d5"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/fields/easing-field.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/fields/easing-field.tsx",
+      "sha256": "466085d67bc9a595ced75de4fb76ca4fc261cd824ec4835e009b52796125d644"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/fields/linear-slider.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/fields/linear-slider.tsx",
+      "sha256": "b67801db78f0ff85c51ef9f24aff187b5eea3e690e31a1e637029e7ae41e1391"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/fields/base-color-palette.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/fields/base-color-palette.tsx",
+      "sha256": "0b401ceafc6c94dc0a70a29904c706ff02272ad1f774720de8e32e65b57504e8"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/fields/field-frame.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/fields/field-frame.tsx",
+      "sha256": "d7b33fa9f817b5661e044bb17c2cc977cb6d01dd1640b19e372c962668a8423b"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/fields/color-utils.ts",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/fields/color-utils.ts",
+      "sha256": "820eab178cb601aed58e5588418a6d9565d938ecd543e6667df251db0f6b368d"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/fields/number-field.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/fields/number-field.tsx",
+      "sha256": "2262867ed92adc508a6d2bf2dd943f7c033440e25d7298fc5371cca73fe622bd"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/fields/font-family-field.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/fields/font-family-field.tsx",
+      "sha256": "ebfc5bdd66eeb2b387bd218cb1a651f9300d5478b406178b2b934f82b24a6ef1"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/fields/editor-select.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/fields/editor-select.tsx",
+      "sha256": "8f86ab780d87e2fe518f3a471af963c06dce96e155860b2d165780d0bca0afaf"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/fields/font-weight-field.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/fields/font-weight-field.tsx",
+      "sha256": "bb8c7ce6fe2feb6511c366a125038c4146e9c14d44382a3ba093a31fcd45b971"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/fields/dimension-field.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/fields/dimension-field.tsx",
+      "sha256": "5d8222d4aa96357394a34c336d87e4354441e726134c2055aea99f25f9cf1d99"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/components/oria-theme-editor/fields/color-field.tsx",
+      "destination": "src/features/oria-theme/components/oria-theme-editor/fields/color-field.tsx",
+      "sha256": "eaa75dbfd8edb7ad22068d51abc7445f1efd0c04f7f5d6eca6d11f667c712392"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/lib/i18n.ts",
+      "destination": "src/features/oria-theme/lib/i18n.ts",
+      "sha256": "5b05ce400f94a835bb6366570ab7c279f65f73aba07265770ef3997e776037c1"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/lib/utils.ts",
+      "destination": "src/features/oria-theme/lib/utils.ts",
+      "sha256": "4acbc7165a8d54738ff62b51414e772c08fe78434e524e6d8770180d3ba2925f"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/lib/site.ts",
+      "destination": "src/features/oria-theme/lib/site.ts",
+      "sha256": "ee637b7eb1535c1f2568e5c8026075f39cf199b89e968dbedbd1d6cd231d4ec2"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/public/locales/zh/common.json",
+      "destination": "src/features/oria-theme/public/locales/zh/common.json",
+      "sha256": "21d37c65060fcfe234b57f953f20549ad3a4eb60d8736afb45390200daac9261"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/public/locales/en/common.json",
+      "destination": "src/features/oria-theme/public/locales/en/common.json",
+      "sha256": "40334ff4db749deaa2252c144eb82794558dae2acf960942b4731379a0934166"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/public/icons/oria-theme-logo.svg",
+      "destination": "public/products/oria-theme/icons/oria-theme-logo.svg",
+      "sha256": "97e3db01bf0b2429a194548768858970d57f52f0c2b981061f2bc97cf1ec8c3f"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/public/icons/color-swatch-fan.svg",
+      "destination": "public/products/oria-theme/icons/color-swatch-fan.svg",
+      "sha256": "de28fb695ff740260cdf2ccba0575957c736a32f28c9a5a6410799369a3ea899"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/app/globals.css",
+      "destination": "src/features/oria-theme/source.css",
+      "sha256": "412b4f9ca98fc5061e0c5ba20fb71979662077516bd9d223fa82fd1703ba50ed"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/app/showcase.css",
+      "destination": "src/features/oria-theme/showcase.css",
+      "sha256": "6c7ef1e98d8309a2e11f02a0ebb096a03ca4c0697294ed6f254a2e57a98fecfd"
+    },
+    {
+      "source": "/tmp/oria-made-theme-source/apps/website/app/default-theme-style.ts",
+      "destination": "src/lib/theme/default-style.ts",
+      "sha256": "e0e8e605a0ea05e5044ff646c944915f45bf6ab7235a83412a25c8acb7cc3989"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTunnel/src/components/ui/button.tsx",
+      "destination": "src/components/ui/button.tsx",
+      "sha256": "2bfdac71849f76e8a6f59b4e0fcf33091cfb3996238865d79be6651a7de3d2c2"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTunnel/src/components/ui/select.tsx",
+      "destination": "src/components/ui/select.tsx",
+      "sha256": "57e0124c34662be66993b7a138a50d69033c2ff2e25480287e7eb1638b60face"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTunnel/src/components/ui/dropdown-menu.tsx",
+      "destination": "src/components/ui/dropdown-menu.tsx",
+      "sha256": "757141b57eea0b42386e281250afa5c9ffc1ad9cad96c61556fa02ae794c71ad"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTunnel/src/components/ui/tabs.tsx",
+      "destination": "src/components/ui/tabs.tsx",
+      "sha256": "fc15b8c2b744c278bdc57a2b7ee9f5fcf59caaf74925a860f76aa54c9cadf760"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTunnel/src/components/ui/motion.tsx",
+      "destination": "src/components/ui/motion.tsx",
+      "sha256": "caaae14387d90bee7bb2469a865bc0e221bfdc33782cdd6b08ae95f66acdea3f"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTunnel/src/components/theme/theme-select.tsx",
+      "destination": "src/components/theme/theme-select.tsx",
+      "sha256": "4cf2bf4273589461d052e99461f1bb0124e63e72596c23e12dfc55b685fc5d24"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTunnel/src/components/theme/theme-mode-toggle.tsx",
+      "destination": "src/components/theme/theme-mode-toggle.tsx",
+      "sha256": "b7bc90b4b7a4dfabd63b6d10d2755a421d8876af56c7bb1f09860f949c20ff61"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTunnel/src/components/theme/theme-transition.ts",
+      "destination": "src/components/theme/theme-transition.ts",
+      "sha256": "36cac21afe738c276e31073d4354670827730d15d3b60e03e6379a82708e0821"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTunnel/src/components/language/language-select.tsx",
+      "destination": "src/components/language/language-select.tsx",
+      "sha256": "b27fdba27b756ff57acadd74bfbe8bd882ece5ca9ca1498a619f465c8aefd9a2"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTunnel/src/lib/utils.ts",
+      "destination": "src/lib/utils.ts",
+      "sha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/src/story/story.tsx",
+      "destination": "src/features/oria-tab/website/story/story.tsx",
+      "sha256": "d6e8c44e7c04e15daa6f8b4aca75f7e726ab8c76a69db1ebb71c39716465c7a1"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/components/glass.tsx",
+      "destination": "src/features/oria-tab/shared/components/glass.tsx",
+      "sha256": "dce828e484f487ebd7c61c69890b4f93c43b6523132e2f755605ffd28ca176ae"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/src/state.tsx",
+      "destination": "src/features/oria-tab/website/state.tsx",
+      "sha256": "01e7b8c36b64c95d114f4dc55d96e5e20ccc9592d8f2fe442efd12dccf201d16"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/model.ts",
+      "destination": "src/features/oria-tab/shared/lib/model.ts",
+      "sha256": "f4286cc6aa71b061356ad8fa0c1e5d573a4d867cac3cea67f63d8da1d691ec90"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/theme-preference.ts",
+      "destination": "src/features/oria-tab/shared/lib/theme-preference.ts",
+      "sha256": "cb958969cfd598868bbd894b99fb718e34c19205f3c5fa55da85cc3a2651ad4a"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/calendar/regions.ts",
+      "destination": "src/features/oria-tab/shared/lib/calendar/regions.ts",
+      "sha256": "2dbe3f838e7179ee8c381f4e803f78e1c6e042917a4033f63490a8e08e803a0a"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/calendar/countries.json",
+      "destination": "src/features/oria-tab/shared/lib/calendar/countries.json",
+      "sha256": "6b759d0817b9869533ea443755d5f0860f2b3da15f8a4f0499117077ede07e21"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/languages.ts",
+      "destination": "src/features/oria-tab/shared/lib/languages.ts",
+      "sha256": "08f1861cb3718405612c63f02b3d13f92c2b3ae2fed47b1dad4eeb122df9ffc1"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/theme-import.ts",
+      "destination": "src/features/oria-tab/shared/lib/theme-import.ts",
+      "sha256": "3f0c0e3db1946fca46548ad9b9f50481d1f7b5ee570fbf4c47574a36f9962393"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/background.ts",
+      "destination": "src/features/oria-tab/shared/lib/background.ts",
+      "sha256": "6b2965681b2ee82cb2540d7e47ab4a950c1fcf8119a71b1b950df7b36c7d2dce"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/wallpaper-sources.ts",
+      "destination": "src/features/oria-tab/shared/lib/wallpaper-sources.ts",
+      "sha256": "a6c5ae70282b714516cc2131c119fc6ad89c72d70ba9c390877c0eb84065867e"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/browser.ts",
+      "destination": "src/features/oria-tab/shared/lib/browser.ts",
+      "sha256": "10c5ec8b72ee835817e11186b5a0653651ae0184d4e430ea4018d698838d6e2a"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/browser-platform.ts",
+      "destination": "src/features/oria-tab/shared/lib/browser-platform.ts",
+      "sha256": "8a6771aa588e27a15e39fb2f5268eab8afcdf308ab195001e73e656dc81985e6"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/glass/model.ts",
+      "destination": "src/features/oria-tab/shared/lib/glass/model.ts",
+      "sha256": "271823d45319577a6cd752d172e2c1d238097b68256d75f2e87930be152a2710"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/glass/migration.ts",
+      "destination": "src/features/oria-tab/shared/lib/glass/migration.ts",
+      "sha256": "1a5418c19f3c4169542b584926f03de973af7afccca95d84c3f37a8bfb9a3527"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/utils.ts",
+      "destination": "src/features/oria-tab/shared/lib/utils.ts",
+      "sha256": "00708463d307471ed1a3ac36642e9c00a766730d7be61e2351f283a580017ea6"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/material.ts",
+      "destination": "src/features/oria-tab/shared/lib/material.ts",
+      "sha256": "d6df11e5bd45b3dcf5e35ced3b179c66182a9134e72dc887ff57474366608f19"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/components/glass-webgl.tsx",
+      "destination": "src/features/oria-tab/shared/components/glass-webgl.tsx",
+      "sha256": "2931987ec097a1ea4ee38a0723cbab507a3a9ff3e111534711ae986b6d2eb430"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/glass/scene.ts",
+      "destination": "src/features/oria-tab/shared/lib/glass/scene.ts",
+      "sha256": "79d80c8123252eca53d2153cc1f055bf15d073efcc69c03af208f6903948cb54"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/glass/capture.ts",
+      "destination": "src/features/oria-tab/shared/lib/glass/capture.ts",
+      "sha256": "7b7ac191a9c817e19ca92913ec8e60d3bc62f0c934cb194e88ef0d15b4674eb9"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/glass/capture-abort.ts",
+      "destination": "src/features/oria-tab/shared/lib/glass/capture-abort.ts",
+      "sha256": "3a5f2ab27a471750a723d75f752a101617b22ccf135a138571a9758d8a00566e"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/glass/snapshot.ts",
+      "destination": "src/features/oria-tab/shared/lib/glass/snapshot.ts",
+      "sha256": "dd9e15b0408ef945d2b482317c9561b2ac683aa49ab31467b18c3a6a1164545c"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/glass/renderer.ts",
+      "destination": "src/features/oria-tab/shared/lib/glass/renderer.ts",
+      "sha256": "f77355719030ccf8c5a2fafcc6a76a9d3b06f2c9bbfaa2410ae012715c2afbd3"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/glass/shaders.ts",
+      "destination": "src/features/oria-tab/shared/lib/glass/shaders.ts",
+      "sha256": "5b900da9746985f3eeac6b5328efb0873bf0155e08e59061cbe2573b0c8c2150"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/i18n.ts",
+      "destination": "src/features/oria-tab/shared/lib/i18n.ts",
+      "sha256": "bcea6204c63fd727dd3dd9b04dc6431ec7c8ca820e65f7c88c5a3adb67f6fff7"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/src/story/acts.ts",
+      "destination": "src/features/oria-tab/website/story/acts.ts",
+      "sha256": "fecfc5bd6eb1ac5160427fffd1799d922f4f6ddcae23aa11bb5c4e07bbaa1c70"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/src/story/choreography.ts",
+      "destination": "src/features/oria-tab/website/story/choreography.ts",
+      "sha256": "ad0bbd8fd201a79d4ca4d0ac28ef22ff3ad820ebe1eda65eb1086a4d8a9b2367"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/src/story/engine.ts",
+      "destination": "src/features/oria-tab/website/story/engine.ts",
+      "sha256": "9b3b532bf9209613a1c186d6338c538ab22bc26e0ffcd9c33a6823fd7eadc61a"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/src/story/stage.tsx",
+      "destination": "src/features/oria-tab/website/story/stage.tsx",
+      "sha256": "3300508dcd3dae22fdda091d7596d2f812e2dba96dafc2c9b2000d8f99f6912e"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/components/glass-environment.tsx",
+      "destination": "src/features/oria-tab/shared/components/glass-environment.tsx",
+      "sha256": "1a279875bf8547651ec867b3a5bacd34623b390edddd3ce1cf2936b93f070804"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/theme.ts",
+      "destination": "src/features/oria-tab/shared/lib/theme.ts",
+      "sha256": "756de977d99c5b24634b938e7648a64634c2be5eac46ef6b8928fa0f579eb824"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/glass/application-scene.ts",
+      "destination": "src/features/oria-tab/shared/lib/glass/application-scene.ts",
+      "sha256": "98137a2190acd6fe895660a2fd1a1dccb07d9ea188a8e1597bdafa448193c4df"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/glass/geometry.ts",
+      "destination": "src/features/oria-tab/shared/lib/glass/geometry.ts",
+      "sha256": "88ab0b0f21016e18faf90216076152a346900e8a8879af6c7a64d583af5e2023"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/glass/paint-order.ts",
+      "destination": "src/features/oria-tab/shared/lib/glass/paint-order.ts",
+      "sha256": "3fd67f282aa00223383fef4baff72548242850f4c6517f8e482ed4d5cf39545a"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/glass/crop.ts",
+      "destination": "src/features/oria-tab/shared/lib/glass/crop.ts",
+      "sha256": "9ea4b66512c44886103e116284187c07000e612e1b05d3fe552320e004ba4383"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/glass/shadow.ts",
+      "destination": "src/features/oria-tab/shared/lib/glass/shadow.ts",
+      "sha256": "e056c64a317b036a6b6c7fabc891abe461cb9d3a2da0dc58779d7424393cdd57"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/glass/frame.ts",
+      "destination": "src/features/oria-tab/shared/lib/glass/frame.ts",
+      "sha256": "4cb7e2e2dbb842a6b4f282013a9609e1cc7732274806d529a0c0562706ef84bc"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/glass/read-cache.ts",
+      "destination": "src/features/oria-tab/shared/lib/glass/read-cache.ts",
+      "sha256": "856dd5591dd7d5507fc60ef5ee7ca86f974be9aeef54be7c54715d4c8644f795"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/glass/page-glass.ts",
+      "destination": "src/features/oria-tab/shared/lib/glass/page-glass.ts",
+      "sha256": "bd9a39356901258ac17db62d32346eb53779be6414c7ff1ec1cf0c9fc6bfabec"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/components/icons.tsx",
+      "destination": "src/features/oria-tab/shared/components/icons.tsx",
+      "sha256": "f8e6f2dc98f276a71c2855e5cec4ac0474fc37d0ed052b991f6cb6e92ab3888c"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/features/aide-original/avatar/use-aide-theme-color.ts",
+      "destination": "src/features/oria-tab/shared/features/aide-original/avatar/use-aide-theme-color.ts",
+      "sha256": "01ab3112ef154cf75a9b3b342b90f6cb49f01953d8476df34469cc08f7f37fa4"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/features/aide-original/avatar/aide-avatar.tsx",
+      "destination": "src/features/oria-tab/shared/features/aide-original/avatar/aide-avatar.tsx",
+      "sha256": "c4a5bf01fd45f204edd8901ef790da439bbc513608f294acbc034a94c42a6f6f"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/features/aide-original/avatar/aide-motion-engine.ts",
+      "destination": "src/features/oria-tab/shared/features/aide-original/avatar/aide-motion-engine.ts",
+      "sha256": "4b6730afef67de71810276fc14171eb9711e7861a6b7b5e7b0ee519e975eebf9"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/features/aide-original/avatar/aide-appearance.ts",
+      "destination": "src/features/oria-tab/shared/features/aide-original/avatar/aide-appearance.ts",
+      "sha256": "f13784e09e3c6653802c68bf72e95766b26a9b17b31ad3c92e38c0b5d39ed1a0"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/features/aide-original/avatar/activity-store.ts",
+      "destination": "src/features/oria-tab/shared/features/aide-original/avatar/activity-store.ts",
+      "sha256": "4eadcf1ac4de7531f41d36d19899c19cccdcc9786958381f75f1e80976823d7a"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/features/aide-original/avatar/aide-presentation.ts",
+      "destination": "src/features/oria-tab/shared/features/aide-original/avatar/aide-presentation.ts",
+      "sha256": "22c84ee7e21ec8a848b00293daa573ab6f15bd53c0659fad2504dc2ee3d4f830"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/features/aide-original/types.ts",
+      "destination": "src/features/oria-tab/shared/features/aide-original/types.ts",
+      "sha256": "1b751d8f83947af84c7dfc2bfd28f9a7b3975e201b7499e4dcfe371ea026a176"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/aide/types.ts",
+      "destination": "src/features/oria-tab/shared/lib/aide/types.ts",
+      "sha256": "3ad432d3122b80f040534bdfddd053163d90d76cbb2950906f2733fd8ee0c530"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/use-site-icon.ts",
+      "destination": "src/features/oria-tab/shared/lib/use-site-icon.ts",
+      "sha256": "ee388c6d80d32c28c41d57fcf79250999e4c8785bba37bf82174f8e366b0cb21"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/components/ui/input.tsx",
+      "destination": "src/features/oria-tab/shared/components/ui/input.tsx",
+      "sha256": "daa8ac3b9a29051d6580afdc9d8f101951f9c77c985ebbb853f15425d19f2309"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/features/aide-original/window/window-header.tsx",
+      "destination": "src/features/oria-tab/shared/features/aide-original/window/window-header.tsx",
+      "sha256": "cb5dff05788b4675b05793842b104d96eb671b1257fb973512bbb316c68af71e"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/components/ui/floating-close-button.tsx",
+      "destination": "src/features/oria-tab/shared/components/ui/floating-close-button.tsx",
+      "sha256": "26156011f935d4f4924589a4e4ebe2d92c77f404fcec0555b0a2a02d44d1d7a9"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/components/ui/button.tsx",
+      "destination": "src/features/oria-tab/shared/components/ui/button.tsx",
+      "sha256": "401dba3133ccfa7b40827833ecf79322bc72af3c9d44492790710b41b37dab1a"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/components/ui/tooltip.tsx",
+      "destination": "src/features/oria-tab/shared/components/ui/tooltip.tsx",
+      "sha256": "c57b15ae82774417a9c511a8287c8a51a38269e10f67acea044e2a5e2ed5979f"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/features/aide-original/window/main-window-shell.tsx",
+      "destination": "src/features/oria-tab/shared/features/aide-original/window/main-window-shell.tsx",
+      "sha256": "ef31effa829ec5a0c9526b10c26d4bf890bccb71275cc94f8f62d863ece422c0"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/features/aide-original/avatar/aide-presence.tsx",
+      "destination": "src/features/oria-tab/shared/features/aide-original/avatar/aide-presence.tsx",
+      "sha256": "efff03c83033142ca048df57df24c5ee626a81369376c355cb779bb42c976226"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/popup-render.ts",
+      "destination": "src/features/oria-tab/shared/lib/popup-render.ts",
+      "sha256": "77ffc27339f57c98431cdeca58907022c25d8a8798b491d21ccd2a4dc13714be"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/features/aide-original/ui/input-group.tsx",
+      "destination": "src/features/oria-tab/shared/features/aide-original/ui/input-group.tsx",
+      "sha256": "7649f55450de68003e1bcdf6a43937a842622e3cebc906fd4b869e46c71c1e3f"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/features/aide-original/ui/textarea.tsx",
+      "destination": "src/features/oria-tab/shared/features/aide-original/ui/textarea.tsx",
+      "sha256": "f8906881b5d00121666fa7171abcd02d3ec58bc857fdb6fc9114eb8b0ab399f4"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/src/appearance.tsx",
+      "destination": "src/features/oria-tab/website/appearance.tsx",
+      "sha256": "81ff86907d0901ebd9d0f7216774ec9c784a5b3d271d9d626ad62baab2117fea"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/src/content.mjs",
+      "destination": "src/features/oria-tab/website/content.mjs",
+      "sha256": "0758d8b7c3d8cff3e850e75f2e0f662eeb027fbc6d07499a050362355f7e0a68"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/src/story/preview-theme.tsx",
+      "destination": "src/features/oria-tab/website/story/preview-theme.tsx",
+      "sha256": "765da1594acf1c37fcdc150804281e3f0056fbdcd6c0ab53cf3e51ac0f5d5079"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/theme-provider.tsx",
+      "destination": "src/features/oria-tab/shared/lib/theme-provider.tsx",
+      "sha256": "579028279b102a5f73f298b1f0f2218e062a7400115da69d545b73075e79a19d"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/use-theme-change.ts",
+      "destination": "src/features/oria-tab/shared/lib/use-theme-change.ts",
+      "sha256": "d3ca9e1ed09a1340e3e521aff7da7bcb4ae399c86429a39c54b6d4a7143a5b5c"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/src/site-config.mjs",
+      "destination": "src/features/oria-tab/website/site-config.mjs",
+      "sha256": "dc53ffcd91c80d31e611d2b2504f4e4f238890628e0f9523a21e9c8c0da98e93"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/src/platform-icons.mjs",
+      "destination": "src/features/oria-tab/website/platform-icons.mjs",
+      "sha256": "f1a9d24a372ff01bc9d732bf900858e3d7127b6c6c718d83e6ccacd3a0bffc4c"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/src/privacy-base.mjs",
+      "destination": "src/features/oria-tab/website/privacy-base.mjs",
+      "sha256": "cec2e69196fdc86b762426a73730812e9ee1e7c9e75389862b4410227ec73104"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/src/privacy-translations.mjs",
+      "destination": "src/features/oria-tab/website/privacy-translations.mjs",
+      "sha256": "6598a034e612b593840cec238a6aef166559fc1d4774be962794320a006973ef"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/lib/use-app-appearance.ts",
+      "destination": "src/features/oria-tab/shared/lib/use-app-appearance.ts",
+      "sha256": "68edc4990ba5385aaad099270b2e7b08cea0e0e6b00210ccc70981585de13749"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/assets/platform-chrome.svg",
+      "destination": "public/products/oria-tab/assets/platform-chrome.svg",
+      "sha256": "35577d504d5409547625615c2890b439d5b491d221b0c50f47af75cd3063196b"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/assets/platform-edge.svg",
+      "destination": "public/products/oria-tab/assets/platform-edge.svg",
+      "sha256": "ab79469a92641e034d4ba1a9b6134a3e3e7e6106bb71edc2f4537a4ff0585580"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/assets/logo.svg",
+      "destination": "public/products/oria-tab/assets/logo.svg",
+      "sha256": "2c9ccf1e0fe6e69e0751178e713203f96766d8ea8bd065ed445845f244529e50"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/assets/favicon.svg",
+      "destination": "public/products/oria-tab/assets/favicon.svg",
+      "sha256": "c23e80e05ad58be30556aa78542e68680c34bb459a72422e1208c3c2149011ad"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/assets/wallpapers/aurora.svg",
+      "destination": "public/products/oria-tab/assets/wallpapers/aurora.svg",
+      "sha256": "beb6bbf52372d247ecafb55acfe5e6c3ad16d70cd6666ec7c2e1019ac2b9a6ee"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/assets/wallpapers/dunes.svg",
+      "destination": "public/products/oria-tab/assets/wallpapers/dunes.svg",
+      "sha256": "7fb191b48cffd38716f139442d18270d4d05a47e359b3a3be4106278ed50d89e"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/assets/wallpapers/moonlit.svg",
+      "destination": "public/products/oria-tab/assets/wallpapers/moonlit.svg",
+      "sha256": "d425e76d85b0fad0fb829b27e64fff84d6552b097922933deb52abe8886883d0"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/assets/wallpapers/mist.svg",
+      "destination": "public/products/oria-tab/assets/wallpapers/mist.svg",
+      "sha256": "ca0e55a554fc6604ee78eef338cf9930cb13ecfa76ba75a873fd838b454601b2"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/assets/wallpapers/bloom.svg",
+      "destination": "public/products/oria-tab/assets/wallpapers/bloom.svg",
+      "sha256": "f91f91d5e24890eed585f5c646a0a65d7ed9143beed08f4b11d11e29ca9f7d11"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/assets/wallpapers/dawn.svg",
+      "destination": "public/products/oria-tab/assets/wallpapers/dawn.svg",
+      "sha256": "01761bb874c0bde2393c01d7949352e4e798ee6a1161547cd84e2538c9eec195"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/assets/wallpapers/dusk.svg",
+      "destination": "public/products/oria-tab/assets/wallpapers/dusk.svg",
+      "sha256": "6df659ba32d8b4de295ed1e0d09a5d0b0a5f5106d07991028071a9a96438835d"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/assets/wallpapers/coast.svg",
+      "destination": "public/products/oria-tab/assets/wallpapers/coast.svg",
+      "sha256": "b6c3329d0027e6c39d60e83eeb802dec0ee40c78e1f2e64302b5f22c39de030c"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/engines/duckduckgo.ico",
+      "destination": "public/products/oria-tab/engines/duckduckgo.ico",
+      "sha256": "d994f806b1e4225b50be5ab681b2cecf845cc216a19a432d878cea3cb815bafd"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/engines/bing.svg",
+      "destination": "public/products/oria-tab/engines/bing.svg",
+      "sha256": "04e0bf0a79889be65bfe52204c557d305af1b84aea3389ce90db521037e9cac1"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/engines/google.png",
+      "destination": "public/products/oria-tab/engines/google.png",
+      "sha256": "5b95eed86b7603081f22edd5da01de4c028b118b20885793b9b3ad5f6cbe1e71"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/engines/baidu.svg",
+      "destination": "public/products/oria-tab/engines/baidu.svg",
+      "sha256": "4c8d7bffb029d99ab21c9a93c43699098962d5e7297c81659c171df34e199246"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/licenses/animejs.txt",
+      "destination": "public/products/oria-tab/licenses/animejs.txt",
+      "sha256": "3f3e835a9952cfc2a6ca836fb95b3257c981f24fa3ef51249055acb09931897b"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/licenses/i18next.txt",
+      "destination": "public/products/oria-tab/licenses/i18next.txt",
+      "sha256": "1cd0a2b02a6cc40ef8ee16310d13eeffdd7b5de4a562fd3ee7c921d8eb54f60a"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/licenses/oriatheme.txt",
+      "destination": "public/products/oria-tab/licenses/oriatheme.txt",
+      "sha256": "1aac9da5e0298f48b491d88c459adec73a228a4e5eb768f221ad5459355b9991"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/licenses/lucide.txt",
+      "destination": "public/products/oria-tab/licenses/lucide.txt",
+      "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/licenses/simple-icons.txt",
+      "destination": "public/products/oria-tab/licenses/simple-icons.txt",
+      "sha256": "4674b210d8a1a0926e070843950aef43367cf44dcac86081c25540e03c089e58"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/licenses/base-ui.txt",
+      "destination": "public/products/oria-tab/licenses/base-ui.txt",
+      "sha256": "07fc1b39d69d14bc7d40482a628f47226258eb01265db68ae684944b916beb2a"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/licenses/NOTICE.txt",
+      "destination": "public/products/oria-tab/licenses/NOTICE.txt",
+      "sha256": "53be0689d1a6a7fa17509c0aea78a4194bee24ec09181c284314d796b9f2fe2d"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/licenses/liquidglass.txt",
+      "destination": "public/products/oria-tab/licenses/liquidglass.txt",
+      "sha256": "9a50e384d5e96171d2f7742b6f50c738670a9e00dd7e7c7cccca6dcad6991fdd"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/licenses/react-dom.txt",
+      "destination": "public/products/oria-tab/licenses/react-dom.txt",
+      "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/licenses/react-i18next.txt",
+      "destination": "public/products/oria-tab/licenses/react-i18next.txt",
+      "sha256": "1e1ecc54061da37870e90db6c2934b0295e7d3e147b42b27cb19d04af7948ba4"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/licenses/html-to-image.txt",
+      "destination": "public/products/oria-tab/licenses/html-to-image.txt",
+      "sha256": "9fe73723f7a9e91057f73aafc9b6a3c3b2174db2b3ddc0a3a6a8ddf2bad68e37"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/licenses/react.txt",
+      "destination": "public/products/oria-tab/licenses/react.txt",
+      "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/licenses/motion.txt",
+      "destination": "public/products/oria-tab/licenses/motion.txt",
+      "sha256": "1bf0dc3f7727723e5a032ed12164a47cf92c05204cb1a3485f123c24e2833ed1"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/public/licenses/tailwindcss.txt",
+      "destination": "public/products/oria-tab/licenses/tailwindcss.txt",
+      "sha256": "60e0b68c0f35c078eef3a5d29419d0b03ff84ec1df9c3f9d6e39a519a5ae7985"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/locales/ja.json",
+      "destination": "src/features/oria-tab/shared/locales/ja.json",
+      "sha256": "a279c4aec43d12daaa436792893ba9d55730b54b065be9b68521b2f0535313a8"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/locales/de.json",
+      "destination": "src/features/oria-tab/shared/locales/de.json",
+      "sha256": "8354048272a7db0f36fcf7efce625e9918dc4e63e615c45662ca7418da35148e"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/locales/ru.json",
+      "destination": "src/features/oria-tab/shared/locales/ru.json",
+      "sha256": "c230c708e5c517435f02ee20a4d932452797dc42b66da7116d401b18fb957fdc"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/locales/zh-CN.json",
+      "destination": "src/features/oria-tab/shared/locales/zh-CN.json",
+      "sha256": "12c54e90cfc80cae3f10e5136c5e90892762d42ea6c5ef4020ffddc1ee5feb76"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/locales/en.json",
+      "destination": "src/features/oria-tab/shared/locales/en.json",
+      "sha256": "d6a984274605258dab0d8a997d6a4142ee160840b87de44778ef0d771542966f"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/locales/fr.json",
+      "destination": "src/features/oria-tab/shared/locales/fr.json",
+      "sha256": "0c99c5dfad4f6f57bd184dc34ef203568d90f9c6aef3c9639aa1fafa93b15392"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/locales/ko.json",
+      "destination": "src/features/oria-tab/shared/locales/ko.json",
+      "sha256": "2d1d27acd6dbb025c59fb0de294f4aec5c2dd7eeceefb44fe607e56e827b7899"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/locales/zh-TW.json",
+      "destination": "src/features/oria-tab/shared/locales/zh-TW.json",
+      "sha256": "2920d3e8118e8b2ac006d1f9571ce51a6be6e562691dbe38bd0324724091c0e0"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/styles.css",
+      "destination": "src/features/oria-tab/base-source.css",
+      "sha256": "7eaa44ca63f11cc62e9910e8535d46cf1b49ad5b0277d74bbc593500727425a0"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/src/features/aide.css",
+      "destination": "src/features/oria-tab/aide-source.css",
+      "sha256": "6d9ffcf907954c94ea982782f3e9ea2525ed6ee57e726af5fedffa38a86365d4"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTab/website/src/website.css",
+      "destination": "src/features/oria-tab/website-source.css",
+      "sha256": "b23e509d895450e2b785db31554e45f14715e77df0519e1192f0f64253ec4356"
+    }
+  ],
+  "hashMeaning": "sha256 is the original source fingerprint; destinations include integration changes."
+}
