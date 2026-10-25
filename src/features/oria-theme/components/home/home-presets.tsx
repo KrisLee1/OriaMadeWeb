@@ -2,12 +2,14 @@
 
 
 import { useAnimationFrame, useReducedMotion } from "motion/react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useOriaTheme } from "@oriatheme/react";
 import { oriaPresetCatalog } from "@oriatheme/presets";
 import type { ThemeDefinition, TokenPath } from "@oriatheme/core";
 import { useEditorPanel } from "@/features/oria-theme/components/editor-panel-provider";
 import { getCopy, type Locale } from "@/features/oria-theme/lib/i18n";
+import {localize} from '@/i18n/localize'
+import {Pause, Play} from 'lucide-react'
 import { Reveal } from "./reveal";
 
 const palettePaths = ["color.primary", "color.secondary", "color.accent", "color.selection", "color.info"] as const;
@@ -50,6 +52,9 @@ export function HomePresets({ locale }: { readonly locale: Locale }) {
   const offsetRef = useRef(0);
   const speedRef = useRef(0);
   const pausedRef = useRef(false);
+  const [paused, setPaused] = useState(false);
+  const pauseRef = useRef(false);
+  pauseRef.current = paused;
   const themes = oriaPresetCatalog.map(({ theme }) => theme);
 
   useEffect(() => {
@@ -74,7 +79,7 @@ export function HomePresets({ locale }: { readonly locale: Locale }) {
     const track = trackRef.current;
     const wrap = wrapRef.current;
     if (!track || wrap <= 0) return;
-    const target = pausedRef.current ? 0 : marqueeSpeed;
+    const target = (pausedRef.current || pauseRef.current) ? 0 : marqueeSpeed;
     speedRef.current += (target - speedRef.current) * Math.min(1, delta / 250);
     offsetRef.current = (offsetRef.current + (speedRef.current * delta) / 1000) % wrap;
     track.style.transform = `translate3d(${-offsetRef.current}px, 0, 0)`;
@@ -84,13 +89,21 @@ export function HomePresets({ locale }: { readonly locale: Locale }) {
     <Reveal>
       <p className="section-kicker">{copy.kicker}</p>
       <h2 className="home-section-title" id="home-presets-title">{copy.title}</h2>
-      <p className="home-section-body">{copy.body.replace(/四十一/g, String(themes.length)).replace(/forty-one|41/gi, String(themes.length))}</p>
+      <p className="home-section-body">{copy.body.replace("{count}", String(themes.length))}</p>
     </Reveal>
+    {!reduceMotion && <button type="button" className="home-preset-pause" aria-pressed={paused} onClick={() => setPaused(value => !value)}>{paused ? <Play size={14}/> : <Pause size={14}/>}<span>{localize(locale,paused ? "Resume animation" : "Pause animation", paused ? "继续动画" : "暂停动画")}</span></button>}
     <div
       className="home-preset-marquee"
       onPointerEnter={() => { pausedRef.current = true; }}
       onPointerLeave={() => { pausedRef.current = false; }}
-      onFocusCapture={() => { pausedRef.current = true; }}
+      onFocusCapture={event => {
+        pausedRef.current = true;
+        const track = trackRef.current;
+        if (!track) return;
+        track.style.transform = 'none';
+        offsetRef.current = 0;
+        (event.target as HTMLElement).scrollIntoView({block:'nearest',inline:'nearest',behavior:'instant'});
+      }}
       onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) pausedRef.current = false; }}
     >
       <div className="home-preset-track" ref={trackRef}>

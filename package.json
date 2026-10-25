@@ -10,10 +10,19 @@
     "typecheck": "tsc --noEmit",
     "test": "node --import tsx --test tests/*.test.ts",
     "verify": "node scripts/verify.mjs",
-    "styles": "node scripts/scope-styles.mjs"
+    "styles": "node scripts/scope-styles.mjs",
+    "cf:build": "opennextjs-cloudflare build",
+    "cf:preview": "opennextjs-cloudflare preview",
+    "cf:verify": "node scripts/verify-cloudflare.mjs",
+    "cf:check": "wrangler deploy --dry-run --outdir .wrangler/deploy",
+    "cf:deploy": "opennextjs-cloudflare deploy",
+    "cf:upload": "opennextjs-cloudflare upload",
+    "cf:typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "deploy": "npm run cf:build && npm run cf:deploy"
   },
   "dependencies": {
     "@base-ui/react": "1.9.0",
+    "@opennextjs/cloudflare": "1.20.13",
     "@oriatheme/colors": "0.2.0",
     "@oriatheme/core": "0.4.0",
     "@oriatheme/editor-core": "0.2.1",
@@ -44,9 +53,15 @@
     "postcss": "^8.5.0",
     "tailwindcss": "^4.3.3",
     "tsx": "^4.20.0",
-    "typescript": "^5.9.0"
+    "typescript": "^5.9.0",
+    "wrangler": "4.152.0"
   },
   "engines": {
     "node": ">=20.9"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "fsevents@2.3.3": true,
+    "workerd@1.20261019.1": true
   }
 }

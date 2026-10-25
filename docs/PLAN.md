@@ -6,7 +6,7 @@
 
 一个 Next.js 官网服务 Oria 系列：品牌首页 `/`，产品入口 `/oria-theme`、`/oria-tab`、`/oria-tunnel`，后续通过产品注册表扩展。使用 TypeScript、shadcn/ui（Base UI）、Lucide、OriaTheme、Motion、Tailwind CSS、i18next。
 
-主域建议为 oriamade.com；oriamade.cn 作为中文入口。英文无前缀，简体中文 `/zh-CN`。域名绑定与线上发布不在本次实施范围。
+主域建议为 oriamade.com；oriamade.cn 作为中文入口。英文无前缀，简体中文 `/zh-CN`。2026-10-26 用户追加授权提交、推送和 Cloudflare 线上部署，主域名为 oriamade.com，oriamade.cn 永久跳转至主域名。
 
 用户追加要求：迁移 OriaTheme 仓库 apps/website 的既有官网，以及本机 OriaTab/website；保留现有产品内容和交互，不用简化展示替代。统一切换组件直接来自 OriaTunnel。
 

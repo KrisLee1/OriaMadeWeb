@@ -17,7 +17,7 @@ export function HomeStart({ locale }: { readonly locale: Locale }) {
     <Reveal delay={0.08}>
       <InstallCommand command={installCommand} copyLabel={copy.copy} copiedLabel={copy.copied} />
       <div className="home-cta-row">
-        <Link className="home-cta home-cta-primary" href={`${themePath(locale)}/docs`}>{copy.docsCta}</Link>
+        <Link className="home-cta home-cta-primary" href={`${themePath(locale)}/docs/develop/quick-start`}>{copy.docsCta}</Link>
         <Link className="home-cta home-cta-secondary" href={`${themePath(locale)}/editor`}>{copy.editorCta}</Link>
       </div>
     </Reveal>

@@ -16,7 +16,7 @@ export function HomeFeatures({ locale }: { readonly locale: Locale }) {
     </Reveal>
     <div className="home-feature-grid">{copy.cards.map((card, index) => {
       const Icon = cardIcons[index] ?? Palette;
-      const href = index === 2 ? `${themePath(locale)}/editor` : `${themePath(locale)}/docs`;
+      const href = index === 2 ? `${themePath(locale)}/editor` : `${themePath(locale)}/docs/${index === 0 ? "use/editable-styles" : "develop/quick-start"}`;
       return <Reveal key={card.title} delay={0.08 * index}>
         <Link className="home-feature-card" href={href}>
           <span className="home-feature-icon" aria-hidden="true"><Icon /></span>

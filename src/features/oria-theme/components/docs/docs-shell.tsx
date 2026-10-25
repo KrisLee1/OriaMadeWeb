@@ -1,3 +1,4 @@
+import {localize} from '@/i18n/localize'
 import { themePath } from "@/features/oria-theme/lib/paths";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -33,20 +34,20 @@ export const docsPages = [
 ] as const;
 
 function Sidebar({ locale, current }: { readonly locale: Locale; readonly current: string | undefined }) {
-  const label = (page: (typeof docsPages)[number]) => page[locale];
-  const nav = <nav className="docs-nav" aria-label={locale === "zh" ? "文档导航" : "Documentation navigation"}>
-    <p>{locale === "zh" ? "开始使用" : "Start here"}</p>
+  const label = (page: (typeof docsPages)[number]) => localize(locale, page.en, page.zh);
+  const nav = <nav className="docs-nav" aria-label={localize(locale, "Documentation navigation", "文档导航")}>
+    <p>{localize(locale, "Start here", "开始使用")}</p>
     {docsPages.filter(page => page.group === "start").map(page => <Link key={page.slug} className={current === page.slug ? "is-active" : ""} href={`${themePath(locale)}/docs/${page.slug}`}>{label(page)}</Link>)}
-    <p>{locale === "zh" ? "使用主题" : "Use themes"}</p>
+    <p>{localize(locale, "Use themes", "使用主题")}</p>
     {docsPages.filter(page => page.group === "use").map(page => <Link key={page.slug} className={current === page.slug ? "is-active" : ""} href={`${themePath(locale)}/docs/${page.slug}`}>{label(page)}</Link>)}
-    <p>{locale === "zh" ? "开发集成" : "Developer integration"}</p>
+    <p>{localize(locale, "Developer integration", "开发集成")}</p>
     {docsPages.filter(page => page.group === "develop").map(page => <Link key={page.slug} className={current === page.slug ? "is-active" : ""} href={`${themePath(locale)}/docs/${page.slug}`}>{label(page)}</Link>)}
-    <p>{locale === "zh" ? "API 参考" : "API reference"}</p>
+    <p>{localize(locale, "API reference", "API 参考")}</p>
     {docsPages.filter(page => page.group === "api").map(page => <Link key={page.slug} className={current === page.slug ? "is-active" : ""} href={`${themePath(locale)}/docs/${page.slug}`}>{label(page)}</Link>)}
   </nav>;
-  return <aside className="docs-sidebar"><div className="docs-sidebar-desktop">{nav}</div><details className="docs-sidebar-mobile"><summary>{locale === "zh" ? "浏览文档" : "Browse documentation"}</summary>{nav}</details></aside>;
+  return <aside className="docs-sidebar"><div className="docs-sidebar-desktop">{nav}</div><details className="docs-sidebar-mobile"><summary>{localize(locale, "Browse documentation", "浏览文档")}</summary>{nav}</details></aside>;
 }
 
 export function DocsShell({ locale, current, children, toc }: { readonly locale: Locale; readonly current?: string; readonly children: ReactNode; readonly toc?: readonly { id: string; label: string }[] }) {
-  return <main className="docs-main"><div className="docs-grid"><Sidebar locale={locale} current={current} /><article className="docs-article">{children}</article>{toc?.length ? <aside className="docs-toc" aria-label={locale === "zh" ? "本页目录" : "On this page"}><p>{locale === "zh" ? "本页目录" : "On this page"}</p>{toc.map(item => <a key={item.id} href={`#${item.id}`}>{item.label}</a>)}</aside> : null}</div></main>;
+  return <main className="docs-main"><div className="docs-grid"><Sidebar locale={locale} current={current} /><article className="docs-article">{children}</article>{toc?.length ? <aside className="docs-toc" aria-label={localize(locale, "On this page", "本页目录")}><p>{localize(locale, "On this page", "本页目录")}</p>{toc.map(item => <a key={item.id} href={`#${item.id}`}>{item.label}</a>)}</aside> : null}</div></main>;
 }

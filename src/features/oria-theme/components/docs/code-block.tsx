@@ -1,6 +1,8 @@
 "use client";
 
 
+import {localize} from '@/i18n/localize'
+import {useSiteLocale} from '@/i18n/provider'
 import { Check, Copy } from "lucide-react";
 import { Fragment, useState } from "react";
 
@@ -72,6 +74,7 @@ function highlight(code: string, language: string): readonly SyntaxToken[] {
 }
 
 export function CodeBlock({ children, language = "ts" }: { readonly children: string; readonly language?: string }) {
+  const locale=useSiteLocale();
   const [copied, setCopied] = useState(false);
   const normalizedLanguage = language.toLowerCase();
   const copy = async () => {
@@ -84,9 +87,9 @@ export function CodeBlock({ children, language = "ts" }: { readonly children: st
     <div className="docs-code">
       <div className="docs-code-header">
         <span>{language}</span>
-        <button type="button" onClick={() => void copy()} aria-label={copied ? "Copied" : "Copy code"}>
+        <button type="button" onClick={() => void copy()} aria-label={localize(locale,copied ? "Copied" : "Copy code",copied ? "已复制" : "复制代码")}>
           {copied ? <Check size={15} /> : <Copy size={15} />}
-          <span>{copied ? "Copied" : "Copy"}</span>
+          <span>{localize(locale,copied ? "Copied" : "Copy",copied ? "已复制" : "复制")}</span>
         </button>
       </div>
       <pre><code>{highlight(children, normalizedLanguage).map((token, index) => token.kind ? (

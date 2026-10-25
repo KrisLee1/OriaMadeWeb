@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import {NextRequest} from 'next/server'
 import {proxy} from '../src/proxy'
-import {localizedPath,stripLocale} from '../src/i18n/config'
+import {localizedPath,stripLocale,locales} from '../src/i18n/config'
 import {acts,rest,actAt,captions} from '../src/features/oria-tab/website/story/acts'
 
 test('English public URLs rewrite once, preserving query parameters',()=>{
@@ -31,4 +31,19 @@ test('Each story chapter lands in its own fully readable caption interval',()=>{
   assert.equal(actAt(time),index)
   assert.ok(time>=captions[index][1] && time<=captions[index][2])
  })
+})
+
+test('All eight languages round-trip every deep route without nested prefixes',()=>{
+ for(const locale of locales){
+  for(const path of ['/','/oria-theme/editor','/oria-theme/docs/api/core','/oria-tab/privacy','/oria-tunnel']){
+   const translated=localizedPath(locale,path)
+   const response=proxy(new NextRequest('https://oriamade.com'+translated+'?from=test'))
+   if(locale!=='en')assert.equal(response.headers.get('x-middleware-rewrite'),null)
+   for(const destination of locales){
+    assert.equal(localizedPath(destination,translated),localizedPath(destination,path))
+   }
+   assert.equal(stripLocale(translated),path)
+  }
+ }
+ assert.equal(stripLocale('/french'),'/french')
 })

@@ -1,0 +1,2 @@
+# Local comparison screenshots are not a dependency of the DOM product demo.
+/products/oria-tunnel/screenshots/**

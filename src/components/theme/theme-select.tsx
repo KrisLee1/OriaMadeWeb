@@ -56,7 +56,7 @@ export function ThemeSelect({ className, variant, size, displayMode, align, side
           {displayMode !== "icon" && props.children}
         </span>} />
       </SelectTrigger>
-      <SelectContent align={align} side={side} className="w-fit max-h-[min(28rem,var(--available-height))]" alignItemWithTrigger>
+      <SelectContent align={align} side={side} className="w-fit max-h-[min(28rem,var(--available-height))]" alignItemWithTrigger={false} sideOffset={8}>
         {customThemeOptions.length > 0 && (
           <SelectGroup>
             <SelectLabel>{t("theme.customThemes")}</SelectLabel>

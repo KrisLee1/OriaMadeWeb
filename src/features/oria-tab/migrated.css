@@ -136,9 +136,9 @@
 .oria-tab-runtime .popup-scrim { position: fixed; inset: 0; z-index: 40; pointer-events: none; }
 .oria-tab-runtime .glass-modal { isolation: isolate; padding: 0 !important; border: 0 !important; border-radius: var(--popup-radius) !important; background: transparent !important; color: var(--foreground); box-shadow: 0 32px 100px #102f3338, 0 8px 24px #132b281c !important; gap: 0 !important; width: calc(100vw - 36px) !important; max-height: calc(100dvh - 48px); overflow: visible !important; }
 
-.glass-modal .popup-.oria-tab-runtime > [data-slot="dialog-close"] { top: var(--popup-padding); right: var(--popup-padding); border-radius: 50%; padding: 5px; background: transparent; }
+.oria-tab-runtime .glass-modal .popup-body > [data-slot="dialog-close"] { top: var(--popup-padding); right: var(--popup-padding); border-radius: 50%; padding: 5px; background: transparent; }
 .oria-tab-runtime .modal-close { position: absolute; color: var(--muted-foreground); }
-.glass-modal .popup-.oria-tab-runtime > [data-slot="dialog-close"] svg:not(.glass-definitions) { width: 17px; height: 17px; }
+.oria-tab-runtime .glass-modal .popup-body > [data-slot="dialog-close"] svg:not(.glass-definitions) { width: 17px; height: 17px; }
 .oria-tab-runtime .modal-content { position: relative; display: flex; flex-direction: column; padding: var(--popup-padding); min-width: 0; min-height: 0; max-height: calc(100dvh - 50px); }
 .oria-tab-runtime .modal-heading { text-align: left !important; margin-bottom: var(--popup-gap); padding-right: 32px; gap: 7px !important; }
 .oria-tab-runtime .modal-heading [data-slot="dialog-title"] { font-size: 23px; line-height: 1.35; font-weight: 530; letter-spacing: -.5px; overflow-wrap: anywhere; }
@@ -332,9 +332,9 @@
 .oria-tab-runtime .theme-option-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .oria-tab-runtime [data-slot="switch"] { cursor: pointer; }
 @media (max-width: 800px) { .oria-tab-runtime .home-header { padding: 25px 26px; } .oria-tab-runtime .home-footer { left: 26px; right: 26px; bottom: 125px; } .oria-tab-runtime .dock-items { gap: 8px; } .oria-tab-runtime .dock-position { bottom: 12px; } .oria-tab-runtime .modal-content { padding: var(--popup-padding); } }
-@media (max-width: 550px) { .oria-tab-runtime .home-header { padding: 22px; } .oria-tab-runtime .brand small { max-width: 160px; font-size: 8px; letter-spacing: .8px; } .oria-tab-runtime .brand-mark { width: 30px; height: 30px; } .oria-tab-runtime .date-block { grid-template-columns: 1fr 34px; } .oria-tab-runtime .day-icon { display: grid; } .oria-tab-runtime .date { font-size: 9px; } .oria-tab-runtime .clock { font-size: 17px; } .oria-tab-runtime .home-main { top: 45%; width: calc(100% - 36px); } .oria-tab-runtime[lang="zh-CN"] .home-main h1 { font-size: 24px; letter-spacing: .4px; } .oria-tab-runtime .home-main h1 { margin-bottom: 25px; font-size: 30px; } .oria-tab-runtime .search-shell { height: 50px; padding-left: 8px; border-radius: 20px; } .oria-tab-runtime .engine-trigger { gap: 5px; font-size: 11px; } .oria-tab-runtime .engine-icon { width: 24px; height: 24px; } .oria-tab-runtime .search-divider { margin: 0 10px; } .oria-tab-runtime .search-command [data-slot="command-input"] { font-size: 12px; } .oria-tab-runtime .search-go { flex-shrink: 0; width: 27px; height: 30px; margin-left: 4px; } .oria-tab-runtime .search-caption { font-size: 9px; gap: 5px; } .oria-tab-runtime .search-caption kbd { margin-left: 3px; } .oria-tab-runtime .home-footer { font-size: 9px; left: 23px; right: 23px; } .oria-tab-runtime .modal-content { padding: var(--popup-padding); } .oria-tab-runtime .modal-heading [data-slot="dialog-title"] { font-size: 21px; } .oria-tab-runtime .modal-heading [data-slot="dialog-description"] { font-size: 11px; } .glass-modal .popup-.oria-tab-runtime > [data-slot="dialog-close"] { top: var(--popup-padding); right: var(--popup-padding); } .oria-tab-runtime .website-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 6px; padding: 10px 0; } .oria-tab-runtime .folder-sites { grid-template-columns: repeat(3, minmax(0, 1fr)); } .oria-tab-runtime .group-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .oria-tab-runtime .panel-toolbar { flex-wrap: wrap; } .oria-tab-runtime .panel-toolbar .panel-search { min-width: 100%; } .oria-tab-runtime .settings-navigation [data-slot="tabs-trigger"] { font-size: 10px; gap: 4px; } .oria-tab-runtime .settings-navigation svg { display: none; } .oria-tab-runtime .setting-row { gap: 10px; } .oria-tab-runtime .setting-control :is([data-slot="select-trigger"], .add-engine-button) { min-width: 125px; } .oria-tab-runtime .setting-row p { max-width: 190px; } .oria-tab-runtime .folder-toolbar { flex-wrap: wrap; } .oria-tab-runtime .folder-footer > span { display: none; } .oria-tab-runtime .folder-footer > button:last-child { margin-left: auto; } .oria-tab-runtime .upload-zone span { font-size: 9px; } .oria-tab-runtime .wallpaper-grid { gap: 9px; } .oria-tab-runtime .wallpaper-name { font-size: 10px; left: 10px; bottom: 10px; } .oria-tab-runtime .selection-header { align-items: flex-start; } .oria-tab-runtime .selection-header small { display: block; margin: 5px 0 0; } }
+@media (max-width: 550px) { .oria-tab-runtime .home-header { padding: 22px; } .oria-tab-runtime .brand small { max-width: 160px; font-size: 8px; letter-spacing: .8px; } .oria-tab-runtime .brand-mark { width: 30px; height: 30px; } .oria-tab-runtime .date-block { grid-template-columns: 1fr 34px; } .oria-tab-runtime .day-icon { display: grid; } .oria-tab-runtime .date { font-size: 9px; } .oria-tab-runtime .clock { font-size: 17px; } .oria-tab-runtime .home-main { top: 45%; width: calc(100% - 36px); } .oria-tab-runtime[lang="zh-CN"] .home-main h1 { font-size: 24px; letter-spacing: .4px; } .oria-tab-runtime .home-main h1 { margin-bottom: 25px; font-size: 30px; } .oria-tab-runtime .search-shell { height: 50px; padding-left: 8px; border-radius: 20px; } .oria-tab-runtime .engine-trigger { gap: 5px; font-size: 11px; } .oria-tab-runtime .engine-icon { width: 24px; height: 24px; } .oria-tab-runtime .search-divider { margin: 0 10px; } .oria-tab-runtime .search-command [data-slot="command-input"] { font-size: 12px; } .oria-tab-runtime .search-go { flex-shrink: 0; width: 27px; height: 30px; margin-left: 4px; } .oria-tab-runtime .search-caption { font-size: 9px; gap: 5px; } .oria-tab-runtime .search-caption kbd { margin-left: 3px; } .oria-tab-runtime .home-footer { font-size: 9px; left: 23px; right: 23px; } .oria-tab-runtime .modal-content { padding: var(--popup-padding); } .oria-tab-runtime .modal-heading [data-slot="dialog-title"] { font-size: 21px; } .oria-tab-runtime .modal-heading [data-slot="dialog-description"] { font-size: 11px; } .oria-tab-runtime .glass-modal .popup-body > [data-slot="dialog-close"] { top: var(--popup-padding); right: var(--popup-padding); } .oria-tab-runtime .website-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 6px; padding: 10px 0; } .oria-tab-runtime .folder-sites { grid-template-columns: repeat(3, minmax(0, 1fr)); } .oria-tab-runtime .group-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .oria-tab-runtime .panel-toolbar { flex-wrap: wrap; } .oria-tab-runtime .panel-toolbar .panel-search { min-width: 100%; } .oria-tab-runtime .settings-navigation [data-slot="tabs-trigger"] { font-size: 10px; gap: 4px; } .oria-tab-runtime .settings-navigation svg { display: none; } .oria-tab-runtime .setting-row { gap: 10px; } .oria-tab-runtime .setting-control :is([data-slot="select-trigger"], .add-engine-button) { min-width: 125px; } .oria-tab-runtime .setting-row p { max-width: 190px; } .oria-tab-runtime .folder-toolbar { flex-wrap: wrap; } .oria-tab-runtime .folder-footer > span { display: none; } .oria-tab-runtime .folder-footer > button:last-child { margin-left: auto; } .oria-tab-runtime .upload-zone span { font-size: 9px; } .oria-tab-runtime .wallpaper-grid { gap: 9px; } .oria-tab-runtime .wallpaper-name { font-size: 10px; left: 10px; bottom: 10px; } .oria-tab-runtime .selection-header { align-items: flex-start; } .oria-tab-runtime .selection-header small { display: block; margin: 5px 0 0; } }
 @media (max-height: 620px) { .oria-tab-runtime .home-main { top: 43%; } .oria-tab-runtime .home-main h1 { margin-bottom: 18px; font-size: 28px; } .oria-tab-runtime .home-eyebrow { margin-bottom: 7px; } .oria-tab-runtime .home-header { padding-top: 20px; } .oria-tab-runtime .launchpad-scroll { min-height: 100px; max-height: 30dvh; } .oria-tab-runtime .modal-heading { margin-bottom: 16px; } .oria-tab-runtime .settings-scroll { min-height: 200px; max-height: 42dvh; } .oria-tab-runtime .modal-content { padding-block: var(--popup-padding); } .oria-tab-runtime .tab-selection { max-height: 28dvh; } .oria-tab-runtime .empty-state, .oria-tab-runtime .loading-state { min-height: 150px; height: auto; } }
-@media (prefers-reduced-motion: reduce) { .oria-tab-runtime *, .oria-tab-runtime *::before, .oria-tab-runtime *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+@media (prefers-reduced-motion: reduce) { .oria-tab-runtime *, .oria-tab-runtime *::before, .oria-tab-runtime *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
 @media (prefers-reduced-transparency: reduce), (prefers-contrast: more), (forced-colors: active) { .oria-tab-runtime .glass-surface { background: var(--background) !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; } .oria-tab-runtime .home-main, .oria-tab-runtime .home-header { color: #20392c; } .oria-tab-runtime .search-shell { color: var(--foreground); } .oria-tab-runtime [data-slot="dialog-overlay"] { backdrop-filter: none; background: rgb(12 24 29 / .14); } }
 
 .oria-tab-runtime .launchpad-modal .site-tile { touch-action: none; user-select: none; }
@@ -371,8 +371,8 @@
 .oria-tab-runtime [data-slot="dialog-overlay"]:is([data-starting-style], [data-ending-style], [data-closed], [data-state="closed"]) { opacity: 0; }
 .oria-tab-runtime [data-slot="dialog-overlay"]:is([data-closed], [data-state="closed"]) { pointer-events: none; }
 @starting-style { .oria-tab-runtime [data-slot="dialog-overlay"]:is([data-open], [data-state="open"]) { opacity: 0; } }
-.oria-tab-runtime[data-reduce-motion="true"] *, .oria-tab-runtime[data-reduce-motion="true"] *::before, .oria-tab-runtime[data-reduce-motion="true"] *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-@media (prefers-reduced-motion: reduce) { .oria-tab-runtime .glass-modal, .oria-tab-runtime .floating-glass { animation-duration: .01ms !important; } }
+.oria-tab-runtime[data-reduce-motion="true"] *, .oria-tab-runtime[data-reduce-motion="true"] *::before, .oria-tab-runtime[data-reduce-motion="true"] *::after { animation: none !important; transition: none !important; }
+@media (prefers-reduced-motion: reduce) { .oria-tab-runtime .glass-modal, .oria-tab-runtime .floating-glass { animation: none !important; } }
 @media (max-width: 800px) { .oria-tab-runtime .dock-at-top { bottom: auto; } .oria-tab-runtime .dock-vertical { bottom: auto; } }
 @media (max-width: 550px) { .oria-tab-runtime .theme-swatches { gap: 7px; } .oria-tab-runtime .theme-swatch { width: 25px; height: 25px; } .oria-tab-runtime .setting-ranges { gap: 0 20px; } }
 
@@ -593,7 +593,7 @@
 .oria-tab-runtime[data-material="theme"] .upload-zone, .oria-tab-runtime [data-material="theme"] .upload-zone { border-color: var(--border); background: color-mix(in srgb, var(--muted) calc(var(--interface-opacity, 1) * 18%), transparent); }
 .oria-tab-runtime[data-material="theme"] .upload-zone:hover, .oria-tab-runtime [data-material="theme"] .upload-zone:hover { border-color: var(--ring); background: var(--accent-fill); }
 .oria-tab-runtime[data-material="theme"] :is(.wallpaper-check, .wallpaper-delete), .oria-tab-runtime [data-material="theme"] :is(.wallpaper-check, .wallpaper-delete) { background: var(--popover); color: var(--popover-foreground); box-shadow: var(--oria-shadow-sm, none); }
-[data-material="theme"] .glass-modal .popup-.oria-tab-runtime > [data-slot="dialog-close"] { background: color-mix(in srgb, var(--muted) calc(var(--interface-opacity, 1) * 25%), transparent); }
+.oria-tab-runtime[data-material="theme"] .glass-modal .popup-body > [data-slot="dialog-close"], .oria-tab-runtime [data-material="theme"] .glass-modal .popup-body > [data-slot="dialog-close"] { background: color-mix(in srgb, var(--muted) calc(var(--interface-opacity, 1) * 25%), transparent); }
 .oria-tab-runtime[data-material="theme"] .custom-theme-list > div, .oria-tab-runtime [data-material="theme"] .custom-theme-list > div { box-shadow: none; }
 
 /* Internal material fills follow opacity without fading controls or content. */
@@ -690,12 +690,12 @@
 .oria-tab-runtime .background-editor-modal .background-editor-button:hover:not(:disabled) { background: var(--accent-fill); }
 
 /* The Genie silhouette clips content, while its owner continuously paints the shadow. */
-.popup-.oria-tab-runtime { position: relative; isolation: isolate; height: 100%; min-width: 0; min-height: 0; max-height: inherit; border-radius: inherit; }
+.oria-tab-runtime .popup-body { position: relative; isolation: isolate; height: 100%; min-width: 0; min-height: 0; max-height: inherit; border-radius: inherit; }
 .oria-tab-runtime .glass-modal[data-slot="dialog-content"] { box-shadow: none !important; --popup-shadow: 0 32px 100px #102f3338, 0 8px 24px #132b281c; }
 .oria-tab-runtime[data-material="theme"] .glass-modal, .oria-tab-runtime [data-material="theme"] .glass-modal { --popup-shadow: var(--material-shadow-lg, none); }
 .oria-tab-runtime .popup-shadow { position: absolute; inset: 0; z-index: -2; border-radius: inherit; pointer-events: none; box-shadow: var(--popup-shadow); }
 .oria-tab-runtime .aide-page .popup-shadow { display: none; }
-.background-editor-modal .popup-.oria-tab-runtime { height: auto; }
+.oria-tab-runtime .background-editor-modal .popup-body { height: auto; }
 
 .oria-tab-runtime .wallpaper-tabs { width: 100%; min-height: 38px; height: auto !important; justify-content: flex-start; gap: 3px; padding: 3px 0 8px; border-bottom: 1px solid var(--border); overflow-x: auto; scrollbar-width: thin; }
 .oria-tab-runtime .wallpaper-tabs [data-slot=tabs-trigger] { flex: 0 0 auto; padding: 7px 12px; border: 0; font-size: 12px; box-shadow: none; }
@@ -768,7 +768,7 @@
 .oria-tab-runtime .floating-popup-close[data-close-placement="inline"] { position: relative; }
 .oria-tab-runtime .floating-popup-close:hover { color: var(--foreground); }
 .oria-tab-runtime .floating-popup-close svg:not(.glass-definitions) { position: relative; }
-.glass-modal .popup-.oria-tab-runtime > [data-slot="dialog-close"] { width: 28px; height: 28px; background: transparent !important; padding: 0; }
+.oria-tab-runtime .glass-modal .popup-body > [data-slot="dialog-close"] { width: 28px; height: 28px; background: transparent !important; padding: 0; }
 
 /* The fixed material owner is never the list's scroll container. */
 .oria-tab-runtime :is([data-slot="select-content"], [data-slot="dropdown-menu-content"], [data-slot="dropdown-menu-sub-content"], [data-slot="context-menu-content"], [data-slot="context-menu-sub-content"], [data-slot="popover-content"]) {
@@ -882,7 +882,7 @@
 /* PanelSearch owns the material; its input remains a single transparent editing layer. */
 .oria-tab-runtime[data-material] .panel-search input.material-field { background: transparent; border: 0; border-radius: 0; box-shadow: none; }
 .oria-tab-runtime[data-material] :is(.glass-modal, .aide-material-popup)[data-slot="dialog-content"], .oria-tab-runtime[data-material] .aide-material-popup[data-slot="drawer-popup"] { border-radius: var(--popup-radius) !important; }
-.oria-tab-runtime[data-material] .aide-material-popup:is(.aide-responsive-modal-desktop, .aide-responsive-modal-mobile) :is([data-slot="dialog-header"], [data-slot="drawer-header"], [data-slot="responsive-modal-.oria-tab-runtime"], [data-slot="responsive-modal-footer"]) { padding-inline: var(--popup-padding); }
+.oria-tab-runtime[data-material] .aide-material-popup:is(.aide-responsive-modal-desktop, .aide-responsive-modal-mobile) :is([data-slot="dialog-header"], [data-slot="drawer-header"], [data-slot="responsive-modal-body"], [data-slot="responsive-modal-footer"]) { padding-inline: var(--popup-padding); }
 .oria-tab-runtime[data-material] .aide-material-popup > [data-slot="dialog-close"] { top: var(--popup-padding); right: var(--popup-padding); }
 .oria-tab-runtime[data-material] .glass-modal .modal-content { padding: var(--popup-padding); }
 .oria-tab-runtime[data-material] .glass-modal.aide-modal .modal-content { padding: 0; }
@@ -980,7 +980,7 @@
 .oria-tab-runtime .glass-modal.aide-modal { max-width: min(760px, calc(100vw - 32px)) !important; height: min(720px, calc(100dvh - 48px)); }
 .oria-tab-runtime .aide-modal .modal-content { display: flex; flex-direction: column; height: 100%; min-height: 0; padding: 0; border-radius: inherit; }
 .oria-tab-runtime .aide-modal .modal-heading { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-.aide-modal .popup-.oria-tab-runtime > [data-slot="dialog-close"] { display: none; }
+.oria-tab-runtime .aide-modal .popup-body > [data-slot="dialog-close"] { display: none; }
 .oria-tab-runtime .aide-window-shell { --oria-space: 4px; --aide-inset: var(--popup-padding); --aide-header-height: 64px; --aide-empty-top: max(64px, calc(38% - 64px)); --aide-empty-size: 128px; --border-strong: var(--border); }
 .oria-tab-runtime .aide-original { flex: 1; min-height: 0; }
 .oria-tab-runtime .aide-window-shell .app-titlebar { height: var(--aide-header-height); padding: var(--popup-padding) var(--aide-inset) 8px; }
@@ -1059,7 +1059,7 @@
 .oria-tab-runtime .aide-settings [data-slot="item-actions"] { gap: 8px; }
 
 .oria-tab-runtime .aide-material-popup { min-width: 0; max-width: min(512px, calc(100vw - 32px)); }
-.aide-material-popup :is(form, [data-slot="dialog-header"], [data-slot="responsive-modal-.oria-tab-runtime"], .grid) { min-width: 0; max-width: 100%; }
+.oria-tab-runtime .aide-material-popup :is(form, [data-slot="dialog-header"], [data-slot="responsive-modal-body"], .grid) { min-width: 0; max-width: 100%; }
 .oria-tab-runtime .aide-material-popup .grid { grid-template-columns: minmax(0, 1fr); }
 .oria-tab-runtime .aide-material-popup .grid.grid-cols-2 { grid-template-columns: repeat(2,minmax(0,1fr)); }
 .oria-tab-runtime .aide-material-popup [data-slot="input"], .oria-tab-runtime .aide-material-popup [data-slot="select-trigger"] { width: 100%; max-width: 100%; min-width: 0; height: 38px; }
@@ -1080,7 +1080,7 @@
 .oria-tab-runtime .aide-scroll-area > [data-slot="scroll-area-scrollbar"][data-orientation="vertical"] { width: 6px; }
 .oria-tab-runtime :is(.aide-window-shell, .aide-material-popup) [data-slot="switch"]::after { inset-inline: 0; }
 .oria-tab-runtime .aide-material-popup :is(input, textarea), .oria-tab-runtime .aide-window-shell :is(input, textarea, [data-slot="textarea-wrapper"]) { min-width: 0; max-width: 100%; box-sizing: border-box; }
-.aide-material-popup :is(form, [data-slot="responsive-modal-.oria-tab-runtime"], form > .overflow-y-auto) { overflow-x: hidden; }
+.oria-tab-runtime .aide-material-popup :is(form, [data-slot="responsive-modal-body"], form > .overflow-y-auto) { overflow-x: hidden; }
 .oria-tab-runtime .aide-window-shell [data-slot="aide-composer"], .oria-tab-runtime .aide-window-shell [data-slot="input-group-addon"] { min-width: 0; max-width: 100%; }
 .oria-tab-runtime .aide-window-shell [data-slot="textarea"] { max-height: var(--aide-composer-max-height, 320px); overflow-wrap: anywhere; }
 .oria-tab-runtime .aide-window-shell [data-slot="textarea-wrapper"] { max-height: var(--aide-composer-max-height, 320px); }
@@ -1319,7 +1319,7 @@
 /* ——— Scroll story ———
    One sticky stage. The camera (browser window), demo screen, drawings and captions are
    positioned by the story clock; CSS only supplies their resting look. */
-.oria-tab-runtime.st-snapping{scroll-snap-type:y proximity}
+html.st-snapping:has(.oria-tab-runtime){scroll-snap-type:y proximity}
 .oria-tab-runtime .st-track{position:relative}
 .oria-tab-runtime .st-snap{position:absolute;left:0;width:1px;height:1px;scroll-snap-align:start;pointer-events:none}
 .oria-tab-runtime .st-sticky{position:sticky;top:0;height:100svh;overflow:hidden;isolation:isolate}

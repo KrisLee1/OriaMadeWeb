@@ -1,2 +1,4 @@
-import Link from 'next/link'
-export default function NotFound(){return <main className="oria-empty"><p>404</p><h1>Page not found · 页面未找到</h1><Link href="/">Oria →</Link></main>}
+import type {Metadata} from 'next'
+import NotFoundContent from '@/components/site/not-found'
+export const metadata:Metadata={title:{absolute:'404 · Oria'}}
+export default NotFoundContent

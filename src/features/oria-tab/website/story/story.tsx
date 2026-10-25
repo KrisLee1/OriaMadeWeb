@@ -1,4 +1,4 @@
-import {localizedPath} from "@/i18n/config"
+import {localizedPath, isLocale} from "@/i18n/config"
 import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { scroll, motionValue, springValue } from 'motion'
 import { ArrowDown, ChevronRight } from 'lucide-react'
@@ -54,14 +54,14 @@ function useLayout(staticMode: boolean) {
 }
 
 /** One complete stage: the camera, browser window, demo screen, drawings and captions. */
-function Stage({ c, mode, unit, preview, onPreview, rootRef }: { c: Copy; mode: Mode; unit: number; preview?: ReturnType<typeof usePreviewRuntime>; onPreview?: (controller: PreviewController) => void; rootRef: React.RefObject<HTMLDivElement | null> }) {
+function Stage({ c, mode, unit, preview, onPreview, rootRef, frameIndex }: { c: Copy; mode: Mode; unit: number; preview?: ReturnType<typeof usePreviewRuntime>; onPreview?: (controller: PreviewController) => void; rootRef: React.RefObject<HTMLDivElement | null>; frameIndex?: number }) {
   const global = useThemeSnapshot(s => s.preference.activeThemeId), dark = useThemeSnapshot(s => s.resolvedMode === 'dark')
   return <div className="st" ref={rootRef} data-mode={mode} style={{ '--u': unit } as React.CSSProperties}>
     <div data-glass-background="" className="st-backdrop" aria-hidden="true" />
     <Halo />
     <Device c={c}>{preview && onPreview ? <PreviewThemeScope preview={preview} global={{ themeId: global, dark }} onReady={onPreview}><Screen c={c} /></PreviewThemeScope> : <Screen c={c} />}</Device>
-    <Overlay c={c} themeHref={localizedPath(document.documentElement.lang === "zh-CN" ? "zh-CN" : "en", "/oria-theme")} />
-    <div className="st-layer st-copy">{c.scenes.map((_, i) => <Caption c={c} index={i} key={i} />)}</div>
+    <Overlay c={c} themeHref={localizedPath(isLocale(document.documentElement.lang) ? document.documentElement.lang : "en", "/oria-theme")} />
+    <div className="st-layer st-copy">{c.scenes.map((_, i) => frameIndex === undefined || frameIndex === i ? <Caption c={c} index={i} key={i} /> : null)}</div>
   </div>
 }
 
@@ -100,17 +100,22 @@ function ScrollStory({ c }: { c: Copy }) {
     return () => { stopScroll(); stopSmooth(); smooth.destroy(); controller.current?.set(null) }
   }, [mode, unit])
 
-  const navigate = useCallback((i: number) => {
+  const navigate = useCallback((i: number, behavior: ScrollBehavior = 'smooth') => {
     const el = track.current!, top = el.getBoundingClientRect().top + scrollY
-    scrollTo({ top: top + (el.offsetHeight - innerHeight) * rest[i] / TOTAL, behavior: 'smooth' })
+    scrollTo({ top: top + (el.offsetHeight - innerHeight) * rest[i] / TOTAL, behavior })
   }, [])
   useEffect(() => {
-    const i = acts.indexOf(location.hash.slice(1) as typeof acts[number])
-    if (i > 0) requestAnimationFrame(() => { const el = track.current!; scrollTo({ top: el.getBoundingClientRect().top + scrollY + (el.offsetHeight - innerHeight) * rest[i] / TOTAL, behavior: 'instant' }) })
+    const syncHash = () => {
+      const index = acts.indexOf(location.hash.slice(1) as typeof acts[number])
+      if (index >= 0) navigate(index, 'instant')
+    }
+    const frame = requestAnimationFrame(syncHash)
+    addEventListener('hashchange', syncHash)
+    addEventListener('popstate', syncHash)
     const click = (e: MouseEvent) => { const a = (e.target as HTMLElement).closest('a'); if (!a || a.closest('.cinema-rail') || a.pathname !== location.pathname || !a.hash) return; const i = acts.indexOf(a.hash.slice(1) as typeof acts[number]); if (i >= 0) { e.preventDefault(); history.replaceState(null, '', a.hash); navigate(i) } }
     document.addEventListener('click', click)
     document.documentElement.classList.add('st-snapping')
-    return () => { document.removeEventListener('click', click); document.documentElement.classList.remove('st-snapping') }
+    return () => { cancelAnimationFrame(frame); removeEventListener('hashchange', syncHash); removeEventListener('popstate', syncHash); document.removeEventListener('click', click); document.documentElement.classList.remove('st-snapping'); delete document.body.dataset.storyScene }
   }, [navigate])
 
   const rail = <div id="oria-tab-progress"><Rail c={c} act={act} fills={fills} onNavigate={navigate} /></div>
@@ -135,6 +140,6 @@ function Still({ c, index }: { c: Copy; index: number }) {
   const ref = useRef<HTMLElement>(null), root = useRef<HTMLDivElement>(null), [visible, setVisible] = useState(index === 0)
   const [{ mode, unit }] = useState(measure)
   useEffect(() => { const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) setVisible(true) }, { rootMargin: '600px' }); observer.observe(ref.current!); return () => observer.disconnect() }, [])
-  useLayoutEffect(() => { if (!visible || !root.current) return; const story = choreograph({ root: root.current, mode, unit, preview: () => null, languages, placeholders }); story.apply(rest[index]); root.current.querySelectorAll<HTMLElement>('.st-caption').forEach((el, i) => { const on = i === index; el.style.opacity = on ? '1' : '0'; el.style.visibility = on ? 'visible' : 'hidden'; el.inert = !on }) }, [visible, index, mode, unit])
-  return <section ref={ref} className="st-still" id={acts[index]} data-still={index} aria-label={c.scenes[index][0]}>{visible ? <Stage c={c} mode={mode} unit={unit} rootRef={root} /> : <div className="st-still-placeholder"><h2>{c.scenes[index][1]}</h2><p>{c.scenes[index][2]}</p></div>}</section>
+  useLayoutEffect(() => { if (!visible || !root.current) return; const story = choreograph({ root: root.current, mode, unit, preview: () => null, languages, placeholders }); story.apply(rest[index]); root.current.querySelectorAll<HTMLElement>('.st-caption').forEach((el) => { const on = Number(el.dataset.act) === index; el.style.opacity = on ? '1' : '0'; el.style.visibility = on ? 'visible' : 'hidden'; el.inert = !on }) }, [visible, index, mode, unit])
+  return <section ref={ref} className="st-still" id={acts[index]} data-still={index} aria-label={c.scenes[index][0]}>{visible ? <Stage c={c} mode={mode} unit={unit} rootRef={root} frameIndex={index} /> : <div className="st-still-placeholder"><h2>{c.scenes[index][1]}</h2><p>{c.scenes[index][2]}</p></div>}</section>
 }

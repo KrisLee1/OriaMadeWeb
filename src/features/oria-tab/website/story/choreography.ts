@@ -61,10 +61,6 @@ export function choreograph(ctx: Context) {
   story.rig(q('address-new'), { o: [[0, 1], [39.6, 1], [39.7, 0], [48.6, 0], [48.7, 1]] })
   story.rig(q('address-notes'), { o: [[0, 0], [39.6, 0], [39.7, 1], [48.6, 1], [48.7, 0]] })
 
-  // Ctrl + T in the opening, and again when a fresh tab opens at the end.
-  story.rig(q('keys-new'), { x: m ? [[0, 200]] : [[0, 1200], [80, 1200], [82.4, 1290]], y: m ? [[0, 812]] : [[0, 800], [80, 800], [82.4, 750]], o: m ? [[0, 0]] : [[0, 0], [85.6, 0], [86, 1], [88, 1], [88.6, 0]] })
-  for (const i of [0, 1]) story.rig(q(`keys-new-${i}`), { y: [[86.2, 0], [86.4, 3], [86.8, 3], [87, 0]] }, { centered: false })
-
   // ——— The third-party page ———
   const article = q('article')!
   story.rig(article, { o: [[0, 0], [39.6, 0], [39.95, 1]] })
@@ -386,8 +382,8 @@ export function choreograph(ctx: Context) {
   })
 
   // ——— Captions: lines rise out of a mask; the chapter rule fills as the act plays. ———
-  qa<HTMLElement>('.st-caption').forEach((el, i) => {
-    const [a, b, c, d] = captions[i]
+  qa<HTMLElement>('.st-caption').forEach(el => {
+    const [a, b, c, d] = captions[Number(el.dataset.act)]
     story.rig(el, { o: [[a, 0], [a + .3, 1], [c, 1], [d, 0]], y: [[c, 0], [d, -16, ease.in]] }, { centered: false, inertWhenHidden: true })
     el.querySelectorAll<HTMLElement>('.st-line>span').forEach((line, j) => story.rig(line, { y: [[a + j * .14, m ? 56 : 84], [b + j * .14, 0, ease.glide]] }, { centered: false }))
     story.rig(el.querySelector('.st-body'), { o: [[a + .3, 0], [b + .2, 1]], y: [[a + .3, 14], [b + .2, 0, ease.glide]] }, { centered: false })

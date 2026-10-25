@@ -1,3 +1,5 @@
+
+import {localize} from '@/i18n/localize'
 import { oriaColorFamilies, oriaColors, oriaColorSteps } from "@oriatheme/colors";
 import type { OriaColorFamily } from "@oriatheme/colors";
 
@@ -41,12 +43,12 @@ const specialColorLabels: Readonly<Record<SpecialColor, { readonly zh: string; r
   white: { zh: "白色", en: "White" },
 };
 
-export function ColorLibraryDisplay({ zh }: { readonly zh: boolean }) {
+export function ColorLibraryDisplay({ locale }: { readonly locale: import("@/i18n/config").Locale }) {
   return <div className="docs-color-library">
     <div className="color-library-grid">{oriaColorFamilies.map(family => {
-      const label = zh ? familyLabels[family].zh : familyLabels[family].en;
-      return <div className="color-family" key={family}><div className="color-family-heading"><strong>{label}</strong><code>--oria-palette-{family}-*</code></div><div className="color-scale-scroll"><div className="color-scale" role="list" aria-label={zh ? `${label} 色阶` : `${label} color scale`}>{oriaColorSteps.map(step => <div className="color-swatch" role="listitem" key={step} title={`${family}-${step}: ${oriaColors[family][step]}`}><i style={{ backgroundColor: `var(--oria-palette-${family}-${step})` }} /><span>{step}</span><code>{oriaColors[family][step]}</code></div>)}</div></div></div>;
+      const label = localize(locale, familyLabels[family].en, familyLabels[family].zh);
+      return <div className="color-family" key={family}><div className="color-family-heading"><strong>{label}</strong><code>--oria-palette-{family}-*</code></div><div className="color-scale-scroll"><div className="color-scale" role="list" aria-label={localize(locale, "{label} color scale", "{label} 色阶").replace("{label}",label)}>{oriaColorSteps.map(step => <div className="color-swatch" role="listitem" key={step} title={`${family}-${step}: ${oriaColors[family][step]}`}><i style={{ backgroundColor: `var(--oria-palette-${family}-${step})` }} /><span>{step}</span><code>{oriaColors[family][step]}</code></div>)}</div></div></div>;
     })}</div>
-    <div className="special-colors"><div className="color-family-heading"><strong>{zh ? "特殊颜色" : "Special colors"}</strong><code>inherit · current · transparent · black · white</code></div><div className="special-color-grid">{specialColors.map(name => <div className="color-swatch special-color-swatch" data-special={name} key={name}><i style={{ backgroundColor: `var(--oria-palette-${name})` }} /><span>{zh ? specialColorLabels[name].zh : specialColorLabels[name].en}</span><code>{oriaColors[name]}</code></div>)}</div></div>
+    <div className="special-colors"><div className="color-family-heading"><strong>{localize(locale, "Special colors", "特殊颜色")}</strong><code>inherit · current · transparent · black · white</code></div><div className="special-color-grid">{specialColors.map(name => <div className="color-swatch special-color-swatch" data-special={name} key={name}><i style={{ backgroundColor: `var(--oria-palette-${name})` }} /><span>{localize(locale, specialColorLabels[name].en, specialColorLabels[name].zh)}</span><code>{oriaColors[name]}</code></div>)}</div></div>
   </div>;
 }

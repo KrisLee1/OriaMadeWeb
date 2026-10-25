@@ -30,7 +30,7 @@ export function EditorToolbar({ session, snapshot, mode, runtime, status, onSave
       </div>
       <div data-oria-editor-commit-actions>
         <IssuesPopover issues={snapshot.issues} warnings={snapshot.diagnostics.warnings} />
-        <button data-oria-editor-primary data-oria-editor-save type="button" disabled={!runtime || !snapshot.dirty || snapshot.issues.length > 0} onClick={save}><Save data-oria-editor-action-icon aria-hidden="true" /><span>{copy.save}</span></button>
+        <button data-oria-editor-primary data-oria-editor-save aria-label={copy.save} title={copy.save} type="button" disabled={!runtime || !snapshot.dirty || snapshot.issues.length > 0} onClick={save}><Save data-oria-editor-action-icon aria-hidden="true" /><span>{copy.save}</span></button>
       </div>
     </div>
     <span className="oria-editor-visually-hidden" aria-live="polite">{message}</span>

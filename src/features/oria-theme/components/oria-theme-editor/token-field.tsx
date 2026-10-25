@@ -1,3 +1,5 @@
+import {localize} from "@/i18n/localize";
+import {useSiteLocale} from "@/i18n/provider";
 import { memo } from "react";
 import type { ReactElement } from "react";
 import type { TokenFieldProps } from "./types";
@@ -5,4 +7,4 @@ import { ColorField } from "./fields/color-field"; import { DimensionField } fro
 const fields = { color: ColorField, dimension: DimensionField, number: NumberField, fontFamily: FontFamilyField, fontWeight: FontWeightField, duration: DurationField, cubicBezier: EasingField, shadow: ShadowField, gradient: GradientField, pattern: PatternField } as const;
 // Memoized so a per-frame revision from one field (e.g. a slider drag) does not
 // re-render every other field; all props are stable references or primitives.
-export const TokenField = memo(function TokenField(props: TokenFieldProps): ReactElement { const Component = fields[props.field.type]; return <Component {...props} />; });
+export const TokenField = memo(function TokenField(props: TokenFieldProps): ReactElement { const locale=useSiteLocale(); const Component = fields[props.field.type]; return <Component {...props} field={{...props.field,label:localize(locale,props.field.label),description:localize(locale,props.field.description)}} />; });

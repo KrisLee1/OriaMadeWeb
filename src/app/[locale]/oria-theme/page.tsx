@@ -1,3 +1,5 @@
+
+import {localize} from '@/i18n/localize'
 import {pageMetadata} from "@/lib/seo";
 import {isLocale as isSiteLocale} from "@/i18n/config";
 import { notFound } from "next/navigation";
@@ -8,7 +10,7 @@ import { HomeStart } from "@/features/oria-theme/components/home/home-start";
 import { getCopy, isLocale } from "@/features/oria-theme/lib/i18n";
 
 export default async function HomePage({ params }: { readonly params: Promise<{ locale: string }> }) {
-  const { locale: siteLocale } = await params; const locale = siteLocale === "zh-CN" ? "zh" : siteLocale;
+  const { locale: siteLocale } = await params; const locale = siteLocale;
   if (!isLocale(locale)) notFound();
   return <main className="demo-shell" aria-label={getCopy(locale).nav.home}>
     <HomeHero locale={locale} />
@@ -18,4 +20,4 @@ export default async function HomePage({ params }: { readonly params: Promise<{ 
   </main>;
 }
 
-export async function generateMetadata({params}:{params:Promise<{locale:string;slug?:string[]}>}) { const {locale,slug}=await params; if(!isSiteLocale(locale))return {}; return pageMetadata(locale, "/oria-theme"+(slug?slug.join('/') : ''), "OriaTheme", locale==='en'?'A complete theme system for React, Vue and the web.':'适用于 React、Vue 与 Web 的完整主题体系。') }
+export async function generateMetadata({params}:{params:Promise<{locale:string;slug?:string[]}>}) { const {locale,slug}=await params; if(!isSiteLocale(locale))return {}; return pageMetadata(locale, "/oria-theme"+(slug?slug.join('/') : ''), "OriaTheme", localize(locale, 'A complete theme system for React, Vue and the web.', '适用于 React、Vue 与 Web 的完整主题体系。')) }

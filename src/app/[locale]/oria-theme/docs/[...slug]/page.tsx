@@ -9,10 +9,10 @@ import { isLocale, locales } from "@/features/oria-theme/lib/i18n";
 const slugs = docsPages.map(page => page.slug);
 function validSlug(value: string): value is DocsPageSlug { return (slugs as readonly string[]).includes(value); }
 
-export function generateStaticParams() { return locales.flatMap(locale => docsPages.map(page => ({ locale: locale === "zh" ? "zh-CN" : locale, slug: page.slug.split("/") }))); }
+export function generateStaticParams() { return locales.flatMap(locale => docsPages.map(page => ({ locale: locale, slug: page.slug.split("/") }))); }
 
 export default async function DocumentationArticle({ params }: { readonly params: Promise<{ locale: string; slug: string[] }> }) {
-  const { locale: siteLocale, slug } = await params; const locale = siteLocale === "zh-CN" ? "zh" : siteLocale;
+  const { locale: siteLocale, slug } = await params; const locale = siteLocale;
   const key = slug.join("/");
   if (!isLocale(locale) || !validSlug(key)) notFound();
   const page = getDocsPage(locale, key);
@@ -23,6 +23,6 @@ export async function generateMetadata({params}:{params:Promise<{locale:string;s
  const {locale,slug}=await params;
  const key=slug.join('/');
  if(!isSiteLocale(locale)||!validSlug(key))return {};
- const page=getDocsPage(locale==='zh-CN'?'zh':'en',key);
- return pageMetadata(locale, '/oria-theme/docs/'+key, page.title+' · OriaTheme', page.description);
+ const page=getDocsPage(locale,key);
+ return pageMetadata(locale, '/oria-theme/docs/'+key, page.title, page.description);
 }

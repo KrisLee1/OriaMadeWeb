@@ -1,6 +1,17 @@
 import {notFound} from 'next/navigation'
-import {Network,Terminal,ArrowLeftRight} from 'lucide-react'
 import {isLocale} from '@/i18n/config'
 import {pageMetadata} from '@/lib/seo'
-export async function generateMetadata({params}:{params:Promise<{locale:string}>}){const {locale}=await params;return isLocale(locale)?pageMetadata(locale,'/oria-tunnel','OriaTunnel',locale==='en'?'Manage SSH connections and port forwarding in one clear workspace.':'在一个清晰的工作区中管理 SSH 连接与端口转发。'):{}}
-export default async function Page({params}:{params:Promise<{locale:string}>}){const {locale}=await params;if(!isLocale(locale))notFound();const zh=locale==='zh-CN';return <main className="oria-tunnel-page"><section className="oria-product-hero"><p className="oria-eyebrow">ORIA TUNNEL</p><h1>{zh?<>让每一处连接，<br/>清晰可见。</>:<>Every connection.<br/>Clearly in view.</>}</h1><p>{zh?'SSH 主机、端口转发与终端，在同一个工作区井然有序。':'SSH hosts, port forwarding and terminals. Together in one considered workspace.'}</p><a className="oria-cta" href="https://github.com/KrisLee1/OriaTunnel">{zh?'访问项目':'Explore on GitHub'} ↗</a></section><div className="oria-tunnel-flow" aria-hidden="true"><Terminal/><span/><Network/><span/><ArrowLeftRight/></div><section className="oria-feature-grid">{[[Network,zh?'连接可视化':'Connections in view',zh?'在连接图与列表之间切换，查看主机与转发关系。':'Switch between a connection graph and a list of hosts and forwarding rules.'],[ArrowLeftRight,zh?'端口转发':'Port forwarding',zh?'集中管理 SSH 转发规则与运行状态。':'Manage forwarding rules and inspect their runtime state.'],[Terminal,zh?'集成终端':'Integrated terminals',zh?'在工作区中使用 SSH 终端，查看服务命令与日志。':'Work with SSH terminals, service commands and logs in your workspace.']].map(([Icon,title,body])=>{const I=Icon as typeof Network;return <article key={String(title)}><I/><h2>{String(title)}</h2><p>{String(body)}</p></article>})}</section></main>}
+import {tunnelContent} from '@/features/oria-tunnel/content'
+import {TunnelPage} from '@/features/oria-tunnel/page'
+import '@/features/oria-tunnel/native-demo.css'
+
+export async function generateMetadata({params}:{params:Promise<{locale:string}>}) {
+  const {locale}=await params
+  return isLocale(locale)?pageMetadata(locale,'/oria-tunnel','OriaTunnel',tunnelContent[locale].metadata):{}
+}
+
+export default async function Page({params}:{params:Promise<{locale:string}>}) {
+  const {locale}=await params
+  if(!isLocale(locale))notFound()
+  return <TunnelPage locale={locale}/>
+}

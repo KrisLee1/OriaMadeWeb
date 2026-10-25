@@ -48,9 +48,6 @@
 .oria-theme .site-navigation-link:hover, .oria-theme .site-navigation-link.is-active { color: var(--oria-color-fg); background: color-mix(in srgb, var(--oria-color-muted) 70%, transparent); }
 .oria-theme .site-topbar + .demo-stage .demo-shell { padding-top: calc(var(--oria-space) * 2); }
 .oria-theme .site-mobile-toggle, .oria-theme .site-topbar #mobile-navigation { display: none; }
-.oria-theme .site-github-link { display: grid; place-items: center; width: calc(var(--oria-control-height-md) - calc(var(--oria-space) * 1)); min-height: calc(var(--oria-control-height-md) - calc(var(--oria-space) * 1)); color: var(--oria-color-muted-fg); border-radius: 9999px; transition: color var(--oria-duration-fast) var(--oria-ease-standard), background var(--oria-duration-fast) var(--oria-ease-standard); }
-.oria-theme .site-github-link:hover { color: var(--oria-color-fg); background: color-mix(in srgb, var(--oria-color-muted) 70%, transparent); }
-.oria-theme .site-github-link svg { width: 1.05rem; height: 1.05rem; }
 .oria-theme .editor-panel { top: calc(var(--oria-control-height-md) + calc(var(--oria-space) * 10)); width: var(--oria-editor-panel-width, min(34rem, calc(100vw - (calc(var(--oria-space) * 2) * 2)))); }
 .oria-theme .demo-stage[data-editor-state="opening"], .oria-theme .demo-stage[data-editor-state="open"], .oria-theme .demo-stage[data-editor-state="closing"] { --oria-editor-panel-width: clamp(22rem, 31vw, 34rem); }
 
@@ -62,7 +59,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .oria-theme *, .oria-theme *::before, .oria-theme *::after { scroll-behavior: auto !important; transition-duration: 1ms !important; animation-duration: 1ms !important; animation-iteration-count: 1 !important; }
+  .oria-theme { scroll-behavior: auto; }
 }
 
 .oria-theme .docs-main { padding: clamp(calc(var(--oria-space) * 6), 4vw, calc(var(--oria-space) * 12)) calc(var(--oria-space) * 5) clamp(calc(var(--oria-space) * 16), 9vw, calc(calc(var(--oria-space) * 16) * 2)); }
@@ -113,7 +110,7 @@
 
 .oria-theme .home-section { margin-top: clamp(calc(var(--oria-space) * 16), 9vw, calc(calc(var(--oria-space) * 16) * 1.75)); }
 .oria-theme .home-section-title { max-width: 22ch; margin: calc(var(--oria-space) * 3) 0 calc(var(--oria-space) * 4); font-size: clamp(var(--oria-text-2xl), 4vw, var(--oria-text-4xl)); font-weight: var(--oria-font-weight-bold); letter-spacing: var(--oria-tracking-tighter); line-height: var(--oria-leading-tight); }
-.home-section-.oria-theme { max-width: 42rem; margin: 0; color: var(--oria-color-muted-fg); font-size: var(--oria-text-lg); line-height: var(--oria-leading-relaxed); }
+.oria-theme .home-section-body { max-width: 42rem; margin: 0; color: var(--oria-color-muted-fg); font-size: var(--oria-text-lg); line-height: var(--oria-leading-relaxed); }
 
 /* Clip only horizontally so card shadows (theme tokens, up to ~104px on some presets)
    bleed naturally below the track. Edge fade uses overlay pseudo-elements instead of
@@ -166,6 +163,30 @@
   .oria-theme .home-preset-list { flex-wrap: wrap; }
   .oria-theme .home-preset-list[aria-hidden="true"] { display: none; }
   .oria-theme .home-preset-card { width: auto; flex: 1 1 13rem; }
+}
+
+.oria-theme .home-preset-pause { display:inline-flex; align-items:center; gap:.5rem; margin-top:1rem; padding:.5rem .75rem; color:var(--oria-color-muted-fg); border:1px solid var(--oria-color-border); border-radius:var(--oria-radius-md); background:transparent; font:inherit; font-size:var(--oria-text-sm); }
+.oria-theme .home-preset-pause:hover { color:var(--oria-color-fg); background:var(--oria-color-muted); }
+.oria-theme .home-preset-marquee:focus-within { overflow-x:auto; }
+@media (prefers-reduced-motion: reduce) {
+  .oria-theme .editor-panel, .oria-theme .demo-shell, .oria-theme .home-feature-card, .oria-theme .home-cta, .oria-theme .home-install button, .oria-theme .home-preset-card { transition:none; }
+}
+/* Localized prose can have longer words than the original English and Chinese. */
+.oria-theme .hero-copy, .oria-theme .home-feature-card, .oria-theme .docs-article { min-width:0; }
+.oria-theme .hero h1, .oria-theme .home-section-title, .oria-theme .docs-hero h1, .oria-theme .docs-article-header h1 { max-width:100%; overflow-wrap:anywhere; hyphens:auto; }
+.oria-theme .home-cta { max-width:100%; height:auto; padding-block:12px; text-align:center; }
+.oria-theme .editor-panel { container-type:inline-size; max-width:calc(100vw - 16px); }
+@container (max-width:25rem) {
+  .oria-theme .editor-panel [data-oria-editor-toolbar-top] { align-items:flex-start; }
+  .oria-theme .editor-panel [data-oria-editor-identity] { flex:1; flex-direction:column; align-items:stretch; gap:4px; }
+  .oria-theme .editor-panel [data-oria-editor-identity] input { width:100%; }
+  .oria-theme .editor-panel [data-oria-editor-status] { white-space:normal; font-size:var(--oria-text-xs); }
+  .oria-theme .editor-panel [data-oria-editor-utility-actions] { gap:2px; }
+  .oria-theme .editor-panel [data-oria-editor-utility-actions]>button,
+  .oria-theme .editor-panel [data-oria-editor-utility-actions]>details>summary,
+  .oria-theme .editor-panel [data-oria-editor-commit-actions]>details>summary,
+  .oria-theme .editor-panel [data-oria-editor-save] { width:40px; min-width:40px; min-height:40px; padding:8px!important; }
+  .oria-theme .editor-panel [data-oria-editor-save]>span { display:none; }
 }
 
 /* Website stylesheet. Derived from the shared example styles
@@ -816,7 +837,7 @@
   .oria-theme .special-color-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .oria-theme *, .oria-theme *::before, .oria-theme *::after { scroll-behavior: auto !important; transition-duration: var(--oria-duration-instant) !important; animation-duration: var(--oria-duration-instant) !important; }
+  .oria-theme .easing-curve-preview > span, .oria-theme .easing-curve-preview i { animation:none; }
   .oria-theme .diffusion-visual::before, .oria-theme .diffusion-visual::after, .oria-theme .diffusion-visual span, .oria-theme .diffusion-visual i { animation: none; transform: none; }
 }
 @media (prefers-reduced-transparency: reduce) { .oria-theme .topbar, .oria-theme .controls, .oria-theme .theme-picker-menu { background: var(--oria-color-surface); -webkit-backdrop-filter: none; backdrop-filter: none; } .oria-theme .backdrop-scale i { background: var(--oria-color-overlay); -webkit-backdrop-filter: none !important; backdrop-filter: none !important; } }

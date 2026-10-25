@@ -1,6 +1,8 @@
 "use client";
 
 
+
+import {localize} from '@/i18n/localize'
 import {useThemeActionGuard} from "@/lib/theme/actions";
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { useOriaTheme } from "@oriatheme/react";
@@ -120,9 +122,9 @@ export function EditorPanelProvider({ children, locale }: { readonly children: R
     editorShown,
     editorOptions,
     discardRequest: pendingDiscard ? {
-      title: pendingDiscard.kind === "theme" ? (locale === "zh" ? `切换到 ${pendingDiscard.name}？` : `Switch to ${pendingDiscard.name}?`) : copy.editor.chrome.close,
-      description: pendingDiscard.kind === "theme" ? (locale === "zh" ? "切换主题会丢弃当前草稿中尚未保存的修改。" : "Switching themes will discard the unsaved edits in the current draft.") : (locale === "zh" ? "尚未保存的修改将被丢弃，已保存的主题仍会保留。" : "Your unsaved theme edits will be lost. The last saved theme will remain available."),
-      confirmLabel: pendingDiscard.kind === "theme" ? (locale === "zh" ? "丢弃并切换" : "Discard and switch") : copy.editor.chrome.close,
+      title: pendingDiscard.kind === "theme" ? (localize(locale, "Switch to {name}?", "切换到 {name}？").replace("{name}",pendingDiscard.name)) : copy.editor.chrome.close,
+      description: pendingDiscard.kind === "theme" ? (localize(locale, "Switching themes will discard the unsaved edits in the current draft.", "切换主题会丢弃当前草稿中尚未保存的修改。")) : (localize(locale, "Your unsaved theme edits will be lost. The last saved theme will remain available.", "尚未保存的修改将被丢弃，已保存的主题仍会保留。")),
+      confirmLabel: pendingDiscard.kind === "theme" ? (localize(locale, "Discard and switch", "丢弃并切换")) : copy.editor.chrome.close,
       onConfirm: confirmDiscard,
       onCancel: () => setPendingDiscard(undefined),
     } : undefined,

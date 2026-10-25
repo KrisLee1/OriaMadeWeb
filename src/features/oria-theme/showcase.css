@@ -646,7 +646,7 @@ button:active { transform: scale(.97); }
   .special-color-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: var(--oria-duration-instant) !important; animation-duration: var(--oria-duration-instant) !important; }
+  .easing-curve-preview > span, .easing-curve-preview i { animation:none; }
   .diffusion-visual::before, .diffusion-visual::after, .diffusion-visual span, .diffusion-visual i { animation: none; transform: none; }
 }
 @media (prefers-reduced-transparency: reduce) { .topbar, .controls, .theme-picker-menu { background: var(--oria-color-surface); -webkit-backdrop-filter: none; backdrop-filter: none; } .backdrop-scale i { background: var(--oria-color-overlay); -webkit-backdrop-filter: none !important; backdrop-filter: none !important; } }

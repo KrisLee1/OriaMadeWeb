@@ -56,9 +56,6 @@ button:not(:disabled), a { touch-action: manipulation; }
 .site-navigation-link:hover, .site-navigation-link.is-active { color: var(--oria-color-fg); background: color-mix(in srgb, var(--oria-color-muted) 70%, transparent); }
 .site-topbar + .demo-stage .demo-shell { padding-top: calc(var(--oria-space) * 2); }
 .site-mobile-toggle, .site-topbar #mobile-navigation { display: none; }
-.site-github-link { display: grid; place-items: center; width: calc(var(--oria-control-height-md) - calc(var(--oria-space) * 1)); min-height: calc(var(--oria-control-height-md) - calc(var(--oria-space) * 1)); color: var(--oria-color-muted-fg); border-radius: 9999px; transition: color var(--oria-duration-fast) var(--oria-ease-standard), background var(--oria-duration-fast) var(--oria-ease-standard); }
-.site-github-link:hover { color: var(--oria-color-fg); background: color-mix(in srgb, var(--oria-color-muted) 70%, transparent); }
-.site-github-link svg { width: 1.05rem; height: 1.05rem; }
 .editor-panel { top: calc(var(--oria-control-height-md) + calc(var(--oria-space) * 10)); width: var(--oria-editor-panel-width, min(34rem, calc(100vw - (calc(var(--oria-space) * 2) * 2)))); }
 .demo-stage[data-editor-state="opening"], .demo-stage[data-editor-state="open"], .demo-stage[data-editor-state="closing"] { --oria-editor-panel-width: clamp(22rem, 31vw, 34rem); }
 
@@ -70,7 +67,7 @@ button:not(:disabled), a { touch-action: manipulation; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 1ms !important; animation-duration: 1ms !important; animation-iteration-count: 1 !important; }
+  :root { scroll-behavior: auto; }
 }
 
 .docs-main { padding: clamp(calc(var(--oria-space) * 6), 4vw, calc(var(--oria-space) * 12)) calc(var(--oria-space) * 5) clamp(calc(var(--oria-space) * 16), 9vw, calc(calc(var(--oria-space) * 16) * 2)); }
@@ -174,4 +171,28 @@ button:not(:disabled), a { touch-action: manipulation; }
   .home-preset-list { flex-wrap: wrap; }
   .home-preset-list[aria-hidden="true"] { display: none; }
   .home-preset-card { width: auto; flex: 1 1 13rem; }
+}
+
+.home-preset-pause { display:inline-flex; align-items:center; gap:.5rem; margin-top:1rem; padding:.5rem .75rem; color:var(--oria-color-muted-fg); border:1px solid var(--oria-color-border); border-radius:var(--oria-radius-md); background:transparent; font:inherit; font-size:var(--oria-text-sm); }
+.home-preset-pause:hover { color:var(--oria-color-fg); background:var(--oria-color-muted); }
+.home-preset-marquee:focus-within { overflow-x:auto; }
+@media (prefers-reduced-motion: reduce) {
+  .editor-panel, .demo-shell, .home-feature-card, .home-cta, .home-install button, .home-preset-card { transition:none; }
+}
+/* Localized prose can have longer words than the original English and Chinese. */
+.hero-copy, .home-feature-card, .docs-article { min-width:0; }
+.hero h1, .home-section-title, .docs-hero h1, .docs-article-header h1 { max-width:100%; overflow-wrap:anywhere; hyphens:auto; }
+.home-cta { max-width:100%; height:auto; padding-block:12px; text-align:center; }
+.editor-panel { container-type:inline-size; max-width:calc(100vw - 16px); }
+@container (max-width:25rem) {
+  .editor-panel [data-oria-editor-toolbar-top] { align-items:flex-start; }
+  .editor-panel [data-oria-editor-identity] { flex:1; flex-direction:column; align-items:stretch; gap:4px; }
+  .editor-panel [data-oria-editor-identity] input { width:100%; }
+  .editor-panel [data-oria-editor-status] { white-space:normal; font-size:var(--oria-text-xs); }
+  .editor-panel [data-oria-editor-utility-actions] { gap:2px; }
+  .editor-panel [data-oria-editor-utility-actions]>button,
+  .editor-panel [data-oria-editor-utility-actions]>details>summary,
+  .editor-panel [data-oria-editor-commit-actions]>details>summary,
+  .editor-panel [data-oria-editor-save] { width:40px; min-width:40px; min-height:40px; padding:8px!important; }
+  .editor-panel [data-oria-editor-save]>span { display:none; }
 }
