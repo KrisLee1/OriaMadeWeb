@@ -35,7 +35,7 @@
 - 全站提供英语、简体中文、繁体中文、日语、韩语、德语、法语、俄语；新增机器辅助译文尚未逐句完成母语人工审校。
 - OriaTunnel 提供 v0.1.0 下载页与真实 GitHub 安装包链接；未执行安装包下载和安装。
 - 未执行真实扩展安装、远程下载、AI 请求、编辑器文件导入导出及全浏览器兼容矩阵。
-- 正式部署前确定主域与 `.cn` 跳转方式、托管环境、分享图、品牌内容及需要的隐私声明。
+- 主域与 `.cn` 跳转已确定并接入 Cloudflare；分享图、品牌内容及隐私声明后续随实际产品更新复核。
 
 ## 本轮迁移优化（2026-10-25）
 
@@ -63,4 +63,7 @@
 - 新增 OpenNext 1.20.13、Wrangler 4.152.0、Node 24.18.0、Workers 配置、静态缓存、GitHub 检查工作流与部署指南。构建输出、本地环境及 407MB 工作副本均已忽略。
 - Cloudflare 专用构建通过；Workers 本地运行时通过 280 个页面、282 个内部目标、45 个资源、标题/图标和 404 检查；部署包 dry-run 通过，gzip 2190.51 KiB。
 - 现有 Next.js Node Proxy 使用 OpenNext 的实验适配路径；全站 Workers 检查通过，依赖版本已锁定，后续升级仍须运行 cf:verify。
-- GitHub SSH 通过现有网络代理验证成功。账号域名页面已确认两个域名为活动状态；Cloudflare OAuth 授权进行中，尚未记录线上部署成功。
+- 源码已提交并推送至 main：`3fbc22f`。GitHub Actions 的 Website checks 成功（run 40212596440）；Cloudflare Workers Builds 已由该次 Git 推送自动构建并部署，版本 `28f8418d`，状态就绪。
+- 主站 https://oriamade.com 已绑定 Worker `oriamade`，HTTPS 正常。正式域名验收通过 280 个 sitemap 页面、282 个内部目标、45 个资源、八语言标题／图标／canonical／hreflang 及 404。
+- oriamade.cn 已创建代理 A 记录及 OriaMade CN to COM 单一重定向，301 至 https://oriamade.com，保留路径和查询字符串。公共 DNS 已解析到 Cloudflare；使用其公开 IP 连接且保持主机名与证书验证，HTTP／HTTPS 均返回预期 301。当前本地代理的常规域名连接曾出现缓存／连接失败，未修改用户网络设置。
+- 发布资源排除本地对照截图与 .DS_Store；原有未跟踪截图保留在本地，未纳入提交。

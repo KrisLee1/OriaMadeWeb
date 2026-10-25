@@ -21,7 +21,7 @@
 
 连接后，推送到 `main` 会触发生产构建和部署。按需开启非生产分支构建，将其上传为预览版本。GitHub Actions 的 `Website checks` 在推送和 PR 上运行测试、Workers 构建、类型检查、路由检查及部署包检查。建议在 GitHub 中把该检查设为 main 合并条件。
 
-Cloudflare 的仓库授权和首次连接需要账号所有者在控制台完成。本地配置和构建通过，不等于账号已经连接或站点已经上线；实际状态记录在 [项目状态](PROJECT_STATUS.md)。
+账号已完成仓库授权与连接，并验证 main 推送自动部署成功。主站为 [oriamade.com](https://oriamade.com)。每次部署的实际状态记录在 Cloudflare Deployments，发布验收记录见 [项目状态](PROJECT_STATUS.md)。
 
 ## 本地验证
 
@@ -48,7 +48,9 @@ npm run cf:preview
 
 ## 域名与环境
 
-Wrangler 启用 `workers.dev` 和版本预览 URL，并将 `oriamade.com` 绑定为主站自定义域名。`oriamade.cn` 在 Cloudflare 配置 301 Redirect Rule，保留路径和查询参数，不部署第二份站点。SEO 使用构建时的 SITE_URL，默认 `https://oriamade.com`；生产域名确定后在 Cloudflare 构建变量中设置其完整 HTTPS URL。预览环境通常保留生产 canonical，避免重复索引。
+Wrangler 启用 `workers.dev` 和版本预览 URL，并将 `oriamade.com` 绑定为主站自定义域名。SEO 使用构建时的 SITE_URL，默认 `https://oriamade.com`，当前生产构建使用此默认值；更换主域名时再设置该变量。预览环境保留生产 canonical，避免重复索引。
+
+`oriamade.cn` 使用代理 A 记录 `@ → 192.0.2.1`，该地址仅为 Cloudflare 边缘跳转占位。已部署单一重定向 `OriaMade CN to COM`：匹配 `(http.host eq "oriamade.cn")`，目标表达式为 `concat("https://oriamade.com", http.request.uri.path)`，状态码 301，启用“保留查询字符串”。HTTP 和 HTTPS 均跳转至主站，不部署第二份站点。该规则与 DNS 位于 Cloudflare 域名配置，不由 Wrangler 覆盖；操作依据见 [Cloudflare 域名跳转说明](https://developers.cloudflare.com/fundamentals/manage-domains/redirect-domain/)。
 
 站点不需要数据库、R2、KV 或应用 API 密钥。页面预渲染缓存使用 Workers Static Assets；内容更新通过重新构建发布。若未来需要 ISR、数据写入或服务端实时请求，再调整缓存和资源绑定。
 
