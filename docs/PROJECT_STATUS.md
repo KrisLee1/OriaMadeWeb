@@ -126,4 +126,7 @@
 - 用户授权提交、推送 main 与部署当前官网，并排查 www 访问。当前发布内容包含 OriaTunnel v0.1.1 与 OriaTab 官网重做。
 - 本轮 14 项测试、类型检查通过；Cloudflare/OpenNext 构建成功生成 284 个页面。Workers 本地运行时验证通过 280 个 sitemap 页面、282 个内部目标、53 个资源、元数据与 404；部署包 dry-run 通过，gzip 2225.72 KiB。本机实际 Node 为 26.7.0，云端继续使用已锁定的 24.18.0。
 - 本机默认 Git 触发 Xcode 许可提示，使用现有 Command Line Tools 的 Git 完成检查；未修改系统许可或开发工具设置。远程 main 与本地 HEAD 一致，无需合并。
-- Cloudflare 确认 www.oriamade.com 缺少代理 DNS；原跳转只匹配 HTTPS。用户明确批准新增代理 A 记录 www → 192.0.2.1，并将现有规则改为主机名精确匹配、301 至主域、保留路径与查询字符串。控制台已保存 DNS 与规则，公共 DNS 已返回 Cloudflare 地址；线上 HTTP 验收及部署结果待下方追加。
+- Cloudflare 确认 www.oriamade.com 缺少代理 DNS；原跳转只匹配 HTTPS。用户明确批准新增代理 A 记录 www → 192.0.2.1，301 至主域并保留路径与查询字符串。初次保存后复验仍为 522，控制台复查发现规则列表为空；已重新创建并启用 `OriaMade WWW to COM`，精确匹配 www 主机，随后实际 301 验收通过。
+- 用户追加批准修复 www.oriamade.cn：新增同样的代理 A 记录，并将 `OriaMade CN to COM` 扩展为同时匹配 oriamade.cn 与 www.oriamade.cn。三个别名的 HTTP/HTTPS 共六个入口均实测返回 301，Location 完整保留 `/zh-CN/oria-tunnel/download?source=www-check&keep=1`。公共 DNS 返回 Cloudflare 地址；验收使用公共地址并保留原主机名与 TLS 证书校验。本机部分常规连接仍出现代理/DNS 缓存或握手错误，未修改用户网络设置。
+- 源码提交 `488a255aa3113cad30d8f9747e42ee29c13a9414` 已推送 main；GitHub `Website checks` 成功（run `40379955554`）。Cloudflare Workers Builds 自动部署成功，版本 `4707fa51` 状态就绪、100% 生产流量，云端使用 Node 24.18.0。截图：`outputs/cloudflare-release-488a255.png`。
+- 正式域名 `https://oriamade.com` 全站只读验收通过 280 个 sitemap 页面、282 个内部目标、53 个资源、元数据与 404。浏览器从 www.oriamade.com 成功跳转到 `/zh-CN/oria-tab?source=www-check&keep=1`，新版产品页正文与六场景演示已加载。本轮未执行扩展安装、真实 SSH/AI 请求或完整跨浏览器矩阵；此前 UI 验收见上文。

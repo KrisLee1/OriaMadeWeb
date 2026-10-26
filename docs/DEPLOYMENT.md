@@ -50,7 +50,14 @@ npm run cf:preview
 
 Wrangler 启用 `workers.dev` 和版本预览 URL，并将 `oriamade.com` 绑定为主站自定义域名。SEO 使用构建时的 SITE_URL，默认 `https://oriamade.com`，当前生产构建使用此默认值；更换主域名时再设置该变量。预览环境保留生产 canonical，避免重复索引。
 
-`oriamade.cn` 使用代理 A 记录 `@ → 192.0.2.1`，该地址仅为 Cloudflare 边缘跳转占位。已部署单一重定向 `OriaMade CN to COM`：匹配 `(http.host eq "oriamade.cn")`，目标表达式为 `concat("https://oriamade.com", http.request.uri.path)`，状态码 301，启用“保留查询字符串”。HTTP 和 HTTPS 均跳转至主站，不部署第二份站点。该规则与 DNS 位于 Cloudflare 域名配置，不由 Wrangler 覆盖；操作依据见 [Cloudflare 域名跳转说明](https://developers.cloudflare.com/fundamentals/manage-domains/redirect-domain/)。
+三个别名入口均使用 Cloudflare 代理 A 记录指向 `192.0.2.1`，该地址仅为边缘跳转占位，不提供源站服务。
+
+| 域名 | 代理 DNS | 已启用的单一重定向 |
+| --- | --- | --- |
+| `www.oriamade.com` | `.com` 区域 `www → 192.0.2.1` | `OriaMade WWW to COM`：`(http.host eq "www.oriamade.com")` |
+| `oriamade.cn`、`www.oriamade.cn` | `.cn` 区域 `@` 和 `www → 192.0.2.1` | `OriaMade CN to COM`：`(http.host in {"oriamade.cn" "www.oriamade.cn"})` |
+
+两条规则均使用动态目标 `concat("https://oriamade.com", http.request.uri.path)`、状态码 301，并启用“保留查询字符串”。HTTP 和 HTTPS 均直接跳转至主站，保留路径和参数，不部署第二份站点。这些规则与 DNS 位于 Cloudflare 域名配置，不由 Wrangler 覆盖；操作依据见 [Cloudflare 域名跳转说明](https://developers.cloudflare.com/fundamentals/manage-domains/redirect-domain/)。
 
 站点不需要数据库、R2、KV 或应用 API 密钥。页面预渲染缓存使用 Workers Static Assets；内容更新通过重新构建发布。若未来需要 ISR、数据写入或服务端实时请求，再调整缓存和资源绑定。
 
@@ -62,5 +69,6 @@ Wrangler 启用 `workers.dev` 和版本预览 URL，并将 `oriamade.com` 绑定
 - 本地通过、线上失败：优先运行 cf:verify 复现 Workers 运行时，而非仅依赖 next start。
 - 部署错误版本：在 Cloudflare Worker 的 Deployments 中回退到已验证版本；再通过 Git 修复并推送。
 - 自定义域名暂未生效：先检查 workers.dev，确认部署成功后再处理 DNS 与域名设置。
+- `www` 无法访问：同时检查代理 DNS 与已启用的跳转规则。仅有规则而没有 DNS，请求无法进入 Cloudflare；仅有占位 A 记录而没有生效的规则，可能返回 522。用包含子路径和查询参数的 HTTP、HTTPS 地址检查实际 301 和 Location，不能只看控制台保存提示。
 
 参考：[Cloudflare OpenNext 指南](https://developers.cloudflare.com/workers/framework-guides/web-apps/opennext/)、[Workers Builds 配置](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/)、[OpenNext 静态缓存](https://opennext.js.org/cloudflare/caching)。

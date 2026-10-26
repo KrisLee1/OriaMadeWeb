@@ -35,7 +35,7 @@ OriaTheme 是全站唯一持久主题状态源。44 个 OriaTheme 预设与迁�
 
 ## 部署
 
-使用 Cloudflare Workers 与 OpenNext，保留 Next.js 和静态预渲染。静态缓存使用 Workers Static Assets，不引入 R2、KV、数据库或 CMS。GitHub Actions 负责检查，Cloudflare Workers Builds 关联 main 自动部署。主域名为 oriamade.com，oriamade.cn 配置保留路径和查询参数的 301 跳转。当前实际接入状态见项目状态，操作见部署指南。
+使用 Cloudflare Workers 与 OpenNext，保留 Next.js 和静态预渲染。静态缓存使用 Workers Static Assets，不引入 R2、KV、数据库或 CMS。GitHub Actions 负责检查，Cloudflare Workers Builds 关联 main 自动部署。主域名为 oriamade.com；www.oriamade.com、oriamade.cn 与 www.oriamade.cn 均通过 Cloudflare 代理 DNS 和边缘规则执行保留路径与查询参数的 301 跳转。当前实际接入状态见项目状态，操作见部署指南。
 
 ## Tunnel 演示边界
 
