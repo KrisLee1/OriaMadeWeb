@@ -1064,5 +1064,13 @@
   "Manage SSH hosts and local, remote or dynamic forwarding in one workspace. Connect to databases, web dashboards and development environments, with service commands, live status and terminals close at hand.": "SSH ホストとローカル・リモート・動的転送を一つのワークスペースで管理。データベース、Web 管理画面、開発環境へ手軽に接続し、サービスコマンド、稼働状況、ターミナルもまとめて操作できます。",
   "Explore the workspace": "ワークスペースを見る",
   "Bring remote services within reach.": "リモートサービスを、もっと身近に。",
-  "Visual SSH tunnels. Remote services within reach.": "SSH トンネルを視覚的に管理し、リモートサービスを手軽に利用。"
+  "Visual SSH tunnels. Remote services within reach.": "SSH トンネルを視覚的に管理し、リモートサービスを手軽に利用。",
+  "Link services to SSH hosts and give each service its own port. Run commands from the host, reuse a service across hosts, or attach it to a forward.": "サービスを SSH ホストに関連付け、それぞれに専用ポートを設定。ホストから直接コマンドを実行し、複数ホストで再利用したり、転送に関連付けたりできます。",
+  "Services are grouped by SSH host. L / R use one linked service and its port; D can link multiple services while keeping its SOCKS port independent.": "サービスを SSH ホスト別に表示。L / R は関連サービスを一つ選び、そのポートを使用します。D は複数サービスに対応し、SOCKS 待受ポートは独立しています。",
+  "Batch start or stop L / R / D rules. Once D is listening, open an isolated Chrome, Edge or Firefox proxy window, or go straight to a linked web service.": "L / R / D ルールを一括開始・停止。D の待受開始後、独立した Chrome、Edge、Firefox のプロキシウィンドウを開くか、関連する Web サービスへ直接アクセスできます。",
+  "Share service commands across linked hosts. Host and forward entries reflect the same service state; imported templates stay disabled until reviewed and enabled.": "関連ホスト間でサービスコマンドを再利用。ホストと転送の入口で同じサービス状態を表示します。インポートしたテンプレートは確認して有効にするまで実行されません。",
+  "Interactive product preview. Sample content only; no browser data or AI requests.": "操作できる製品デモです。サンプルのみを使用し、ブラウザーデータの読み取りや AI リクエストは行いません。",
+  "Pause demo": "デモを一時停止",
+  "Replay demo": "デモを再生",
+  "Reset demo": "デモをリセット"
 }

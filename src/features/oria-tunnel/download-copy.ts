@@ -20,7 +20,8 @@ export const downloadCopy = {
     "featuresTitle": "Everything you need around SSH.",
     "featuresIntro": "One desktop app, from the first host to the running service.",
     "guide": "Quick start",
-    "notAvailable": "This release is available for Windows and macOS. Choose a desktop installer below."
+    "notAvailable": "This release is available for Windows and macOS. Choose a desktop installer below.",
+    "previousReleases": "Previous releases"
   },
   "zh-CN": {
     "download": "下载",
@@ -41,7 +42,8 @@ export const downloadCopy = {
     "featuresTitle": "SSH 工作所需，集中在一处。",
     "featuresIntro": "从添加主机到运行服务，在一个桌面应用中完成。",
     "guide": "快速上手",
-    "notAvailable": "此版本提供 Windows 与 macOS 安装包，请在下方选择桌面平台。"
+    "notAvailable": "此版本提供 Windows 与 macOS 安装包，请在下方选择桌面平台。",
+    "previousReleases": "历史版本"
   },
   "zh-TW": {
     "download": "下載",
@@ -62,7 +64,8 @@ export const downloadCopy = {
     "featuresTitle": "SSH 工作所需，集中一處。",
     "featuresIntro": "從新增主機到執行服務，在一個桌面應用程式中完成。",
     "guide": "快速入門",
-    "notAvailable": "此版本提供 Windows 與 macOS 安裝程式，請在下方選擇桌面平台。"
+    "notAvailable": "此版本提供 Windows 與 macOS 安裝程式，請在下方選擇桌面平台。",
+    "previousReleases": "歷史版本"
   },
   "ja": {
     "download": "ダウンロード",
@@ -83,7 +86,8 @@ export const downloadCopy = {
     "featuresTitle": "SSH に必要なものを、一か所に。",
     "featuresIntro": "ホストの追加からサービスの実行まで、一つのデスクトップアプリで。",
     "guide": "クイックスタート",
-    "notAvailable": "このバージョンは Windows と macOS に対応しています。以下から選択してください。"
+    "notAvailable": "このバージョンは Windows と macOS に対応しています。以下から選択してください。",
+    "previousReleases": "過去のバージョン"
   },
   "ko": {
     "download": "다운로드",
@@ -104,7 +108,8 @@ export const downloadCopy = {
     "featuresTitle": "SSH에 필요한 모든 것을 한곳에.",
     "featuresIntro": "호스트 추가부터 서비스 실행까지 하나의 데스크톱 앱에서.",
     "guide": "빠른 시작",
-    "notAvailable": "이 버전은 Windows와 macOS에서 사용할 수 있습니다. 아래에서 플랫폼을 선택하세요."
+    "notAvailable": "이 버전은 Windows와 macOS에서 사용할 수 있습니다. 아래에서 플랫폼을 선택하세요.",
+    "previousReleases": "이전 버전"
   },
   "de": {
     "download": "Herunterladen",
@@ -125,7 +130,8 @@ export const downloadCopy = {
     "featuresTitle": "Alles rund um SSH an einem Ort.",
     "featuresIntro": "Vom ersten Host bis zum laufenden Dienst – in einer Desktop-App.",
     "guide": "Schnellstart",
-    "notAvailable": "Diese Version ist für Windows und macOS verfügbar. Wähle unten ein Installationspaket."
+    "notAvailable": "Diese Version ist für Windows und macOS verfügbar. Wähle unten ein Installationspaket.",
+    "previousReleases": "Frühere Versionen"
   },
   "fr": {
     "download": "Télécharger",
@@ -146,7 +152,8 @@ export const downloadCopy = {
     "featuresTitle": "Tout pour SSH, au même endroit.",
     "featuresIntro": "Du premier hôte au service en cours d’exécution, dans une seule application.",
     "guide": "Démarrage rapide",
-    "notAvailable": "Cette version est disponible pour Windows et macOS. Choisissez un programme ci-dessous."
+    "notAvailable": "Cette version est disponible pour Windows et macOS. Choisissez un programme ci-dessous.",
+    "previousReleases": "Versions précédentes"
   },
   "ru": {
     "download": "Скачать",
@@ -167,6 +174,7 @@ export const downloadCopy = {
     "featuresTitle": "Всё для работы с SSH в одном месте.",
     "featuresIntro": "От первого хоста до работающего сервиса — в одном приложении.",
     "guide": "Быстрый старт",
-    "notAvailable": "Эта версия доступна для Windows и macOS. Выберите установщик ниже."
+    "notAvailable": "Эта версия доступна для Windows и macOS. Выберите установщик ниже.",
+    "previousReleases": "Предыдущие версии"
   }
 } satisfies Record<Locale, Record<string,string>>

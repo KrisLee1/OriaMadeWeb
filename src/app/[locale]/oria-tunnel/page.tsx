@@ -3,7 +3,6 @@ import {isLocale} from '@/i18n/config'
 import {pageMetadata} from '@/lib/seo'
 import {tunnelContent} from '@/features/oria-tunnel/content'
 import {TunnelPage} from '@/features/oria-tunnel/page'
-import '@/features/oria-tunnel/native-demo.css'
 
 export async function generateMetadata({params}:{params:Promise<{locale:string}>}) {
   const {locale}=await params

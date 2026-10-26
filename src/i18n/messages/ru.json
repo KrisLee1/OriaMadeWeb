@@ -1064,5 +1064,13 @@
   "Manage SSH hosts and local, remote or dynamic forwarding in one workspace. Connect to databases, web dashboards and development environments, with service commands, live status and terminals close at hand.": "Управляйте SSH-хостами, локальным, удалённым и динамическим пробросом портов в одном месте. Подключайтесь к базам данных, веб-панелям и средам разработки; команды сервисов, состояния и терминалы всегда под рукой.",
   "Explore the workspace": "Открыть рабочее пространство",
   "Bring remote services within reach.": "Удалённые сервисы всегда под рукой.",
-  "Visual SSH tunnels. Remote services within reach.": "Наглядные SSH-туннели. Удалённые сервисы всегда под рукой."
+  "Visual SSH tunnels. Remote services within reach.": "Наглядные SSH-туннели. Удалённые сервисы всегда под рукой.",
+  "Link services to SSH hosts and give each service its own port. Run commands from the host, reuse a service across hosts, or attach it to a forward.": "Привязывайте сервисы к SSH-хостам и задавайте каждому собственный порт. Выполняйте команды с хоста, используйте сервис на нескольких хостах или привязывайте его к пробросу.",
+  "Services are grouped by SSH host. L / R use one linked service and its port; D can link multiple services while keeping its SOCKS port independent.": "Сервисы сгруппированы по SSH-хостам. L / R используют один связанный сервис и его порт; D поддерживает несколько сервисов с независимым портом SOCKS.",
+  "Batch start or stop L / R / D rules. Once D is listening, open an isolated Chrome, Edge or Firefox proxy window, or go straight to a linked web service.": "Запускайте и останавливайте правила L / R / D группой. Когда D начнёт прослушивание, откройте отдельное прокси-окно Chrome, Edge или Firefox либо сразу перейдите к связанному веб-сервису.",
+  "Share service commands across linked hosts. Host and forward entries reflect the same service state; imported templates stay disabled until reviewed and enabled.": "Используйте команды на связанных хостах. Хост и проброс показывают одно состояние сервиса; импортированные шаблоны отключены до проверки и явного включения.",
+  "Interactive product preview. Sample content only; no browser data or AI requests.": "Интерактивная демонстрация с примерами. Без доступа к данным браузера и запросов к ИИ.",
+  "Pause demo": "Приостановить",
+  "Replay demo": "Повторить демо",
+  "Reset demo": "Сбросить демо"
 }

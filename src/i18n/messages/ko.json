@@ -1064,5 +1064,13 @@
   "Manage SSH hosts and local, remote or dynamic forwarding in one workspace. Connect to databases, web dashboards and development environments, with service commands, live status and terminals close at hand.": "SSH 호스트와 로컬·원격·동적 포워딩을 한곳에서 관리하세요. 데이터베이스, 웹 관리 화면과 개발 환경에 간편하게 연결하고, 서비스 명령과 실행 상태, 터미널까지 같은 작업 공간에서 확인할 수 있습니다.",
   "Explore the workspace": "작업 공간 살펴보기",
   "Bring remote services within reach.": "원격 서비스를 더 가까이.",
-  "Visual SSH tunnels. Remote services within reach.": "SSH 터널을 시각적으로 관리하고 원격 서비스를 간편하게 사용하세요."
+  "Visual SSH tunnels. Remote services within reach.": "SSH 터널을 시각적으로 관리하고 원격 서비스를 간편하게 사용하세요.",
+  "Link services to SSH hosts and give each service its own port. Run commands from the host, reuse a service across hosts, or attach it to a forward.": "서비스를 SSH 호스트에 연결하고 각 서비스에 독립 포트를 설정하세요. 호스트에서 명령을 직접 실행하거나 여러 호스트에서 재사용하고 포워딩에 연결할 수 있습니다.",
+  "Services are grouped by SSH host. L / R use one linked service and its port; D can link multiple services while keeping its SOCKS port independent.": "서비스를 SSH 호스트별로 표시합니다. L / R은 연결된 서비스 하나의 포트를 사용하며, D는 여러 서비스를 연결하면서 SOCKS 수신 포트를 독립적으로 유지합니다.",
+  "Batch start or stop L / R / D rules. Once D is listening, open an isolated Chrome, Edge or Firefox proxy window, or go straight to a linked web service.": "L / R / D 규칙을 일괄 시작하거나 중지하세요. D 수신이 시작되면 독립된 Chrome, Edge 또는 Firefox 프록시 창을 열거나 연결된 웹 서비스에 바로 접속할 수 있습니다.",
+  "Share service commands across linked hosts. Host and forward entries reflect the same service state; imported templates stay disabled until reviewed and enabled.": "연결된 호스트 간에 서비스 명령을 재사용하세요. 호스트와 포워딩에서 동일한 서비스 상태를 표시하며, 가져온 템플릿은 검토 후 활성화해야 실행할 수 있습니다.",
+  "Interactive product preview. Sample content only; no browser data or AI requests.": "대화형 제품 미리보기입니다. 예시 콘텐츠만 사용하며 브라우저 데이터를 읽거나 AI 요청을 보내지 않습니다.",
+  "Pause demo": "데모 일시 정지",
+  "Replay demo": "데모 다시 재생",
+  "Reset demo": "데모 초기화"
 }

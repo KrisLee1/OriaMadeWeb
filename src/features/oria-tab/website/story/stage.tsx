@@ -1,4 +1,7 @@
 import { useRef, type CSSProperties, type ReactNode } from 'react'
+import {useThemeSnapshot} from '@oriatheme/react'
+import {BrandName} from '@/components/site/brand-name'
+import {Sun, Moon, Folder, LayoutGrid} from 'lucide-react'
 import { GlassEnvironment } from '@/features/oria-tab/shared/components/glass-environment'
 import { useTranslation } from 'react-i18next'
 import { Search, ArrowUp, ArrowUpRight, Plus, Settings2, History, ChevronDown, ChevronRight, AtSign, Layers, CornerDownLeft, Copy, Printer, Code2, Languages, MessageCircle, Lightbulb, Image as ImageIcon, Lock, ShieldCheck, Palette, X, Download, FolderOpen, ToggleRight, PackageOpen } from 'lucide-react'
@@ -54,7 +57,7 @@ function BrowserChrome({ c }: { c: Copy }) {
   </div></div></div>
 }
 
-function Article({ c }: { c: Copy }) {
+export function Article({ c }: { c: Copy }) {
   // The webpage covers the new-tab wallpaper and must also cover it in glass samples.
   return <div className="product-article" data-glass-content="" data-st="article" aria-hidden="true"><header><strong>FIELDNOTES<span>®</span></strong><div>IDEAS & OBSERVATIONS</div><span>01 — 08</span></header><div className="article-layout"><aside><span>ESSAY / 028</span><div className="article-orbit"><i /><i /><i /></div></aside><article><p className="article-eyebrow">{c.demo[13]}</p><h3>{c.demo[14]}</h3><p>{c.scenes[0][2]}</p><blockquote>Good tools leave<br /><span className="st-mark-wrap"><span className="st-mark" data-st="selection" />room for thought.</span></blockquote><p>{c.demo[15]}</p><div className="article-typeset-lines" /></article></div></div>
 }
@@ -67,7 +70,7 @@ function NativeStartPage({ c }: { c: Copy }) {
   </div></div>
 }
 
-function SearchBox({ c }: { c: Copy }) {
+export function SearchBox({ c }: { c: Copy }) {
   const { t } = useTranslation()
   return <div className="st-search product-search" data-st="search" inert aria-hidden="true"><div className="search-area"><div className="search-shell glass"><GlassSurface radius={24} />
     <span className="engine-trigger st-engines"><span data-st="engines">{engines.map((id, i) => <EngineIcon key={i} engine={{ id, name: id, template: '' }} />)}</span></span><span className="search-divider" />
@@ -76,7 +79,7 @@ function SearchBox({ c }: { c: Copy }) {
   </div></div>
     <div className="product-results floating-glass st-results" data-st="results"><GlassSurface material="panel" />
       <small>{t('webSearch')}</small><div className="product-result"><EngineIcon engine={{ id: 'bing', name: 'Bing', template: '' }} /><span>Oria<small>Bing</small></span><CornerDownLeft size={15} /></div>
-      <small>{t('bookmarks')}</small><div className="product-result" data-st="result-theme"><i className="st-art-wrap" data-st="result-theme-art"><SiteArtwork index={0} /></i><span>OriaTheme<small>theme.oria.org.cn</small></span><ArrowUpRight size={15} /></div>
+      <small>{t('bookmarks')}</small><div className="product-result" data-st="result-theme"><i className="st-art-wrap" data-st="result-theme-art"><SiteArtwork index={0} /></i><span>OriaTheme<small>oriamade.com/oria-theme</small></span><ArrowUpRight size={15} /></div>
       <small>{t('groups')}</small><div className="product-result"><Layers size={24} /><span>{c.demo[5]}<small>{c.demo[9]}</small></span></div>
     </div>
   </div>
@@ -97,9 +100,13 @@ function Dock() {
   </div></div>
 }
 
-function Bookmarks({ c }: { c: Copy }) {
+export function Bookmarks({ c }: { c: Copy }) {
   const { t } = useTranslation()
-  return <div className="product-bookmarks product-popup floating-glass st-bookmarks" data-st="bookmarks" inert aria-hidden="true"><GlassSurface material="panel" /><div className="product-window-heading"><h3>{t('bookmarks')}</h3><X size={17} /></div><div className="panel-search"><Search size={15} /><Input readOnly placeholder={t('searchPlaceholder')} tabIndex={-1} /></div><div className="bookmark-tabs"><button className="active" tabIndex={-1}><GlassSurface effects="static" />{t('bookmarks')} <span>8</span></button><button tabIndex={-1}>{c.demo[2]} <span>4</span></button><button tabIndex={-1}>{c.demo[6]} <span>4</span></button></div><div className="product-bookmark-grid">{sites.map((name, i) => <div className="site-tile" key={name} data-st={i === 2 ? 'tile-figma' : undefined}><SiteArtwork index={i} /><span>{name}</span></div>)}</div><div className="product-group-row"><span className="group-mini"><UtilityIcon kind="groups" /></span><span>{c.demo[5]}<small>{c.demo[9]}</small></span><ArrowUpRight size={16} /></div></div>
+  return <div className="product-bookmarks product-popup floating-glass st-bookmarks" data-st="bookmarks" inert aria-hidden="true"><GlassSurface material="panel"/>
+    <div className="product-window-heading tab-bookmark-toolbar"><h3>{t('bookmarks')}</h3><div className="panel-search"><Search size={15}/><Input readOnly placeholder={t('bookmarkSearch')} tabIndex={-1}/></div><X size={17}/></div>
+    <div className="bookmark-tabs"><button className="active" tabIndex={-1}><GlassSurface effects="static"/><LayoutGrid size={15}/>{t('allBookmarks')}<span>8</span></button><button tabIndex={-1}><Folder size={15}/>{c.demo[2]}<span>4</span></button><button tabIndex={-1}><Folder size={15}/>{c.demo[6]}<span>4</span></button></div>
+    <div className="product-bookmark-grid">{sites.map((name, i) => <div className="site-tile" key={name} data-st={i === 2 ? 'tile-figma' : undefined}><SiteArtwork index={i}/><span>{name}</span></div>)}</div>
+  </div>
 }
 
 function Stream({ text, name }: { text: string; name: string }) {
@@ -107,7 +114,7 @@ function Stream({ text, name }: { text: string; name: string }) {
   return <span className="st-stream" data-st={name} aria-label={text}>{chars.map((ch, i) => <span key={i} aria-hidden="true">{ch}</span>)}</span>
 }
 
-function AideWindow({ c }: { c: Copy }) {
+export function AideWindow({ c }: { c: Copy }) {
   const { t } = useTranslation()
   return <div className="product-aide product-popup floating-glass st-aide" data-st="aide" inert aria-hidden="true"><GlassSurface material="panel" /><MainWindowShell compact><WindowHeader onClose={noop}><HeaderAction label={t('settings')} onClick={noop}><Settings2 size={16} /></HeaderAction><HeaderAction label={t('history')} onClick={noop}><History size={16} /></HeaderAction><HeaderAction label={t('newGroup')} onClick={noop}><Plus size={17} /></HeaderAction></WindowHeader>
     <div className="product-transcript" data-st="transcript-new">
@@ -139,11 +146,14 @@ function Appearance({ c }: { c: Copy }) {
 
 /** The demo screen: wallpaper, the third-party page and the new tab interface. */
 export function Screen({ c }: { c: Copy }) {
+  const {i18n} = useTranslation(), dark = useThemeSnapshot(s => s.resolvedMode === 'dark')
+  const date = new Intl.DateTimeFormat(i18n.language, {month:'long', day:'numeric', weekday:'long', timeZone:'UTC'}).format(new Date('2026-10-27T09:41:00Z'))
   return <>
     <div data-glass-background="" className="st-wall" aria-hidden="true"><div className="st-base" data-st="wall-base" dangerouslySetInnerHTML={{ __html: dawn }} />{wallpapers.map(name => <img key={name} className="st-wall-alt" data-st={`wall-${name}`} data-src={`/products/oria-tab/assets/wallpapers/${name}.svg`} alt="" />)}<div className="product-wallpaper-shade" /></div>
     <NativeStartPage c={c} />
     <Article c={c} />
     <div className="st-layer st-ui" data-st="ui">
+      <header className="home-header tab-native-home-header" data-glass-content=""><span className="brand"><img className="brand-mark" src="/products/oria-tab/assets/logo.svg" alt=""/><BrandName name="OriaTab"/></span><div className="date-block"><span className="date-trigger"><span className="clock">09:41</span><span className="date">{date}</span></span><span className="day-icon">{dark ? <Moon size={17}/> : <Sun size={17}/>}</span></div></header>
       <SearchBox c={c} />
       <Dock />
       <Bookmarks c={c} />

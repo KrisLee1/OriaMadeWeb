@@ -3,6 +3,8 @@ export const demoScenarios=['mixed','stopped','connecting','authenticating','ver
 export type DemoScenario=typeof demoScenarios[number]
 export type DemoStatus=Exclude<DemoScenario,'mixed'>
 export function scenarioStatuses(scenario:DemoScenario):DemoStatus[]{return scenario==='mixed'?['listening','stopped','connecting','failed','reconnecting','authenticating']:Array.from({length:6},()=>scenario)}
+export function isDemoForwardActive(status:DemoStatus){return ['listening','connecting','authenticating','verifying-host','reconnecting'].includes(status)}
+export function toggleDemoForward(statuses:DemoStatus[],index:number):DemoStatus[]{return statuses.map((status,rule)=>rule===index?(isDemoForwardActive(status)?'stopped':'listening'):status)}
 /** Same state and color contract as the app's connection-visual.ts. */
 export function demoConnectionVisual(status:DemoStatus,color:string){const state=status==='listening'?'connected':['connecting','authenticating','verifying-host','reconnecting'].includes(status)?'connecting':'stopped';return {state,color:state==='stopped'?'var(--oria-color-muted-fg)':color}}
 const copy={
@@ -17,4 +19,4 @@ const copy={
 }
 export function getSimulationCopy(locale:Locale){return copy[locale]}
 
-export function activeDemoCount(statuses:DemoStatus[]){return statuses.filter(status=>['listening','connecting','authenticating','verifying-host','reconnecting'].includes(status)).length}
+export function activeDemoCount(statuses:DemoStatus[]){return statuses.filter(isDemoForwardActive).length}

@@ -1,6 +1,6 @@
 # OriaMadeWeb
 
-Oria 系列官网：品牌首页、OriaTheme 文档与主题编辑器、OriaTab 九幕演示及更新日志、OriaTunnel 产品页。各产品保留自己的顶栏与页脚，通过页脚的 Oria 系列入口互相连接。
+Oria 系列官网：品牌首页、OriaTheme 文档与主题编辑器、OriaTab 产品演示、更新日志与隐私政策、OriaTunnel 产品页。各产品保留自己的顶栏与页脚，通过页脚的 Oria 系列入口互相连接。
 
 ## 本地运行
 
@@ -21,7 +21,7 @@ npm run dev -- --port 3100
 | OriaTab | `/oria-tab` | `/zh-CN/oria-tab` |
 | OriaTunnel | `/oria-tunnel` | `/zh-CN/oria-tunnel` |
 
-OriaTab 另有 `changelog` 和 `privacy` 子页面。三个切换组件来自 OriaTunnel：主题预设、系统/浅色/深色、语言。语言切换保留当前路径、参数和章节；主题与自定义主题保存在当前浏览器的 `oria-made-theme` 存储项。Tab 的强调色属于当前演示会话。首页、Theme 和 Tunnel 顶栏始终固定可见，页顶透明融合、滚动后应用主题悬浮材质，窄屏导航收进菜单。Tunnel 产品窗口由网页组件展示，状态选择、批量演示启停与连线动效只改变示例，不连接服务器。
+OriaTab 另有 `changelog` 和 `privacy` 子页面。三个切换组件来自 OriaTunnel：主题预设、系统/浅色/深色、语言。语言切换保留当前路径、参数和章节；主题与自定义主题保存在当前浏览器的 `oria-made-theme` 存储项。Tab 的强调色属于当前演示会话。首页、Theme、Tab 和 Tunnel 顶栏始终固定可见，页顶透明融合、滚动后应用主题悬浮材质，窄屏导航收进菜单。Tunnel 产品窗口由网页组件展示，状态选择、批量演示启停与连线动效只改变示例，不连接服务器。
 
 OriaTunnel 的 `/oria-tunnel/download` 提供 v0.1.0 的 Windows x64/ARM64、macOS Apple Silicon/Intel 安装包、macOS ZIP 备选、安装步骤与功能说明。主下载按钮识别系统及可用架构信息；不足时进入平台选择区。文件直接来自官方 GitHub Release。
 

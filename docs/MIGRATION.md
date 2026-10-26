@@ -34,3 +34,18 @@
 - 用户授权演示连线的多种状态。官网场景不代表真实运行结果：颜色、虚实线、箭头方向与光带遵循原 `connection-visual`／`ConnectionEdge`，支持暂停和减少动态效果。旧截图保留为只读对照素材。
 - Tunnel 服务品牌 SVG 的原出处和许可元数据随 `src/features/oria-tunnel/native-assets/service-icons.json` 保留。
 - Tunnel 下载清单来自用户指定的 [v0.1.0 Release](https://github.com/KrisLee1/OriaTunnel/releases/tag/v0.1.0)，2026-10-25 经 GitHub API 核对四个安装包及两个 DMG ZIP 的名称、大小、URL 和 SHA256。安装步骤及功能说明对照原仓库 README；官网不代理或执行安装包。
+
+## OriaTunnel v0.1.1 内容同步（2026-10-27）
+
+- 产品能力与八语言三项更新日志对照只读源仓库 `30fad2290121b70432e48dd3d2a99ba3ea6c3846` 的 README、`docs/releases/v0.1.1.md`、`docs/USAGE.md` 及代理浏览器组件。同步主机关联服务、独立端口、L/R 单服务与 D 多服务、Chrome/Edge/Firefox 独立代理窗口及不支持 Safari 的边界。
+- 服务按主机分组与浏览器菜单均为独立演示数据，不迁入原生桥接、SSH、凭据或系统代理模块。监听状态仅代表模拟隧道监听，不据此推断远端服务已运行；关联服务图标保持中性。
+- 浏览器标识原样来自源仓库 `src/assets`，上游修订、品牌归属与 MIT/MPL-2.0 原文保存在 [浏览器资源声明](../public/products/oria-tunnel/licenses/NOTICE.txt) 及同目录；逐文件 SHA256 已加入来源清单。
+- 用户指定按 v0.1.1 正式版更新官网，下载版本、Release 地址、四个安装包与两个 ZIP 文件名统一为 v0.1.1。2026-10-27 已核对公开 Latest 与 v0.1.1 正式 Release，实际下载六个安装包/ZIP 并验证大小与 SHA256，补齐全部元数据及公开时间；三条中文更新日志与公开正文一致。
+
+## OriaTab 官网重做（2026-10-27）
+
+- 按用户要求参考现有 OriaTunnel 产品页重组 Tab 官网。九幕文案转为常规内容分区，原阶段组件与编排用于六种可切换、可重播的预览；更新日志与隐私政策保留原内容和八语言路由。
+- 只读对照 `/Users/krislee/Projects/OriaTab/src/App.tsx`、`src/styles.css`、`src/features/bookmarks.tsx` 与 `src/features/aide.css` 调整实际界面结构及尺寸。未修改迁移源，未导入浏览器权限、扩展存储、真实搜索或 AI 请求。
+- 沿用已迁移的原 WebGL shader、玻璃捕获与合成管线，原出处与 MIT 声明继续见 `public/products/oria-tab/licenses/liquidglass.txt`。官网预览默认使用独立的 Liquid glass Runtime；根据用户反馈降低厚度、折射与染色，并增大圆角。此处为官网展示参数，不更改原扩展默认值。
+- 本轮替换旧全屏滚动页面控制与章节浮轨；产品介绍保持服务端可读。减少动态效果时不播放预览动画；减少透明度或高对比度继续走原玻璃回退。Fieldnotes 样例网页及原生菜单增加明暗颜色变量。
+- 网站访问说明删除“部署时补充”的旧占位，按现有 Cloudflare Workers 架构说明站点偏好、演示临时状态及托管请求处理，并链接 Cloudflare 官方隐私政策。扩展自身权限、数据处理和本地存储描述保留。

@@ -3,6 +3,7 @@
 .tunnel-download-hero h1{max-width:950px;margin:0 auto;font-size:clamp(38px,5vw,66px);line-height:1.16;letter-spacing:-.05em;font-weight:500;text-wrap:balance;overflow-wrap:anywhere}
 .tunnel-download-intro{max-width:650px;margin:24px auto 0;font-size:15px;line-height:1.9;color:var(--oria-color-muted-fg);text-wrap:balance}
 .tunnel-release-link{display:inline-flex;align-items:center;gap:6px;margin-top:24px;font-size:11px;color:var(--oria-color-muted-fg)}
+.tunnel-release-links{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px 24px;margin-top:24px}.tunnel-release-links .tunnel-release-link{margin-top:0}
 .tunnel-download-platforms,.tunnel-download-install,.tunnel-download-features{max-width:1180px;margin:auto;padding:48px 40px 70px}
 .tunnel-download-platforms .tunnel-section-heading{margin-bottom:42px}.tunnel-platform-group{scroll-margin-top:108px;margin-top:48px}.tunnel-platform-heading{display:flex;align-items:baseline;gap:28px;margin-bottom:20px}.tunnel-platform-heading h3{font-size:28px;font-weight:500;letter-spacing:-.03em;margin:0}.tunnel-platform-heading p{font-size:12px;line-height:1.8;color:var(--oria-color-muted-fg);margin:0}
 .tunnel-installer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.tunnel-installer{padding:28px;border:var(--oria-border-width-default) solid var(--oria-color-border);border-radius:var(--oria-radius-xl);background:var(--oria-color-surface)}

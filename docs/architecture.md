@@ -45,8 +45,16 @@ OriaTheme 是全站唯一持久主题状态源。44 个 OriaTheme 预设与迁�
 
 首页、Theme 与 Tunnel 共用滚动材质状态，始终固定可见。顶栏页顶透明，滚动后成为主题悬浮层；产品导航内容仍归各模块。Positioner 层级高于顶栏和移动导航。品牌字由 BrandName 统一管理。
 
-`/oria-tunnel/download` 使用静态清单，当前固定为 GitHub v0.1.0，不在访问时请求 latest。包含 Windows x64/ARM64、macOS Apple Silicon/Intel 安装包和 DMG ZIP 备选。系统和架构识别仅在浏览器本地选择链接，不上传设备信息；信息不足时进入平台选择区，不猜测 Mac 芯片。首页、顶栏和页脚均提供八语言下载入口。
+`/oria-tunnel/download` 使用静态清单，当前固定为 GitHub v0.1.1，不在访问时请求 latest。包含 Windows x64/ARM64、macOS Apple Silicon/Intel 安装包和 DMG ZIP 备选。系统和架构识别仅在浏览器本地选择链接，不上传设备信息；信息不足时进入平台选择区，不猜测 Mac 芯片。首页、顶栏和页脚均提供八语言下载入口。
 
 ## 浏览器标签
 
 `pageMetadata` 按路由确定产品身份。首页和产品首页以品牌名为标题，子页采用“本地化页面名称 · 产品名”，不重复追加 Oria。Open Graph 使用同一标题。首页使用 Oria 圆环图标，三个产品及其子页使用各自纯图标；根目录提供 SVG 与 32px ICO。404 标题统一为 404 · Oria。
+
+Tunnel 官网同步 v0.1.1 的主机关联服务、独立服务端口与 D 代理浏览器说明。演示服务按主机分组，共享服务选择同步；D 在模拟监听时可选择 Chrome、Edge、Firefox，仅显示模拟提示。单条规则按钮与同一份状态同步启停，图谱、列表、计数、批量和场景选择共用工作区内存状态。八语言更新日志由 `updates-copy.ts` 管理，首页与下载页复用。更新区的 D 卡片近景直接复用工作区 `RuleContent` 与原浏览器菜单；原生演示样式由 Tunnel 布局统一加载。
+
+## OriaTab 演示与阅读页面
+
+OriaTab 首页改为服务器渲染的产品分区与六场景客户端预览。原产品组件、Aide 原生窗口、SVG 壁纸、WebGL 液态玻璃及编排用于按需演示；功能近景延迟挂载。`story-runtime.tsx` 为每个预览创建默认 Liquid glass、无存储、ShadowRoot target 的局部 OriaTheme Runtime；网站明暗变化单独同步，局部主题/强调色不覆盖 document 或持久偏好。演示数据仍与浏览器扩展 API 及真实服务隔离。
+
+`subpage.tsx` 提供 Tab 私有阅读页标题与前后导航，日志和政策各自服务端渲染。政策正文按原语言资源保留，网站访问事实单独维护在 `privacy-copy.ts`；其他产品不依赖这一阅读布局。

@@ -1064,5 +1064,13 @@
   "Manage SSH hosts and local, remote or dynamic forwarding in one workspace. Connect to databases, web dashboards and development environments, with service commands, live status and terminals close at hand.": "SSH-Hosts sowie lokale, entfernte und dynamische Weiterleitungen zentral verwalten. Datenbanken, Web-Oberflächen und Entwicklungsumgebungen verbinden – mit Dienstbefehlen, Laufzeitstatus und Terminals im selben Arbeitsbereich.",
   "Explore the workspace": "Arbeitsbereich entdecken",
   "Bring remote services within reach.": "Remote-Dienste direkt zur Hand.",
-  "Visual SSH tunnels. Remote services within reach.": "Visuelle SSH-Tunnel. Remote-Dienste direkt zur Hand."
+  "Visual SSH tunnels. Remote services within reach.": "Visuelle SSH-Tunnel. Remote-Dienste direkt zur Hand.",
+  "Link services to SSH hosts and give each service its own port. Run commands from the host, reuse a service across hosts, or attach it to a forward.": "Dienste mit SSH-Hosts verknüpfen und jedem Dienst einen eigenen Port zuweisen. Befehle direkt am Host ausführen, Dienste auf mehreren Hosts wiederverwenden oder einer Weiterleitung zuordnen.",
+  "Services are grouped by SSH host. L / R use one linked service and its port; D can link multiple services while keeping its SOCKS port independent.": "Dienste sind nach SSH-Host gruppiert. L / R nutzen einen verknüpften Dienst und dessen Port; D kann mehrere Dienste verknüpfen und behält einen unabhängigen SOCKS-Port.",
+  "Batch start or stop L / R / D rules. Once D is listening, open an isolated Chrome, Edge or Firefox proxy window, or go straight to a linked web service.": "L / R / D gemeinsam starten oder stoppen. Sobald D lauscht, ein isoliertes Proxyfenster in Chrome, Edge oder Firefox öffnen oder direkt einen verknüpften Webdienst aufrufen.",
+  "Share service commands across linked hosts. Host and forward entries reflect the same service state; imported templates stay disabled until reviewed and enabled.": "Dienstbefehle auf verknüpften Hosts wiederverwenden. Host und Weiterleitung zeigen denselben Dienststatus; importierte Vorlagen bleiben bis zur Prüfung und Aktivierung deaktiviert.",
+  "Interactive product preview. Sample content only; no browser data or AI requests.": "Interaktive Produktvorschau mit Beispieldaten. Keine Browserdaten und keine KI-Anfragen.",
+  "Pause demo": "Demo pausieren",
+  "Replay demo": "Demo abspielen",
+  "Reset demo": "Demo zurücksetzen"
 }

@@ -1,4 +1,4 @@
-import {activeDemoCount,demoConnectionVisual,scenarioStatuses,demoScenarios} from '../src/features/oria-tunnel/simulation'
+import {activeDemoCount,demoConnectionVisual,isDemoForwardActive,toggleDemoForward,scenarioStatuses,demoScenarios} from '../src/features/oria-tunnel/simulation'
 import {getDemoCopy} from '../src/features/oria-tunnel/demo-copy'
 import {detectDownloadPlatform,installers,installerAsset,tunnelRelease} from '../src/features/oria-tunnel/release'
 import {downloadCopy} from '../src/features/oria-tunnel/download-copy'
@@ -76,6 +76,19 @@ test('Native UI translations retain every state and icon label in all eight loca
  }
 })
 
+test('Forward actions stop every active state and start stopped or failed rules independently',()=>{
+ for(const scenario of demoScenarios){
+  if(scenario==='mixed')continue
+  const before=scenarioStatuses(scenario),active=activeDemoCount(before)>0
+  assert.equal(isDemoForwardActive(scenario),active)
+  const after=toggleDemoForward(before,2)
+  assert.equal(after[2],active?'stopped':'listening')
+  assert.equal(activeDemoCount(after),active?5:1)
+  assert.deepEqual(before,scenarioStatuses(scenario))
+  assert.deepEqual(after.filter((_,index)=>index!==2),before.filter((_,index)=>index!==2))
+ }
+})
+
 // Browser hints may be absent or reduced; never guess a Mac CPU from “Intel Mac OS X”.
 test('Download selection handles architecture hints, reduced user agents and mobile devices',()=>{
  assert.equal(detectDownloadPlatform({platform:'Windows',architecture:'arm',bitness:'64',userAgent:'Windows NT 10.0; Win64; x64'}).installer?.id,'windows-arm64')
@@ -89,14 +102,19 @@ test('Download selection handles architecture hints, reduced user agents and mob
  for(const info of [{platform:'Linux'},{platform:'Android',mobile:true},{userAgent:'iPhone'}])assert.equal(detectDownloadPlatform(info).installer,null)
 })
 
-test('All installer links point to the verified release and download copy covers eight languages',()=>{
- assert.equal(tunnelRelease.version,'v0.1.0')
+test('All installer links match the configured release and download copy covers eight languages',()=>{
+ assert.equal(tunnelRelease.version,'v0.1.1')
  assert.equal(installers.length,4)
- for(const installer of installers){
-  const asset=installerAsset(installer)
-  assert.equal(asset.url,`https://github.com/KrisLee1/OriaTunnel/releases/download/v0.1.0/${installer.file}`)
+ assert.ok(Number.isFinite(Date.parse(tunnelRelease.publishedAt)))
+ assert.equal(Object.keys(tunnelRelease.assets).length,6)
+ for(const [file,asset] of Object.entries(tunnelRelease.assets)){
+  assert.equal(asset.url,`https://github.com/KrisLee1/OriaTunnel/releases/download/${tunnelRelease.version}/${file}`)
   assert.ok(asset.size>8_000_000)
   assert.match(asset.sha256,/^[a-f0-9]{64}$/)
+ }
+ for(const installer of installers){
+  const asset=installerAsset(installer)
+  assert.equal(asset.url,`https://github.com/KrisLee1/OriaTunnel/releases/download/${tunnelRelease.version}/${installer.file}`)
   assert.match(installer.file,/\.(dmg|exe)$/)
  }
  for(const locale of locales){

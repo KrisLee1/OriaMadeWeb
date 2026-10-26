@@ -1064,5 +1064,13 @@
   "Manage SSH hosts and local, remote or dynamic forwarding in one workspace. Connect to databases, web dashboards and development environments, with service commands, live status and terminals close at hand.": "集中管理 SSH 主機與本機、遠端、動態轉送，輕鬆連線資料庫、網頁後台與開發環境。服務命令、執行狀態與終端機，都在同一個工作區。",
   "Explore the workspace": "探索工作區",
   "Bring remote services within reach.": "讓遠端服務，近在手邊。",
-  "Visual SSH tunnels. Remote services within reach.": "視覺化管理 SSH 通道，輕鬆使用遠端服務。"
+  "Visual SSH tunnels. Remote services within reach.": "視覺化管理 SSH 通道，輕鬆使用遠端服務。",
+  "Link services to SSH hosts and give each service its own port. Run commands from the host, reuse a service across hosts, or attach it to a forward.": "將服務關聯至 SSH 主機，並為每個服務設定獨立連接埠。從主機直接執行命令，跨主機重用服務，也可將它關聯至轉發。",
+  "Services are grouped by SSH host. L / R use one linked service and its port; D can link multiple services while keeping its SOCKS port independent.": "服務依 SSH 主機分組。L / R 選擇一個關聯服務並使用其連接埠；D 可關聯多個服務，SOCKS 監聽連接埠維持獨立。",
+  "Batch start or stop L / R / D rules. Once D is listening, open an isolated Chrome, Edge or Firefox proxy window, or go straight to a linked web service.": "批次啟停 L / R / D 規則。D 監聽後，可開啟獨立的 Chrome、Edge 或 Firefox 代理視窗，或直接存取關聯的網頁服務。",
+  "Share service commands across linked hosts. Host and forward entries reflect the same service state; imported templates stay disabled until reviewed and enabled.": "在關聯主機間重用服務命令，主機與轉發入口同步顯示同一服務狀態；匯入範本經核對並啟用後才可執行。",
+  "Interactive product preview. Sample content only; no browser data or AI requests.": "互動式產品示範。僅使用範例內容，不讀取瀏覽器資料或傳送 AI 請求。",
+  "Pause demo": "暫停示範",
+  "Replay demo": "重播示範",
+  "Reset demo": "重設示範"
 }

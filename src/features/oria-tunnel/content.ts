@@ -50,8 +50,8 @@ const sourceContent = {
           number: '03',
           kicker: 'ORCHESTRATE',
           title: 'The service travels with the route.',
-          description: 'Reuse command templates across hosts. Check state, start when needed, wait for health, then connect—all from the forwarding rule.',
-          note: 'The current isolated workspace contains five sample services grouped by category, with their command counts visible.',
+          description: 'Link services to SSH hosts and give each service its own port. Run commands from the host, reuse a service across hosts, or attach it to a forward.',
+          note: 'Services are grouped by SSH host. L / R use one linked service and its port; D can link multiple services while keeping its SOCKS port independent.',
         },
         {
           number: '04',
@@ -71,10 +71,10 @@ const sourceContent = {
       title: 'More than a tunnel. Still focused.',
       description: 'The details around a connection matter just as much as the connection itself.',
       cards: [
-        {kicker: 'L / R / D', title: 'Three ways through.', description: 'Batch start or stop rules, mark web and VNC entry points, and open a service only when its listener is actually running.'},
+        {kicker: 'L / R / D', title: 'Three ways through.', description: 'Batch start or stop L / R / D rules. Once D is listening, open an isolated Chrome, Edge or Firefox proxy window, or go straight to a linked web service.'},
         {kicker: 'DIAGNOSTICS', title: 'Signals, not guesswork.', description: 'Inspect authentication, target reachability, live traffic, retry timing and searchable lifecycle logs in one runtime view.'},
         {kicker: 'SSH TERMINAL', title: 'A shell when you need it.', description: 'Keep up to eight independent terminals in a dockable workspace with search, full-screen programs and explicit reconnects.'},
-        {kicker: 'SERVICE RECIPES', title: 'Commands worth reusing.', description: 'Organize editable start, stop, restart, status and log actions. Import templates disabled, review them, then enable deliberately.'},
+        {kicker: 'SERVICE RECIPES', title: 'Commands worth reusing.', description: 'Share service commands across linked hosts. Host and forward entries reflect the same service state; imported templates stay disabled until reviewed and enabled.'},
       ],
     },
     principles: {
@@ -148,8 +148,8 @@ const sourceContent = {
           number: '03',
           kicker: '联动',
           title: '让服务与路径一起抵达。',
-          description: '跨主机复用命令模板。检查状态，必要时启动，等待健康，再建立连接——都从当前转发出发。',
-          note: '当前隔离工作区按分类展示五项示例服务及其命令数量。',
+          description: '将服务关联到 SSH 主机，并为每个服务设置独立端口。从主机直接执行命令，跨主机复用服务，也可以将它关联到转发。',
+          note: '服务按 SSH 主机分组。L / R 选择一个关联服务并使用其端口；D 可关联多个服务，SOCKS 监听端口保持独立。',
         },
         {
           number: '04',
@@ -169,10 +169,10 @@ const sourceContent = {
       title: '不止于隧道，也始终专注。',
       description: '连接之外的每个细节，和连接本身同样重要。',
       cards: [
-        {kicker: 'L / R / D', title: '三种路径，自由抵达。', description: '批量启停规则，标记 Web 与 VNC 入口；只有真实处于监听状态时，才会出现打开服务的入口。'},
+        {kicker: 'L / R / D', title: '三种路径，自由抵达。', description: '批量启停 L / R / D 规则。D 监听后，可打开独立的 Chrome、Edge 或 Firefox 代理窗口，或直接访问关联的网页服务。'},
         {kicker: '运行诊断', title: '看见信号，不靠猜测。', description: '在同一视图查看认证方式、目标可达性、实时流量、重试时间与可检索的生命周期日志。'},
         {kicker: 'SSH 终端', title: '需要时，直接回到 shell。', description: '最多八个独立终端，在可停靠工作区中支持搜索、全屏程序与明确的断线重连。'},
-        {kicker: '服务配方', title: '让常用命令真正复用。', description: '组织可编辑的启动、停止、重启、状态与日志动作。导入模板默认禁用，审核后再逐项启用。'},
+        {kicker: '服务配方', title: '让常用命令真正复用。', description: '在关联主机间复用服务命令，主机与转发入口同步显示同一服务状态；导入模板经核对并启用后才可执行。'},
       ],
     },
     principles: {

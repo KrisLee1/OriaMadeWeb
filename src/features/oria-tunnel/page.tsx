@@ -4,6 +4,8 @@ import {WorkspaceDemo,type DemoView} from './demo'
 import {TunnelDownloadButton} from './download-button'
 import {downloadCopy} from './download-copy'
 import {localizedPath} from '@/i18n/config'
+import {TunnelUpdates} from './updates'
+import {tunnelRelease} from './release'
 const scenes:DemoView[]=['hosts','forwards','services','logs']
 const capabilityIcons=[Network,Waypoints,Terminal,CodeXml]
 const trustIcons=[Fingerprint,KeyRound,ShieldCheck]
@@ -18,8 +20,9 @@ export function TunnelPage({locale}:{locale:TunnelLocale}){
     <div className="tunnel-hero-actions"><TunnelDownloadButton locale={locale}/><a className="tunnel-button tunnel-button-quiet" href="#workspace">{c.hero.primary}<ArrowDown size={16}/></a></div>
     <a className="tunnel-all-downloads" href={localizedPath(locale,'/oria-tunnel/download')}>{downloadCopy[locale].allDownloads}<ArrowUpRight size={13}/></a>
    </div>
-   <div id="workspace" className="tunnel-hero-workspace"><div className="tunnel-demo-meta"><span><i/>{c.hero.demo}</span><span>macOS · Windows</span></div><WorkspaceDemo locale={locale}/><p className="tunnel-demo-disclosure">{c.cta.note}</p></div>
+   <div id="workspace" className="tunnel-hero-workspace"><div className="tunnel-demo-meta"><span><i/>{c.hero.demo}</span><span>{tunnelRelease.version} · macOS / Windows</span></div><WorkspaceDemo locale={locale}/><p className="tunnel-demo-disclosure">{c.cta.note}</p></div>
   </section>
+  <TunnelUpdates locale={locale}/>
   <section id="workflow" className="tunnel-section tunnel-workflow">
    <header className="tunnel-section-heading"><p className="tunnel-eyebrow">{c.story.eyebrow}</p><h2>{c.story.title}</h2><p>{c.story.description}</p></header>
    <div className="tunnel-feature-grid">{c.story.chapters.map((chapter,index)=><article className="tunnel-feature" key={chapter.number}><div className="tunnel-feature-copy"><p className="tunnel-eyebrow"><span>{chapter.number}</span>{chapter.kicker}</p><h3>{chapter.title}</h3><p>{chapter.description}</p></div><div className="tunnel-feature-window"><WorkspaceDemo locale={locale} initialView={scenes[index]} compact/></div><p className="tunnel-feature-note">{chapter.note}</p></article>)}</div>

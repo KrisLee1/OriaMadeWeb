@@ -1,0 +1,11 @@
+Browser logos are used only to identify proxy-browser choices in the isolated OriaTunnel website demonstration. All logos and trademarks belong to their respective owners; no endorsement is implied.
+
+Microsoft Edge and Google Chrome SVGs are copied unchanged from OriaTunnel/src/assets, originally browser-logos revision 58881b84c4d73adc03c06fa2c275a7abee02d935:
+https://github.com/alrra/browser-logos/tree/58881b84c4d73adc03c06fa2c275a7abee02d935
+Repository MIT license: BROWSER_LOGOS_MIT.txt.
+
+Firefox SVG is copied unchanged from OriaTunnel/src/assets/firefoxbrowser.svg, originally Mozilla protocol-assets revision 916694f6f6d822289f0f66c3dd4684aee218497e:
+https://github.com/mozilla/protocol-assets/blob/916694f6f6d822289f0f66c3dd4684aee218497e/logos/firefox/browser/logo.svg
+License: FIREFOX_MPL_2_0.txt (MPL-2.0).
+
+Product changes and translated release notes are adapted from OriaTunnel revision 30fad2290121b70432e48dd3d2a99ba3ea6c3846 (GPL-3.0-only). See docs/MIGRATION.md and docs/licenses/OriaTunnel-GPL-3.0.txt in the website repository.

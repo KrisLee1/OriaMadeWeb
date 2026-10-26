@@ -1064,5 +1064,13 @@
   "Manage SSH hosts and local, remote or dynamic forwarding in one workspace. Connect to databases, web dashboards and development environments, with service commands, live status and terminals close at hand.": "Gérez vos hôtes SSH et les redirections locales, distantes ou dynamiques au même endroit. Accédez aux bases de données, interfaces Web et environnements de développement, avec les commandes de service, les états et les terminaux dans le même espace.",
   "Explore the workspace": "Explorer l’espace de travail",
   "Bring remote services within reach.": "Vos services distants à portée de main.",
-  "Visual SSH tunnels. Remote services within reach.": "Des tunnels SSH visuels. Vos services distants à portée de main."
+  "Visual SSH tunnels. Remote services within reach.": "Des tunnels SSH visuels. Vos services distants à portée de main.",
+  "Link services to SSH hosts and give each service its own port. Run commands from the host, reuse a service across hosts, or attach it to a forward.": "Associez les services aux hôtes SSH et attribuez à chacun son propre port. Exécutez les commandes depuis un hôte, réutilisez un service sur plusieurs hôtes ou associez-le à une redirection.",
+  "Services are grouped by SSH host. L / R use one linked service and its port; D can link multiple services while keeping its SOCKS port independent.": "Les services sont regroupés par hôte SSH. L / R utilisent un service associé et son port ; D peut associer plusieurs services tout en gardant son port SOCKS indépendant.",
+  "Batch start or stop L / R / D rules. Once D is listening, open an isolated Chrome, Edge or Firefox proxy window, or go straight to a linked web service.": "Démarrez ou arrêtez les règles L / R / D en lot. Une fois D en écoute, ouvrez une fenêtre proxy isolée dans Chrome, Edge ou Firefox, ou accédez directement à un service web associé.",
+  "Share service commands across linked hosts. Host and forward entries reflect the same service state; imported templates stay disabled until reviewed and enabled.": "Réutilisez les commandes sur les hôtes associés. Les accès depuis un hôte et une redirection affichent le même état du service ; les modèles importés restent désactivés jusqu’à leur vérification et activation.",
+  "Interactive product preview. Sample content only; no browser data or AI requests.": "Aperçu interactif avec des exemples uniquement. Aucune lecture des données du navigateur ni requête IA.",
+  "Pause demo": "Mettre en pause",
+  "Replay demo": "Rejouer la démo",
+  "Reset demo": "Réinitialiser la démo"
 }

@@ -2,10 +2,10 @@ import release from './release-assets.json'
 
 export const tunnelRelease = release
 export const installers = [
-  {id:'mac-arm64',os:'macos',label:'macOS · Apple Silicon',architecture:'Apple Silicon',file:'OriaTunnel_0.1.0_aarch64.dmg',zip:'OriaTunnel_0.1.0_aarch64.zip'},
-  {id:'mac-x64',os:'macos',label:'macOS · Intel',architecture:'Intel',file:'OriaTunnel_0.1.0_x64.dmg',zip:'OriaTunnel_0.1.0_x64.zip'},
-  {id:'windows-x64',os:'windows',label:'Windows · x64',architecture:'x64',file:'OriaTunnel_0.1.0_x64-setup.exe'},
-  {id:'windows-arm64',os:'windows',label:'Windows · ARM64',architecture:'ARM64',file:'OriaTunnel_0.1.0_arm64-setup.exe'},
+  {id:'mac-arm64',os:'macos',label:'macOS · Apple Silicon',architecture:'Apple Silicon',file:'OriaTunnel_0.1.1_aarch64.dmg',zip:'OriaTunnel_0.1.1_aarch64.zip'},
+  {id:'mac-x64',os:'macos',label:'macOS · Intel',architecture:'Intel',file:'OriaTunnel_0.1.1_x64.dmg',zip:'OriaTunnel_0.1.1_x64.zip'},
+  {id:'windows-x64',os:'windows',label:'Windows · x64',architecture:'x64',file:'OriaTunnel_0.1.1_x64-setup.exe'},
+  {id:'windows-arm64',os:'windows',label:'Windows · ARM64',architecture:'ARM64',file:'OriaTunnel_0.1.1_arm64-setup.exe'},
 ] as const
 export type Installer = typeof installers[number]
 export type PlatformInfo = {

@@ -12,6 +12,6 @@
 | 产品页脚 | src/components/site/product-footer.tsx | 当前产品支持链接与系列入口 |
 | 产品顶栏 | features/oria-theme/navigation.tsx、features/oria-tab/shell.tsx、features/oria-tunnel/header.tsx | 各产品自己的导航和风格 |
 | 品牌文字 | src/components/site/brand-name.tsx | 统一字重与字距，产品后缀使用主题色 |
-| 滚动顶栏材质 | src/components/site/use-scroll-header.ts | 首页、Theme、Tunnel 固定可见，页顶透明、滚动后应用主题材质 |
+| 滚动顶栏材质 | src/components/site/use-scroll-header.ts | 首页、Theme、Tab、Tunnel 固定可见，页顶透明、滚动后应用主题材质 |
 | Tunnel 下载按钮 | src/features/oria-tunnel/download-button.tsx | 首页及下载页识别平台，选择对应安装包或架构选择区 |
-| GitHub 入口 | src/components/site/github-link.tsx | Theme/Tunnel 共用品牌图标、外链箭头与桌面/紧凑布局 |
+| GitHub 入口 | src/components/site/github-link.tsx | Theme/Tab/Tunnel 共用品牌图标、外链箭头与桌面/紧凑布局 |

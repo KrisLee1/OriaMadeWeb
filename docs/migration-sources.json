@@ -1876,6 +1876,21 @@
       "destination": "public/products/oria-tunnel/github.svg",
       "sha256": "693d7abe6f899646cc2e96856723b45e95f71885a54910b2749f6decdf7e1ee1",
       "adaptation": "Original UI presentation or state semantics adapted for isolated website demonstrations; GPL-3.0-only."
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTunnel/src/assets/microsoftedge.svg",
+      "destination": "public/products/oria-tunnel/browsers/microsoftedge.svg",
+      "sha256": "3b6f52dce2b57af664b63dadb3b61efd5a896fb0f98abe5d85fe312fa6a93228"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTunnel/src/assets/googlechrome.svg",
+      "destination": "public/products/oria-tunnel/browsers/googlechrome.svg",
+      "sha256": "98045c791131de00b7c81c5e4bd1ce686891661c0e2c821d588c351a5add919d"
+    },
+    {
+      "source": "/Users/krislee/Projects/OriaTunnel/src/assets/firefoxbrowser.svg",
+      "destination": "public/products/oria-tunnel/browsers/firefoxbrowser.svg",
+      "sha256": "f8301ac5f5dd3ca962db4283c1148e9a90ffcebe690ec83cedad88107d449f79"
     }
   ],
   "hashMeaning": "sha256 is the original source fingerprint; destinations include integration changes.",
@@ -1885,5 +1900,6 @@
     "destination": "src/features/oria-tunnel/release-assets.json",
     "verifiedAt": "2026-10-25",
     "note": "Four user installers and two DMG ZIP alternatives; sizes and SHA256 digests from GitHub release assets."
-  }
+  },
+  "tunnelContentRevision": "30fad2290121b70432e48dd3d2a99ba3ea6c3846"
 }
