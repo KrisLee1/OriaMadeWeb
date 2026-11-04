@@ -1,6 +1,9 @@
 'use client'
 
 import {useEffect,useId,useRef,useState,type CSSProperties} from 'react'
+import {FileWorkspaceDemo} from './file-demo'
+import {getFileDemoCopy} from './file-demo-copy'
+import {FolderSync} from 'lucide-react'
 import {Tabs} from '@base-ui/react/tabs'
 import {Select,SelectContent,SelectItem,SelectTrigger,SelectValue} from '@/components/ui/select'
 import {ArrowRight,Boxes,ChevronDown,Globe,CopyPlus,ExternalLink,GitPullRequestCreateArrow,Info,KeyRound,ListFilter,Maximize,Monitor,Pause,Play,Plus,Search,Server,ServerPlus,Settings2,ShieldOff,Square,SquareTerminal,Terminal,Trash2,X,ZoomIn,ZoomOut} from 'lucide-react'
@@ -125,9 +128,10 @@ function TerminalDock({copy,onClose}:{copy:DemoCopy;onClose:()=>void}){
  return <aside className="demo-terminal"><div><span><Terminal size={13}/>{copy.terminal}</span><span>dev-workspace</span><button aria-label={copy.terminal} onClick={onClose}><X size={15}/></button></div><pre>{copy.terminalEmpty}{'\n\n'}<span>{copy.terminalHint}</span>{'\n\n'}<b>developer@dev.example.com</b> <span>│ SSH · 22</span></pre></aside>
 }
 export function WorkspaceDemo({locale,initialView='map',compact=false}:{locale:Locale;initialView?:DemoView;compact?:boolean}){
- const copy=getDemoCopy(locale),sim=getSimulationCopy(locale),[statuses,setStatuses]=useState<DemoStatus[]>(()=>scenarioStatuses(compact?'stopped':'mixed')),[paused,setPaused]=useState(false),[view,setView]=useState<DemoView>(initialView),[terminal,setTerminal]=useState(false)
+ const copy=getDemoCopy(locale),sim=getSimulationCopy(locale),[statuses,setStatuses]=useState<DemoStatus[]>(()=>scenarioStatuses(compact?'stopped':'mixed')),[paused,setPaused]=useState(false),[view,setView]=useState<DemoView>(initialView),[terminal,setTerminal]=useState(false),[files,setFiles]=useState(false)
  const scenario:DemoScenario=statuses.every(status=>status===statuses[0])?statuses[0]:'mixed'
  const onToggle=(index:number)=>setStatuses(current=>toggleDemoForward(current,index))
+ const filesButton=useRef<HTMLButtonElement>(null)
  const viewport=useRef<HTMLDivElement>(null),[windowScale,setWindowScale]=useState(1)
  useEffect(()=>{const element=viewport.current;if(!element)return;const observer=new ResizeObserver(([entry])=>setWindowScale(entry.contentRect.width/1178));observer.observe(element);return()=>observer.disconnect()},[])
  return <div className="tunnel-demo-composition">{!compact&&<div className="demo-simulation-controls"><div className="demo-state-field"><span>{sim.label}</span><Select value={scenario} onValueChange={value=>{if(value)setStatuses(scenarioStatuses(value as DemoScenario))}}><SelectTrigger aria-label={sim.label} className="demo-state-trigger"><SelectValue>{scenario==='mixed'?sim.mixed:copy[scenario]}</SelectValue></SelectTrigger><SelectContent align="start" alignItemWithTrigger={false} sideOffset={8} className="demo-state-options">{demoScenarios.map(value=><SelectItem key={value} value={value}>{value==='mixed'?sim.mixed:copy[value]}</SelectItem>)}</SelectContent></Select></div><small>{sim.note}</small><button type="button" onClick={()=>setPaused(value=>!value)} aria-pressed={paused}>{paused?<Play size={13}/>:<Pause size={13}/>}<span>{paused?sim.resume:sim.pause}</span></button></div>}<div ref={viewport} className={'tunnel-demo-window'+(compact?' demo-compact':'')} data-motion-paused={paused} data-scenario={scenario} style={{'--native-preview-scale':windowScale} as CSSProperties}>
@@ -140,10 +144,10 @@ export function WorkspaceDemo({locale,initialView='map',compact=false}:{locale:L
     <div className="demo-header-center"><Tabs.List className="demo-native-tabs demo-native-capsule" aria-label={tunnelContent[locale].hero.demo}>{views.map(id=><Tabs.Tab key={id} value={id} aria-label={copy[id]} title={copy[id]}>{copy[id]}</Tabs.Tab>)}</Tabs.List></div>
     <div className="demo-header-side">
      <span className="demo-batch-tools demo-native-capsule"><button type="button" className="demo-batch-start" aria-label={copy.startAll} onClick={()=>setStatuses(scenarioStatuses('listening'))}><Play/></button><button type="button" className="demo-batch-stop" aria-label={copy.stopAll} onClick={()=>setStatuses(scenarioStatuses('stopped'))}><Square/></button></span>
-     <div className="demo-window-tools demo-native-capsule"><button type="button" aria-label={copy.terminalOpen} aria-pressed={terminal} onClick={()=>setTerminal(value=>!value)}><NativeTerminalIcon/></button><span aria-hidden="true"><Settings2/></span><span aria-hidden="true"><NativeAboutIcon/></span></div>
+     <div className="demo-window-tools demo-native-capsule"><button ref={filesButton} type="button" aria-label={getFileDemoCopy(locale).title} aria-pressed={files} onClick={()=>{setFiles(value=>!value);setTerminal(false)}}><FolderSync size={16}/></button><button type="button" aria-label={copy.terminalOpen} aria-pressed={terminal} onClick={()=>{setTerminal(value=>!value);setFiles(false)}}><NativeTerminalIcon/></button><span aria-hidden="true"><Settings2/></span><span aria-hidden="true"><NativeAboutIcon/></span></div>
     </div>
    </div>
-   <div className="demo-native-body">{views.map(id=><Tabs.Panel key={id} value={id} className="demo-native-panel">{id==='map'?<MapView copy={copy} statuses={statuses} paused={paused} locale={locale} onToggle={onToggle}/>:<RowsView key={id} view={id} copy={copy} statuses={statuses} locale={locale} onToggle={onToggle}/>}</Tabs.Panel>)}{terminal&&<TerminalDock copy={copy} onClose={()=>setTerminal(false)}/>}</div>
+   <div className="demo-native-body">{views.map(id=><Tabs.Panel key={id} value={id} className="demo-native-panel">{id==='map'?<MapView copy={copy} statuses={statuses} paused={paused} locale={locale} onToggle={onToggle}/>:<RowsView key={id} view={id} copy={copy} statuses={statuses} locale={locale} onToggle={onToggle}/>}</Tabs.Panel>)}{files&&<aside className="file-demo-dock"><FileWorkspaceDemo locale={locale} onClose={()=>{setFiles(false);filesButton.current?.focus()}}/></aside>}{terminal&&<TerminalDock copy={copy} onClose={()=>setTerminal(false)}/>}</div>
    <div className="demo-canvas-status"><NativeGraphStarIcon/><span>{copy.activeCount.replace('{{count}}',String(activeDemoCount(statuses)))}</span><i/>OriaTunnel</div>
   </Tabs.Root>
   </div>

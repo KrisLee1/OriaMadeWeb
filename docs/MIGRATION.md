@@ -45,7 +45,19 @@
 ## OriaTab 官网重做（2026-10-27）
 
 - 按用户要求参考现有 OriaTunnel 产品页重组 Tab 官网。九幕文案转为常规内容分区，原阶段组件与编排用于六种可切换、可重播的预览；更新日志与隐私政策保留原内容和八语言路由。
-- 只读对照 `/Users/krislee/Projects/OriaTab/src/App.tsx`、`src/styles.css`、`src/features/bookmarks.tsx` 与 `src/features/aide.css` 调整实际界面结构及尺寸。未修改迁移源，未导入浏览器权限、扩展存储、真实搜索或 AI 请求。
+- 只读对照 OriaTab 的 `src/App.tsx`、`src/styles.css`、`src/features/bookmarks.tsx` 与 `src/features/aide.css` 调整实际界面结构及尺寸；原路径与摘要见 [迁移源清单](migration-sources.json)。未修改迁移源，未导入浏览器权限、扩展存储、真实搜索或 AI 请求。
 - 沿用已迁移的原 WebGL shader、玻璃捕获与合成管线，原出处与 MIT 声明继续见 `public/products/oria-tab/licenses/liquidglass.txt`。官网预览默认使用独立的 Liquid glass Runtime；根据用户反馈降低厚度、折射与染色，并增大圆角。此处为官网展示参数，不更改原扩展默认值。
 - 本轮替换旧全屏滚动页面控制与章节浮轨；产品介绍保持服务端可读。减少动态效果时不播放预览动画；减少透明度或高对比度继续走原玻璃回退。Fieldnotes 样例网页及原生菜单增加明暗颜色变量。
 - 网站访问说明删除“部署时补充”的旧占位，按现有 Cloudflare Workers 架构说明站点偏好、演示临时状态及托管请求处理，并链接 Cloudflare 官方隐私政策。扩展自身权限、数据处理和本地存储描述保留。
+
+## OriaTunnel v0.2.0 发布准备同步（2026-11-04）
+
+- 只读来源为 `/Volumes/T7/Projects/OriaTunnel`：已提交基线 `6b57a72` 加当前未提交的 0.2.0 工作区，以 `docs/releases/v0.2.0.md`、`docs/USAGE.md` 与实际文件模块为准，不把未来方案当作已实现能力。
+- 同步文件浏览/传输、后台队列、预览/编辑、共享面板、macOS 文件体验与代理浏览器兼容修正。八语言内容明确“发布准备中”；2026-11-04 公开 API Latest 仍为 v0.1.1，v0.2.0 tag 返回 404，安装包及其已验证元数据继续保留 v0.1.1。
+- 直接迁移原版 FileArtwork 与 CSS、Breadcrumb、FilePathNavigation、FileOptionsMenu 及纯路径辅助函数；文件面板与队列沿用原结构和有作用域的原样式。去除所有原生桥接、真实文件访问、认证、SSH、持久化入口，改为独立官网示例状态；GPL-3.0-only 许可沿用 `docs/licenses/OriaTunnel-GPL-3.0.txt`。逐文件源摘要及提取词条记录在 `migration-sources.json`。
+
+## OriaTunnel v0.2.0 正式发布同步（2026-11-04）
+
+- 公开 [v0.2.0 Release](https://github.com/KrisLee1/OriaTunnel/releases/tag/v0.2.0) 与 Latest 一致，源提交 `f8ccbe7701c7b7666ed17eb07d74babbc3866aae`，五项更新与原发布日志一致。八语言移除准备发布措辞，现有文件演示保持原组件与独立数据边界。
+- 下载清单更新为四架构安装包及两种 DMG ZIP 的实际大小、SHA256 与发布时间。实际下载六个包和 `latest.json`，七项均匹配公开元数据；更新清单版本、四平台链接与签名字段存在性通过核对，未执行安装或独立密码学验签。
+- 当前更新锚点 `#release-notes` 指向 v0.2.0 文件功能区；v0.1.1 卡片独立标为历史版本，使用自己的版本号、Release 链接与 `#release-v0-1-1`，避免旧变更被显示为新版本内容。

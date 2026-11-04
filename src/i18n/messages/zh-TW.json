@@ -1072,5 +1072,11 @@
   "Interactive product preview. Sample content only; no browser data or AI requests.": "互動式產品示範。僅使用範例內容，不讀取瀏覽器資料或傳送 AI 請求。",
   "Pause demo": "暫停示範",
   "Replay demo": "重播示範",
-  "Reset demo": "重設示範"
+  "Reset demo": "重設示範",
+  "v0.2.0 · FILES": "v0.2.0 · 檔案",
+  "Files, close to your work.": "讓檔案，留在工作區。",
+  "File transfer": "檔案傳輸",
+  "A visual SSH workspace for hosts, tunnels, services, file transfers, previews, text editing and terminals on Windows and macOS.": "適用於 Windows 與 macOS 的視覺化 SSH 工作區，集中管理主機、通道、服務、檔案傳輸、預覽編輯與終端機。",
+  "Manage SSH hosts, forwarding and service commands in one workspace. Browse and transfer files, preview and edit text, and open SSH terminals alongside your remote services.": "在同一工作區管理 SSH 主機、轉送與服務命令，瀏覽及傳輸檔案、預覽並編輯文字，隨時開啟 SSH 終端機使用遠端服務。",
+  "Browse local and SSH files, transfer between hosts, manage a background queue, and preview or edit text in shared work panels.": "瀏覽本機與 SSH 檔案、主機間傳輸與背景佇列管理，在共用工作面板中預覽或編輯文字。"
 }

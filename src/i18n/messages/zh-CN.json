@@ -1072,5 +1072,11 @@
   "Interactive product preview. Sample content only; no browser data or AI requests.": "交互式产品演示。仅使用示例内容，不读取浏览器数据或发送 AI 请求。",
   "Pause demo": "暂停演示",
   "Replay demo": "重播演示",
-  "Reset demo": "重置演示"
+  "Reset demo": "重置演示",
+  "v0.2.0 · FILES": "v0.2.0 · 文件",
+  "Files, close to your work.": "让文件，留在工作区。",
+  "File transfer": "文件传输",
+  "A visual SSH workspace for hosts, tunnels, services, file transfers, previews, text editing and terminals on Windows and macOS.": "面向 Windows 与 macOS 的可视化 SSH 工作台，集中管理主机、隧道、服务、文件传输、预览编辑与终端。",
+  "Manage SSH hosts, forwarding and service commands in one workspace. Browse and transfer files, preview and edit text, and open SSH terminals alongside your remote services.": "在同一个工作区管理 SSH 主机、转发和服务命令，浏览与传输文件、预览并编辑文本，让远程服务与 SSH 终端触手可及。",
+  "Browse local and SSH files, transfer between hosts, manage a background queue, and preview or edit text in shared work panels.": "浏览本机与 SSH 文件、主机间传输和后台队列管理，在共享工作面板中预览或编辑文本。"
 }

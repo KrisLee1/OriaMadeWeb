@@ -1072,5 +1072,11 @@
   "Interactive product preview. Sample content only; no browser data or AI requests.": "대화형 제품 미리보기입니다. 예시 콘텐츠만 사용하며 브라우저 데이터를 읽거나 AI 요청을 보내지 않습니다.",
   "Pause demo": "데모 일시 정지",
   "Replay demo": "데모 다시 재생",
-  "Reset demo": "데모 초기화"
+  "Reset demo": "데모 초기화",
+  "v0.2.0 · FILES": "v0.2.0 · 파일",
+  "Files, close to your work.": "파일도 같은 작업 공간에서.",
+  "File transfer": "파일 전송",
+  "A visual SSH workspace for hosts, tunnels, services, file transfers, previews, text editing and terminals on Windows and macOS.": "Windows와 macOS용 시각적 SSH 작업 공간. 호스트, 터널, 서비스, 파일 전송, 미리보기, 텍스트 편집과 터미널을 한곳에서 관리합니다.",
+  "Manage SSH hosts, forwarding and service commands in one workspace. Browse and transfer files, preview and edit text, and open SSH terminals alongside your remote services.": "SSH 호스트, 포워딩과 서비스 명령을 한곳에서 관리하세요. 원격 서비스 옆에서 파일 탐색과 전송, 텍스트 미리보기와 편집, SSH 터미널을 사용할 수 있습니다.",
+  "Browse local and SSH files, transfer between hosts, manage a background queue, and preview or edit text in shared work panels.": "로컬·SSH 파일 탐색, 호스트 간 전송, 백그라운드 대기열, 공유 패널에서 텍스트 미리보기와 편집을 지원합니다."
 }

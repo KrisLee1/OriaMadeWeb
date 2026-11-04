@@ -1072,5 +1072,11 @@
   "Interactive product preview. Sample content only; no browser data or AI requests.": "Интерактивная демонстрация с примерами. Без доступа к данным браузера и запросов к ИИ.",
   "Pause demo": "Приостановить",
   "Replay demo": "Повторить демо",
-  "Reset demo": "Сбросить демо"
+  "Reset demo": "Сбросить демо",
+  "v0.2.0 · FILES": "v0.2.0 · ФАЙЛЫ",
+  "Files, close to your work.": "Файлы рядом с вашей работой.",
+  "File transfer": "Передача файлов",
+  "A visual SSH workspace for hosts, tunnels, services, file transfers, previews, text editing and terminals on Windows and macOS.": "Визуальное пространство SSH для хостов, туннелей, сервисов, передачи файлов, просмотра, редактирования текста и терминалов на Windows и macOS.",
+  "Manage SSH hosts, forwarding and service commands in one workspace. Browse and transfer files, preview and edit text, and open SSH terminals alongside your remote services.": "Управляйте SSH-хостами, перенаправлениями и командами сервисов в одном месте. Просматривайте и передавайте файлы, редактируйте текст и открывайте SSH-терминалы рядом с удалёнными сервисами.",
+  "Browse local and SSH files, transfer between hosts, manage a background queue, and preview or edit text in shared work panels.": "Просматривайте локальные и SSH-файлы, передавайте их между хостами, управляйте фоновой очередью и редактируйте текст в общих панелях."
 }

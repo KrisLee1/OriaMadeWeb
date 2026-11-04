@@ -2,8 +2,9 @@ import {locales} from '@/i18n/config'
 import {localize} from '@/i18n/localize'
 const sourceContent = {
   en: {
-    metadata: 'A visual SSH workspace for hosts, L/R/D forwarding, reusable service commands, runtime diagnostics and real terminals on Windows and macOS.',
+    metadata: 'A visual SSH workspace for hosts, tunnels, services, file transfers, previews, text editing and terminals on Windows and macOS.',
     nav: [
+      {id: 'files', label: 'File transfer'},
       {id: 'workflow', label: 'Workflow'},
       {id: 'capabilities', label: 'Product features'},
     ],
@@ -12,7 +13,7 @@ const sourceContent = {
       eyebrow: 'ORIA TUNNEL · SSH WORKSPACE',
       line1: 'Manage SSH tunnels visually.',
       line2: 'Use remote services with ease.',
-      description: 'Manage SSH hosts and local, remote or dynamic forwarding in one workspace. Connect to databases, web dashboards and development environments, with service commands, live status and terminals close at hand.',
+      description: 'Manage SSH hosts, forwarding and service commands in one workspace. Browse and transfer files, preview and edit text, and open SSH terminals alongside your remote services.',
       primary: 'Explore the workspace',
       secondary: 'Explore on GitHub',
       demo: 'INTERACTIVE PRODUCT STORY · SAMPLE DATA',
@@ -72,7 +73,7 @@ const sourceContent = {
       description: 'The details around a connection matter just as much as the connection itself.',
       cards: [
         {kicker: 'L / R / D', title: 'Three ways through.', description: 'Batch start or stop L / R / D rules. Once D is listening, open an isolated Chrome, Edge or Firefox proxy window, or go straight to a linked web service.'},
-        {kicker: 'DIAGNOSTICS', title: 'Signals, not guesswork.', description: 'Inspect authentication, target reachability, live traffic, retry timing and searchable lifecycle logs in one runtime view.'},
+        {kicker: 'v0.2.0 · FILES', title: 'Files, close to your work.', description: 'Browse local and SSH files, transfer between hosts, manage a background queue, and preview or edit text in shared work panels.'},
         {kicker: 'SSH TERMINAL', title: 'A shell when you need it.', description: 'Keep up to eight independent terminals in a dockable workspace with search, full-screen programs and explicit reconnects.'},
         {kicker: 'SERVICE RECIPES', title: 'Commands worth reusing.', description: 'Share service commands across linked hosts. Host and forward entries reflect the same service state; imported templates stay disabled until reviewed and enabled.'},
       ],
@@ -100,8 +101,9 @@ const sourceContent = {
     },
   },
   'zh-CN': {
-    metadata: '面向 Windows 与 macOS 的可视化 SSH 工作台，集中管理主机、L/R/D 转发、服务命令、运行诊断与真实终端。',
+    metadata: '面向 Windows 与 macOS 的可视化 SSH 工作台，集中管理主机、隧道、服务、文件传输、预览编辑与终端。',
     nav: [
+      {id: 'files', label: '文件传输'},
       {id: 'workflow', label: '工作流'},
       {id: 'capabilities', label: '产品功能'},
     ],
@@ -110,7 +112,7 @@ const sourceContent = {
       eyebrow: 'ORIA TUNNEL · SSH 可视化工作台',
       line1: '可视化管理 SSH 隧道，',
       line2: '轻松使用远程服务。',
-      description: '集中管理 SSH 主机与本地、远程、动态转发，轻松连接数据库、网页后台和开发环境。服务命令、运行状态与终端，都在同一个工作区。',
+      description: '在同一个工作区管理 SSH 主机、转发和服务命令，浏览与传输文件、预览并编辑文本，让远程服务与 SSH 终端触手可及。',
       primary: '探索工作区',
       secondary: '在 GitHub 查看项目',
       demo: '交互式产品故事 · 示例数据',
@@ -170,7 +172,7 @@ const sourceContent = {
       description: '连接之外的每个细节，和连接本身同样重要。',
       cards: [
         {kicker: 'L / R / D', title: '三种路径，自由抵达。', description: '批量启停 L / R / D 规则。D 监听后，可打开独立的 Chrome、Edge 或 Firefox 代理窗口，或直接访问关联的网页服务。'},
-        {kicker: '运行诊断', title: '看见信号，不靠猜测。', description: '在同一视图查看认证方式、目标可达性、实时流量、重试时间与可检索的生命周期日志。'},
+        {kicker: 'v0.2.0 · 文件', title: '让文件，留在工作区。', description: '浏览本机与 SSH 文件、主机间传输和后台队列管理，在共享工作面板中预览或编辑文本。'},
         {kicker: 'SSH 终端', title: '需要时，直接回到 shell。', description: '最多八个独立终端，在可停靠工作区中支持搜索、全屏程序与明确的断线重连。'},
         {kicker: '服务配方', title: '让常用命令真正复用。', description: '在关联主机间复用服务命令，主机与转发入口同步显示同一服务状态；导入模板经核对并启用后才可执行。'},
       ],

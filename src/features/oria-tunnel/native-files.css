@@ -1,0 +1,629 @@
+/* OriaTunnel files.css presentation rules, scoped to the website preview. GPL-3.0-only. */
+.file-demo .files-body {
+  flex: 1;
+  min-height: 0;
+  padding: 0 8px 8px;
+}
+.file-demo .files-queue.collapsed.files-queue-rail {
+  max-height: none;
+  align-items: center;
+  padding: 4px;
+  gap: 4px;
+}
+.file-demo .files-queue-rail > small {
+  font-size: 11px;
+  color: var(--oria-color-muted-fg);
+}
+.file-demo .files-queue-rail .files-rail-clear {
+  margin-top: auto;
+}
+.file-demo .files-pane {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  position: relative;
+  padding: 8px;
+  gap: 8px;
+}
+.file-demo .files-pane-title {
+  min-height: 28px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 0;
+  font-weight: 600;
+}
+.file-demo .files-pane > .files-toolbar {
+  padding: 0;
+  min-height: 28px;
+}
+.file-demo .files-pane-heading {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+.file-demo .files-pane-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.file-demo .files-pane-actions > span {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--oria-color-muted-fg);
+  white-space: nowrap;
+}
+.file-demo .files-viewport,
+.file-demo .files-task-list {
+  --scroll-fade-t-size: 16px;
+  --scroll-fade-b-size: 16px;
+  --scroll-fade-reveal: 24px;
+  scroll-padding-block: 16px;
+}
+.file-demo .files-host-select {
+  flex: 1;
+  min-width: 0;
+}
+.file-demo .files-toolbar {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  min-height: 36px;
+  padding: 4px 8px;
+}
+.file-demo .files-toolbar input {
+  min-width: 0;
+  height: 28px;
+  font-size: 12px;
+}
+.file-demo .files-toolbar svg {
+  flex-shrink: 0;
+}
+.file-demo .files-viewport {
+  touch-action: pan-y;
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  outline: none;
+  position: relative;
+}
+.file-demo [data-keyboard-navigation="true"] .files-viewport:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--oria-color-ring);
+}
+.file-demo .files-entry {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 4px 12px;
+  font-size: 12px;
+  cursor: default;
+  touch-action: none;
+  border-radius: 4px;
+}
+.file-demo .files-entry:hover {
+  background: var(--oria-color-muted);
+}
+.file-demo .files-entry.selected {
+  background: color-mix(in srgb, var(--oria-color-primary) 15%, transparent);
+  color: var(--oria-color-primary);
+}
+.file-demo .files-entry-name {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-width: 0;
+  flex: 1;
+}
+.file-demo .files-entry-name > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.file-demo .files-size {
+  width: 65px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--oria-color-muted-fg);
+}
+.file-demo .files-date {
+  width: 85px;
+  text-align: right;
+  color: var(--oria-color-muted-fg);
+}
+.file-demo .files-icon-entry .files-entry-name {
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  text-align: center;
+}
+.file-demo .files-icon-entry .files-entry-name > span {
+  max-width: 100%;
+}
+.file-demo .files-empty {
+  padding: 24px 16px;
+  text-align: center;
+  color: var(--oria-color-muted-fg);
+  font-size: 12px;
+}
+.file-demo .files-resize-handle {
+  position: relative;
+  background: transparent;
+  flex-shrink: 0;
+  outline: none;
+}
+.file-demo .files-resize-handle[aria-orientation="vertical"] {
+  width: 8px;
+  cursor: col-resize;
+}
+.file-demo .files-resize-handle[aria-orientation="horizontal"] {
+  height: 8px;
+  cursor: row-resize;
+}
+.file-demo .files-queue {
+  container-type: inline-size;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.file-demo .files-queue.collapsed {
+  max-height: 38px;
+}
+.file-demo .files-task-list {
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+  padding: 0 8px 8px;
+}
+.file-demo .files-transfer-filters,
+.file-demo .files-queue-tools {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+.file-demo .files-queue-tools {
+  margin-left: auto;
+}
+.file-demo .files-queue-tools .files-clear-history {
+  margin-left: 0;
+}
+.file-demo .files-queue-options {
+  width: max-content;
+  white-space: nowrap;
+}
+.file-demo .files-transfer-group-heading {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 2px 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.file-demo .files-transfer-group-heading > svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--oria-color-muted-fg);
+}
+.file-demo .files-transfer-group-heading > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.file-demo .files-transfer-group-heading > small,
+.file-demo .files-transfer-time {
+  color: var(--oria-color-muted-fg);
+  font-size: 11px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.file-demo .files-transfer-time {
+  display: none;
+  flex-shrink: 0;
+}
+.file-demo .files-batch-content {
+  min-width: 0;
+}
+.file-demo .files-batch-scroll {
+  --scroll-fade-t-size: 8px;
+  --scroll-fade-b-size: 8px;
+  --scroll-fade-reveal: 16px;
+}
+.file-demo .files-batch-scroll [data-slot="scroll-area-viewport"] {
+  overscroll-behavior: auto;
+}
+.file-demo .files-batch-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: var(--oria-radius-md);
+}
+.file-demo .files-batch-item:hover {
+  background: var(--oria-color-muted);
+}
+.file-demo .files-batch-item > .files-artwork {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.file-demo .files-batch-item-info {
+  flex: 1;
+  min-width: 0;
+}
+.file-demo .files-batch-item-info strong,
+.file-demo .files-transfer-endpoint > code {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.file-demo .files-batch-item-info strong {
+  font-size: 12px;
+  font-weight: 500;
+  min-width: 0;
+}
+.file-demo .files-batch-item-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  height: 20px;
+}
+.file-demo .files-batch-size {
+  flex-shrink: 0;
+  font-size: 11px;
+  color: var(--oria-color-muted-fg);
+  margin-left: auto;
+  white-space: nowrap;
+}
+.file-demo .files-transfer-paths {
+  display: flex;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  height: 16px;
+  font-size: 11px;
+  color: var(--oria-color-muted-fg);
+  white-space: nowrap;
+}
+.file-demo .files-transfer-paths > svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+.file-demo .files-transfer-endpoint {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+.file-demo .files-transfer-endpoint:first-child {
+  flex: 0 1 auto;
+  max-width: calc((100% - 24px) / 2);
+}
+.file-demo .files-transfer-endpoint > code {
+  font-family: inherit;
+  max-width: 100%;
+}
+.file-demo .files-batch-item-info code,
+.file-demo .files-batch-state {
+  color: var(--oria-color-muted-fg);
+  font-size: 11px;
+}
+.file-demo .files-batch-state {
+  min-width: 0;
+  max-width: 45%;
+  flex-shrink: 1;
+  text-overflow: ellipsis;
+  display: block;
+}
+.file-demo .files-batch-state.files-state-completed {
+  color: var(--oria-color-success);
+}
+.file-demo .files-batch-state:is(.files-state-failed, .files-state-conflict) {
+  color: var(--oria-color-danger);
+}
+.file-demo .files-transfer-row {
+  container: file-transfer / inline-size;
+  position: relative;
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 4px 8px;
+  padding: 6px 10px;
+  margin-block: 6px;
+  border: var(--oria-border-width-default) solid var(--oria-color-border);
+  border-radius: var(--oria-radius-lg);
+  background: color-mix(
+    in srgb,
+    var(--oria-color-bg) calc(var(--aide-component-surface-opacity) * 100%),
+    transparent
+  );
+}
+.file-demo .files-transfer-row > :not(.files-transfer-artwork) {
+  grid-column: 2;
+}
+.file-demo .files-transfer-artwork {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  align-self: center;
+  width: 32px;
+  height: 32px;
+}
+.file-demo .files-batch-trigger {
+  position: relative;
+  padding: 0;
+}
+.file-demo .files-batch-trigger > .files-artwork {
+  width: 32px;
+  height: 32px;
+}
+.file-demo .files-batch-trigger .files-batch-chevron {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  color: var(--oria-color-muted-fg);
+  background: var(--oria-color-surface);
+  border-radius: var(--oria-radius-xs);
+}
+.file-demo .files-transfer-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.file-demo .files-transfer-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 8ch;
+  min-width: 0;
+}
+.file-demo .files-transfer-name > strong {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  font-weight: 500;
+}
+.file-demo .files-transfer-direction {
+  display: flex;
+  align-items: center;
+  color: var(--oria-color-muted-fg);
+  flex-shrink: 0;
+}
+.file-demo .files-transfer-direction svg {
+  width: 15px;
+  height: 15px;
+}
+.file-demo .files-transfer-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.file-demo .files-transfer-state {
+  font-size: 11px;
+  padding-inline: 4px;
+  color: var(--oria-color-muted-fg);
+  min-width: 0;
+  max-width: 30%;
+  flex-shrink: 1;
+  display: block;
+  text-overflow: ellipsis;
+}
+.file-demo .files-transfer-state.files-state-completed {
+  color: var(--oria-color-success);
+}
+.file-demo .files-transfer-mode {
+  display: none;
+  flex-shrink: 0;
+  font-size: 10px;
+  color: var(--oria-color-muted-fg);
+}
+.file-demo .files-transfer-state.files-state-failed {
+  color: var(--oria-color-danger);
+}
+.file-demo .files-transfer-size {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 40%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--oria-color-muted-fg);
+  font-size: 11px;
+  white-space: nowrap;
+  cursor: help;
+  font-variant-numeric: tabular-nums;
+}
+.file-demo .files-transfer-size-full {
+  display: none;
+}
+.file-demo .files-transfer-subline {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+.file-demo .files-transfer-subline > .files-transfer-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  width: auto;
+  height: 2px;
+}
+.file-demo .files-transfer-progress [data-slot="progress-track"] {
+  height: 100%;
+}
+@media (max-width: 850px) {
+  .file-demo .files-date {
+    display: none;
+  }
+  .file-demo .files-toolbar {
+    gap: 2px;
+    padding-inline: 4px;
+  }
+  .file-demo .files-entry {
+    padding-inline: 8px;
+  }
+}
+
+.file-demo .files-breadcrumb {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  scrollbar-width: none;
+}
+.file-demo .files-breadcrumb ol {
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 100%;
+}
+.file-demo .files-breadcrumb [data-slot="breadcrumb-item"]:first-child,
+.file-demo .files-breadcrumb [data-slot="breadcrumb-separator"],
+.file-demo .files-breadcrumb .files-breadcrumb-overflow {
+  flex-shrink: 0;
+}
+.file-demo .files-breadcrumb [data-slot="breadcrumb-item"]:last-child {
+  flex: 1;
+}
+.file-demo .files-breadcrumb .files-breadcrumb-toggle {
+  padding: 0;
+}
+.file-demo .files-breadcrumb[data-compact="true"] ol {
+  gap: 2px;
+}
+.file-demo .files-breadcrumb[data-compact="true"] [data-slot="breadcrumb-separator"] svg {
+  width: 10px;
+  height: 10px;
+}
+.file-demo .files-breadcrumb[data-compact="true"] button {
+  padding-inline: 2px;
+}
+.file-demo .files-breadcrumb[data-compact="true"] .files-breadcrumb-toggle {
+  width: 20px;
+  padding: 0;
+}
+.file-demo .files-breadcrumb .files-breadcrumb-computer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+.file-demo .files-breadcrumb-menu {
+  width: max-content;
+  max-width: min(280px, calc(100vw - 24px));
+}
+.file-demo .files-breadcrumb-menu [data-slot="dropdown-menu-item"] > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.file-demo .files-breadcrumb button {
+  padding: 4px;
+  border-radius: 4px;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.file-demo .files-breadcrumb button:hover {
+  background: var(--oria-color-muted);
+  color: var(--oria-color-fg);
+}
+.file-demo .files-breadcrumb button[aria-current] {
+  color: var(--oria-color-fg);
+  font-weight: 600;
+}
+
+.file-demo .files-pane,
+.file-demo .files-queue {
+  border: var(--oria-border-width-default) solid var(--oria-color-border);
+  border-radius: var(--oria-radius-xl);
+  overflow: hidden;
+  background: transparent;
+}
+.file-demo .files-pane::before,
+.file-demo .files-queue::before {
+  background: var(--oria-color-surface);
+}
+.file-demo .files-resize-handle::after {
+  position: absolute;
+  content: "";
+  border-radius: var(--oria-radius-sm);
+  background: var(--oria-color-border);
+}
+.file-demo .files-resize-handle[aria-orientation="vertical"]::after {
+  width: 2px;
+  height: 24px;
+  left: 3px;
+  top: calc(50% - 12px);
+}
+.file-demo .files-resize-handle[aria-orientation="horizontal"]::after {
+  width: 24px;
+  height: 2px;
+  top: 3px;
+  left: calc(50% - 12px);
+}
+.file-demo .files-resize-handle:hover::after {
+  background: var(--oria-color-border-strong);
+}
+.file-demo [data-keyboard-navigation="true"] .files-resize-handle:focus-visible::after {
+  background: var(--oria-color-ring);
+}
+
+@container (max-width: 400px) {
+  .file-demo .files-queue > .files-toolbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .file-demo .files-queue > .files-toolbar > button:first-child {
+    justify-self: start;
+  }
+  .file-demo .files-queue > .files-toolbar > .files-queue-tools {
+    grid-column: 2;
+    grid-row: 1;
+    margin-left: 0;
+  }
+  .file-demo .files-transfer-filters {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+@container file-transfer (min-width: 680px) {
+  .file-demo .files-transfer-time {
+    display: block;
+  }
+}
+@container file-transfer (min-width: 520px) {
+  .file-demo .files-transfer-mode {
+    display: block;
+  }
+}
+@container file-transfer (min-width: 480px) {
+  .file-demo .files-transfer-size-full {
+    display: inline;
+  }
+  .file-demo .files-transfer-size-compact {
+    display: none;
+  }
+}
+@container file-transfer (max-width: 320px) {
+  .file-demo .files-transfer-heading,
+  .file-demo .files-transfer-name {
+    gap: 4px;
+  }
+}

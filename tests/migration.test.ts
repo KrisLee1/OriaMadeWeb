@@ -2,6 +2,9 @@ import {activeDemoCount,demoConnectionVisual,isDemoForwardActive,toggleDemoForwa
 import {getDemoCopy} from '../src/features/oria-tunnel/demo-copy'
 import {detectDownloadPlatform,installers,installerAsset,tunnelRelease} from '../src/features/oria-tunnel/release'
 import {downloadCopy} from '../src/features/oria-tunnel/download-copy'
+import {fileUpdateCopy} from '../src/features/oria-tunnel/file-update-copy'
+import {getFileDemoCopy} from '../src/features/oria-tunnel/file-demo-copy'
+import {controlDemoTransfer,sampleTransfers} from '../src/features/oria-tunnel/file-demo-state'
 import {pageMetadata,pageIdentity} from '../src/lib/seo'
 import test from 'node:test'
 import assert from 'node:assert/strict'
@@ -103,7 +106,7 @@ test('Download selection handles architecture hints, reduced user agents and mob
 })
 
 test('All installer links match the configured release and download copy covers eight languages',()=>{
- assert.equal(tunnelRelease.version,'v0.1.1')
+ assert.equal(tunnelRelease.version,'v0.2.0')
  assert.equal(installers.length,4)
  assert.ok(Number.isFinite(Date.parse(tunnelRelease.publishedAt)))
  assert.equal(Object.keys(tunnelRelease.assets).length,6)
@@ -121,6 +124,31 @@ test('All installer links match the configured release and download copy covers 
   assert.deepEqual(Object.keys(downloadCopy[locale]),Object.keys(downloadCopy.en))
   assert.ok(downloadCopy[locale].downloadFor.includes('{platform}'))
  }
+})
+
+test('Published file workspace and installers refer to the same current release in every locale',()=>{
+ for(const locale of locales){
+  const copy=fileUpdateCopy[locale]
+  assert.ok(copy.downloadNotice.includes(tunnelRelease.version),locale)
+  assert.ok(!copy.downloadNotice.includes('v0.1.1'),locale)
+  assert.equal(copy.highlights.length,copy.changes.length,locale)
+  assert.equal(copy.changes.length,5,locale)
+  assert.deepEqual(Object.keys(getFileDemoCopy(locale)),Object.keys(getFileDemoCopy('en')),locale)
+  assert.ok(copy.demoNotice.trim(),locale)
+ }
+})
+
+test('File demo queue controls preserve progress and cannot revive completed or cancelled tasks',()=>{
+ const running=sampleTransfers[0]
+ const paused=controlDemoTransfer(running,'pause')
+ assert.equal(paused.phase,'paused')
+ assert.equal(paused.percent,running.percent)
+ assert.equal(controlDemoTransfer(paused,'resume').phase,'transferring')
+ const cancelled=controlDemoTransfer(paused,'cancel')
+ for(const task of [cancelled,sampleTransfers[1]]){
+  for(const action of ['pause','resume','cancel'] as const)assert.deepEqual(controlDemoTransfer(task,action),task)
+ }
+ assert.equal(running.phase,'transferring')
 })
 
 test('Browser titles and favicons follow the product across locales and nested pages',()=>{

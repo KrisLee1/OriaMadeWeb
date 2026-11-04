@@ -1072,5 +1072,11 @@
   "Interactive product preview. Sample content only; no browser data or AI requests.": "Aperçu interactif avec des exemples uniquement. Aucune lecture des données du navigateur ni requête IA.",
   "Pause demo": "Mettre en pause",
   "Replay demo": "Rejouer la démo",
-  "Reset demo": "Réinitialiser la démo"
+  "Reset demo": "Réinitialiser la démo",
+  "v0.2.0 · FILES": "v0.2.0 · FICHIERS",
+  "Files, close to your work.": "Vos fichiers au cœur du travail.",
+  "File transfer": "Transfert de fichiers",
+  "A visual SSH workspace for hosts, tunnels, services, file transfers, previews, text editing and terminals on Windows and macOS.": "Un espace SSH visuel pour hôtes, tunnels, services, transferts de fichiers, aperçu, édition de texte et terminaux sur Windows et macOS.",
+  "Manage SSH hosts, forwarding and service commands in one workspace. Browse and transfer files, preview and edit text, and open SSH terminals alongside your remote services.": "Gérez hôtes SSH, redirections et commandes de services au même endroit. Parcourez et transférez les fichiers, prévisualisez et modifiez le texte, puis ouvrez des terminaux SSH à côté des services distants.",
+  "Browse local and SSH files, transfer between hosts, manage a background queue, and preview or edit text in shared work panels.": "Parcourez les fichiers locaux et SSH, transférez entre hôtes, gérez la file en arrière-plan et prévisualisez ou modifiez le texte dans des panneaux partagés."
 }

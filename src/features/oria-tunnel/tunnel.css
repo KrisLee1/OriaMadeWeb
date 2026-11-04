@@ -37,7 +37,7 @@
 
 
 
-@media(max-width:900px){.tunnel-nav,.tunnel-header-actions{display:none}.tunnel-menu-trigger{display:grid;place-items:center;width:40px;height:40px;margin-left:0;border:0;border-radius:50%;background:transparent;color:var(--oria-color-fg)}.tunnel-mobile-menu{max-width:calc(100vw - 32px)}}
+@media(max-width:1100px){.oria-tunnel-shell .site-github-link.site-github-compact{display:inline-flex;flex:none;width:38px;height:40px;margin-left:auto}.tunnel-nav,.tunnel-header-actions{display:none}.tunnel-menu-trigger{display:grid;place-items:center;width:40px;height:40px;margin-left:0;border:0;border-radius:50%;background:transparent;color:var(--oria-color-fg)}.tunnel-mobile-menu{max-width:calc(100vw - 32px)}}
 
 .tunnel-site-header{display:block;padding:0}
 .tunnel-header-inner{width:100%;height:64px;padding:0 24px}

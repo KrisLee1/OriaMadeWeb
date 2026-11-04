@@ -19,7 +19,7 @@ export function TunnelHeader({locale}:{locale:TunnelLocale}){
  const [activeSection,setActiveSection]=useState<string|null>(null)
  useEffect(()=>{
   if(downloadPage)return
-  const sections=['workflow','capabilities'].map(id=>document.getElementById(id)).filter((element):element is HTMLElement=>Boolean(element))
+  const sections=['files','workflow','capabilities'].map(id=>document.getElementById(id)).filter((element):element is HTMLElement=>Boolean(element))
   const observer=new IntersectionObserver(()=>{
    const current=sections.filter(section=>section.getBoundingClientRect().top<window.innerHeight*.4).at(-1)
    setActiveSection(current?.id??null)
@@ -27,7 +27,7 @@ export function TunnelHeader({locale}:{locale:TunnelLocale}){
   sections.forEach(section=>observer.observe(section))
   return()=>observer.disconnect()
  },[downloadPage])
- useEffect(()=>{const wide=matchMedia('(min-width:901px)');const close=()=>{if(wide.matches)setOpen(false)};wide.addEventListener('change',close);return()=>wide.removeEventListener('change',close)},[])
+ useEffect(()=>{const wide=matchMedia('(min-width:1101px)');const close=()=>{if(wide.matches)setOpen(false)};wide.addEventListener('change',close);return()=>wide.removeEventListener('change',close)},[])
  const links=<><Link href={localizedPath(locale)} onClick={()=>setOpen(false)}>{localize(locale,'Oria home','Oria 首页')}</Link>{c.nav.map(item=><a key={item.id} href={`${localizedPath(locale,'/oria-tunnel')}#${item.id}`} aria-current={!downloadPage&&activeSection===item.id?'location':undefined} onClick={()=>{setActiveSection(item.id);setOpen(false)}}>{item.label}</a>)}<Link href={localizedPath(locale,'/oria-tunnel/download')} aria-current={downloadPage?'page':undefined} onClick={()=>setOpen(false)}>{downloadCopy[locale].download}</Link></>
  return <header ref={anchor} className="tunnel-site-header scroll-reveal-header" data-floating={floating}><div className="tunnel-header-inner">
   <Link className="tunnel-brand" href={localizedPath(locale,'/oria-tunnel')}><img src="/products/oria-tunnel/logo.svg" width={30} height={30} alt=""/><BrandName name="OriaTunnel"/></Link>
