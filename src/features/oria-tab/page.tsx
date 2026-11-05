@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import {Reveal} from '@/components/ui/reveal'
 import {ArrowDown, ArrowUpRight, Check, Download, Fingerprint, FolderOpen, Languages, LayoutGrid, MessageCircle, Monitor, Palette, Search, ShieldCheck, Sparkles} from 'lucide-react'
 import {localizedPath, type Locale} from '@/i18n/config'
 import {localize} from '@/i18n/localize'
@@ -13,14 +14,14 @@ export function TabPage({locale}: {locale: Locale}) {
   const previews = ['search', 'organize', 'aide', 'web'] as const
   return <main className="tab-main">
     <section className="tab-hero" id="begin">
-      <div className="tab-hero-haze" aria-hidden="true"/>
-      <div className="tab-hero-copy">
+      <Reveal immediate className="tab-hero-copy">
         <p className="tab-eyebrow"><i/>OriaTab <span/> Chrome & Edge</p>
         <h1>{c.scenes[0][1].split('\n').map((line: string) => <span key={line}>{line}</span>)}</h1>
         <p className="tab-hero-description">{c.scenes[0][2]}</p>
         <div className="tab-actions"><a className="tab-button tab-button-primary" href="#get"><Download size={16}/>{c.nav[4]}</a><a className="tab-button tab-button-quiet" href="#workspace">{c.nav[0]}<ArrowDown size={16}/></a></div>
+        <nav className="tab-hero-topics" aria-label={c.nav[0]}>{[Search,LayoutGrid,MessageCircle].map((Icon,index)=><a href={'#'+['search','organize','imagine'][index]} key={index}><Icon size={13}/>{c.scenes[index+1][0]}</a>)}</nav>
         <p className="tab-hero-note"><Monitor size={13}/>{c.scenes[6][3]}<span/>v{site.version}</p>
-      </div>
+      </Reveal>
       <div className="tab-hero-workspace" id="workspace">
         <div className="tab-demo-meta"><span><i/>{c.demo[19]}</span><span>OriaTab {site.version} · Chrome / Edge</span></div>
         <TabDemo locale={locale}/>
@@ -28,18 +29,18 @@ export function TabPage({locale}: {locale: Locale}) {
       </div>
     </section>
     <section id="workflow" className="tab-section tab-workflow">
-      <header className="tab-section-heading"><p className="tab-eyebrow">{c.scenes[1][3]}</p><h2>{c.scenes[1][1].replace('\n', '')}</h2><p>{c.journal[3]}</p></header>
+      <Reveal><header className="tab-section-heading"><p className="tab-eyebrow">{c.scenes[1][3]}</p><h2>{c.scenes[1][1].replace('\n', '')}</h2><p>{c.journal[3]}</p></header></Reveal>
       <div className="tab-feature-grid">{previews.map((preview, i) => {
         const scene = c.scenes[i + 1], Icon = featureIcons[i]
-        return <article id={['search', 'organize', 'imagine', 'on-the-web'][i]} className="tab-feature" key={preview}>
+        return <Reveal key={preview} delay={i*0.05} className="tab-feature-item"><article id={['search', 'organize', 'imagine', 'on-the-web'][i]} className="tab-feature">
           <div className="tab-feature-copy"><p className="tab-eyebrow"><span>0{i + 1}</span><Icon size={14}/>{scene[0]}</p><h3>{scene[1].replace('\n', '')}</h3><p>{scene[2]}</p></div>
           <div className="tab-feature-window"><TabDemo locale={locale} variant={preview}/></div>
           <p className="tab-feature-note">{scene[3]}</p>
-        </article>
+        </article></Reveal>
       })}</div>
     </section>
     <section id="appearance" className="tab-section tab-appearance">
-      <header className="tab-section-heading"><p className="tab-eyebrow">OriaTheme</p><h2>{c.scenes[5][1].replace('\n', '')}</h2><p>{c.scenes[5][2]}</p></header>
+      <Reveal><header className="tab-section-heading"><p className="tab-eyebrow">OriaTheme</p><h2>{c.scenes[5][1].replace('\n', '')}</h2><p>{c.scenes[5][2]}</p></header></Reveal>
       <div className="tab-theme-gallery" aria-hidden="true">{['dawn', 'aurora', 'dusk'].map((wall, i) => <div className={`tab-theme-sample tab-theme-sample-${i}`} key={wall}><img src={`/products/oria-tab/assets/wallpapers/${wall}.svg`} alt="" loading="lazy"/><div className="tab-sample-search"><Search size={15}/><span>OriaTab</span></div><div className="tab-sample-dock">{[LayoutGrid, MessageCircle, Palette].map((Icon, n) => <span key={n}><Icon size={15}/></span>)}</div></div>)}</div>
       <div className="tab-detail-grid">{[[Palette, '44', c.settings[1]], [Sparkles, c.settings[2], 'OriaTab'], [Monitor, c.settings[3], c.settings[4]], [Languages, '8', c.nav[5]]].map(([Icon, title, label], i) => {
         const DetailIcon = Icon as typeof Palette

@@ -1,0 +1,20 @@
+#main-content {position:relative;isolation:isolate;min-height:100svh}
+
+/* The scene scrolls with the document; its width is independent of content columns. */
+.site-background {position:absolute;inset:0 0 auto;height:clamp(760px,100svh,1200px);z-index:-1;overflow:hidden;pointer-events:none;mask-image:linear-gradient(#000 65%,transparent);transition:opacity var(--oria-duration-normal)}
+.site-background[data-reading=true] {opacity:.5}
+.site-background-glow {position:absolute;inset:0;background:radial-gradient(ellipse at 85% 15%,color-mix(in srgb,var(--oria-color-primary) 10%,transparent),transparent 65%)}
+.site-background[data-background=theme] .site-background-glow {background:radial-gradient(ellipse at 10% 70%,color-mix(in srgb,var(--oria-color-accent) 12%,transparent),transparent 70%)}
+.site-background[data-background=tab] .site-background-glow {background:radial-gradient(ellipse at 15% 15%,color-mix(in srgb,var(--oria-color-accent) 9%,transparent),transparent 65%),radial-gradient(ellipse at 90% 85%,color-mix(in srgb,var(--oria-color-primary) 7%,transparent),transparent 65%)}
+.site-background[data-background=tunnel] .site-background-glow {background:radial-gradient(ellipse at 50% 40%,color-mix(in srgb,var(--oria-color-primary) 6%,transparent),transparent 75%)}
+.site-background[data-ready=false] .site-background-glow::after {content:'';position:absolute;inset:0;opacity:.18;background:repeating-linear-gradient(114deg,transparent 0 32px,var(--oria-color-primary) 33px,transparent 34px)}
+.site-background[data-background=theme][data-ready=false] .site-background-glow::after {background:radial-gradient(ellipse at 50% 0%,var(--oria-color-primary),transparent 75%)}
+.site-background[data-background=tab][data-ready=false] .site-background-glow::after {background:radial-gradient(circle,var(--oria-color-primary) 1px,transparent 2px) 0 0/76px 76px}
+.site-background[data-background=tunnel][data-ready=false] .site-background-glow::after {background:radial-gradient(circle,var(--oria-color-primary) 1px,transparent 1.5px) 0 0/40px 40px}
+.site-effect {position:absolute;inset:0}
+.site-effect-canvas {display:block;width:100%;height:100%}
+
+/* Product shells own layout; card and editor surfaces keep their theme tokens. */
+#main-content .oria-theme,#main-content .oria-tab-shell,#main-content .oria-tunnel-shell {background:transparent}
+@media(prefers-reduced-motion:reduce){.site-background{transition:none}}
+@media(forced-colors:active){.site-background{display:none}}

@@ -15,7 +15,6 @@
 .tab-mobile-menu .oria-controls{justify-content:flex-end;border-top:1px solid var(--tab-hairline,var(--oria-color-border));margin-top:10px;padding-top:12px}
 .tab-eyebrow{display:flex;align-items:center;gap:10px;margin:0;color:var(--oria-color-muted-fg);font-size:10px;font-weight:550;letter-spacing:.1em;line-height:1.6;text-transform:uppercase}
 .tab-hero{position:relative;isolation:isolate;padding:150px 40px 60px;text-align:center}
-.tab-hero-haze{position:absolute;z-index:-1;pointer-events:none;inset:0 0 12%;background:radial-gradient(ellipse at 30% 2%,color-mix(in srgb,var(--oria-color-primary) 17%,transparent),transparent 55%),radial-gradient(ellipse at 84% 17%,color-mix(in srgb,var(--oria-color-accent) 25%,transparent),transparent 54%);mask-image:linear-gradient(#000 65%,transparent)}
 .tab-hero-copy>.tab-eyebrow{justify-content:center;margin-bottom:24px}.tab-eyebrow>i{width:5px;height:5px;background:var(--oria-color-primary);border-radius:50%}.tab-hero-copy>.tab-eyebrow>span,.tab-hero-note>span{width:1px;height:10px;background:var(--oria-color-border)}
 .tab-hero h1{margin:0;font-size:clamp(48px,5.1vw,70px);font-weight:500;line-height:1.16;letter-spacing:-.055em;text-wrap:balance;overflow-wrap:anywhere}.tab-hero h1>span{display:block}.tab-hero h1>span+span{color:var(--oria-color-primary)}
 .tab-hero-description{max-width:690px;margin:24px auto 0;font-size:15px;line-height:1.95;color:var(--oria-color-muted-fg);text-wrap:balance}
@@ -41,7 +40,7 @@
 .oria-tab-shell .oria-article{padding-top:130px}.oria-tab-shell .product-footer{margin-top:0}
 /* Product components stay under the original scoped theme and glass runtime. */
 .tab-demo-mount{min-width:0}.tab-demo-showcase{min-height:300px}.tab-demo-loading{display:grid;place-items:center;min-height:300px;color:var(--oria-color-primary);font-size:24px;background:var(--oria-color-surface);border-radius:var(--oria-radius-lg)}
-.tab-showcase{display:block!important;overflow:hidden;border:1px solid var(--tab-hairline);border-radius:var(--oria-radius-lg);background:var(--oria-color-bg);box-shadow:0 20px 70px color-mix(in srgb,var(--oria-color-fg) 8%,transparent)}
+.tab-showcase{display:block!important;overflow:hidden;border:1px solid var(--tab-hairline);border-radius:var(--oria-radius-lg);background:var(--oria-color-bg);box-shadow:var(--oria-shadow-lg)}
 .tab-showcase-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 16px;border-bottom:1px solid var(--tab-hairline)}
 .tab-showcase .tab-scene-tabs{display:flex;width:auto;height:auto;min-width:0;flex-wrap:wrap;justify-content:flex-start;gap:4px;padding:0;background:transparent}
 .tab-showcase .tab-scene-tabs>button{flex:none;height:auto;min-height:34px;padding:7px 11px;border:0;border-radius:var(--oria-radius-md);color:var(--oria-color-muted-fg);background:transparent;font-size:11px;line-height:1.6;box-shadow:none}.tab-showcase .tab-scene-tabs>button:after{display:none}.tab-showcase .tab-scene-tabs>button[data-active]{color:var(--oria-color-primary);background:color-mix(in srgb,var(--oria-color-primary) 10%,transparent)}
@@ -65,9 +64,9 @@
 @media(max-width:600px){.tab-showcase-viewport{aspect-ratio:400/650}.tab-showcase .st[data-mode=mobile] .st-layer{top:48%;transform:translate(-50%,-50%) scale(var(--u))}.tab-showcase .st[data-mode=mobile] .st-chrome{display:none}.tab-showcase .st[data-mode=mobile] .st-ui{pointer-events:none}.tab-showcase .st[data-mode=mobile] .st-appearance{pointer-events:auto}.tab-closeup{height:270px}}
 @media(max-width:380px){.tab-install-manual ol{grid-template-columns:1fr}.tab-install-manual li{border-right:0;border-bottom:1px solid var(--tab-hairline)}.tab-install-manual li:nth-child(3){border-bottom:1px solid var(--tab-hairline)}.tab-hero h1{font-size:36px}.tab-header-inner{padding-inline:12px}.tab-site-header .tab-brand{font-size:18px}.tab-site-header .site-github-compact{width:32px}.tab-closeup{height:220px}.tab-showcase-caption>p{max-width:170px}}
 @media(prefers-reduced-motion:no-preference){.tab-hero-copy{animation:oria-page-enter var(--oria-duration-slow) var(--oria-ease-standard) both}}
-@supports ((animation-timeline:view()) and (animation-range:entry 0% entry 100%)){@media(prefers-reduced-motion:no-preference){.tab-feature{animation:oria-section-enter linear both;animation-timeline:view();animation-range:entry 0% entry 25%}}}
+@supports ((animation-timeline:view()) and (animation-range:entry 0% entry 100%)){@media(prefers-reduced-motion:no-preference){}}
 @media(prefers-reduced-motion:reduce){.tab-mobile-menu,.tab-button,.tab-nav>a{transition:none;animation:none;transform:none}.tab-button:hover,.tab-mobile-menu[data-starting-style],.tab-mobile-menu[data-ending-style]{transform:none}.tab-showcase *{animation:none!important}}
-@media(forced-colors:active){.tab-feature,.tab-showcase,.tab-install-manual,.tab-theme-sample{border:1px solid CanvasText}.tab-hero-haze{display:none}}
+@media(forced-colors:active){.tab-feature,.tab-showcase,.tab-install-manual,.tab-theme-sample{border:1px solid CanvasText}}
 /* Native OriaTab layout: App.tsx, styles.css and aide.css; sample data stays isolated. */
 .tab-showcase .st-halo-layer{display:none}.tab-showcase .tab-preview-stage .st-device{--device-shadow:0!important}
 .tab-showcase .st-chrome{display:none}
@@ -97,6 +96,42 @@
 @media(max-width:900px){.tab-subpage{padding-inline:28px}.tab-subpage-layout{grid-template-columns:170px minmax(0,1fr);gap:28px}.tab-release-header,.tab-release-body{padding:24px}.tab-policy-overview>div{padding:24px 20px}}
 @media(max-width:700px){.tab-subpage{padding:0 22px 50px}.tab-subpage-hero{padding:115px 0 38px}.tab-back-link{margin-bottom:26px}.tab-subpage-hero h1{font-size:38px}.tab-subpage-hero>p:last-child{font-size:13px;margin-top:20px}.tab-subpage-layout{grid-template-columns:1fr;gap:30px}.tab-subpage-sidebar{position:static}.tab-subpage-sidebar nav{flex-direction:row;flex-wrap:wrap;gap:7px}.tab-subpage-sidebar nav>.tab-eyebrow{width:100%;padding:0 0 8px}.tab-subpage-sidebar nav>a{border:1px solid var(--tab-hairline);gap:9px;padding:8px 10px;font-size:11px}.tab-subpage-sidebar nav time{display:none}.tab-subpage-sidebar>.tab-button{width:fit-content;margin-top:18px}.tab-sidebar-note{padding:0;margin-top:12px}.tab-release-entry{margin-bottom:20px}.tab-release-header{padding:22px;align-items:flex-start;gap:16px}.tab-release-header h2{font-size:25px}.tab-release-header time{font-size:10px;padding-top:4px}.tab-release-body{padding:22px}.tab-release-change p{font-size:14px}.tab-release-wallpapers{gap:8px;margin-block:20px}.tab-release-wallpapers>img{aspect-ratio:1}.tab-release-features p{font-size:12px}.tab-release-features h4{font-size:13px}.tab-subpage-end{margin-top:45px;font-size:10px}.tab-policy-overview{grid-template-columns:1fr;margin-bottom:35px}.tab-policy-overview>div{display:grid;grid-template-columns:25px minmax(0,1fr);column-gap:16px;padding:20px 22px;border-right:0;border-bottom:1px solid var(--tab-hairline)}.tab-policy-overview svg{grid-row:1/3;margin:3px 0 0}.tab-policy-overview h2{font-size:14px;margin:0 0 5px}.tab-policy-overview p{font-size:11px}.tab-policy-layout .tab-subpage-sidebar nav>a{font-size:10px;padding:7px 9px;gap:6px}.tab-policy-layout .tab-sidebar-note{display:none}.tab-policy-section{padding-bottom:28px;margin-bottom:28px}.tab-policy-section h2{font-size:21px}.tab-policy-section p,.tab-policy-section li{font-size:12px;line-height:1.95}.tab-policy-section>header{gap:10px}.tab-policy-section table{min-width:460px;font-size:11px}.tab-policy-section th,.tab-policy-section td{padding:13px 14px}.tab-policy-section tbody th{font-size:11px;width:24%}.tab-policy-section .table-scroll{overscroll-behavior-x:contain}.tab-policy-support{padding:20px}}
 @media(prefers-reduced-motion:reduce){.tab-subpage-sidebar nav>a{transition:none}}
+
+/* Product overview: shorter introduction, prominent demo and varied feature widths. */
+.oria-tab-shell .tab-hero{padding-top:128px;padding-bottom:56px}
+.oria-tab-shell .tab-hero h1{font-size:clamp(46px,5vw,68px);max-width:1040px;margin:auto;line-height:1.13}
+.oria-tab-shell .tab-hero-description{max-width:620px;font-size:15px;line-height:1.85;margin-top:22px}
+.tab-hero-topics{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px 20px;margin-top:24px}
+.tab-hero-topics>a{display:inline-flex;align-items:center;gap:7px;color:var(--oria-color-muted-fg);font-size:11px;line-height:1.6}
+.tab-hero-topics>a:hover{color:var(--oria-color-primary)}
+.oria-tab-shell .tab-hero-workspace{margin-top:38px}
+.oria-tab-shell .tab-section{padding-top:72px;padding-bottom:72px}
+.oria-tab-shell .tab-section-heading{display:grid;grid-template-columns:1.2fr 1fr;align-items:end;gap:14px 56px;text-align:left;margin-bottom:32px}
+.oria-tab-shell .tab-section-heading>.tab-eyebrow{grid-column:1/-1;justify-content:flex-start}
+.oria-tab-shell .tab-section-heading h2{margin:0;font-size:clamp(30px,3.3vw,44px);line-height:1.2;letter-spacing:-.045em;text-wrap:balance}
+.oria-tab-shell .tab-section-heading>p:last-child{margin:0;font-size:14px;line-height:1.85;max-width:460px}
+.oria-tab-shell .tab-feature-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.tab-feature-item{display:flex;min-width:0}
+.tab-feature-item:nth-child(1),.tab-feature-item:nth-child(4){grid-column:span 2}
+.oria-tab-shell .tab-feature{width:100%;min-width:0;scroll-margin-top:90px}
+.oria-tab-shell .tab-feature-copy{padding:30px 30px 0}
+.oria-tab-shell .tab-feature-copy h3{font-size:28px;line-height:1.25;max-width:24ch}
+.oria-tab-shell .tab-feature-copy>p:last-child{font-size:13px;line-height:1.8;min-height:0;max-width:580px}
+.oria-tab-shell .tab-feature-window{margin:0 20px}
+.oria-tab-shell .tab-feature-note{margin:18px 30px 26px;font-size:11px;line-height:1.75}
+.oria-tab-shell .tab-detail-grid{gap:16px}
+.oria-tab-shell .tab-detail-grid article{padding:24px;border:1px solid var(--tab-hairline);border-radius:var(--oria-radius-lg);background:color-mix(in srgb,var(--oria-color-surface) 60%,transparent)}
+.oria-tab-shell .tab-privacy{gap:72px}
+.oria-tab-shell .tab-install{padding-top:72px}
+.oria-tab-shell .tab-subpage{padding-top:112px}
+.oria-tab-shell .tab-subpage-sidebar{top:92px}
+.oria-tab-shell .tab-policy-section{scroll-margin-top:92px}
+.oria-tab-shell .tab-subpage-hero h1{font-size:clamp(38px,4.8vw,62px);line-height:1.15}
+.oria-tab-shell .tab-release-entry{box-shadow:none;transition:border-color var(--oria-duration-fast)}
+.oria-tab-shell .tab-release-entry:hover{border-color:color-mix(in srgb,var(--oria-color-primary) 30%,var(--oria-color-border))}
+@media(max-width:1000px){.oria-tab-shell .tab-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.tab-feature-item:nth-child(1),.tab-feature-item:nth-child(4){grid-column:auto}.oria-tab-shell .tab-section-heading{gap:16px 32px}}
+@media(max-width:760px){.oria-tab-shell .tab-hero{padding-top:112px;padding-inline:22px;padding-bottom:38px}.oria-tab-shell .tab-hero h1{font-size:clamp(36px,8.8vw,54px);line-height:1.2}.oria-tab-shell .tab-hero-description{font-size:13px}.tab-hero-topics{gap:9px 14px;margin-top:20px}.tab-hero-topics>a{font-size:10px}.oria-tab-shell .tab-section{padding-top:52px;padding-bottom:52px}.oria-tab-shell .tab-section-heading{grid-template-columns:1fr;gap:14px}.oria-tab-shell .tab-section-heading h2{font-size:32px}.oria-tab-shell .tab-section-heading>p:last-child{font-size:13px}.oria-tab-shell .tab-feature-grid{grid-template-columns:1fr}.oria-tab-shell .tab-feature-copy{padding:24px 24px 0}.oria-tab-shell .tab-feature-copy h3{font-size:25px}.oria-tab-shell .tab-feature-window{margin:0 14px}.oria-tab-shell .tab-feature-note{margin:16px 24px 22px}.oria-tab-shell .tab-privacy{gap:28px}.oria-tab-shell .tab-subpage{padding-top:104px}}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.tab-feature:hover{transform:translateY(-3px)}.tab-theme-sample{transition:transform 400ms var(--oria-ease-standard)}.tab-theme-sample:hover{transform:translateY(-6px)}}
 .oria-tab-runtime[data-material=liquid]{--popup-radius:24px;--popup-control-radius:16px;--radius-lg:16px;--radius-xl:24px}
 .oria-tab-runtime[data-material=liquid] .tab-showcase{border-radius:20px}
 .oria-tab-runtime[data-material=liquid] .product-popup{border-radius:24px}
@@ -123,3 +158,6 @@
 /* The migrated document background must not paint a square behind the preview's rounded frame. */
 .tab-demo-showcase>.oria-tab-runtime{background:transparent;overflow:visible}
 .tab-demo-showcase>.tab-demo-loading{border-radius:20px}
+.tab-demo-mount:not(.tab-demo-showcase)>.tab-demo-loading{height:330px;min-height:0}
+@media(max-width:600px){.tab-demo-mount:not(.tab-demo-showcase)>.tab-demo-loading{height:270px}}
+@media(max-width:380px){.tab-demo-mount:not(.tab-demo-showcase)>.tab-demo-loading{height:220px}}

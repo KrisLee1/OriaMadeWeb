@@ -72,13 +72,13 @@ export class ApplicationGlassScene {
   get stats(){return {...this.metrics,fragments:[...this.fragments.values()].map(f=>({node:f.node.className,dirty:f.dirty,version:f.version,captures:f.captures,dependencies:[...this.surfaces].filter(s=>comparePaintPaths(paintPath(f.node,this.root),paintPath(s.owner,this.root))<0&&intersects(f.node.getBoundingClientRect(),s.node.getBoundingClientRect(),s.padding)).map(s=>s.owner.className)})),errors:[...this.fragments.values()].filter(f=>f.error).map(f=>({node:f.node.className,error:f.error})),contexts:this.renderer.stats.contexts,estimatedBytes:this.renderer.stats.estimatedBytes+[...this.pool.scenes].reduce((sum,s)=>sum+s.estimatedBytes,0),surfaces:this.surfaces.size}}
   private owns(node:HTMLElement){return node.closest('[data-glass-scope]')===this.root}
   private bounds(){return this.root===this.root.ownerDocument.body?new DOMRect(0,0,innerWidth,innerHeight):this.root.getBoundingClientRect()}
-  private onInteraction=()=>{this.reads.clear();this.invalidate()}
+  private onInteraction=(event:Event)=>{if(this.root!==this.root.ownerDocument.body&&event.target instanceof Node&&!this.root.contains(event.target))return;this.reads.clear();this.invalidate()}
   private onResize=()=>{this.reads.clear();for(const f of this.fragments.values())this.dirty(f);this.invalidate()}
   private onLoad=(event:Event)=>{this.reads.clear();for(const f of this.fragments.values())if(event.target instanceof Node&&f.node.contains(event.target))this.dirty(f);this.invalidate()}
-  private onScroll=(event:Event)=>{this.reads.clear();for(const f of this.fragments.values())if(event.target instanceof Node&&f.node.contains(event.target))this.dirty(f);this.invalidate()}
+  private onScroll=(event:Event)=>{if(this.root!==this.root.ownerDocument.body&&event.target instanceof Node&&!this.root.contains(event.target))return;this.reads.clear();for(const f of this.fragments.values())if(event.target instanceof Node&&f.node.contains(event.target))this.dirty(f);this.invalidate()}
   private motion=(event:Event)=>{
     const target=event.target instanceof Element?event.target:null
-    if(!target||target.closest('.webgl-glass-surface'))return
+    if(!target||!this.root.contains(target)||target.closest('.webgl-glass-surface'))return
     // Short/reduced-motion transitions can start and finish between scene
     // frames. Their final style must replace any pre-transition cached read.
     this.reads.clear()
@@ -154,7 +154,9 @@ export class ApplicationGlassScene {
     }
   }
   private paint(){
-    if(this.disposed)return
+    if(this.disposed||this.root.ownerDocument.hidden)return
+    const sceneBounds=this.bounds()
+    if(sceneBounds.bottom<=0||sceneBounds.top>=innerHeight||sceneBounds.right<=0||sceneBounds.left>=innerWidth)return
     // The initial wallpaper blends over an HTML poster outside this scene.
     // Until that handoff finishes, CSS glass samples the actual backdrop;
     // shading the incomplete capture would turn transparent pixels black.
@@ -162,7 +164,7 @@ export class ApplicationGlassScene {
     if([...this.fragments.values()].some(f=>f.kind==='background'&&f.node.hasAttribute('data-glass-background-pending'))){this.fallback();return}
     this.busy=true;this.pending=false
     if(this.pool.animations?.timestamp!==frameData.timestamp)this.pool.animations={timestamp:frameData.timestamp,values:this.root.ownerDocument.getAnimations()}
-    const animations=this.pool.animations.values
+    const animations=this.pool.animations.values.filter(animation=>animation.effect instanceof KeyframeEffect&&animation.effect.target instanceof Element&&this.root.contains(animation.effect.target))
     this.reads.begin(animations)
     const reads=new GlassFrame(this.root,this.reads),geometryKey=[this.material.thickness,this.material.ior,this.material.roughness,this.material.dispersion].join(':')
     const bounds=this.bounds()

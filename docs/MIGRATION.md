@@ -1,5 +1,22 @@
 # 迁移说明
 
+## React Bits 交互背景（2026-11-05）
+
+- 使用 React Bits 的 [Waves](https://reactbits.dev/backgrounds/waves)、[Aurora](https://reactbits.dev/backgrounds/aurora)、[Particles](https://reactbits.dev/backgrounds/particles) 与 [RippleGrid](https://reactbits.dev/backgrounds/ripple-grid)，上游固定为 [DavidHDev/react-bits @ 4dc7b5b](https://github.com/DavidHDev/react-bits/tree/4dc7b5b7772e1217c8fb8d2a7aa074302180e5b4)。对应 `src/ts-default/Backgrounds/` 下四个同名组件。原始输入 SHA256 见 [清单](migration-sources.json)，[MIT + Commons Clause 原文](licenses/ReactBits-MIT-Commons-Clause.txt) 完整保留。
+- 四种源码仅作为对应官网的装饰背景：品牌流线、Theme 光场、Tab 粒子、Tunnel 点阵。沿用上游 WebGL2 shader 和交互，适配隔离类名、OriaTheme 颜色、客户端分包、30fps 绘制预算、隐藏/减少动态效果/上下文丢失生命周期与 CSS 回退；无新增包依赖。
+- 背景挂载根布局，横向覆盖浏览器两侧，随文档滚动并向下淡出；原 hero 背景组件、旧静态轨道及雾状背景已删除。产品壳透明，正文保留原有最大宽度与局部表面，阅读子页降低装饰强度。
+
+## 官网布局优化（2026-11-05）
+
+- [React Bits Pro](https://pro.reactbits.dev/) 的公开页面用于内容层次、功能编排与交互节奏参考；[React Bits](https://www.reactbits.dev/) 的公开导航用于紧凑尺寸参考。实现使用本站的 Base UI、OriaTheme 与 Motion。
+- 品牌产品卡片统一结构与视觉并移除页面根类冲突；Theme 静态光团替换为真实主题预览，原 Reveal 移至公共 UI；Tab 功能分区与阅读页、Tunnel 工作流和下载页优化布局，保留原生演示及八语言内容。
+- 产品导航仅以短分隔线区分 Oria 首页文字入口；四站尺寸、位置、内边距和紧凑断点统一，GitHub 纯图标的右侧以短线区分页面控件；保留原悬浮材质。Tunnel 演示原先从前景色生成的外阴影改为主题阴影 Token，避免深色白色光晕。
+
+## 主题适配与性能（2026-11-05）
+
+- 官网表面采用 OriaTheme 的纹理、渐变、字体、字重、圆角、边框和阴影；Tunnel 的主窗口、主机卡片及此电脑卡片使用主题阴影，保留各主题的硬阴影或高光特征。
+- OriaTab 局部 Runtime 跟随全站主题与明暗，仍保持 storage:false 和演示隔离。Liquid glass 只在可见主演示启用 WebGL，静态近景使用原组件的 CSS 材质；近景离屏卸载，主故事及玻璃场景离屏/隐藏停止，玻璃观察和事件限定本地作用域，修正子级布局 effect 早于父级 ref 导致意外采集整页的问题，嵌套设备场景继承父级启停。公共装饰背景限为 30fps，取消浮动暂停按钮，保留系统减少动态效果静态分支。
+
 ## 来源
 
 - OriaTheme：`KrisLee1/OriaTheme` 的 `apps/website`，固定提交 `2916b7a4422d3d4de2ce6a0ea1c4c03ba46d03b1`。保留首页、文档、预设展示、完整主题编辑器和编辑器翻译。原 Apache-2.0 许可保留在 [主项目许可](licenses/OriaTheme-APACHE-2.0.txt) 与 [编辑器许可](licenses/OriaTheme-editor-APACHE-2.0.txt)。
@@ -46,7 +63,7 @@
 
 - 按用户要求参考现有 OriaTunnel 产品页重组 Tab 官网。九幕文案转为常规内容分区，原阶段组件与编排用于六种可切换、可重播的预览；更新日志与隐私政策保留原内容和八语言路由。
 - 只读对照 OriaTab 的 `src/App.tsx`、`src/styles.css`、`src/features/bookmarks.tsx` 与 `src/features/aide.css` 调整实际界面结构及尺寸；原路径与摘要见 [迁移源清单](migration-sources.json)。未修改迁移源，未导入浏览器权限、扩展存储、真实搜索或 AI 请求。
-- 沿用已迁移的原 WebGL shader、玻璃捕获与合成管线，原出处与 MIT 声明继续见 `public/products/oria-tab/licenses/liquidglass.txt`。官网预览默认使用独立的 Liquid glass Runtime；根据用户反馈降低厚度、折射与染色，并增大圆角。此处为官网展示参数，不更改原扩展默认值。
+- 沿用已迁移的原 WebGL shader、玻璃捕获与合成管线，原出处与 MIT 声明继续见 `public/products/oria-tab/licenses/liquidglass.txt`。本次迁移曾默认使用独立的 Liquid glass Runtime，并降低厚度、折射与染色；2026-11-05 已改为局部 Runtime 跟随全站主题，仅 Liquid glass 主预览按可见性启用原玻璃渲染。官网展示参数不更改原扩展默认值。
 - 本轮替换旧全屏滚动页面控制与章节浮轨；产品介绍保持服务端可读。减少动态效果时不播放预览动画；减少透明度或高对比度继续走原玻璃回退。Fieldnotes 样例网页及原生菜单增加明暗颜色变量。
 - 网站访问说明删除“部署时补充”的旧占位，按现有 Cloudflare Workers 架构说明站点偏好、演示临时状态及托管请求处理，并链接 Cloudflare 官方隐私政策。扩展自身权限、数据处理和本地存储描述保留。
 

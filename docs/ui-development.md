@@ -14,13 +14,27 @@
 
 ## 产品导航与语言
 
-全站八语言由 `src/i18n/config.ts` 注册。新增或调整文案须同步 `src/i18n/messages/`，插值名必须保持不变。原代码示例与 Token 标识保持原文。公共图标设置按钮不叠加方形边框和下拉箭头。Theme 宽屏导航保持一行，900px 及以下只显示品牌与菜单，菜单锚定整个顶栏，宽度与左右边缘一致。
+无前缀入口通过 `src/i18n/preference.ts` 的 head bootstrap 恢复手动语言偏好，首次按浏览器语言顺序匹配；显式前缀不被重定向。调整语言初始化须验证保存优先级、繁简地区、存储禁用、深链接和无循环。
+
+## 官网布局、导航与场景
+
+公共导航几何统一：顶部 12px、最大宽度 1280px、内层 56px、桌面水平内边距 12px；1100px 及以下左右外距 16px、内边距 10px。保留固定透明/滚动材质形态。只有三个产品官网将 `HomeLink` 文本与产品导航用 14px 垂直分隔线隔开；不加返回图标，品牌首页不增加独立返回入口。移动菜单单独分组；GitHub 仅图标，右侧用 14px 短线隔开页面控件，不显示文字、箭头或 star 数。
+
+根布局的 `@/components/backgrounds/site-background` 按站点选择 Waves / Aurora / Particles / RippleGrid 点阵。场景随页面滚动、向下淡出，横向独立于正文容器覆盖浏览器两侧；不得改为固定视口，也不能被 hero 的 max-width 或 overflow 裁切。阅读子页降低强度。装饰背景以 30fps 绘制，不展示右上角暂停控件；实时 reduced-motion、离屏/隐藏停止、WebGL 静态回退和高对比度共用生命周期。来源与许可见 [迁移说明](MIGRATION.md#react-bits-交互背景2026-11-05)。
+
+品牌卡片使用 `data-product` 区分产品，不可使用 `.oria-theme` 等页面根类。品牌私有样式在 `features/brand/home.css`；Theme 新官网布局在 `features/oria-theme/website.css`，不直接编辑生成的 migrated.css。共享入场使用 `@/components/ui/reveal`，避免同时在同一张卡片叠加 CSS 滚动揭示。Theme 首屏的预览按钮通过原有主题草稿守卫切换真实站点主题。
+
+## 公共导航规则
+
+全站八语言由 `src/i18n/config.ts` 注册。新增或调整文案须同步 `src/i18n/messages/`，插值名必须保持不变。原代码示例与 Token 标识保持原文。公共图标设置按钮不叠加方形边框和下拉箭头。Theme 宽屏导航保持一行，1100px 及以下统一使用紧凑导航，菜单锚定整个顶栏，宽度与左右边缘一致。
 
 ## OriaTunnel 产品页
 
 入口为 `/{locale}/oria-tunnel`；产品顶栏位于 `src/features/oria-tunnel/header.tsx`，始终固定可见，带 GitHub 品牌图标，提供文件传输、工作流、产品功能与下载导航，并标记当前章节。
 
 `demo.tsx`、`native-demo.css` 重建原生窗口的五个页面与独立停靠终端。Mac 窗口使用 OriaTheme 的 radius-lg 圆角，胶囊、原始 Lucide 图标、服务 SVG 和 GraphStar 状态图标均按迁移源维护。窗口整体缩放与连接图内部 viewport 分开计算；不为缩略窗口换用另一套图标顶栏。原图对照仅在本地 `public/products/oria-tunnel/screenshots/` 保留，不纳入本轮提交与部署；官网演示本身不使用截图。
+
+列表滚动容器以 16px 内边距与负外边距给阴影留出绘制空间，同时保持卡片与工具栏对齐；不可用取消滚动或去掉主题阴影规避裁切。
 
 `simulation.ts` 定义独立的演示场景；`connection-stroke.tsx` 沿用原应用的虚线与 2800ms 光带。场景、暂停和批量演示启停必须明确为模拟，不可接入 Tauri、真实主机、凭据或 SSH。状态文案直接来自 `locales/` 的八语言资源，版权与原路径见 [迁移说明](MIGRATION.md)。
 
@@ -51,7 +65,7 @@ D 卡片地址行仅保留 Globe 浏览器入口，移除旧列表管理图标�
 
 演示继续复用 `website/story/stage.tsx` 的产品组件、原生 Aide 窗口与 `shared/lib/glass` 的 WebGL 渲染，不接入扩展 API、搜索或 AI 请求。对照只读 OriaTab `src/App.tsx`、`src/styles.css`、`src/features/bookmarks.tsx` 和 `src/features/aide.css` 校准页眉、居中搜索、Dock、920×560 书签窗与 760×720 Aide 窗。功能近景复用同一批组件，按接近视口时加载。
 
-每个演示拥有 storage:false、脱离 document 的 OriaTheme Runtime，默认 `oriatab-liquid`；官网明暗变化通过 `DemoModeSync` 同步，演示主题及强调色不保存至站点偏好。薄玻璃参数统一在 `website/state.tsx` 提供给 WebGL 与 CSS 回退，禁止叠加深色不透明遮罩来替代材质；窗口圆角 24px，演示外框 20px。迁移 runtime 的原文档背景在首屏外层设为透明，避免圆角外露出方形底色。Fieldnotes 示例网页、右键菜单、文字选区与功能近景均随演示模式切换。
+每个演示使用 storage:false、脱离 document 的 Runtime，跟随全站预设/自定义主题与明暗；局部预览不保存至站点偏好。仅可见的 Liquid glass 主演示启用原 WebGL；静态近景用同一产品组件和 CSS 材质，离屏卸载。主故事离屏/隐藏暂停，恢复后继续原播放位置。玻璃采集和文档事件必须限定自身作用域；场景初始化等待父级 ref 挂载完成，传入作用域时不能回退 document.body，嵌套设备场景继承父级启停。全站材质由 `components/site/theme-materials.css` 管理，圆角、边框、字体、渐变、纹理、阴影不能用固定值覆盖主题定义。
 
 更新日志与隐私政策使用 `subpage.tsx` 的产品私有阅读布局。更新日志保留版本锚点、时间、原更新内容和完整历史入口；隐私页提供章节目录、原有正文及独立横向滚动表格。网站访问说明位于 `privacy-copy.ts`，与扩展行为分开维护；当前 Cloudflare Workers 说明链接官方隐私政策。
 

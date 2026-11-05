@@ -1078,5 +1078,13 @@
   "File transfer": "ファイル転送",
   "A visual SSH workspace for hosts, tunnels, services, file transfers, previews, text editing and terminals on Windows and macOS.": "Windows・macOS 向けの視覚的な SSH ワークスペース。ホスト、トンネル、サービス、ファイル転送、プレビュー、テキスト編集、ターミナルを一か所で管理。",
   "Manage SSH hosts, forwarding and service commands in one workspace. Browse and transfer files, preview and edit text, and open SSH terminals alongside your remote services.": "SSH ホスト、転送、サービスコマンドを一か所で管理。ファイルの閲覧・転送、テキストのプレビュー・編集、SSH ターミナルをリモートサービスと並べて利用できます。",
-  "Browse local and SSH files, transfer between hosts, manage a background queue, and preview or edit text in shared work panels.": "ローカル・SSH ファイルの閲覧、ホスト間転送、バックグラウンドキュー、共有パネルでのテキストのプレビューと編集。"
+  "Browse local and SSH files, transfer between hosts, manage a background queue, and preview or edit text in shared work panels.": "ローカル・SSH ファイルの閲覧、ホスト間転送、バックグラウンドキュー、共有パネルでのテキストのプレビューと編集。",
+  "AI assistant": "AI アシスタント",
+  "Bookmarks": "ブックマーク",
+  "Design tokens": "デザイントークン",
+  "Find your starting point": "ここから始める",
+  "Live editor": "ライブエディター",
+  "Remote services": "リモートサービス",
+  "SSH tunnels": "SSH トンネル",
+  "Search": "検索"
 }

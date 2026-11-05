@@ -14,11 +14,23 @@
 
 ## 主题
 
-OriaTheme 是全站唯一持久主题状态源。44 个 OriaTheme 预设与迁移的 Liquid glass 预设、当前主题、system/light/dark、DOM Token 和主题过渡在公共 Provider 管理。存储键使用 `oria-made-theme`。首屏 bootstrap 与 Provider 使用相同契约、默认值和存储键；存储异常回退默认主题。OriaTab 演示可使用局部主题预览，但不覆写全站偏好。
+OriaTheme 是全站唯一持久主题状态源。44 个 OriaTheme 预设与迁移的 Liquid glass 预设、当前主题、system/light/dark、DOM Token 和主题过渡在公共 Provider 管理。存储前缀使用 `oria-made-theme`，实际键为 `oria-made-theme:state:v1` 与 `oria-made-theme:active:v1`。首屏 bootstrap 与 Provider 使用相同契约、默认值和存储键；存储异常回退默认主题。OriaTab 演示可使用局部主题预览，但不覆写全站偏好。
 
 ## 国际化
 
-共享控件沿用 react-i18next；服务端按 locale 读取内容，客户端 Provider 使用隔离实例。全站提供 en、zh-CN、zh-TW、ja、ko、de、fr、ru。公共控件使用隔离的 i18next 实例；Theme 文档与编辑器、品牌和 Tunnel 介绍使用静态文案字典，不在访问时请求翻译服务。代码、Token 路径、URL 与用户主题名称不翻译。Tunnel 演示 UI 直接提取原应用八语言文案。
+共享控件沿用 react-i18next；服务端按 locale 读取内容，客户端 Provider 使用隔离实例。全站提供 en、zh-CN、zh-TW、ja、ko、de、fr、ru。`preference.ts` 的 head bootstrap 在 React 启动前处理无前缀入口：优先读取 `oria-made-language`，其次匹配浏览器 `navigator.languages` 的有序偏好（含繁简中文脚本及地区），不支持时回退英语；显式语言前缀始终优先，跳转保留子路径、query、hash，使用 replace 避免返回循环。语言菜单保存手动选择，沿用原存储键。页面与元数据继续静态生成，URL 仍是渲染语言的事实源。公共控件使用隔离的 i18next 实例；Theme 文档与编辑器、品牌和 Tunnel 介绍使用静态文案字典，不在访问时请求翻译服务。代码、Token 路径、URL 与用户主题名称不翻译。Tunnel 演示 UI 直接提取原应用八语言文案。
+
+## 官网场景与布局
+
+根布局中的 `SiteBackground` 按路由加载不同的 React Bits 效果：品牌页 Waves 流线、Theme 的 Aurora 光场、Tab 的 Particles 粒子、Tunnel 的 RippleGrid 点阵。场景绝对定位在文档顶部，独立于正文最大宽度，横向覆盖浏览器两侧；场景随页面滚动，并向下淡出，不固定在视口。阅读子页降低强度，离屏/隐藏时停止绘制。主题色、实时减少动态效果、各自静态回退及高对比度分支共用约定；装饰场景限为 30fps，不展示右上角暂停控件。四种源码按需分包，无新增包依赖。
+
+`components/site/marketing.css` 是四站导航的统一几何入口：顶部 12px、最大宽度 1280px、内层高度 56px、桌面内边距 12px；1100px 及以下统一切换紧凑导航，左右外距 16px、内边距 10px。保留页顶透明/滚动材质。只有产品官网以纯文字 `HomeLink` 和 14px 分隔线区分品牌首页；GitHub 仅保留图标，在其右侧用 14px 分隔线隔开页面控件。
+
+品牌首页的产品卡片只使用 `oria-product-card` 与 `data-product`，不使用产品页面根类，避免 `.oria-theme` 外壳样式污染卡片。三产品图标区、内容起点、底色与高度一致。Theme 的 `website.css` 管理官网布局与真实主题预览，原迁移样式仍由 source/showcase 生成。Tab 功能卡片区分宽窄层次，Tunnel 工作流使用交替图文布局，均复用原演示。
+
+公共 `components/site/theme-materials.css` 使用 OriaTheme 的纹理、渐变、字体、字重、圆角、边框宽度与阴影 Token 定义官网表面，避免主题仅更换颜色。卡片不普遍叠加额外 backdrop-filter，以保留各主题材质并控制绘制成本。
+
+公共 `components/ui/reveal.tsx` 从 Theme 的原入口迁出，管理入场与滚动揭示；减少动态效果时静态显示，不叠加另一套卡片滚动动画。Tunnel 原先使用前景文字色的外阴影改为 OriaTheme 阴影 Token，深色下保持暗部层次。
 
 ## 目录
 
@@ -55,7 +67,7 @@ Tunnel 官网同步 v0.1.1 的主机关联服务、独立服务端口与 D 代�
 
 ## OriaTab 演示与阅读页面
 
-OriaTab 首页改为服务器渲染的产品分区与六场景客户端预览。原产品组件、Aide 原生窗口、SVG 壁纸、WebGL 液态玻璃及编排用于按需演示；功能近景延迟挂载。`story-runtime.tsx` 为每个预览创建默认 Liquid glass、无存储、ShadowRoot target 的局部 OriaTheme Runtime；网站明暗变化单独同步，局部主题/强调色不覆盖 document 或持久偏好。演示数据仍与浏览器扩展 API 及真实服务隔离。
+OriaTab 首页提供服务端产品分区与六场景客户端预览，继续复用原产品组件、Aide、SVG 壁纸与玻璃实现。预览使用无存储、脱离 document 的局部 Runtime，跟随全站预设、自定义主题和明暗；演示内的临时主题/强调色不覆盖站点偏好。只有 Liquid glass 的可见主预览启用 WebGL，静态功能近景使用 CSS 材质；近景接近视口才挂载，离开后释放，主演示离屏或隐藏时停止播放和玻璃场景。玻璃事件、动画读缓存限定在自身作用域，避免页面其他控件触发重复捕获。场景在父级 ref 挂载完成后初始化，传入作用域时不回退整页，嵌套场景继承父级启停。演示数据与扩展 API 及真实服务保持隔离。
 
 `subpage.tsx` 提供 Tab 私有阅读页标题与前后导航，日志和政策各自服务端渲染。政策正文按原语言资源保留，网站访问事实单独维护在 `privacy-copy.ts`；其他产品不依赖这一阅读布局。
 

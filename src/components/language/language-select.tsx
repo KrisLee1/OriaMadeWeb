@@ -1,5 +1,6 @@
 "use client";
 import {isLocale, localizedPath, stripLocale, languageList} from "@/i18n/config"
+import {LANGUAGE_STORAGE_KEY} from '@/i18n/preference'
 import { LanguagesIcon } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
@@ -20,8 +21,9 @@ export function LanguageSelect({ className, variant, size, displayMode, align, s
 }) {
   const { i18n, t } = useTranslation()
   const changeLanguage = (lang: string) => {
-    if (!isLocale(lang) || lang === i18n.language) return
-    try { localStorage.setItem('oria-made-language', lang) } catch { /* Preferences are optional. */ }
+    if (!isLocale(lang)) return
+    try { localStorage.setItem(LANGUAGE_STORAGE_KEY, lang) } catch { /* Navigation still works without storage. */ }
+    if (lang === i18n.language) return
     window.location.assign(localizedPath(lang, stripLocale(location.pathname)) + location.search + location.hash)
   }
   const selectedLanguage = languageList.find((lang) => lang.code === i18n.language)

@@ -95,11 +95,10 @@
 .oria-theme .docs-color-library .color-swatch span { margin-top: calc(var(--oria-space) * 1); }
 .oria-theme .docs-color-library .special-colors { margin-top: calc(var(--oria-space) * 5); padding-top: calc(var(--oria-space) * 3); }
 
-/* Home page. Motion choreography lives in components/home/reveal.tsx (critically damped
-   springs, opacity-only under prefers-reduced-motion); these rules cover layout, materials
+/* Home page. Motion choreography lives in src/components/ui/reveal.tsx (critically damped
+   springs, static under prefers-reduced-motion); these rules cover layout, materials
    and pointer-down feedback. All visual values consume --oria-* tokens. */
 .oria-theme .home-hero { padding-top: clamp(calc(var(--oria-space) * 8), 5vw, calc(var(--oria-space) * 12)); }
-.oria-theme .home-hero .diffusion-visual { margin-left: auto; }
 .oria-theme .home-cta-row { display: flex; flex-wrap: wrap; gap: calc(var(--oria-space) * 3); margin-top: calc(var(--oria-space) * 8); }
 .oria-theme .home-cta { display: inline-flex; align-items: center; justify-content: center; min-height: var(--oria-control-height-lg); padding: 0 calc(var(--oria-control-padding-x-md) + calc(var(--oria-space) * 1)); border-radius: 9999px; font-size: var(--oria-text-sm); font-weight: var(--oria-font-weight-semibold); text-decoration: none; transition: transform var(--oria-duration-fast) var(--oria-ease-standard), background var(--oria-duration-fast) var(--oria-ease-standard), border-color var(--oria-duration-fast) var(--oria-ease-standard); }
 .oria-theme .home-cta:active { transform: scale(0.97); }
@@ -306,71 +305,6 @@
   color: var(--oria-color-muted-fg);
   font-size: clamp(var(--oria-text-md), 1.6vw, var(--oria-text-lg));
   line-height: var(--oria-leading-relaxed);
-}
-
-.oria-theme .diffusion-visual {
-  position: relative;
-  width: min(100%, 19rem);
-  aspect-ratio: 1;
-  justify-self: end;
-  isolation: isolate;
-  filter: saturate(var(--oria-backdrop-saturate));
-  transform: translateY(calc(0rem - calc(var(--oria-space) * 6)));
-}
-.oria-theme .diffusion-visual::before, .oria-theme .diffusion-visual::after, .oria-theme .diffusion-visual span, .oria-theme .diffusion-visual i {
-  position: absolute;
-  display: block;
-  border-radius: 9999px;
-  content: "";
-  filter: blur(var(--oria-blur-md));
-  opacity: var(--oria-opacity-overlay);
-  will-change: transform;
-}
-.oria-theme .diffusion-visual::before {
-  inset: 8% 3% 16% 18%;
-  background: radial-gradient(circle at 34% 34%, var(--oria-color-primary) 0 18%, color-mix(in srgb, var(--oria-color-primary) 64%, transparent) 48%, transparent 70%);
-  animation: diffusion-drift-a calc(var(--oria-duration-slow) * 14) var(--oria-ease-emphasized) calc(var(--oria-duration-slow) * -2) infinite;
-}
-.oria-theme .diffusion-visual::after {
-  inset: 24% 21% 2% 2%;
-  background: radial-gradient(circle at 58% 56%, var(--oria-color-accent) 0 16%, color-mix(in srgb, var(--oria-color-accent) 60%, transparent) 48%, transparent 70%);
-  animation: diffusion-drift-b calc(var(--oria-duration-slow) * 16) var(--oria-ease-standard) calc(var(--oria-duration-slow) * -7) infinite;
-}
-.oria-theme .diffusion-visual span {
-  inset: 2% 28% 34% 8%;
-  z-index: -1;
-  background: radial-gradient(circle at 58% 45%, var(--oria-color-info) 0 15%, color-mix(in srgb, var(--oria-color-info) 56%, transparent) 50%, transparent 71%);
-  animation: diffusion-drift-c calc(var(--oria-duration-slow) * 13) var(--oria-ease-enter) calc(var(--oria-duration-slow) * -5) infinite;
-}
-.oria-theme .diffusion-visual i {
-  inset: 34% 0 8% 38%;
-  z-index: -1;
-  background: radial-gradient(circle at 42% 48%, color-mix(in srgb, var(--oria-color-warning) 72%, var(--oria-color-primary)) 0 14%, color-mix(in srgb, var(--oria-color-warning) 46%, transparent) 48%, transparent 70%);
-  animation: diffusion-drift-d calc(var(--oria-duration-slow) * 18) var(--oria-ease-standard) calc(var(--oria-duration-slow) * -10) infinite;
-}
-@keyframes diffusion-drift-a {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  25% { transform: translate3d(-14%, 6%, 0) scale(1.1) rotate(5deg); }
-  52% { transform: translate3d(-4%, 16%, 0) scale(.94) rotate(-4deg); }
-  76% { transform: translate3d(13%, -6%, 0) scale(1.08) rotate(3deg); }
-}
-@keyframes diffusion-drift-b {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  22% { transform: translate3d(16%, -10%, 0) scale(.9) rotate(-5deg); }
-  50% { transform: translate3d(8%, 14%, 0) scale(1.12) rotate(4deg); }
-  78% { transform: translate3d(-13%, 5%, 0) scale(.96) rotate(-3deg); }
-}
-@keyframes diffusion-drift-c {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  28% { transform: translate3d(14%, 15%, 0) scale(1.12) rotate(6deg); }
-  55% { transform: translate3d(-9%, 12%, 0) scale(.92) rotate(-5deg); }
-  80% { transform: translate3d(-12%, -11%, 0) scale(1.06) rotate(3deg); }
-}
-@keyframes diffusion-drift-d {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  24% { transform: translate3d(-16%, -9%, 0) scale(1.14) rotate(-4deg); }
-  48% { transform: translate3d(-5%, 13%, 0) scale(.9) rotate(5deg); }
-  74% { transform: translate3d(15%, 7%, 0) scale(1.08) rotate(-3deg); }
 }
 
 .oria-theme .control-heading h2, .oria-theme .token-heading h2 {
@@ -816,7 +750,6 @@
   .oria-theme .topbar .mode-control > div { width: calc(var(--oria-control-height-md) * 2.25); }
   .oria-theme .topbar .editor-trigger { width: calc(var(--oria-control-height-md) - calc(var(--oria-space) * 1)); padding: 0; }
   .oria-theme .hero { grid-template-columns: 1fr; padding: calc(var(--oria-space) * 16) calc(var(--oria-space) * 2) calc(var(--oria-space) * 10); }
-  .oria-theme .diffusion-visual { display: none; }
   .oria-theme .hero h1 { font-size: clamp(var(--oria-text-4xl), 15vw, var(--oria-text-6xl)); }
   .oria-theme .editor-trigger { width: 100%; }
   .oria-theme .topbar .editor-trigger { width: calc(var(--oria-control-height-md) - calc(var(--oria-space) * 1)); }
@@ -838,7 +771,6 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .oria-theme .easing-curve-preview > span, .oria-theme .easing-curve-preview i { animation:none; }
-  .oria-theme .diffusion-visual::before, .oria-theme .diffusion-visual::after, .oria-theme .diffusion-visual span, .oria-theme .diffusion-visual i { animation: none; transform: none; }
 }
 @media (prefers-reduced-transparency: reduce) { .oria-theme .topbar, .oria-theme .controls, .oria-theme .theme-picker-menu { background: var(--oria-color-surface); -webkit-backdrop-filter: none; backdrop-filter: none; } .oria-theme .backdrop-scale i { background: var(--oria-color-overlay); -webkit-backdrop-filter: none !important; backdrop-filter: none !important; } }
 @media (prefers-contrast: more) { .oria-theme .topbar, .oria-theme .controls, .oria-theme .token-card, .oria-theme .card { border-width: var(--oria-border-width-strong); } }

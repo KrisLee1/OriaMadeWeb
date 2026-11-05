@@ -1,0 +1,46 @@
+/* Theme definitions own texture, type, edges and depth across every website. */
+body {
+ background:var(--oria-pattern-bg,none),var(--oria-gradient-bg,var(--oria-color-bg));
+ font-weight:var(--oria-font-weight-normal);
+}
+
+#main-content :is(.oria-product-card,.oria-hero-index,.home-theme-preview,.home-feature-card,.home-start,.tab-feature,.tab-detail-grid article,.tab-install-manual,.tab-release-entry,.tab-policy-overview,.tunnel-feature,.tunnel-detail-grid article,.file-update-details article,.tunnel-release-panel,.tunnel-installer,.tunnel-download-install article) {
+ border-width:var(--oria-border-width-default);
+ border-color:var(--oria-color-border);
+ border-radius:var(--oria-radius-xl);
+ background:var(--oria-pattern-surface,none),var(--oria-gradient-surface,none),color-mix(in srgb,var(--oria-color-surface) calc(var(--oria-opacity-overlay) * 100%),transparent);
+ box-shadow:var(--oria-shadow-md);
+}
+
+#main-content :is(.oria-hero,.home-hero,.tab-hero,.tunnel-hero,.tunnel-download-hero,.tab-subpage-hero,.docs-hero,.docs-article-header) h1 {
+ font-family:var(--oria-font-sans);
+ font-weight:var(--oria-font-weight-semibold);
+ letter-spacing:var(--oria-tracking-tighter);
+}
+#main-content :is(.oria-section-heading,.oria-manifesto,.home-section,.tab-section-heading,.tab-family,.tab-install,.tunnel-section-heading,.tunnel-final-cta,.tunnel-download-install) h2 {
+ font-weight:var(--oria-font-weight-semibold);
+ letter-spacing:var(--oria-tracking-tight);
+}
+#main-content :is(.oria-product-info,.home-feature-card,.tab-feature,.tab-detail-grid,.tunnel-feature,.tunnel-detail-grid,.file-update-details,.tunnel-installer) h3 {
+ font-weight:var(--oria-font-weight-semibold);
+}
+
+#main-content :is(.home-cta,.home-preview-action,.tab-button,.tunnel-button) {
+ min-height:var(--oria-control-height-md);
+ border-radius:var(--oria-radius-lg);
+ border-width:var(--oria-border-width-default);
+ font-weight:var(--oria-font-weight-semibold);
+ box-shadow:var(--oria-shadow-sm);
+}
+#main-content :is(.home-cta-secondary,.tab-button-quiet,.tunnel-button-quiet) {
+ border-style:solid;
+ border-color:var(--oria-color-border);
+ background:var(--oria-pattern-surface,none),var(--oria-gradient-surface,none),var(--oria-color-surface);
+}
+#main-content :is(.home-preview-surface,.tab-showcase,.tab-theme-sample,.tab-release-header,.tunnel-demo-window,.file-demo-panel) {
+ border-width:var(--oria-border-width-default);
+ border-radius:var(--oria-radius-lg);
+}
+.scroll-reveal-header[data-floating=true] {
+ background:var(--oria-pattern-overlay,none),var(--oria-gradient-overlay,none),color-mix(in srgb,var(--oria-color-overlay) calc(var(--oria-opacity-overlay) * 100%),transparent);
+}

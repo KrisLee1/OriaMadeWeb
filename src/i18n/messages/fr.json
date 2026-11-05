@@ -1078,5 +1078,13 @@
   "File transfer": "Transfert de fichiers",
   "A visual SSH workspace for hosts, tunnels, services, file transfers, previews, text editing and terminals on Windows and macOS.": "Un espace SSH visuel pour hôtes, tunnels, services, transferts de fichiers, aperçu, édition de texte et terminaux sur Windows et macOS.",
   "Manage SSH hosts, forwarding and service commands in one workspace. Browse and transfer files, preview and edit text, and open SSH terminals alongside your remote services.": "Gérez hôtes SSH, redirections et commandes de services au même endroit. Parcourez et transférez les fichiers, prévisualisez et modifiez le texte, puis ouvrez des terminaux SSH à côté des services distants.",
-  "Browse local and SSH files, transfer between hosts, manage a background queue, and preview or edit text in shared work panels.": "Parcourez les fichiers locaux et SSH, transférez entre hôtes, gérez la file en arrière-plan et prévisualisez ou modifiez le texte dans des panneaux partagés."
+  "Browse local and SSH files, transfer between hosts, manage a background queue, and preview or edit text in shared work panels.": "Parcourez les fichiers locaux et SSH, transférez entre hôtes, gérez la file en arrière-plan et prévisualisez ou modifiez le texte dans des panneaux partagés.",
+  "AI assistant": "Assistant IA",
+  "Bookmarks": "Favoris",
+  "Design tokens": "Tokens de design",
+  "Find your starting point": "Trouvez votre point de départ",
+  "Live editor": "Éditeur en direct",
+  "Remote services": "Services distants",
+  "SSH tunnels": "Tunnels SSH",
+  "Search": "Recherche"
 }

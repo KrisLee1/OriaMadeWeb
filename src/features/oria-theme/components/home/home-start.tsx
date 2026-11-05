@@ -2,7 +2,7 @@ import { themePath } from "@/features/oria-theme/lib/paths";
 import Link from "next/link";
 import { getCopy, type Locale } from "@/features/oria-theme/lib/i18n";
 import { InstallCommand } from "./install-command";
-import { Reveal } from "./reveal";
+import { Reveal } from "@/components/ui/reveal";
 
 const installCommand = "pnpm add @oriatheme/presets @oriatheme/runtime-dom @oriatheme/react";
 

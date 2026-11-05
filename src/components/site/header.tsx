@@ -17,7 +17,7 @@ export function SiteHeader({locale}:{locale:Locale}) {
  const [open,setOpen]=useState(false)
  const {floating}=useScrollHeader()
  useEffect(()=>{
-  const wide=matchMedia('(min-width:901px)')
+  const wide=matchMedia('(min-width:1101px)')
   const close=()=>{if(wide.matches)setOpen(false)}
   wide.addEventListener('change',close)
   return()=>wide.removeEventListener('change',close)

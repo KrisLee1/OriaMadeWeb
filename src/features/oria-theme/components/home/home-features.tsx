@@ -2,7 +2,7 @@ import { themePath } from "@/features/oria-theme/lib/paths";
 import Link from "next/link";
 import { ArrowRight, Blocks, Palette, SlidersHorizontal } from "lucide-react";
 import { getCopy, type Locale } from "@/features/oria-theme/lib/i18n";
-import { Reveal } from "./reveal";
+import { Reveal } from "@/components/ui/reveal";
 
 const cardIcons = [Palette, Blocks, SlidersHorizontal] as const;
 

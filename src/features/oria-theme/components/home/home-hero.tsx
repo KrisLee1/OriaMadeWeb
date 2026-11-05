@@ -1,7 +1,8 @@
 import { themePath } from "@/features/oria-theme/lib/paths";
 import Link from "next/link";
 import { getCopy, type Locale } from "@/features/oria-theme/lib/i18n";
-import { Reveal } from "./reveal";
+import { Reveal } from "@/components/ui/reveal";
+import {HomeThemePreview} from './home-theme-preview';
 
 export function HomeHero({ locale }: { readonly locale: Locale }) {
   const copy = getCopy(locale).home.hero;
@@ -9,7 +10,7 @@ export function HomeHero({ locale }: { readonly locale: Locale }) {
     <div className="hero-copy">
       <Reveal immediate><p className="eyebrow">{copy.eyebrow}</p></Reveal>
       <Reveal immediate delay={0.08}>
-        <h1>{copy.title.split("\n").map((line, index) => <span key={line}>{line}{index === 0 ? <br /> : null}</span>)}</h1>
+        <h1>{copy.title.replaceAll("\n", " ")}</h1>
       </Reveal>
       <Reveal immediate delay={0.16}><p>{copy.body}</p></Reveal>
       <Reveal immediate delay={0.24}>
@@ -20,7 +21,7 @@ export function HomeHero({ locale }: { readonly locale: Locale }) {
       </Reveal>
     </div>
     <Reveal immediate delay={0.32}>
-      <div className="diffusion-visual" aria-hidden="true"><span /><i /></div>
+      <HomeThemePreview locale={locale}/>
     </Reveal>
   </section>;
 }

@@ -17,7 +17,7 @@ const placeholders = Object.fromEntries(languages.map(lang => [lang, (translatio
 const frames = [8.8, 15.2, 22.9, 37, 48.2, 58.2]
 const ranges = [[2.3, 8.8], [11.8, 18.2], [21.4, 28.8], [30.4, 38], [41.4, 48.3], [51.4, 59.2]]
 
-export function StoryView({c}: {c: Copy}) {
+export function StoryView({c,active=true}: {c: Copy;active?:boolean}) {
   const {i18n} = useTranslation(), locale = isLocale(i18n.language) ? i18n.language : 'en'
   const [scene, setScene] = useState(0), [playing, setPlaying] = useState(false), [replay, setReplay] = useState(0)
   const [size, setSize] = useState({width: 1440, height: 900})
@@ -43,8 +43,9 @@ export function StoryView({c}: {c: Copy}) {
       root.current!.querySelector<HTMLElement>('[data-st="device"]')!.style.transform = 'none'
       root.current!.style.setProperty('--camera', '1')
     }
-    if (!playing || reduced) {apply(pausedTime.current ?? frames[scene]); return () => controller.current?.set(null)}
-    const [start, end] = ranges[scene]
+    if (!active || !playing || reduced) {apply(pausedTime.current ?? frames[scene]); return () => controller.current?.set(null)}
+    const [rangeStart,end]=ranges[scene]
+    const start=pausedTime.current??rangeStart
     let frame = 0, began = 0
     const tick = (now: number) => {
       if (!began) began = now
@@ -56,7 +57,7 @@ export function StoryView({c}: {c: Copy}) {
     }
     frame = requestAnimationFrame(tick)
     return () => {cancelAnimationFrame(frame); controller.current?.set(null)}
-  }, [scene, mode, unit, playing, replay, reduced, globalTheme, dark])
+  }, [scene, mode, unit, playing, replay, reduced, globalTheme, dark, active])
   const labels = [c.demo[0], ...c.scenes.slice(1, 6).map((scene: string[]) => scene[0])]
   return <Tabs value={scene} onValueChange={value => {pausedTime.current = null; setPlaying(false); setScene(Number(value))}} className="tab-showcase">
     <div className="tab-showcase-toolbar"><TabsList variant="line" className="tab-scene-tabs" aria-label={c.nav[0]}>{labels.map((label: string, index: number) => <TabsTrigger value={index} key={index}>{label}</TabsTrigger>)}</TabsList>

@@ -1,0 +1,41 @@
+/* Compact navigation retains the existing floating material and product owners. */
+.scroll-reveal-header:is(.oria-header,.theme-site-header,.tab-site-header,.tunnel-site-header){--site-header-max-width:1280px;position:fixed;top:12px;left:50%;right:auto;width:min(1280px,calc(100% - 48px));height:auto;min-height:0;margin:0;padding:0;transform:translateX(-50%)}
+.scroll-reveal-header :is(.oria-header-inner,.theme-header-inner,.tab-header-inner,.tunnel-header-inner) {height:56px;min-height:56px;padding:0 12px;gap:18px}
+.scroll-reveal-header.theme-site-header {--site-header-max-width:1280px;display:block;min-height:0;height:auto;padding:0}
+.theme-header-inner{display:flex;align-items:center;width:100%}
+.scroll-reveal-header nav:is(.oria-product-nav,.theme-desktop-nav,.tab-nav,.tunnel-nav) {gap:4px}
+.scroll-reveal-header nav:is(.oria-product-nav,.theme-desktop-nav,.tab-nav,.tunnel-nav)>a {padding:7px 9px;font-size:12px}
+.scroll-reveal-header :is(.product-header-actions,.tab-header-actions,.tunnel-header-actions) {gap:10px}
+.scroll-reveal-header .oria-controls {gap:2px}
+.scroll-reveal-header .site-github-link {width:34px;height:34px;min-height:34px;padding:0}
+.site-github-link{position:relative;margin-inline-end:12px}
+.site-github-link::after{content:'';position:absolute;inset-inline-end:-10px;top:50%;width:1px;height:14px;transform:translateY(-50%);background:var(--oria-color-border);pointer-events:none}
+.scroll-reveal-header :is(.theme-brand,.tab-brand,.tunnel-brand) {gap:8px;font-size:20px}
+.scroll-reveal-header .oria-wordmark{gap:8px;font-size:20px;letter-spacing:-.025em}
+.scroll-reveal-header .oria-symbol{width:24px;height:24px;flex:none}
+.scroll-reveal-header :is(.theme-brand,.tab-brand,.tunnel-brand) img {width:28px;height:28px}
+.oria-brand-shell {padding-top:80px}
+.site-home-group{position:relative;display:flex;align-items:center;flex:none;padding-inline-end:16px}
+.site-home-group::after{content:'';position:absolute;inset-inline-end:0;top:50%;width:1px;height:14px;transform:translateY(-50%);background:var(--oria-color-border)}
+.site-home-link{display:inline-flex;align-items:center;min-height:34px;padding:7px 9px;border-radius:var(--oria-radius-md);color:var(--oria-color-muted-fg);font-size:12px;white-space:nowrap}
+.site-home-link:hover{color:var(--oria-color-fg);background:var(--oria-color-muted)}
+.site-popup-home{padding:0 8px 10px;margin-bottom:8px;border-bottom:1px solid var(--oria-color-border)}
+.site-popup-home .site-home-link{font-size:14px;min-height:42px;padding:10px 4px}
+@media(max-width:1100px){
+ .scroll-reveal-header:is(.oria-header,.theme-site-header,.tab-site-header,.tunnel-site-header){width:calc(100% - 32px)}
+ .scroll-reveal-header :is(.oria-header-inner,.theme-header-inner,.tab-header-inner,.tunnel-header-inner){padding:0 10px;gap:10px}
+ .scroll-reveal-header :is(.oria-product-nav,.theme-desktop-nav,.tab-nav,.tunnel-nav,.oria-desktop-controls,.theme-desktop-actions,.tab-header-actions,.tunnel-header-actions,.site-home-group){display:none}
+ .scroll-reveal-header :is(.oria-mobile-trigger,.theme-mobile-trigger,.tab-menu-trigger,.tunnel-menu-trigger){display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:8px;flex:none}
+ .scroll-reveal-header .site-github-compact{display:inline-flex;margin-inline-start:auto;width:34px;height:34px;min-height:34px}
+}
+@media(max-width:900px){
+ .scroll-reveal-header:is(.oria-header,.theme-site-header,.tab-site-header,.tunnel-site-header){width:calc(100% - 32px)}
+ .scroll-reveal-header :is(.oria-header-inner,.theme-header-inner,.tab-header-inner,.tunnel-header-inner) {padding:0 10px;gap:10px}
+ .scroll-reveal-header.theme-site-header {padding:0}
+}
+
+/* Authored content stays readable before motion starts and with motion disabled. */
+@media(prefers-reduced-motion:no-preference){
+ :is(.oria-product-card,.home-feature-card,.tab-feature,.tunnel-feature,.tunnel-installer) {transition:transform 280ms var(--oria-ease-standard),border-color 280ms,box-shadow 280ms}
+ :is(.oria-product-card,.home-feature-card,.tab-feature,.tunnel-feature,.tunnel-installer):hover {border-color:color-mix(in srgb,var(--oria-color-primary) 35%,var(--oria-color-border))}
+}

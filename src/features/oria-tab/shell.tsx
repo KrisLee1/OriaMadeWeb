@@ -5,6 +5,7 @@ import Link from 'next/link'
 import {usePathname} from 'next/navigation'
 import {Popover} from '@base-ui/react/popover'
 import {Menu, X} from 'lucide-react'
+import {HomeLink} from '@/components/site/home-link'
 import {BrandName} from '@/components/site/brand-name'
 import {GitHubLink} from '@/components/site/github-link'
 import {SiteControls} from '@/components/site/controls'
@@ -35,8 +36,8 @@ export function TabShell({locale, children}: {locale: Locale; children: React.Re
     wide.addEventListener('change', close)
     return () => wide.removeEventListener('change', close)
   }, [])
+  const homeLink=<HomeLink locale={locale} onNavigate={()=>setOpen(false)}/>
   const links = <>
-    <Link href={localizedPath(locale)} onClick={() => setOpen(false)}>{localize(locale, 'Oria home', 'Oria 首页')}</Link>
     {[['workflow', c.nav[0]], ['appearance', c.nav[1]], ['get', c.nav[4]]].map(([id, label]) => <a key={id} href={`${localizedPath(locale, '/oria-tab')}#${id}`} aria-current={home && active === id ? 'location' : undefined} onClick={() => {setActive(id); setOpen(false)}}>{label}</a>)}
     <Link href={localizedPath(locale, '/oria-tab/changelog')} aria-current={pathname.endsWith('/changelog') ? 'page' : undefined} onClick={() => setOpen(false)}>{c.nav[2]}</Link>
   </>
@@ -44,13 +45,14 @@ export function TabShell({locale, children}: {locale: Locale; children: React.Re
     <header ref={anchor} className="tab-site-header scroll-reveal-header" data-floating={floating}>
       <div className="tab-header-inner">
         <Link className="tab-brand" href={localizedPath(locale, '/oria-tab')}><img src="/products/oria-tab/assets/logo.svg" alt="" width={30} height={30}/><BrandName name="OriaTab"/></Link>
+        <div className="site-home-group">{homeLink}</div>
         <nav className="tab-nav" aria-label={localize(locale, 'Page sections', '页面章节')}>{links}</nav>
         <div className="tab-header-actions"><GitHubLink repository="OriaTab-Releases"/><SiteControls/></div>
         <GitHubLink repository="OriaTab-Releases" compact/>
         <Popover.Root open={open} onOpenChange={setOpen}>
           <Popover.Trigger className="tab-menu-trigger" aria-label={localize(locale, 'Menu', '菜单')}>{open ? <X size={20}/> : <Menu size={20}/>}</Popover.Trigger>
           <Popover.Portal><Popover.Positioner anchor={anchor} sideOffset={8} align="end" className="tab-menu-positioner"><Popover.Popup className="tab-mobile-menu floating-surface">
-            <Popover.Title className="sr-only">OriaTab</Popover.Title><nav>{links}<GitHubLink repository="OriaTab-Releases"/></nav><SiteControls/>
+            <Popover.Title className="sr-only">OriaTab</Popover.Title><div className="site-popup-home">{homeLink}</div><nav>{links}<GitHubLink repository="OriaTab-Releases"/></nav><SiteControls/>
           </Popover.Popup></Popover.Positioner></Popover.Portal>
         </Popover.Root>
       </div>

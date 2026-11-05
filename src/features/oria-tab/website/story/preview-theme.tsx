@@ -2,7 +2,6 @@ import { useLayoutEffect, useMemo, type ReactNode } from 'react'
 import { OriaThemeProvider, useOriaTheme } from '@oriatheme/react'
 import { createOriaThemeRuntime, type OriaThemeConfig, type OriaThemeRuntime } from '@oriatheme/runtime-dom'
 import { appThemes } from '@/features/oria-tab/shared/lib/theme-provider'
-import { LIQUID_THEME_ID } from '@/features/oria-tab/shared/lib/theme-preference'
 import { materialShadows } from '@/features/oria-tab/shared/lib/material'
 
 // The story previews presets on the demo screen only. A second runtime resolves the preset
@@ -18,10 +17,11 @@ function detachedTarget() {
   return host.attachShadow({ mode: 'open' })
 }
 export function usePreviewRuntime() {
+  const {snapshot}=useOriaTheme()
   return useMemo(() => {
-    const config: OriaThemeConfig = { presets: appThemes, defaultThemeId: LIQUID_THEME_ID, storage: false, transition: false, target: detachedTarget(), attributeAdapter: () => {} }
+    const config: OriaThemeConfig = { presets: [...snapshot.presets,...snapshot.customThemes], defaultThemeId: snapshot.preference.activeThemeId, storage: false, transition: false, target: detachedTarget(), attributeAdapter: () => {} }
     return { config, runtime: createOriaThemeRuntime(config) }
-  }, [])
+  }, [snapshot.presets,snapshot.customThemes,snapshot.preference.activeThemeId])
 }
 
 type Global = { themeId: string; dark: boolean }
@@ -51,7 +51,7 @@ function Bridge({ runtime, global, children, onReady }: { runtime: OriaThemeRunt
       el.dataset.previewTheme = id
     }
     apply()
-    onReady({ sequence, name: i => previewNames.get(sequence[i]) || '', set: next => { if (next === index) return; index = next; apply() } })
+    onReady({ sequence, name: i => runtime.getSnapshot().presets.find(theme=>theme.id===sequence[i])?.name || previewNames.get(sequence[i]) || sequence[i], set: next => { if (next === index) return; index = next; apply() } })
     return () => { const el = scope(); if (el) clear(el) }
   }, [runtime, global.themeId, global.dark, onReady])
   return children

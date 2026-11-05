@@ -78,7 +78,7 @@
     },
     {
       "source": "/tmp/oria-made-theme-source/apps/website/components/home/reveal.tsx",
-      "destination": "src/features/oria-theme/components/home/reveal.tsx",
+      "destination": "src/components/ui/reveal.tsx",
       "sha256": "349ebdb95c7c518ff7819a5de150525dd7a21d8de48dce27b4008783391416de"
     },
     {
@@ -1891,6 +1891,31 @@
       "source": "/Users/krislee/Projects/OriaTunnel/src/assets/firefoxbrowser.svg",
       "destination": "public/products/oria-tunnel/browsers/firefoxbrowser.svg",
       "sha256": "f8301ac5f5dd3ca962db4283c1148e9a90ffcebe690ec83cedad88107d449f79"
+    },
+    {
+      "source": "https://github.com/DavidHDev/react-bits/blob/4dc7b5b7772e1217c8fb8d2a7aa074302180e5b4/src/ts-default/Backgrounds/Waves/Waves.tsx",
+      "destination": "src/components/backgrounds/react-bits-waves.tsx",
+      "sha256": "eb2d95ad72a82856247ba07a419f0113cc1099198a3e59a136ae43638b7f7400"
+    },
+    {
+      "source": "https://github.com/DavidHDev/react-bits/blob/4dc7b5b7772e1217c8fb8d2a7aa074302180e5b4/LICENSE.md",
+      "destination": "docs/licenses/ReactBits-MIT-Commons-Clause.txt",
+      "sha256": "4bdd1fa59a6b7d5954bc3b213dbc34e455c635a94bbcecf9293553797d0fad02"
+    },
+    {
+      "source": "https://github.com/DavidHDev/react-bits/blob/4dc7b5b7772e1217c8fb8d2a7aa074302180e5b4/src/ts-default/Backgrounds/Aurora/Aurora.tsx",
+      "destination": "src/components/backgrounds/react-bits-aurora.tsx",
+      "sha256": "1571a3ed7bb71bf74990c82a386b35faa71596505e95476ebc4769631537c611"
+    },
+    {
+      "source": "https://github.com/DavidHDev/react-bits/blob/4dc7b5b7772e1217c8fb8d2a7aa074302180e5b4/src/ts-default/Backgrounds/Particles/Particles.tsx",
+      "destination": "src/components/backgrounds/react-bits-particles.tsx",
+      "sha256": "f5c6ef9d3af0bb50128588c94d90a717c7ac18f5a7e8a38797b3252d127d762f"
+    },
+    {
+      "source": "https://github.com/DavidHDev/react-bits/blob/4dc7b5b7772e1217c8fb8d2a7aa074302180e5b4/src/ts-default/Backgrounds/RippleGrid/RippleGrid.tsx",
+      "destination": "src/components/backgrounds/react-bits-ripple-grid.tsx",
+      "sha256": "d1c584e5e604427a7f45075f8007a74e549b3d117c5c0d29da4c556ab7d7d8b0"
     }
   ],
   "hashMeaning": "sha256 is the original source fingerprint; destinations include integration changes.",

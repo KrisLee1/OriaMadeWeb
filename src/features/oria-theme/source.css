@@ -103,11 +103,10 @@ button:not(:disabled), a { touch-action: manipulation; }
 .docs-color-library .color-swatch span { margin-top: calc(var(--oria-space) * 1); }
 .docs-color-library .special-colors { margin-top: calc(var(--oria-space) * 5); padding-top: calc(var(--oria-space) * 3); }
 
-/* Home page. Motion choreography lives in components/home/reveal.tsx (critically damped
-   springs, opacity-only under prefers-reduced-motion); these rules cover layout, materials
+/* Home page. Motion choreography lives in src/components/ui/reveal.tsx (critically damped
+   springs, static under prefers-reduced-motion); these rules cover layout, materials
    and pointer-down feedback. All visual values consume --oria-* tokens. */
 .home-hero { padding-top: clamp(calc(var(--oria-space) * 8), 5vw, calc(var(--oria-space) * 12)); }
-.home-hero .diffusion-visual { margin-left: auto; }
 .home-cta-row { display: flex; flex-wrap: wrap; gap: calc(var(--oria-space) * 3); margin-top: calc(var(--oria-space) * 8); }
 .home-cta { display: inline-flex; align-items: center; justify-content: center; min-height: var(--oria-control-height-lg); padding: 0 calc(var(--oria-control-padding-x-md) + calc(var(--oria-space) * 1)); border-radius: 9999px; font-size: var(--oria-text-sm); font-weight: var(--oria-font-weight-semibold); text-decoration: none; transition: transform var(--oria-duration-fast) var(--oria-ease-standard), background var(--oria-duration-fast) var(--oria-ease-standard), border-color var(--oria-duration-fast) var(--oria-ease-standard); }
 .home-cta:active { transform: scale(0.97); }

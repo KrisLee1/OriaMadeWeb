@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState, type ReactNode, type RefObject } from 'react'
+import { createContext, useContext, useEffect, useLayoutEffect, useRef, useState, type ReactNode, type RefObject } from 'react'
 import { useThemeSnapshot } from '@oriatheme/react'
 import { useApp } from '@/features/oria-tab/website/state'
 import { LIQUID_THEME_ID } from '@/features/oria-tab/shared/lib/theme-preference'
@@ -9,27 +9,33 @@ import { connectPageGlass } from '@/features/oria-tab/shared/lib/glass/page-glas
 import { GlassSceneContext } from '@/features/oria-tab/shared/components/glass-webgl'
 import { useMedia } from '@/features/oria-tab/shared/components/glass'
 
+const GlassActivityContext = createContext(true)
+
 /** A document boundary; nested website previews provide their own scoped scene. */
-export function GlassEnvironment({children,scope,external=false}:{children:ReactNode;scope?:RefObject<HTMLElement|null>;external?:boolean}) {
+export function GlassEnvironment({children,scope,external=false,active=true}:{children:ReactNode;scope?:RefObject<HTMLElement|null>;external?:boolean;active?:boolean}) {
+  const parentActive = useContext(GlassActivityContext), enabled = parentActive && active
   const {state,ready}=useApp(),liquid=useThemeSnapshot(s=>s.preference.activeThemeId===LIQUID_THEME_ID),dark=useThemeSnapshot(s=>s.resolvedMode==='dark')
   const themeBackground=useThemeSnapshot(s=>(['--oria-color-bg','--oria-gradient-bg','--oria-pattern-bg'] as const).map(k=>s.resolvedTheme.variables[k]).join('|'))
   const background=JSON.stringify([state.settings.background,state.settings.dim,state.settings.wallpaperBlur,themeBackground,dark])
   const reduced=useMedia('(prefers-reduced-transparency: reduce), (prefers-contrast: more), (forced-colors: active)')
   const pageGlass=useRef<ReturnType<typeof connectPageGlass>|undefined>(undefined)
   const [scene,setScene]=useState<ApplicationGlassScene|null>(null)
-  useLayoutEffect(()=>{
-    if(!ready||!liquid||reduced||external)return
-    const root=scope?.current??document.body
+  // Parent refs are attached after child layout effects. Wait until all refs
+  // exist so an isolated preview never falls back to capturing document.body.
+  useEffect(()=>{
+    if(!enabled||!ready||!liquid||reduced||external)return
+    const root=scope ? scope.current : document.body
+    if(!root)return
     const previous=root.getAttribute('data-glass-scope');root.setAttribute('data-glass-scope','')
     let next:ApplicationGlassScene
     try{next=new ApplicationGlassScene(root);setScene(next)}catch{root.removeAttribute('data-glass-scope');return}
     return()=>{next.dispose();setScene(null);if(previous===null)root.removeAttribute('data-glass-scope');else root.setAttribute('data-glass-scope',previous)}
-  },[ready,liquid,reduced,scope,external])
-  useLayoutEffect(()=>{
-    if(!ready||!liquid||reduced||!external)return
+  },[enabled,ready,liquid,reduced,scope,external])
+  useEffect(()=>{
+    if(!enabled||!ready||!liquid||reduced||!external)return
     const bridge=connectPageGlass(state.settings.liquidMaterial);pageGlass.current=bridge
     return()=>{bridge.dispose();pageGlass.current=undefined}
-  },[ready,liquid,reduced,external])
+  },[enabled,ready,liquid,reduced,external])
   useLayoutEffect(()=>{pageGlass.current?.setMaterial(state.settings.liquidMaterial)},[state.settings.liquidMaterial])
   useLayoutEffect(()=>{
     if(!scene)return
@@ -40,5 +46,5 @@ export function GlassEnvironment({children,scope,external=false}:{children:React
     scene.setMaterial(state.settings.liquidMaterial,resolveGlassTint(state.settings.liquidMaterial,dark,accent))
   },[scene,state.settings.liquidMaterial,state.settings.themeColor,state.settings.customColor,dark])
   useLayoutEffect(()=>{scene?.invalidateBackground()},[scene,background])
-  return <GlassSceneContext value={scene}>{children}</GlassSceneContext>
+  return <GlassActivityContext value={enabled}><GlassSceneContext value={scene}>{children}</GlassSceneContext></GlassActivityContext>
 }

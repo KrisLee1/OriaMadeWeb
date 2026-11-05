@@ -8,6 +8,7 @@ import {SiteControls} from '@/components/site/controls'
 import {GitHubLink} from '@/components/site/github-link'
 import {useScrollHeader} from '@/components/site/use-scroll-header'
 import {localizedPath} from '@/i18n/config'
+import {HomeLink} from '@/components/site/home-link'
 import {BrandName} from '@/components/site/brand-name'
 import {localize} from '@/i18n/localize'
 import {tunnelContent,type TunnelLocale} from './content'
@@ -28,12 +29,14 @@ export function TunnelHeader({locale}:{locale:TunnelLocale}){
   return()=>observer.disconnect()
  },[downloadPage])
  useEffect(()=>{const wide=matchMedia('(min-width:1101px)');const close=()=>{if(wide.matches)setOpen(false)};wide.addEventListener('change',close);return()=>wide.removeEventListener('change',close)},[])
- const links=<><Link href={localizedPath(locale)} onClick={()=>setOpen(false)}>{localize(locale,'Oria home','Oria 首页')}</Link>{c.nav.map(item=><a key={item.id} href={`${localizedPath(locale,'/oria-tunnel')}#${item.id}`} aria-current={!downloadPage&&activeSection===item.id?'location':undefined} onClick={()=>{setActiveSection(item.id);setOpen(false)}}>{item.label}</a>)}<Link href={localizedPath(locale,'/oria-tunnel/download')} aria-current={downloadPage?'page':undefined} onClick={()=>setOpen(false)}>{downloadCopy[locale].download}</Link></>
+ const homeLink=<HomeLink locale={locale} onNavigate={()=>setOpen(false)}/>
+ const links=<>{c.nav.map(item=><a key={item.id} href={`${localizedPath(locale,'/oria-tunnel')}#${item.id}`} aria-current={!downloadPage&&activeSection===item.id?'location':undefined} onClick={()=>{setActiveSection(item.id);setOpen(false)}}>{item.label}</a>)}<Link href={localizedPath(locale,'/oria-tunnel/download')} aria-current={downloadPage?'page':undefined} onClick={()=>setOpen(false)}>{downloadCopy[locale].download}</Link></>
  return <header ref={anchor} className="tunnel-site-header scroll-reveal-header" data-floating={floating}><div className="tunnel-header-inner">
   <Link className="tunnel-brand" href={localizedPath(locale,'/oria-tunnel')}><img src="/products/oria-tunnel/logo.svg" width={30} height={30} alt=""/><BrandName name="OriaTunnel"/></Link>
+  <div className="site-home-group">{homeLink}</div>
   <nav className="tunnel-nav" aria-label={localize(locale,'Page sections','页面章节')}>{links}</nav>
   <div className="tunnel-header-actions"><GitHubLink repository="OriaTunnel"/><SiteControls/></div>
   <GitHubLink repository="OriaTunnel" compact/>
-  <Popover.Root open={open} onOpenChange={setOpen}><Popover.Trigger className="tunnel-menu-trigger" aria-label={localize(locale,'Menu','菜单')}>{open?<X size={20}/>:<Menu size={20}/>}</Popover.Trigger><Popover.Portal><Popover.Positioner anchor={anchor} sideOffset={8} align="end" className="tunnel-menu-positioner"><Popover.Popup className="tunnel-mobile-menu floating-surface"><Popover.Title className="sr-only">OriaTunnel</Popover.Title><nav>{links}<GitHubLink repository="OriaTunnel"/></nav><SiteControls/></Popover.Popup></Popover.Positioner></Popover.Portal></Popover.Root>
+  <Popover.Root open={open} onOpenChange={setOpen}><Popover.Trigger className="tunnel-menu-trigger" aria-label={localize(locale,'Menu','菜单')}>{open?<X size={20}/>:<Menu size={20}/>}</Popover.Trigger><Popover.Portal><Popover.Positioner anchor={anchor} sideOffset={8} align="end" className="tunnel-menu-positioner"><Popover.Popup className="tunnel-mobile-menu floating-surface"><Popover.Title className="sr-only">OriaTunnel</Popover.Title><div className="site-popup-home">{homeLink}</div><nav>{links}<GitHubLink repository="OriaTunnel"/></nav><SiteControls/></Popover.Popup></Popover.Positioner></Popover.Portal></Popover.Root>
  </div></header>
 }

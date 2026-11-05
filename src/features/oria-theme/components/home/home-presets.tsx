@@ -10,7 +10,7 @@ import { useEditorPanel } from "@/features/oria-theme/components/editor-panel-pr
 import { getCopy, type Locale } from "@/features/oria-theme/lib/i18n";
 import {localize} from '@/i18n/localize'
 import {Pause, Play} from 'lucide-react'
-import { Reveal } from "./reveal";
+import { Reveal } from "@/components/ui/reveal";
 
 const palettePaths = ["color.primary", "color.secondary", "color.accent", "color.selection", "color.info"] as const;
 /** Ambient drift speed of the preset marquee, px/s. */

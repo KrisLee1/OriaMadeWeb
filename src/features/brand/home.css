@@ -1,0 +1,42 @@
+.oria-home{max-width:1280px;margin:auto;padding:0 32px}
+.oria-hero{display:grid;grid-template-columns:minmax(0,1fr) 320px;align-items:end;gap:64px;padding:80px 0 88px;overflow:visible}
+.oria-eyebrow{margin:0 0 22px;font-size:11px;font-weight:550;letter-spacing:.12em;line-height:1.6;color:var(--oria-color-muted-fg)}
+.oria-hero h1{font-size:clamp(58px,6.6vw,96px);font-weight:550;letter-spacing:-.065em;line-height:1.06;margin:0;text-wrap:balance}
+.oria-hero h1 span{color:var(--oria-color-primary)}
+.oria-hero-bottom{display:block;margin-top:28px;max-width:520px}
+.oria-hero-bottom>p{font-size:15px;line-height:1.85;color:var(--oria-color-muted-fg);margin:0 0 22px;max-width:440px}
+.oria-text-link{display:inline-flex;align-items:center;gap:12px;white-space:nowrap;font-size:13px;line-height:1.6;padding:10px 0}
+.oria-hero-index{padding:22px;border:1px solid var(--oria-color-border);border-radius:var(--oria-radius-xl);background:color-mix(in srgb,var(--oria-color-surface) 76%,transparent);box-shadow:var(--oria-shadow-sm)}
+.oria-hero-index>.oria-eyebrow{margin-bottom:16px;font-size:10px}
+.oria-hero-index>a{display:grid;grid-template-columns:30px minmax(0,1fr) 16px;align-items:center;gap:12px;padding:14px 0;font-size:14px}
+.oria-hero-index>a+a{border-top:1px solid var(--oria-color-border)}
+.oria-hero-index img{width:28px;height:28px;object-fit:contain}
+.oria-hero-index svg{color:var(--oria-color-muted-fg);transition:transform var(--oria-duration-fast)}
+.oria-hero-index>a:hover svg{transform:translate(2px,-2px);color:var(--oria-color-primary)}
+.oria-products{padding:24px 0 0;scroll-margin-top:92px}
+.oria-section-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:28px;padding-top:28px;border-top:1px solid var(--oria-color-border)}
+.oria-section-heading .oria-eyebrow{margin:0}
+.oria-section-heading h2{margin:0;font-size:clamp(24px,3vw,36px);font-weight:500;letter-spacing:-.04em;text-wrap:balance}
+.oria-product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.oria-product-grid>div{display:flex;min-width:0}
+.oria-product-card{display:flex;flex-direction:column;width:100%;min-width:0;border:1px solid var(--oria-color-border);border-radius:var(--oria-radius-xl);overflow:hidden;background:color-mix(in srgb,var(--oria-color-surface) 88%,transparent);scroll-margin-top:100px}
+.oria-product-art{position:relative;isolation:isolate;display:grid;place-items:center;height:190px;flex:0 0 190px;min-height:190px;overflow:hidden;background:radial-gradient(ellipse at center,color-mix(in srgb,var(--oria-color-primary) 12%,transparent),transparent 75%)}
+.oria-product-art img{width:92px;height:92px;object-fit:contain;filter:drop-shadow(0 12px 18px #0001);transition:transform 400ms var(--oria-ease-standard)}
+.oria-art-ring{position:absolute;z-index:-1;width:160px;height:160px;border:1px solid color-mix(in srgb,var(--oria-color-primary) 15%,transparent);border-radius:50%}
+.oria-art-ring:after{content:'';position:absolute;inset:-24px;border:1px solid color-mix(in srgb,var(--oria-color-primary) 8%,transparent);border-radius:50%}
+.oria-product-info{display:flex;flex:1;flex-direction:column;align-items:start;padding:26px}
+.oria-product-info>.oria-eyebrow{font-size:9px;letter-spacing:.08em;margin-bottom:16px}
+.oria-product-info h3{font-size:29px;font-weight:500;letter-spacing:-.04em;margin:0 0 12px}
+.oria-product-info>p{font-size:13px;line-height:1.8;color:var(--oria-color-muted-fg);margin:0 0 20px;min-height:47px}
+.oria-product-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 20px;padding:0;list-style:none}
+.oria-product-tags>li{padding:4px 8px;border-radius:var(--oria-radius-md);background:var(--oria-color-muted);font-size:10px;color:var(--oria-color-muted-fg)}
+.oria-product-info .oria-text-link{margin-top:auto;font-size:12px}
+.oria-manifesto{display:grid;grid-template-columns:1.2fr 1fr;gap:32px 64px;padding:88px 0 80px}
+.oria-manifesto>.oria-eyebrow{grid-column:1/-1;margin:0}
+.oria-manifesto h2{font-size:clamp(36px,4.4vw,58px);font-weight:500;letter-spacing:-.055em;line-height:1.15;margin:0;text-wrap:balance}
+.oria-manifesto>p:last-child{align-self:end;margin:0;max-width:400px;font-size:14px;line-height:1.9;color:var(--oria-color-muted-fg)}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.oria-product-card:hover{transform:translateY(-5px);box-shadow:var(--oria-shadow-md)}.oria-product-card:hover .oria-product-art img{transform:translateY(-5px) rotate(-4deg)}}
+@media(max-width:1000px){.oria-hero{gap:32px;grid-template-columns:minmax(0,1fr) 280px}.oria-product-grid{gap:12px}.oria-product-info{padding:22px}.oria-product-info h3{font-size:25px}}
+@media(max-width:760px){.oria-home{padding:0 22px}.oria-hero{grid-template-columns:1fr;padding:52px 0 54px;gap:32px}.oria-hero h1{font-size:clamp(48px,10vw,72px)}.oria-hero-index{padding:18px}.oria-hero-index>a{padding:12px 0}.oria-section-heading{display:block}.oria-section-heading h2{margin-top:12px}.oria-product-grid{grid-template-columns:1fr;gap:18px}.oria-product-card{display:grid;grid-template-columns:minmax(0,1fr) 110px}.oria-product-art{grid-column:2;grid-row:1;min-height:0;height:auto;flex:none}.oria-product-art img{width:65px;height:65px}.oria-art-ring{width:120px;height:120px}.oria-product-info{grid-column:1;grid-row:1;padding:22px}.oria-product-info h3{font-size:26px}.oria-product-tags{gap:5px}.oria-product-tags>li{font-size:9px;padding:3px 6px}.oria-product-info>.oria-eyebrow{font-size:8px}.oria-manifesto{grid-template-columns:1fr;padding:64px 0;gap:22px}}
+@media(max-width:380px){.oria-product-card{grid-template-columns:minmax(0,1fr) 70px}.oria-product-art img{width:50px;height:50px}.oria-product-info{padding:20px}.oria-product-info h3{font-size:24px}}
+@media(prefers-reduced-motion:reduce){.oria-product-art img,.oria-hero-index svg{transition:none}}
