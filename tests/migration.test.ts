@@ -2,6 +2,7 @@ import {activeDemoCount,demoConnectionVisual,isDemoForwardActive,toggleDemoForwa
 import {getDemoCopy} from '../src/features/oria-tunnel/demo-copy'
 import {detectDownloadPlatform,installers,installerAsset,tunnelRelease} from '../src/features/oria-tunnel/release'
 import {downloadCopy} from '../src/features/oria-tunnel/download-copy'
+import {vncUpdateCopy,vncVersion} from '../src/features/oria-tunnel/vnc-update-copy'
 import {fileUpdateCopy} from '../src/features/oria-tunnel/file-update-copy'
 import {getFileDemoCopy} from '../src/features/oria-tunnel/file-demo-copy'
 import {controlDemoTransfer,sampleTransfers} from '../src/features/oria-tunnel/file-demo-state'
@@ -106,7 +107,7 @@ test('Download selection handles architecture hints, reduced user agents and mob
 })
 
 test('All installer links match the configured release and download copy covers eight languages',()=>{
- assert.equal(tunnelRelease.version,'v0.2.0')
+ assert.equal(tunnelRelease.version,'v0.3.0')
  assert.equal(installers.length,4)
  assert.ok(Number.isFinite(Date.parse(tunnelRelease.publishedAt)))
  assert.equal(Object.keys(tunnelRelease.assets).length,6)
@@ -126,11 +127,16 @@ test('All installer links match the configured release and download copy covers 
  }
 })
 
-test('Published file workspace and installers refer to the same current release in every locale',()=>{
+test('VNC release notes cover all locales alongside the published file workspace',()=>{
  for(const locale of locales){
   const copy=fileUpdateCopy[locale]
-  assert.ok(copy.downloadNotice.includes(tunnelRelease.version),locale)
-  assert.ok(!copy.downloadNotice.includes('v0.1.1'),locale)
+  const vnc=vncUpdateCopy[locale]
+  assert.equal(vncVersion,tunnelRelease.version)
+  assert.match(vnc.title,/VNC/)
+  assert.match(vnc.intro,/vnc:\/\//)
+  assert.equal(vnc.status,copy.status,locale)
+  assert.equal(vnc.details.length,2,locale)
+  assert.deepEqual(Object.keys(vnc.demo),Object.keys(vncUpdateCopy.en.demo),locale)
   assert.equal(copy.highlights.length,copy.changes.length,locale)
   assert.equal(copy.changes.length,5,locale)
   assert.deepEqual(Object.keys(getFileDemoCopy(locale)),Object.keys(getFileDemoCopy('en')),locale)

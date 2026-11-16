@@ -30,7 +30,7 @@
 
 ## OriaTunnel 产品页
 
-入口为 `/{locale}/oria-tunnel`；产品顶栏位于 `src/features/oria-tunnel/header.tsx`，始终固定可见，带 GitHub 品牌图标，提供文件传输、工作流、产品功能与下载导航，并标记当前章节。
+入口为 `/{locale}/oria-tunnel`；产品顶栏位于 `src/features/oria-tunnel/header.tsx`，始终固定可见，带 GitHub 品牌图标，提供 VNC、文件传输、工作流、产品功能与下载导航，并标记当前章节。
 
 `demo.tsx`、`native-demo.css` 重建原生窗口的五个页面与独立停靠终端。Mac 窗口使用 OriaTheme 的 radius-lg 圆角，胶囊、原始 Lucide 图标、服务 SVG 和 GraphStar 状态图标均按迁移源维护。窗口整体缩放与连接图内部 viewport 分开计算；不为缩略窗口换用另一套图标顶栏。原图对照仅在本地 `public/products/oria-tunnel/screenshots/` 保留，不纳入本轮提交与部署；官网演示本身不使用截图。
 
@@ -44,7 +44,7 @@
 
 弹层由 Positioner 管理：顶栏 60、移动导航 90、Select/Menu 120。公共选择弹层必须使用 `site-popup-positioner`，不能低于顶栏。主题与语言菜单在按钮下方展开。菜单、首屏和滚动入场支持减少动态效果；滚动动画同时检查 animation-timeline 与 animation-range。
 
-下载页 `/oria-tunnel/download` 提供完整八语言。`release-assets.json` 保存 v0.2.0 的安装包清单。六个安装包/ZIP 的大小、SHA256 与发布时间已按公开 Release 及实际下载核对，页面显示对应安装包大小；维护时须使用该版本真实值，不沿用旧版元数据。主按钮使用浏览器系统及可用架构信息；不足时定位相应平台选择区。不能把 macOS UA 中的 Intel 当作实际芯片。仅在用户点击时下载，不在页面加载时自动下载文件。
+下载页 `/oria-tunnel/download` 提供完整八语言。`release-assets.json` 保存 v0.3.0 的安装包清单。六个安装包/ZIP 的大小、SHA256 与发布时间已按公开 Release 及实际下载核对，页面显示对应安装包大小；维护时须使用该版本真实值，不沿用旧版元数据。主按钮使用浏览器系统及可用架构信息；不足时定位相应平台选择区。不能把 macOS UA 中的 Intel 当作实际芯片。仅在用户点击时下载，不在页面加载时自动下载文件。
 
 Tunnel 的「状态演示」及列表分组统一使用公共 Base UI Select，不使用 HTML 原生 select。窗口外框与原生 surface 共同使用 radius-lg，按预览比例缩放，避免外框与内容的圆角不一致。
 
@@ -55,7 +55,7 @@ Tab 的内联 Dawn 壁纸使用 SVG xMidYMid slice 铺满预览，避免宽高�
 Tunnel v0.1.1 演示：服务默认按 SSH 主机分组，列表图标使用各服务的示例颜色，不在列表项显示端口，共享服务的复选框保持同步。D 的独立浏览器菜单复用 Base UI DropdownMenu，只有模拟监听状态可用；选择后仅显示服务端点与演示提示。Chrome/Edge/Firefox 标识本地加载，出处与许可证见 `public/products/oria-tunnel/licenses/NOTICE.txt`。单条启停按钮根据活动状态显示「停止」或「启动」，与连接图、转发列表及底部运行数量共享状态。
 
 
-已发布的 v0.1.1 更新内容由 `updates.tsx` 的 `TunnelPreviousUpdate` 在下载页作为历史版本展示，锚点为 `#release-v0-1-1`，版本和 Release 链接独立于当前下载清单。版本信息置顶，首项复用工作区现有 `RuleContent` 展示 D 卡片与 Base UI 浏览器菜单，另两项变化分列；窄屏按单栏展示。原生演示样式由 Tunnel 布局统一加载，避免直接打开下载页时缺少卡片样式。局部预览不使用截图，不另造一套服务标签或浏览器列表。下载页首屏并列提供发布说明锚点与 GitHub 历史版本入口，八语言同步。
+下载页首屏分别链接当前版本发布说明和上个版本的历史说明。历史标题、锚点和官方发布链接使用同一版本号，区内提供完整 GitHub 发布归档入口。
 
 D 卡片地址行仅保留 Globe 浏览器入口，移除旧列表管理图标与 D 外链图标，底部不重复放置浏览器入口。更新区只展示原生 D 卡片与浏览器弹层，不显示画布背景、窗口边框、底部计数或附加说明；卡片最大宽度为 340px，高度随内容与缩放自动测量。
 
@@ -69,9 +69,9 @@ D 卡片地址行仅保留 Globe 浏览器入口，移除旧列表管理图标�
 
 更新日志与隐私政策使用 `subpage.tsx` 的产品私有阅读布局。更新日志保留版本锚点、时间、原更新内容和完整历史入口；隐私页提供章节目录、原有正文及独立横向滚动表格。网站访问说明位于 `privacy-copy.ts`，与扩展行为分开维护；当前 Cloudflare Workers 说明链接官方隐私政策。
 
-## OriaTunnel 文件界面
+## OriaTunnel 远程桌面与文件界面
 
-`file-update.tsx` 在首页与下载页展示 v0.2.0 正式发布内容，导航锚点为 `#files`；当前安装包为 v0.2.0；`#release-notes` 指向当前五项更新，提供官方 Release 链接。`file-demo.tsx` 同时用于独立文件近景与 `WorkspaceDemo` 的停靠面板。Tunnel 顶栏在 1100px 及以下切换为紧凑 GitHub 入口与移动菜单，避免新增导航后长语言控件越界。原始的分层文件图标、路径折叠导航与更多菜单分别位于 `native-file-artwork`、`native-file-path`/`native-file-breadcrumb`、`native-file-options`，保留来源与 GPL-3.0-only 声明。
+`file-update.tsx` 在首页展示 SFTP 工作区，在下载页标注 v0.2.0 历史版本，导航锚点为 `#files`；`#release-v0-2-0` 指向文件工作区更新及该版官方 Release。`vnc-update.tsx` 在两页展示 v0.3.0 更新与 `vnc-desktop-demo.tsx`。VNC 窗口的地址、窗口按钮、缩放及工作区按钮按原版 VncHeader 布局，文件和终端复用 `FileWorkspaceDemo`、`TerminalDock` 及既有 SVG 图标。官网查看器的胶囊顶栏常驻。向下滚动依次展示文件传输、SSH 终端，反向滚动可回看。在同一阶段手动开关面板会保留选择。两处工作区共用面板开合过渡，并遵循系统减少动态效果设置。远端区域使用静态壁纸与页面内存示例窗口。首页导航、连接图和转发列表中已监听的 5900 端口示例规则指向 `#vnc`，下载页的 `#release-notes` 指向 VNC 标题。`file-demo.tsx` 同时用于独立文件近景与 `WorkspaceDemo` 的停靠面板。Tunnel 顶栏在 1100px 及以下切换为紧凑 GitHub 入口与移动菜单，避免新增导航后长语言控件越界。原始的分层文件图标、路径折叠导航与更多菜单分别位于 `native-file-artwork`、`native-file-path`/`native-file-breadcrumb`、`native-file-options`，保留来源与 GPL-3.0-only 声明。
 
 还原文件区时优先复用上述原版纯展示代码，不用普通 Lucide 文件夹/文件图标替代分层图形。标题行放端点选择、选中数量和传输按钮；路径行保留前进/后退/上级/刷新、折叠面包屑、路径输入、搜索弹层、当前视图与更多菜单；不增加原应用没有的列表表头或底部操作栏。列表行保留大小与修改日期，图标视图使用原版 56px 图形；传输区保留文件/批次图标、方向、大小、状态、分组/排序与批次展开。Base UI 管理弹层，主题值来自 OriaTheme。
 

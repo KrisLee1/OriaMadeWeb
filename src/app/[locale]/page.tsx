@@ -14,7 +14,7 @@ export async function generateMetadata({params}:{params:Promise<{locale:string}>
 const productTags = [
  ['Themes','Design tokens','Live editor'],
  ['Search','Bookmarks','AI assistant'],
- ['SSH tunnels','File transfer','Remote services'],
+ ['SSH tunnels','VNC','SFTP'],
 ] as const
 export default async function Home({params}:{params:Promise<{locale:string}>}) {
  const {locale}=await params

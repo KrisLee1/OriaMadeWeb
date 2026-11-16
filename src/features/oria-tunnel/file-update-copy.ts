@@ -1,14 +1,17 @@
 // OriaTunnel v0.2.0, published source f8ccbe7701c7b7666ed17eb07d74babbc3866aae. GPL-3.0-only.
 import type {Locale} from '@/i18n/config'
 
-type FileUpdateCopy={eyebrow:string;title:string;status:string;intro:string;downloadNotice:string;demoNotice:string;currentDownload:string;highlights:string[];changes:string[]}
+export const fileReleaseVersion = 'v0.2.0'
+export const fileReleaseId = 'release-' + fileReleaseVersion.replaceAll('.', '-')
+export const fileReleaseUrl = 'https://github.com/KrisLee1/OriaTunnel/releases/tag/' + fileReleaseVersion
+
+type FileUpdateCopy={eyebrow:string;title:string;status:string;intro:string;demoNotice:string;currentDownload:string;highlights:string[];changes:string[]}
 export const fileUpdateCopy={
   "en": {
     "eyebrow": "FILES IN YOUR SSH WORKSPACE",
     "title": "Your files. On either side of SSH.",
     "status": "Available now",
     "intro": "Browse, transfer, preview and edit files alongside your tunnels and terminals.",
-    "downloadNotice": "v0.2.0 is now available for Windows and macOS, including file transfer, previews and text editing.",
     "demoNotice": "Interactive preview · sample files and progress only. Edits stay in this page; no files are read or transferred.",
     "currentDownload": "Current download",
     "highlights": [
@@ -31,7 +34,6 @@ export const fileUpdateCopy={
     "title": "SSH 两端，文件近在手边。",
     "status": "正式发布",
     "intro": "浏览、传输、预览与编辑文件，与隧道和终端一起工作。",
-    "downloadNotice": "v0.2.0 已正式发布，支持 Windows 与 macOS，包含文件传输、预览与文本编辑。",
     "demoNotice": "交互预览 · 仅使用示例文件与进度。编辑只保留在当前页面，不读取或传输真实文件。",
     "currentDownload": "当前可下载版本",
     "highlights": [
@@ -54,7 +56,6 @@ export const fileUpdateCopy={
     "title": "SSH 兩端，檔案近在手邊。",
     "status": "正式發行",
     "intro": "瀏覽、傳輸、預覽與編輯檔案，與通道和終端機一起工作。",
-    "downloadNotice": "v0.2.0 已正式發行，支援 Windows 與 macOS，包含檔案傳輸、預覽與文字編輯。",
     "demoNotice": "互動預覽 · 僅使用範例檔案與進度。編輯只保留於目前頁面，不讀取或傳輸真實檔案。",
     "currentDownload": "目前可下載版本",
     "highlights": [
@@ -77,7 +78,6 @@ export const fileUpdateCopy={
     "title": "SSH の両側のファイルを、手元に。",
     "status": "リリース済み",
     "intro": "トンネルやターミナルと並べて、ファイルの閲覧、転送、プレビュー、編集。",
-    "downloadNotice": "v0.2.0 を Windows・macOS 向けにリリースしました。ファイル転送、プレビュー、テキスト編集に対応しています。",
     "demoNotice": "操作できるプレビュー · サンプルファイルと進捗のみ。編集はこのページ内に留まり、実際のファイルの読み取りや転送は行いません。",
     "currentDownload": "現在のダウンロード",
     "highlights": [
@@ -100,7 +100,6 @@ export const fileUpdateCopy={
     "title": "SSH 양쪽의 파일을 손쉽게.",
     "status": "정식 출시",
     "intro": "터널과 터미널 옆에서 파일 탐색, 전송, 미리보기와 편집까지.",
-    "downloadNotice": "Windows 및 macOS용 v0.2.0이 정식 출시되었습니다. 파일 전송, 미리보기와 텍스트 편집을 포함합니다.",
     "demoNotice": "대화형 미리보기 · 예제 파일과 진행률만 사용합니다. 편집은 현재 페이지에만 유지되며 실제 파일을 읽거나 전송하지 않습니다.",
     "currentDownload": "현재 다운로드 버전",
     "highlights": [
@@ -123,7 +122,6 @@ export const fileUpdateCopy={
     "title": "Ihre Dateien. Auf beiden Seiten von SSH.",
     "status": "Veröffentlicht",
     "intro": "Dateien neben Tunneln und Terminals durchsuchen, übertragen, ansehen und bearbeiten.",
-    "downloadNotice": "v0.2.0 ist für Windows und macOS verfügbar, einschließlich Dateiübertragung, Vorschau und Textbearbeitung.",
     "demoNotice": "Interaktive Vorschau · nur Beispieldateien und Fortschrittswerte. Änderungen bleiben auf dieser Seite; echte Dateien werden weder gelesen noch übertragen.",
     "currentDownload": "Aktueller Download",
     "highlights": [
@@ -146,7 +144,6 @@ export const fileUpdateCopy={
     "title": "Vos fichiers, des deux côtés de SSH.",
     "status": "Disponible",
     "intro": "Parcourez, transférez, prévisualisez et modifiez les fichiers à côté des tunnels et terminaux.",
-    "downloadNotice": "v0.2.0 est disponible pour Windows et macOS, avec transfert de fichiers, aperçu et édition de texte.",
     "demoNotice": "Aperçu interactif · fichiers et progression fictifs. Les modifications restent dans cette page ; aucun fichier réel n’est lu ou transféré.",
     "currentDownload": "Téléchargement actuel",
     "highlights": [
@@ -169,7 +166,6 @@ export const fileUpdateCopy={
     "title": "Ваши файлы по обе стороны SSH.",
     "status": "Выпущено",
     "intro": "Просматривайте, передавайте и редактируйте файлы рядом с туннелями и терминалами.",
-    "downloadNotice": "v0.2.0 доступна для Windows и macOS и включает передачу файлов, предварительный просмотр и редактирование текста.",
     "demoNotice": "Интерактивный просмотр · только примеры файлов и прогресса. Изменения остаются на этой странице; реальные файлы не читаются и не передаются.",
     "currentDownload": "Текущая загрузка",
     "highlights": [

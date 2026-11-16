@@ -2,10 +2,10 @@
 // See docs/licenses/OriaTunnel-GPL-3.0.txt and docs/migration-sources.json.
 // Brand SVG paths retain their source and license metadata in native-assets/service-icons.json.
 import type {CSSProperties} from 'react'
-import {BracesIcon,CodeIcon,DatabaseIcon,GlobeIcon,GraphStarIcon,NetworkIcon,SquareTerminalIcon,TerminalIcon,type LucideProps} from 'lucide-react'
+import {BracesIcon,CodeIcon,DatabaseIcon,GlobeIcon,GraphStarIcon,NetworkIcon,MonitorIcon,SquareTerminalIcon,TerminalIcon,type LucideProps} from 'lucide-react'
 import serviceIcons from './native-assets/service-icons.json'
 
-const builtinIcons={code:CodeIcon,braces:BracesIcon,database:DatabaseIcon,globe:GlobeIcon,network:NetworkIcon}
+const builtinIcons={code:CodeIcon,braces:BracesIcon,database:DatabaseIcon,globe:GlobeIcon,network:NetworkIcon,monitor:MonitorIcon}
 const glyphStyle:CSSProperties={width:18,height:18}
 const iconStyle:CSSProperties={display:'inline-flex',flex:'0 0 20px',width:20,height:20,alignItems:'center',justifyContent:'center',fontFamily:'"Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif',fontSize:18,fontWeight:'normal',lineHeight:1}
 

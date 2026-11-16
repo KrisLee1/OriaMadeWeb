@@ -20,14 +20,14 @@ export function TunnelHeader({locale}:{locale:TunnelLocale}){
  const [activeSection,setActiveSection]=useState<string|null>(null)
  useEffect(()=>{
   if(downloadPage)return
-  const sections=['files','workflow','capabilities'].map(id=>document.getElementById(id)).filter((element):element is HTMLElement=>Boolean(element))
+  const sections=c.nav.map(({id})=>document.getElementById(id)).filter((element):element is HTMLElement=>Boolean(element))
   const observer=new IntersectionObserver(()=>{
    const current=sections.filter(section=>section.getBoundingClientRect().top<window.innerHeight*.4).at(-1)
    setActiveSection(current?.id??null)
   },{rootMargin:'-15% 0px -55% 0px',threshold:0})
   sections.forEach(section=>observer.observe(section))
   return()=>observer.disconnect()
- },[downloadPage])
+ },[downloadPage,c.nav])
  useEffect(()=>{const wide=matchMedia('(min-width:1101px)');const close=()=>{if(wide.matches)setOpen(false)};wide.addEventListener('change',close);return()=>wide.removeEventListener('change',close)},[])
  const homeLink=<HomeLink locale={locale} onNavigate={()=>setOpen(false)}/>
  const links=<>{c.nav.map(item=><a key={item.id} href={`${localizedPath(locale,'/oria-tunnel')}#${item.id}`} aria-current={!downloadPage&&activeSection===item.id?'location':undefined} onClick={()=>{setActiveSection(item.id);setOpen(false)}}>{item.label}</a>)}<Link href={localizedPath(locale,'/oria-tunnel/download')} aria-current={downloadPage?'page':undefined} onClick={()=>setOpen(false)}>{downloadCopy[locale].download}</Link></>

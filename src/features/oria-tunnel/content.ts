@@ -2,8 +2,9 @@ import {locales} from '@/i18n/config'
 import {localize} from '@/i18n/localize'
 const sourceContent = {
   en: {
-    metadata: 'A visual SSH workspace for hosts, tunnels, services, file transfers, previews, text editing and terminals on Windows and macOS.',
+    metadata: 'Manage SSH tunnels, transfer files and open a VNC remote desktop from one workspace on Windows or macOS.',
     nav: [
+      {id: 'vnc', label: 'VNC'},
       {id: 'files', label: 'File transfer'},
       {id: 'workflow', label: 'Workflow'},
       {id: 'capabilities', label: 'Product features'},
@@ -13,7 +14,7 @@ const sourceContent = {
       eyebrow: 'ORIA TUNNEL · SSH WORKSPACE',
       line1: 'Manage SSH tunnels visually.',
       line2: 'Use remote services with ease.',
-      description: 'Manage SSH hosts, forwarding and service commands in one workspace. Browse and transfer files, preview and edit text, and open SSH terminals alongside your remote services.',
+      description: 'Manage SSH tunnels, transfer files and open a VNC remote desktop from one workspace on Windows or macOS.',
       primary: 'Explore the workspace',
       secondary: 'Explore on GitHub',
       demo: 'INTERACTIVE PRODUCT STORY · SAMPLE DATA',
@@ -31,7 +32,7 @@ const sourceContent = {
     story: {
       eyebrow: 'ONE CONTINUOUS WORKFLOW',
       title: 'From a host to a working service.',
-      description: 'No scattered windows. Each step carries context into the next.',
+      description: 'Import a host, start a local forward and open the remote desktop from the listening VNC rule.',
       chapters: [
         {
           number: '01',
@@ -45,7 +46,7 @@ const sourceContent = {
           kicker: 'CONNECT',
           title: 'Give every route a clear direction.',
           description: 'Shape local, remote and dynamic forwarding without remembering command-line flags. See both ends before you start.',
-          note: 'The current forwarding view keeps all six sample L / R / D rules visible together.',
+          note: 'Start the VNC rule on port 5900, then select Open VNC to explore the sample desktop.',
         },
         {
           number: '03',
@@ -73,7 +74,7 @@ const sourceContent = {
       description: 'The details around a connection matter just as much as the connection itself.',
       cards: [
         {kicker: 'L / R / D', title: 'Three ways through.', description: 'Batch start or stop L / R / D rules. Once D is listening, open an isolated Chrome, Edge or Firefox proxy window, or go straight to a linked web service.'},
-        {kicker: 'v0.2.0 · FILES', title: 'Files, close to your work.', description: 'Browse local and SSH files, transfer between hosts, manage a background queue, and preview or edit text in shared work panels.'},
+        {kicker: 'SFTP', title: 'Files, close to your work.', description: 'Browse local and SSH files, transfer between hosts, manage a background queue, and preview or edit text in shared work panels.'},
         {kicker: 'SSH TERMINAL', title: 'A shell when you need it.', description: 'Keep up to eight independent terminals in a dockable workspace with search, full-screen programs and explicit reconnects.'},
         {kicker: 'SERVICE RECIPES', title: 'Commands worth reusing.', description: 'Share service commands across linked hosts. Host and forward entries reflect the same service state; imported templates stay disabled until reviewed and enabled.'},
       ],
@@ -101,8 +102,9 @@ const sourceContent = {
     },
   },
   'zh-CN': {
-    metadata: '面向 Windows 与 macOS 的可视化 SSH 工作台，集中管理主机、隧道、服务、文件传输、预览编辑与终端。',
+    metadata: '在 Windows 或 macOS 上管理 SSH 隧道、传输文件，并从同一工作区打开 VNC 远程桌面。',
     nav: [
+      {id: 'vnc', label: 'VNC'},
       {id: 'files', label: '文件传输'},
       {id: 'workflow', label: '工作流'},
       {id: 'capabilities', label: '产品功能'},
@@ -112,7 +114,7 @@ const sourceContent = {
       eyebrow: 'ORIA TUNNEL · SSH 可视化工作台',
       line1: '可视化管理 SSH 隧道，',
       line2: '轻松使用远程服务。',
-      description: '在同一个工作区管理 SSH 主机、转发和服务命令，浏览与传输文件、预览并编辑文本，让远程服务与 SSH 终端触手可及。',
+      description: '在 Windows 或 macOS 上管理 SSH 隧道、传输文件，并从同一工作区打开 VNC 远程桌面。',
       primary: '探索工作区',
       secondary: '在 GitHub 查看项目',
       demo: '交互式产品故事 · 示例数据',
@@ -130,7 +132,7 @@ const sourceContent = {
     story: {
       eyebrow: '一条连续的工作流',
       title: '从一台主机，到可用的服务。',
-      description: '不再散落多个窗口，每一步都带着上一步的上下文继续。',
+      description: '导入 SSH 主机，启动本地转发，然后从正在监听的 VNC 规则打开远程桌面。',
       chapters: [
         {
           number: '01',
@@ -144,7 +146,7 @@ const sourceContent = {
           kicker: '连接',
           title: '让每条路径方向明确。',
           description: '无需记忆命令行参数，也能建立本地、远程和动态转发。启动之前，两端关系已经一目了然。',
-          note: '当前转发界面集中呈现六条 L / R / D 示例规则及其状态。',
+          note: '启动 5900 端口的 VNC 规则，再点「打开 VNC」体验示例桌面。',
         },
         {
           number: '03',
@@ -172,7 +174,7 @@ const sourceContent = {
       description: '连接之外的每个细节，和连接本身同样重要。',
       cards: [
         {kicker: 'L / R / D', title: '三种路径，自由抵达。', description: '批量启停 L / R / D 规则。D 监听后，可打开独立的 Chrome、Edge 或 Firefox 代理窗口，或直接访问关联的网页服务。'},
-        {kicker: 'v0.2.0 · 文件', title: '让文件，留在工作区。', description: '浏览本机与 SSH 文件、主机间传输和后台队列管理，在共享工作面板中预览或编辑文本。'},
+        {kicker: 'SFTP', title: '让文件，留在工作区。', description: '浏览本机与 SSH 文件、主机间传输和后台队列管理，在共享工作面板中预览或编辑文本。'},
         {kicker: 'SSH 终端', title: '需要时，直接回到 shell。', description: '最多八个独立终端，在可停靠工作区中支持搜索、全屏程序与明确的断线重连。'},
         {kicker: '服务配方', title: '让常用命令真正复用。', description: '在关联主机间复用服务命令，主机与转发入口同步显示同一服务状态；导入模板经核对并启用后才可执行。'},
       ],

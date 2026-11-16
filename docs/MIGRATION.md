@@ -78,3 +78,9 @@
 - 公开 [v0.2.0 Release](https://github.com/KrisLee1/OriaTunnel/releases/tag/v0.2.0) 与 Latest 一致，源提交 `f8ccbe7701c7b7666ed17eb07d74babbc3866aae`，五项更新与原发布日志一致。八语言移除准备发布措辞，现有文件演示保持原组件与独立数据边界。
 - 下载清单更新为四架构安装包及两种 DMG ZIP 的实际大小、SHA256 与发布时间。实际下载六个包和 `latest.json`，七项均匹配公开元数据；更新清单版本、四平台链接与签名字段存在性通过核对，未执行安装或独立密码学验签。
 - 当前更新锚点 `#release-notes` 指向 v0.2.0 文件功能区；v0.1.1 卡片独立标为历史版本，使用自己的版本号、Release 链接与 `#release-v0-1-1`，避免旧变更被显示为新版本内容。
+
+## OriaTunnel v0.3.0 VNC（2026-11-16）
+
+八语言更新说明取自只读 OriaTunnel 提交 `d42168586b83817f763c9ad165b36194da883117` 的 `README.md` 和 `docs/readme/README.<locale>.md`，沿用 GPL-3.0-only。官网聚焦内置 VNC 客户端、文本剪贴板与同窗 SSH/SFTP。协议示例以纯文本显示。
+
+VNC 预览参照同一提交的 `src/features/vnc/VncHeader.tsx`、`VncDesktop.tsx`、`desktop.css`、`src/components/window/window-header.tsx`、`window-control.tsx` 及原版八语言按钮文案，沿用 GPL-3.0-only。外层复用官网已迁移的文件和终端面板及 SVG；远端画布用已有的 OriaTab 沙丘、海岸壁纸和示例文本表达。官网窗口不导入原生连接、键盘注入、凭据或系统剪贴板接口。

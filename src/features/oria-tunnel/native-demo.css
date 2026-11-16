@@ -118,9 +118,9 @@
 .demo-native-surface>[data-orientation],.demo-native-surface>[data-slot],.demo-native-surface>div{height:100%}
 .demo-native-surface .demo-native-header{position:absolute;z-index:4;inset:0 0 auto;height:42px;padding:4px;display:flex;justify-content:space-between;align-items:flex-start;background:transparent;gap:0}
 .demo-header-side{display:flex;align-items:flex-start;gap:4px;position:relative;z-index:1}
-.demo-native-surface .demo-native-capsule{background:color-mix(in srgb,var(--oria-color-overlay) calc(var(--oria-opacity-overlay) * 65%),transparent);border:var(--oria-border-width-default) solid var(--oria-color-border);box-shadow:var(--oria-shadow-sm);backdrop-filter:blur(var(--oria-backdrop-blur-md)) saturate(var(--oria-backdrop-saturate));border-radius:var(--oria-radius-xl)}
+.demo-native-surface .demo-native-capsule{background:color-mix(in srgb,var(--oria-color-overlay) calc(var(--oria-opacity-overlay) * 65%),transparent);border:var(--oria-border-width-default) solid transparent;box-shadow:none;backdrop-filter:blur(var(--oria-backdrop-blur-md)) saturate(var(--oria-backdrop-saturate));border-radius:var(--oria-radius-xl)}
 .demo-native-surface .demo-traffic{display:flex;gap:8px;padding:8px;margin:0;height:34px;align-items:center;box-sizing:border-box}
-.demo-native-surface .demo-traffic i{width:16px;height:16px;border:1px solid #0000000d;border-radius:50%;background:#f3a2a3}.demo-native-surface .demo-traffic i:nth-child(2){background:#e9c99b}.demo-native-surface .demo-traffic i:nth-child(3){background:#99cbb2}
+.demo-native-surface .demo-traffic i{width:16px;height:16px;border:1px solid transparent;border-radius:50%;background:#f3a2a3}.demo-native-surface .demo-traffic i:nth-child(2){background:#e9c99b}.demo-native-surface .demo-traffic i:nth-child(3){background:#99cbb2}
 .demo-native-surface .demo-add-tools,.demo-native-surface .demo-batch-tools,.demo-native-surface .demo-window-tools{display:flex;align-items:center;gap:0;height:34px;padding:2px;margin:0}
 .demo-native-surface .demo-add-tools>span,.demo-native-surface .demo-batch-tools>span,.demo-native-surface .demo-window-tools>span,.demo-native-surface .demo-window-tools>button{display:grid;place-items:center;width:28px;height:28px;min-width:28px;flex:none;padding:0;border:0;border-radius:max(0px,calc(var(--oria-radius-xl) - 3px));background:transparent;color:var(--oria-color-muted-fg)}
 .demo-native-surface .demo-add-tools svg,.demo-native-surface .demo-batch-tools svg,.demo-native-surface .demo-window-tools svg{width:16px;height:16px;stroke-width:1.7}.demo-native-surface .demo-batch-tools .demo-batch-start{color:var(--oria-color-primary)}.demo-native-surface .demo-batch-tools .demo-batch-stop{color:var(--oria-color-danger)}
@@ -201,3 +201,15 @@
 .demo-native-surface button.demo-start[data-running=true]{color:var(--oria-color-danger);background:color-mix(in srgb,var(--oria-color-danger) 9%,transparent)}
 .demo-native-surface button.demo-start:hover{filter:brightness(.9)}
 .demo-native-surface button.demo-start:focus-visible{outline:2px solid var(--oria-color-primary);outline-offset:2px}
+
+.workspace-dock {
+  opacity: 0; visibility: hidden; pointer-events: none;
+}
+.workspace-dock[data-open=true] { opacity: 1; visibility: visible; pointer-events: auto; }
+@media (prefers-reduced-motion: no-preference) {
+  .workspace-dock {
+    transform: translateY(28px);
+    transition: transform 300ms var(--oria-ease-standard), opacity 220ms ease, visibility 0s linear 300ms;
+  }
+  .workspace-dock[data-open=true] { transform: translateY(0); transition-delay: 0s; }
+}
