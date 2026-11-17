@@ -1,5 +1,11 @@
 # 迁移说明
 
+## OriaTunnel 首屏与下载页点阵（2026-11-17）
+
+首屏点阵参照 [React Bits 首页 Hero](https://github.com/DavidHDev/react-bits/blob/d01aa914dcbe76da8b2923ebf872b5c8b1066e4c/src/components/landingnew/Hero/Hero.jsx) 与 [DotGrid](https://github.com/DavidHDev/react-bits/blob/d01aa914dcbe76da8b2923ebf872b5c8b1066e4c/src/ts-default/Backgrounds/DotGrid/DotGrid.tsx)。`components/backgrounds/tunnel-dot-grid.tsx` 以 Canvas 2D 实现，采用 2.6px 点径、22px 间距、160px 指针影响半径与 720ms 消退时间，颜色跟随 OriaTheme。绘制在静止、离屏或页面隐藏时停止。初始画布透明，仅光标划过或点按的区域显现。减少动态效果时保持空白。
+
+下载页首屏复用同一点阵组件。上游作者 David Haz，许可见 [MIT + Commons Clause](licenses/ReactBits-MIT-Commons-Clause.txt)。
+
 ## React Bits 交互背景（2026-11-05）
 
 - 使用 React Bits 的 [Waves](https://reactbits.dev/backgrounds/waves)、[Aurora](https://reactbits.dev/backgrounds/aurora)、[Particles](https://reactbits.dev/backgrounds/particles) 与 [RippleGrid](https://reactbits.dev/backgrounds/ripple-grid)，上游固定为 [DavidHDev/react-bits @ 4dc7b5b](https://github.com/DavidHDev/react-bits/tree/4dc7b5b7772e1217c8fb8d2a7aa074302180e5b4)。对应 `src/ts-default/Backgrounds/` 下四个同名组件。原始输入 SHA256 见 [清单](migration-sources.json)，[MIT + Commons Clause 原文](licenses/ReactBits-MIT-Commons-Clause.txt) 完整保留。
@@ -84,3 +90,9 @@
 八语言更新说明取自只读 OriaTunnel 提交 `d42168586b83817f763c9ad165b36194da883117` 的 `README.md` 和 `docs/readme/README.<locale>.md`，沿用 GPL-3.0-only。官网聚焦内置 VNC 客户端、文本剪贴板与同窗 SSH/SFTP。协议示例以纯文本显示。
 
 VNC 预览参照同一提交的 `src/features/vnc/VncHeader.tsx`、`VncDesktop.tsx`、`desktop.css`、`src/components/window/window-header.tsx`、`window-control.tsx` 及原版八语言按钮文案，沿用 GPL-3.0-only。外层复用官网已迁移的文件和终端面板及 SVG；远端画布用已有的 OriaTab 沙丘、海岸壁纸和示例文本表达。官网窗口不导入原生连接、键盘注入、凭据或系统剪贴板接口。
+
+## OriaTunnel v0.4.0 智能终端预览（2026-11-17）
+
+迁移源为 [OriaTunnel 7c24929](https://github.com/KrisLee1/OriaTunnel/tree/7c24929b765f88dab4983e131d84674c395ae508)。`src/features/oria-tunnel/native-terminal/` 保留来源路径，沿用 [GPL-3.0-only](licenses/OriaTunnel-GPL-3.0.txt)。面板、标签、可折叠命令、面包屑、目录选择、保存弹层与命令库对应上游 `src/components/ui/` 和 `src/features/terminal/`。样式取自该提交的 workspace-panel.css、shell-editor.css、globals.css 与 tunnel.css，界面词取自八种语言的 terminal、files 与 tunnel 命名空间。
+
+官网用页面内示例目录和命令输出替换 PTY，用内存命令库替换 Tauri 持久化。面板可在独立近景、主工作区和 VNC 查看器中操作。Windows 本地 PowerShell 与命令块的三个复制选项对照[上游 123fd36](https://github.com/KrisLee1/OriaTunnel/tree/123fd36677167d6a64c686809dc4c485414eae85)。用户主动点击「复制命令」「复制输出」或「复制全部」可写入浏览器剪贴板。自动演示使用页面内示例文本。

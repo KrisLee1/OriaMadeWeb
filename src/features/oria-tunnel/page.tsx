@@ -1,38 +1,53 @@
+import {ArrowUpRight} from 'lucide-react'
+import Link from 'next/link'
+import {CardArt} from './card-art'
+import {tunnelRelease} from './release'
 import {Reveal} from '@/components/ui/reveal'
-import {ArrowDown,ArrowUpRight,Fingerprint,KeyRound,Network,ShieldCheck} from 'lucide-react'
-import {tunnelContent,type TunnelLocale} from './content'
-import {WorkspaceDemo,type DemoView} from './demo'
+import {localizedPath} from '@/i18n/config'
+import {tunnelContent, type TunnelLocale} from './content'
+import {WorkspaceTour} from './workspace-tour'
 import {TunnelDownloadButton} from './download-button'
 import {downloadCopy} from './download-copy'
-import {localizedPath} from '@/i18n/config'
 import {TunnelFileUpdate} from './file-update'
-import {getTunnelFeatures} from './feature-cards'
+import {TunnelTerminalUpdate} from './terminal-update'
+import {terminalUpdateCopy, terminalVersion} from './terminal-update-copy'
 import {TunnelVncUpdate} from './vnc-update'
-import {vncUpdateCopy, vncVersion} from './vnc-update-copy'
-const scenes:DemoView[]=['hosts','forwards','services','logs']
 
-const trustIcons=[Fingerprint,KeyRound,ShieldCheck]
-export function TunnelPage({locale}:{locale:TunnelLocale}){
- const c=tunnelContent[locale]
- return <main className="tunnel-main">
-  <section className="tunnel-hero">
-   <Reveal immediate className="tunnel-hero-copy"><p className="tunnel-eyebrow"><span/>OriaTunnel <i/> {c.hero.eyebrow.split('·').slice(1).join('·').trim()}</p>
-    <h1><span>{c.hero.line1}</span><span>{c.hero.line2}</span></h1>
-    <p className="tunnel-hero-description">{c.hero.description}</p>
-    <div className="tunnel-hero-actions"><TunnelDownloadButton locale={locale}/><a className="tunnel-button tunnel-button-quiet" href="#workspace">{c.hero.primary}<ArrowDown size={16}/></a></div>
-    <nav className="tunnel-hero-topics" aria-label={c.hero.primary}>{c.nav.map(item=><a href={'#'+item.id} key={item.id}>{item.label}<ArrowDown size={12}/></a>)}</nav>
-    <a className="tunnel-all-downloads" href={localizedPath(locale,'/oria-tunnel/download')}>{downloadCopy[locale].allDownloads}<ArrowUpRight size={13}/></a>
-   </Reveal>
-   <div id="workspace" className="tunnel-hero-workspace"><div className="tunnel-demo-meta"><span><i/>{c.hero.demo}</span><span>{vncVersion} · {vncUpdateCopy[locale].status}</span></div><WorkspaceDemo locale={locale}/><p className="tunnel-demo-disclosure">{c.cta.note}</p></div>
-  </section>
-  <TunnelVncUpdate locale={locale}/>
-  <TunnelFileUpdate locale={locale}/>
-  <section id="workflow" className="tunnel-section tunnel-workflow">
-   <Reveal><header className="tunnel-section-heading"><p className="tunnel-eyebrow">{c.story.eyebrow}</p><h2>{c.story.title}</h2><p>{c.story.description}</p></header></Reveal>
-   <div className="tunnel-feature-grid">{c.story.chapters.map((chapter,index)=><Reveal className="tunnel-feature-item" key={chapter.number}><article className="tunnel-feature"><div className="tunnel-feature-copy"><p className="tunnel-eyebrow"><span>{chapter.number}</span>{chapter.kicker}</p><h3>{chapter.title}</h3><p>{chapter.description}</p></div><div className="tunnel-feature-window"><WorkspaceDemo locale={locale} initialView={scenes[index]} compact/></div><p className="tunnel-feature-note">{chapter.note}</p></article></Reveal>)}</div>
-  </section>
-  <section id="capabilities" className="tunnel-section tunnel-capabilities"><Reveal><header className="tunnel-section-heading"><p className="tunnel-eyebrow">{c.capabilities.eyebrow}</p><h2>{c.capabilities.title}</h2><p>{c.capabilities.description}</p></header></Reveal><div className="tunnel-detail-grid">{getTunnelFeatures(locale).map(({icon:Icon,...card})=>{return <article key={card.kicker}><span className="tunnel-detail-icon"><Icon size={22}/></span><p className="tunnel-eyebrow">{card.kicker}</p><h3>{card.title}</h3><p>{card.description}</p></article>})}</div></section>
-  <section id="principles" className="tunnel-section tunnel-principles"><Reveal><header className="tunnel-section-heading"><p className="tunnel-eyebrow">{c.principles.eyebrow}</p><h2>{c.principles.title}</h2><p>{c.principles.description}</p></header></Reveal><div className="tunnel-trust-grid">{c.principles.points.map((point,index)=>{const Icon=trustIcons[index];return <article key={point.title}><Icon size={24}/><h3>{point.title}</h3><p>{point.description}</p></article>})}</div><div className="tunnel-direct"><span><ShieldCheck size={16}/>{c.principles.local}</span><i/><span>{c.principles.direct}</span><i/><span><Network size={16}/>SSH</span><small>{c.principles.cloud}</small></div></section>
-  <section className="tunnel-final-cta"><img src="/products/oria-tunnel/logo.svg" width={64} height={64} alt=""/><p className="tunnel-eyebrow">{c.cta.eyebrow}</p><h2>{c.cta.title}</h2><p>{downloadCopy[locale].intro}</p><TunnelDownloadButton locale={locale}/><a className="tunnel-all-downloads" href={localizedPath(locale,'/oria-tunnel/download')}>{downloadCopy[locale].allDownloads}<ArrowUpRight size={13}/></a></section>
- </main>
+const trustScenes = ['trust', 'credentials', 'export']
+
+export function TunnelPage({locale}: {locale: TunnelLocale}) {
+  const c = tunnelContent[locale]
+  const downloads = localizedPath(locale, '/oria-tunnel/download')
+  return <main className="tunnel-main tunnel-product-page">
+    <section id="workspace" tabIndex={-1} className="tunnel-spotlight" aria-labelledby="workspace-title">
+    <header className="tunnel-product-intro">
+      <Reveal immediate className="tunnel-intro-title">
+        <a className="tunnel-preview-link" href={tunnelRelease.releaseUrl}>{terminalVersion} · {terminalUpdateCopy[locale].status}<ArrowUpRight size={13}/></a>
+        <h1 id="workspace-title">{c.hero.title.replace('\n','')}</h1>
+      </Reveal>
+      <div className="tunnel-intro-actions">
+        <p>{c.metadata}</p>
+        <div className="tunnel-intro-links">
+          <TunnelDownloadButton locale={locale}/>
+          <Link className="tunnel-text-link" href={downloads}>{downloadCopy[locale].allDownloads}<ArrowUpRight size={15}/></Link>
+        </div>
+      </div>
+    </header>
+
+    <Reveal><WorkspaceTour locale={locale}/></Reveal>
+    </section>
+    <TunnelTerminalUpdate locale={locale}/>
+    <TunnelFileUpdate locale={locale}/>
+    <TunnelVncUpdate locale={locale}/>
+
+    <Reveal as="section" className="tunnel-section tunnel-security" aria-labelledby="security-title">
+      <header className="tunnel-section-heading">
+        <h2 id="security-title">{c.principles.eyebrow}</h2><p>{c.principles.description}</p>
+      </header>
+      <div className="tunnel-trust-grid">{c.principles.points.map((point, index) => {
+        const scene = trustScenes[index]
+        return <article className="tunnel-card" key={point.title}><CardArt scene={scene}/><div className="tunnel-card-copy"><h3>{point.title}</h3><p>{point.description}</p></div></article>
+      })}</div>
+    </Reveal>
+  </main>
 }

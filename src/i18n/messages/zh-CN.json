@@ -1081,9 +1081,13 @@
   "Remote services": "远程服务",
   "SSH tunnels": "SSH 隧道",
   "Search": "搜索",
-  "Manage SSH tunnels, transfer files and open a VNC remote desktop from one workspace on Windows or macOS.": "在 Windows 或 macOS 上管理 SSH 隧道、传输文件，并从同一工作区打开 VNC 远程桌面。",
+  "Manage SSH tunnels, work in local and remote terminals, transfer files over SFTP and open VNC desktops on Windows or macOS.": "在 Windows 或 macOS 上管理 SSH 隧道，切换本地与远程终端，通过 SFTP 传输文件或打开 VNC 桌面。",
   "SSH tunnels, VNC desktops and SFTP transfers in one workspace.": "在同一工作区管理 SSH 隧道、操作 VNC 桌面和传输 SFTP 文件。",
   "Import a host, start a local forward and open the remote desktop from the listening VNC rule.": "导入 SSH 主机，启动本地转发，然后从正在监听的 VNC 规则打开远程桌面。",
   "Start the VNC rule on port 5900, then select Open VNC to explore the sample desktop.": "启动 5900 端口的 VNC 规则，再点「打开 VNC」体验示例桌面。",
-  "Open the desktop from a listening VNC forward. Use the keyboard and mouse, zoom in or work full screen.": "从正在监听的 VNC 转发打开桌面，用键盘和鼠标操作，按需缩放或切换全屏。"
+  "Open the desktop from a listening VNC forward. Use the keyboard and mouse, zoom in or work full screen.": "从正在监听的 VNC 转发打开桌面，用键盘和鼠标操作，按需缩放或切换全屏。",
+  "A workspace for SSH tunnels": "SSH 隧道工作区",
+  "Local connections and credentials": "本地连接与凭据",
+  "SSH connections originate on your device. You control host verification, credentials and configuration exports.": "SSH 连接由本机发起。你可以核对主机指纹、选择凭据的保存方式，并导出配置。",
+  "Interactive workspace": "交互工作区"
 }

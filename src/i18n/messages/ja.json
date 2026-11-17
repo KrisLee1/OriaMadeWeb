@@ -1081,9 +1081,13 @@
   "Remote services": "リモートサービス",
   "SSH tunnels": "SSH トンネル",
   "Search": "検索",
-  "Manage SSH tunnels, transfer files and open a VNC remote desktop from one workspace on Windows or macOS.": "Windows と macOS で、SSH トンネルの管理、ファイル転送、VNC リモートデスクトップの起動をひとつのワークスペースから行えます。",
+  "Manage SSH tunnels, work in local and remote terminals, transfer files over SFTP and open VNC desktops on Windows or macOS.": "Windows と macOS で SSH トンネルを管理し、ローカルとリモートのターミナル、SFTP ファイル転送、VNC デスクトップを利用できます。",
   "SSH tunnels, VNC desktops and SFTP transfers in one workspace.": "SSH トンネルの管理、VNC デスクトップの操作、SFTP によるファイル転送をひとつのワークスペースで。",
   "Import a host, start a local forward and open the remote desktop from the listening VNC rule.": "SSH ホストを取り込み、ローカル転送を開始したら、待ち受け中の VNC ルールからリモートデスクトップを開きます。",
   "Start the VNC rule on port 5900, then select Open VNC to explore the sample desktop.": "ポート 5900 の VNC ルールを開始し、「VNC を開く」を選ぶとサンプルデスクトップが表示されます。",
-  "Open the desktop from a listening VNC forward. Use the keyboard and mouse, zoom in or work full screen.": "待ち受け中の VNC 転送からデスクトップを開き、キーボードとマウスで操作できます。ズームと全画面表示にも対応します。"
+  "Open the desktop from a listening VNC forward. Use the keyboard and mouse, zoom in or work full screen.": "待ち受け中の VNC 転送からデスクトップを開き、キーボードとマウスで操作できます。ズームと全画面表示にも対応します。",
+  "A workspace for SSH tunnels": "SSH トンネルのワークスペース",
+  "Local connections and credentials": "ローカル接続と認証情報",
+  "SSH connections originate on your device. You control host verification, credentials and configuration exports.": "SSH 接続は端末から直接開始されます。ホストの検証、認証情報の保存、設定のエクスポートを自分で管理できます。",
+  "Interactive workspace": "対話型ワークスペース"
 }

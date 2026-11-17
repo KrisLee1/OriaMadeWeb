@@ -3,11 +3,11 @@
 // Viewer chrome and display controls adapted from OriaTunnel v0.3.0 VncHeader,
 // WindowHeader and WindowControl (GPL-3.0-only). The guest is page-local sample content.
 import {useEffect, useRef, useState, type CSSProperties} from 'react'
-import {scroll} from 'motion/react'
 import {ChevronsLeftRight, ChevronsRightLeft, Ellipsis, FileText, FolderSync, Gauge, ImageIcon, Keyboard, Minus, MousePointer2Off, Scan, Wallpaper, X, ZoomIn, ZoomOut} from 'lucide-react'
 import {Button} from '@/components/ui/button'
 import {DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuTrigger} from '@/components/ui/dropdown-menu'
 import type {Locale} from '@/i18n/config'
+import {PanelWalkthrough} from './panel-walkthrough'
 import {getDemoCopy} from './demo-copy'
 import {FileWorkspaceDemo} from './file-demo'
 import {getFileDemoCopy} from './file-demo-copy'
@@ -19,13 +19,15 @@ import './vnc-desktop-demo.css'
 const zoomLevels = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 3, 4]
 type Panel = 'files' | 'terminal' | null
 
-export function VncDesktopDemo({locale, copy}: {locale: Locale; copy: typeof vncUpdateCopy.en.demo}) {
+export const vncScenes = ['desktop', 'clipboard', 'files', 'terminal'] as const
+type VncScene = typeof vncScenes[number]
+
+export function VncDesktopDemo({locale, copy, scene}: {locale: Locale; scene: VncScene; copy: typeof vncUpdateCopy.en.demo}) {
   const labels = getDemoCopy(locale), files = getFileDemoCopy(locale)
+  const figureRef = useRef<HTMLElement>(null)
   const viewport = useRef<HTMLDivElement>(null)
   const filesButton = useRef<HTMLButtonElement>(null), terminalButton = useRef<HTMLButtonElement>(null)
   const moreButton = useRef<HTMLButtonElement>(null), restoreButton = useRef<HTMLButtonElement>(null)
-  const scrollRange = useRef<HTMLDivElement>(null)
-  const scrollStage = useRef<Panel>(null)
   const [windowState, setWindowState] = useState<'open' | 'closed' | 'minimized'>('open')
   const [size, setSize] = useState({width: 1056, height: 594})
   const [zoom, setZoom] = useState<number | 'fit'>('fit')
@@ -34,11 +36,19 @@ export function VncDesktopDemo({locale, copy}: {locale: Locale; copy: typeof vnc
   const [mode, setMode] = useState('quality'), [hideCursor, setHideCursor] = useState(false)
   const [specialKeys, setSpecialKeys] = useState(false)
   const [note, setNote] = useState('coast.svg\n2560 × 1440\n\n~/Pictures/exports/')
+  const [localText, setLocalText] = useState('~/Pictures/exports/')
+  const [previousScene, setPreviousScene] = useState(scene)
+  if (previousScene !== scene) {
+    setPreviousScene(scene)
+    setWindowState('open')
+    setPanel(scene === 'terminal' || scene === 'files' ? scene : null)
+    if (scene === 'files') setFilesMounted(true)
+  }
   const compact = size.width < 768
   const portrait = compact && size.height > size.width
-  const guestWidth = portrait ? 480 : 1056
-  const guestHeight = portrait ? Math.round(guestWidth * size.height / size.width) : 594
-  const fit = Math.min(size.width / guestWidth, size.height / guestHeight)
+  const fit = portrait ? size.width / 480 : Math.min(size.width / 1056, size.height / 594)
+  const guestWidth = size.width / fit
+  const guestHeight = size.height / fit
   const scale = zoom === 'fit' ? fit : zoom
 
   useEffect(() => {
@@ -51,19 +61,6 @@ export function VncDesktopDemo({locale, copy}: {locale: Locale; copy: typeof vnc
     observer.observe(el)
     return () => observer.disconnect()
   }, [])
-  useEffect(() => {
-    const target = scrollRange.current
-    if (!target || expanded || windowState !== 'open') return
-    // Change panels only at stage boundaries so manual choices survive small scrolls.
-    return scroll(progress => {
-      const next = progress < 0.14 || progress >= 0.96 ? null : progress < 0.55 ? 'files' : 'terminal'
-      if (next === scrollStage.current) return
-      scrollStage.current = next
-      if (next === 'files') setFilesMounted(true)
-      if (document.activeElement?.closest('.vnc-window .workspace-dock')) moreButton.current?.focus({preventScroll: true})
-      setPanel(next)
-    }, {target, offset: ['start 84px', 'end 84px']})
-  }, [expanded, windowState])
   useEffect(() => {
     if (!specialKeys) return
     const timer = setTimeout(() => setSpecialKeys(false), 1400)
@@ -105,11 +102,10 @@ export function VncDesktopDemo({locale, copy}: {locale: Locale; copy: typeof vnc
   const specialLabel = copy.sendCtrlAltDel.replace(/<\/?(?:keys|cap)>/g, '')
 
   return <div className="vnc-story" data-window-state={windowState}>
-    <div className="vnc-scroll-range" ref={scrollRange} aria-hidden="true"/>
-    <figure className="vnc-demo">
-      <figcaption>{copy.caption}</figcaption>
+    <figure className="vnc-demo" ref={figureRef}>
+
       {windowState !== 'open' && <Button ref={restoreButton} variant="outline" onClick={() => {setWindowState('open'); requestAnimationFrame(() => moreButton.current?.focus())}}>{windowState === 'closed' ? copy.openVnc : copy.restore}</Button>}
-      <div className="vnc-window" hidden={windowState !== 'open'} data-expanded={expanded}>
+      <div className="vnc-window" data-clipboard={scene === 'clipboard' || undefined} hidden={windowState !== 'open'} data-expanded={expanded}>
         <header className="vnc-bar">
           <div className="vnc-lights vnc-capsule">
             <button type="button" aria-label={copy.close} title={copy.close} onClick={() => dismiss('closed')}><X/></button>
@@ -144,19 +140,26 @@ export function VncDesktopDemo({locale, copy}: {locale: Locale; copy: typeof vnc
           </div>
         </header>
         <div className="vnc-viewport" ref={viewport} tabIndex={0} role="region" aria-label={copy.desktop} data-hide-cursor={hideCursor} data-mode={mode}>
-          <div className="vnc-screen-size" style={{width: guestWidth * scale, height: guestHeight * scale, '--vnc-scale': scale} as CSSProperties}>
-            <div className="vnc-screen" data-portrait={portrait} style={{width: guestWidth, height: guestHeight}}>
-              <div className="vnc-photo"><div className="vnc-app-title"><ImageIcon size={14}/>coast.svg</div><img src="/products/oria-tab/assets/wallpapers/coast.svg" alt="" width="2560" height="1440" loading="lazy"/></div>
-              <div className="vnc-note"><label><span className="vnc-app-title"><FileText size={14}/>notes.txt</span><textarea spellCheck={false} value={note} onChange={event => setNote(event.target.value)}/></label></div>
+          <div className="vnc-desktop-surface">
+            <div className="vnc-screen-size" style={{width: guestWidth * scale, height: guestHeight * scale, '--vnc-scale': scale} as CSSProperties}>
+              <div className="vnc-screen" data-portrait={portrait} style={{width: guestWidth, height: guestHeight}}>
+                <div className="vnc-photo"><div className="vnc-app-title"><ImageIcon size={14}/>coast.svg</div><img src="/products/oria-tab/assets/wallpapers/coast.svg" alt="" width="2560" height="1440" loading="lazy"/></div>
+                <div className="vnc-note"><label><span className="vnc-app-title"><FileText size={14}/>notes.txt</span><textarea spellCheck={false} value={note} onChange={event => setNote(event.target.value)}/></label></div>
+              </div>
             </div>
           </div>
         </div>
         {specialKeys && <output className="vnc-key-feedback">{specialLabel}</output>}
         <div className="workspace-dock vnc-panel vnc-files" data-open={panel === 'files'} inert={panel !== 'files'}>
-          {filesMounted && <FileWorkspaceDemo locale={locale} onClose={closePanel}/>}
+          {filesMounted && <FileWorkspaceDemo initialLayout="split" locale={locale} onClose={closePanel}/>}
         </div>
-        <TerminalDock open={panel === 'terminal'} copy={labels} closeLabel={files.close} onClose={closePanel}/>
+        <TerminalDock initialDock="right" open={panel === 'terminal'} locale={locale} onClose={closePanel}/>
       </div>
+
+      {scene === 'clipboard' && windowState === 'open' && <div className="vnc-clipboard">
+        <label>{files.local} · draft.txt<input type="text" value={localText} onChange={event => setLocalText(event.target.value)}/></label>
+        <PanelWalkthrough host={figureRef} locale={locale} scene="clipboard" local={setLocalText} remote={setNote}/>
+      </div>}
     </figure>
   </div>
 }

@@ -84,13 +84,6 @@
 .demo-log-row strong{font-size:11px;font-weight:500}
 .demo-log-row code{display:block;margin-top:8px;font-size:10px;color:var(--oria-color-muted-fg)}
 .demo-log-row time{font-size:9px;color:var(--oria-color-muted-fg)}
-.demo-terminal{position:absolute;z-index:3;inset:auto 4px 4px;height:45%;min-height:170px;border:1px solid var(--tunnel-hairline);border-radius:12px;background:color-mix(in srgb,var(--oria-color-bg) 96%,transparent);backdrop-filter:blur(20px);box-shadow:var(--oria-shadow-md)}
-.demo-terminal>div{display:flex;align-items:center;gap:14px;padding:7px 12px;border-bottom:1px solid var(--tunnel-hairline);font-size:10px;color:var(--oria-color-muted-fg)}
-.demo-terminal>div>span:first-child{display:flex;align-items:center;gap:6px}
-.demo-terminal button{display:grid;place-items:center;margin-left:auto;width:24px;height:24px;background:transparent;color:inherit;border:0;border-radius:6px}
-.demo-terminal pre{white-space:pre-wrap;font:11px/1.8 var(--oria-font-mono);padding:12px 16px;margin:0;max-height:calc(100% - 40px);overflow:auto}
-.demo-terminal pre>span{color:var(--oria-color-muted-fg)}
-.demo-terminal pre>b{font-weight:500;color:var(--oria-color-primary)}
 .demo-page-heading{display:flex;align-items:baseline;gap:12px;margin:8px 0 20px}
 .demo-page-heading h4{font-size:23px;font-weight:600;letter-spacing:-.03em;margin:0}
 .demo-page-heading small{font-size:10px;color:var(--oria-color-muted-fg)}
@@ -142,13 +135,11 @@
 .demo-native-surface .demo-native-row{padding:12px;gap:12px;grid-template-columns:20px minmax(0,1fr) auto}.demo-native-surface .demo-native-row strong{font-size:13px}.demo-native-surface .demo-native-row code{font-size:11px}.demo-native-surface .demo-host-meta{flex-wrap:nowrap;gap:16px}.demo-native-surface .demo-host-meta>span{font-size:11px}.demo-native-surface .demo-native-actions{gap:8px}
 .demo-native-surface .demo-service-summary{gap:4px}.demo-native-surface .demo-service-summary small{width:auto;margin:0 5px 0 0;font-size:11px}.demo-native-surface .demo-service-summary>span{font-size:10px}
 .demo-native-surface .demo-log-row{min-height:74px;padding:12px;margin-bottom:8px}.demo-native-surface .demo-log-row>div+div{margin-top:13px;flex-wrap:nowrap;gap:12px;font-size:11px}.demo-native-surface .demo-log-row time,.demo-native-surface .demo-log-row code{font-size:11px}.demo-native-surface .demo-log-row .demo-status{font-size:13px}
-.demo-native-surface .demo-terminal{height:320px;min-height:0;bottom:4px;z-index:6}.demo-native-surface .demo-terminal pre{font-size:12px}
 /* Exact local-computer structure: the count belongs inside the monitor;
    the label and six perimeter port handles have independent layout slots. */
 .demo-native-surface .demo-local{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;padding:24px 56px;border:0;border-radius:var(--oria-radius-lg);box-shadow:var(--oria-shadow-sm)}
 .demo-native-surface :is(.demo-host-card,.demo-native-row){border-radius:var(--oria-radius-lg);box-shadow:var(--oria-shadow-sm)}
 .demo-native-surface .demo-host-card{backdrop-filter:blur(var(--oria-backdrop-blur-md)) saturate(var(--oria-backdrop-saturate))}
-.demo-native-surface .demo-terminal{backdrop-filter:blur(var(--oria-backdrop-blur-lg)) saturate(var(--oria-backdrop-saturate))}
 .demo-native-surface .demo-local>.demo-local-computer{position:relative;display:block;flex:none;width:80px;height:72px;margin:0}
 .demo-local-computer>svg{width:100%;height:100%;stroke-width:.5;color:var(--oria-color-muted-fg)}
 .demo-local-computer>strong{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1}

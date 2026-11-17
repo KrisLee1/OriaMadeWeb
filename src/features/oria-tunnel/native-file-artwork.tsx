@@ -310,3 +310,12 @@ export const FileArtwork = memo(function FileArtwork({
     </span>
   );
 });
+
+// Drag feedback from the desktop file workspace: the grabbed item, plus a
+// count only when more than one item is selected.
+export function FileDragArtwork({name, folder, count = 1}: {name: string; folder?: boolean; count?: number}) {
+  return <span className="file-drag-artwork" aria-hidden="true">
+    <FileArtwork name={name} kind={folder ? "directory" : "file"} large/>
+    {count > 1 && <span className="file-drag-count">{count}</span>}
+  </span>
+}

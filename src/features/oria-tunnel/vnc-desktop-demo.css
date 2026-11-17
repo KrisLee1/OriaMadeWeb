@@ -1,12 +1,9 @@
 /* Viewer geometry and materials from OriaTunnel v0.3.0 desktop.css,
    globals.css and WindowHeader. All positioning stays inside the preview. */
-.vnc-story { --vnc-travel: clamp(480px, 100svh, 840px); position: relative; max-width: 1056px; margin: 0 auto; }
-.vnc-story[data-window-state=open]::after { content: ""; display: block; height: var(--vnc-travel); }
-.vnc-scroll-range { position: absolute; top: 0; width: 1px; height: var(--vnc-travel); pointer-events: none; }
-.vnc-story:not([data-window-state=open]) .vnc-scroll-range { display: none; }
-.vnc-demo { position: sticky; top: 84px; margin: 0; }
-.vnc-story:has(.vnc-window[data-expanded=true]) .vnc-demo { position: static; }
-.vnc-demo figcaption { margin: 0 2px 12px; color: var(--oria-color-muted-fg); font-size: 12px; line-height: 1.7; }
+.vnc-demo { margin: 0; }
+.vnc-clipboard { display: flex; align-items: end; gap: 8px; margin-top: 8px; }
+.vnc-clipboard label { flex: 1; min-width: 0; color: var(--oria-color-muted-fg); font-size: 12px; }
+.vnc-clipboard input { display: block; width: 100%; border: 1px solid var(--oria-color-border); border-radius: var(--oria-radius-md); padding: 5px 9px; color: var(--oria-color-fg); }
 .vnc-window {
   container-type: inline-size; position: relative; isolation: isolate; overflow: hidden;
   width: 100%; aspect-ratio: 16/9; max-height: calc(100svh - 160px); border-radius: var(--oria-radius-lg);
@@ -45,10 +42,14 @@
 .vnc-viewport {
   position: absolute; inset: 0; display: flex; overflow: auto;
 }
+.vnc-desktop-surface {
+  display: flex; flex: none; min-width: 100%; min-height: 100%;
+  background: #b77a6b url('/products/oria-tab/assets/wallpapers/dunes.svg') center / cover no-repeat;
+}
 .vnc-screen-size { flex: none; margin: auto; position: relative; overflow: hidden; }
 .vnc-screen {
   position: relative; transform: scale(var(--vnc-scale)); transform-origin: 0 0;
-  background: #b77a6b url('/products/oria-tab/assets/wallpapers/dunes.svg') center / cover;
+
 }
 .vnc-viewport[data-mode=smooth] .vnc-screen { will-change: transform; }
 .vnc-viewport[data-hide-cursor=true]:focus-within :is(.vnc-screen, .vnc-screen *) { cursor: none; }
@@ -70,7 +71,6 @@
 .vnc-files { max-height: calc(100% - 42px); overflow: auto; border-radius: var(--oria-radius-xl); }
 .vnc-files .file-demo-panel { height: min(480px, calc(56.25cqw - 47px), calc(100svh - 207px)); min-height: 220px; }
 .vnc-files .file-demo-disclosure { display: none; }
-.vnc-window .demo-terminal { height: min(320px, 70%); min-height: 0; border-radius: var(--oria-radius-lg); }
 .oria-tunnel-shell .tunnel-vnc-update .file-update-details { max-width: 1056px; margin-inline: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 820px) {
 
@@ -89,4 +89,29 @@ html:has(.vnc-window[data-expanded=true]) { overflow: hidden; }
   .vnc-window:not([data-expanded=true]) { height: min(560px, calc(100svh - 176px)); }
   .vnc-files { top: 42px; }
   .vnc-files > .file-demo, .vnc-files .file-demo-panel { height: 100%; min-height: 0; }
+}
+.vnc-demo:has(> .vnc-clipboard) { display: flex; flex-direction: column; position: relative; }
+.tunnel-tour-stage .vnc-demo:has(> .vnc-clipboard) .vnc-window:not([data-expanded=true]) {
+  flex: 1; height: auto; min-height: 0;
+}
+.vnc-clipboard {
+  flex: none; padding: 7px 10px; border-radius: var(--oria-radius-md);
+  background: var(--oria-color-surface); box-shadow: var(--oria-shadow-md);
+}
+.vnc-demo :is(input, textarea)[data-sample-selection] {
+  background-image: linear-gradient(var(--oria-color-selection),var(--oria-color-selection));
+  background-repeat: no-repeat; background-origin: content-box;
+  background-position: left top; background-size: var(--vnc-selection-width) 1.65em;
+}
+@media(max-width:760px) {
+  .vnc-demo:has(> .vnc-clipboard) { height: clamp(190px,36svh,360px); }
+}
+@media(min-width:761px) {
+  .tunnel-vnc-update { --viewer-height: clamp(300px,46svh,470px); }
+  .tunnel-vnc-update .tunnel-tour-cards { height: var(--viewer-height); align-self: start; }
+  .tunnel-vnc-update .tunnel-tour-stage > .vnc-story { position: relative; inset: auto; }
+  .tunnel-vnc-update .tunnel-tour-stage .vnc-demo { height: auto; }
+  .tunnel-vnc-update .tunnel-tour-stage .vnc-demo .vnc-window:not([data-expanded=true]) {
+    flex: none; height: var(--viewer-height);
+  }
 }

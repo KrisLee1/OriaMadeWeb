@@ -1,0 +1,466 @@
+{
+  "ja": {
+    "terminal": {
+      "workspace": "ターミナル",
+      "localTerminal": "ローカルターミナル",
+      "savedCommands": "保存済みコマンド",
+      "saveCommand": "コマンドを保存",
+      "commandKeywords": "キーワード",
+      "searchLibrary": "コマンドまたはキーワードを検索",
+      "libraryEmpty": "保存済みコマンドはありません。端末でコマンドを入力し、↓ を押して保存します。",
+      "libraryWriteError": "保存できませんでした。再試行してください。",
+      "expandCommand": "コマンドを展開 {{command}}",
+      "collapseCommand": "コマンドを折りたたむ {{command}}",
+      "expandOutput": "出力を展開",
+      "collapseOutput": "出力を折りたたむ",
+      "blockActions": "その他の操作",
+      "copyCommand": "コマンドをコピー",
+      "copyOutput": "出力をコピー",
+      "directories": "ディレクトリを検索…",
+      "parentDirectory": "..（親ディレクトリ）",
+      "directoryError": "ディレクトリを開けません。再試行",
+      "noMatches": "候補なし",
+      "recentCommands": "最近のコマンド",
+      "completions": "補完候補",
+      "new": "新しいターミナル",
+      "closeTab": "ターミナルタブを閉じる",
+      "collapse": "パネルを折りたたむ",
+      "maximize": "パネルを展開",
+      "restore": "パネルを戻す",
+      "resize": "パネルの高さを調整（上下矢印キー）",
+      "resizeWidth": "パネルの幅を調整（左右矢印キー）",
+      "position": "パネルの位置",
+      "dock": {
+        "bottom": "下",
+        "left": "左",
+        "right": "右"
+      },
+      "input": "ターミナル入力",
+      "loading": "ターミナルを読み込み中…",
+      "cancel": "キャンセル",
+      "command": "コマンド",
+      "phase": {
+        "running": "接続済み"
+      },
+      "copyAll": "すべてコピー"
+    },
+    "tunnel": {
+      "save": "保存",
+      "edit": "編集",
+      "delete": "削除",
+      "removeTag": "タグ {{tag}} を削除",
+      "createTag": "タグ「{{tag}}」を作成",
+      "tagsPlaceholder": "タグを選択、または新規作成…"
+    },
+    "files": {
+      "path": "フォルダーのパス",
+      "collapsedPaths": "他のフォルダー"
+    }
+  },
+  "de": {
+    "terminal": {
+      "workspace": "Terminal",
+      "localTerminal": "Lokales Terminal",
+      "savedCommands": "Gespeicherte Befehle",
+      "saveCommand": "Befehl speichern",
+      "commandKeywords": "Schlüsselwörter",
+      "searchLibrary": "Befehle oder Schlüsselwörter suchen",
+      "libraryEmpty": "Noch keine gespeicherten Befehle. Einen Befehl eingeben und mit ↓ speichern.",
+      "libraryWriteError": "Speichern fehlgeschlagen. Erneut versuchen.",
+      "expandCommand": "Befehl ausklappen {{command}}",
+      "collapseCommand": "Befehl einklappen {{command}}",
+      "expandOutput": "Ausgabe ausklappen",
+      "collapseOutput": "Ausgabe einklappen",
+      "blockActions": "Weitere Befehlsaktionen",
+      "copyCommand": "Befehl kopieren",
+      "copyOutput": "Ausgabe kopieren",
+      "directories": "Verzeichnisse suchen…",
+      "parentDirectory": ".. (Übergeordnetes Verzeichnis)",
+      "directoryError": "Verzeichnis nicht verfügbar. Erneut versuchen",
+      "noMatches": "Keine Treffer",
+      "recentCommands": "Letzte Befehle",
+      "completions": "Vervollständigungen",
+      "new": "Neues Terminal",
+      "closeTab": "Terminal-Tab schließen",
+      "collapse": "Panel einklappen",
+      "maximize": "Panel erweitern",
+      "restore": "Panel wiederherstellen",
+      "resize": "Panelhöhe anpassen (Pfeiltasten Auf/Ab)",
+      "resizeWidth": "Panelbreite anpassen (Pfeiltasten Links/Rechts)",
+      "position": "Panelposition",
+      "dock": {
+        "bottom": "Unten",
+        "left": "Links",
+        "right": "Rechts"
+      },
+      "input": "Terminaleingabe",
+      "loading": "Terminal wird geladen…",
+      "cancel": "Abbrechen",
+      "command": "Befehl",
+      "phase": {
+        "running": "Verbunden"
+      },
+      "copyAll": "Alles kopieren"
+    },
+    "tunnel": {
+      "save": "Speichern",
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "removeTag": "Tag {{tag}} entfernen",
+      "createTag": "Tag „{{tag}}“ erstellen",
+      "tagsPlaceholder": "Tags auswählen oder erstellen…"
+    },
+    "files": {
+      "path": "Verzeichnispfad",
+      "collapsedPaths": "Weitere Ordner"
+    }
+  },
+  "ru": {
+    "terminal": {
+      "workspace": "Терминал",
+      "localTerminal": "Локальный терминал",
+      "savedCommands": "Сохранённые команды",
+      "saveCommand": "Сохранить команду",
+      "commandKeywords": "Ключевые слова",
+      "searchLibrary": "Поиск по командам или ключевым словам",
+      "libraryEmpty": "Сохранённых команд пока нет. Введите команду в терминале и нажмите ↓, чтобы сохранить её.",
+      "libraryWriteError": "Не удалось сохранить изменения. Повторите попытку.",
+      "expandCommand": "Развернуть команду {{command}}",
+      "collapseCommand": "Свернуть команду {{command}}",
+      "expandOutput": "Развернуть вывод",
+      "collapseOutput": "Свернуть вывод",
+      "blockActions": "Другие действия",
+      "copyCommand": "Копировать команду",
+      "copyOutput": "Копировать вывод",
+      "directories": "Поиск каталогов…",
+      "parentDirectory": ".. (Родительский каталог)",
+      "directoryError": "Не удалось открыть каталог. Повторить",
+      "noMatches": "Нет совпадений",
+      "recentCommands": "Недавние команды",
+      "completions": "Варианты дополнения",
+      "new": "Новый терминал",
+      "closeTab": "Закрыть вкладку терминала",
+      "collapse": "Свернуть панель",
+      "maximize": "Развернуть панель",
+      "restore": "Восстановить панель",
+      "resize": "Изменить высоту панели (стрелки вверх/вниз)",
+      "resizeWidth": "Изменить ширину панели (стрелки влево/вправо)",
+      "position": "Расположение панели",
+      "dock": {
+        "bottom": "Внизу",
+        "left": "Слева",
+        "right": "Справа"
+      },
+      "input": "Ввод терминала",
+      "loading": "Загрузка терминала…",
+      "cancel": "Отмена",
+      "command": "Команда",
+      "phase": {
+        "running": "Подключено"
+      },
+      "copyAll": "Копировать всё"
+    },
+    "tunnel": {
+      "save": "Сохранить",
+      "edit": "Изменить",
+      "delete": "Удалить",
+      "removeTag": "Удалить метку {{tag}}",
+      "createTag": "Создать метку «{{tag}}»",
+      "tagsPlaceholder": "Выберите или создайте метки…"
+    },
+    "files": {
+      "path": "Путь к папке",
+      "collapsedPaths": "Другие каталоги"
+    }
+  },
+  "zh-CN": {
+    "terminal": {
+      "workspace": "终端",
+      "localTerminal": "本地终端",
+      "savedCommands": "已保存的命令",
+      "saveCommand": "保存命令",
+      "commandKeywords": "关键词",
+      "searchLibrary": "搜索命令或关键词",
+      "libraryEmpty": "还没有保存的命令。在终端输入命令后按 ↓ 保存。",
+      "libraryWriteError": "命令保存失败，请重试。",
+      "expandCommand": "展开命令 {{command}}",
+      "collapseCommand": "折叠命令 {{command}}",
+      "expandOutput": "展开输出",
+      "collapseOutput": "折叠输出",
+      "blockActions": "更多操作",
+      "copyCommand": "复制命令",
+      "copyOutput": "复制输出",
+      "directories": "搜索目录…",
+      "parentDirectory": "..（上一级）",
+      "directoryError": "无法打开目录，点击重试",
+      "noMatches": "无匹配项",
+      "recentCommands": "最近命令",
+      "completions": "补全候选",
+      "new": "新建终端",
+      "closeTab": "关闭终端标签",
+      "collapse": "折叠面板",
+      "maximize": "展开面板",
+      "restore": "恢复面板",
+      "resize": "调整面板高度（上/下方向键）",
+      "resizeWidth": "调整面板宽度（左/右方向键）",
+      "position": "面板位置",
+      "dock": {
+        "bottom": "靠下",
+        "left": "靠左",
+        "right": "靠右"
+      },
+      "input": "终端输入",
+      "loading": "正在加载终端…",
+      "cancel": "取消",
+      "command": "命令",
+      "phase": {
+        "running": "已连接"
+      },
+      "copyAll": "复制全部"
+    },
+    "tunnel": {
+      "save": "保存",
+      "edit": "编辑",
+      "delete": "删除",
+      "removeTag": "移除标签 {{tag}}",
+      "createTag": "创建标签「{{tag}}」",
+      "tagsPlaceholder": "选择已有标签或输入新标签…"
+    },
+    "files": {
+      "path": "目录路径",
+      "collapsedPaths": "更多目录"
+    }
+  },
+  "en": {
+    "terminal": {
+      "workspace": "Terminal",
+      "localTerminal": "Local terminal",
+      "savedCommands": "Saved commands",
+      "saveCommand": "Save command",
+      "commandKeywords": "Keywords",
+      "searchLibrary": "Search commands or keywords",
+      "libraryEmpty": "No saved commands yet. Type a command in the terminal and press ↓ to save it.",
+      "libraryWriteError": "Could not save changes. Try again.",
+      "expandCommand": "Expand command {{command}}",
+      "collapseCommand": "Collapse command {{command}}",
+      "expandOutput": "Expand output",
+      "collapseOutput": "Collapse output",
+      "blockActions": "More command actions",
+      "copyCommand": "Copy command",
+      "copyOutput": "Copy output",
+      "directories": "Search directories…",
+      "parentDirectory": ".. (Parent directory)",
+      "directoryError": "Cannot open directory. Retry",
+      "noMatches": "No matches",
+      "recentCommands": "Recent commands",
+      "completions": "Completions",
+      "new": "New terminal",
+      "closeTab": "Close terminal tab",
+      "collapse": "Collapse panel",
+      "maximize": "Expand panel",
+      "restore": "Restore panel",
+      "resize": "Resize panel height (Up/Down arrow keys)",
+      "resizeWidth": "Resize panel width (Left/Right arrow keys)",
+      "position": "Panel position",
+      "dock": {
+        "bottom": "Bottom",
+        "left": "Left",
+        "right": "Right"
+      },
+      "input": "Terminal input",
+      "loading": "Loading terminal…",
+      "cancel": "Cancel",
+      "command": "Command",
+      "phase": {
+        "running": "Connected"
+      },
+      "copyAll": "Copy all"
+    },
+    "tunnel": {
+      "save": "Save",
+      "edit": "Edit",
+      "delete": "Delete",
+      "removeTag": "Remove tag {{tag}}",
+      "createTag": "Create tag “{{tag}}”",
+      "tagsPlaceholder": "Select or create tags…"
+    },
+    "files": {
+      "path": "Directory path",
+      "collapsedPaths": "More directories"
+    }
+  },
+  "fr": {
+    "terminal": {
+      "workspace": "Terminal",
+      "localTerminal": "Terminal local",
+      "savedCommands": "Commandes enregistrées",
+      "saveCommand": "Enregistrer la commande",
+      "commandKeywords": "Mots-clés",
+      "searchLibrary": "Rechercher une commande ou un mot-clé",
+      "libraryEmpty": "Aucune commande enregistrée. Saisissez une commande dans le terminal et appuyez sur ↓ pour l’enregistrer.",
+      "libraryWriteError": "Enregistrement impossible. Réessayez.",
+      "expandCommand": "Développer la commande {{command}}",
+      "collapseCommand": "Replier la commande {{command}}",
+      "expandOutput": "Développer la sortie",
+      "collapseOutput": "Replier la sortie",
+      "blockActions": "Autres actions",
+      "copyCommand": "Copier la commande",
+      "copyOutput": "Copier la sortie",
+      "directories": "Rechercher un dossier…",
+      "parentDirectory": ".. (Dossier parent)",
+      "directoryError": "Dossier inaccessible. Réessayer",
+      "noMatches": "Aucun résultat",
+      "recentCommands": "Commandes récentes",
+      "completions": "Complétions",
+      "new": "Nouveau terminal",
+      "closeTab": "Fermer l’onglet terminal",
+      "collapse": "Réduire le panneau",
+      "maximize": "Agrandir le panneau",
+      "restore": "Restaurer le panneau",
+      "resize": "Redimensionner la hauteur du panneau (flèches Haut/Bas)",
+      "resizeWidth": "Redimensionner la largeur du panneau (flèches Gauche/Droite)",
+      "position": "Position du panneau",
+      "dock": {
+        "bottom": "En bas",
+        "left": "À gauche",
+        "right": "À droite"
+      },
+      "input": "Saisie du terminal",
+      "loading": "Chargement du terminal…",
+      "cancel": "Annuler",
+      "command": "Commande",
+      "phase": {
+        "running": "Connecté"
+      },
+      "copyAll": "Tout copier"
+    },
+    "tunnel": {
+      "save": "Enregistrer",
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "removeTag": "Supprimer l’étiquette {{tag}}",
+      "createTag": "Créer l’étiquette « {{tag}} »",
+      "tagsPlaceholder": "Sélectionner ou créer des étiquettes…"
+    },
+    "files": {
+      "path": "Chemin du dossier",
+      "collapsedPaths": "Autres dossiers"
+    }
+  },
+  "ko": {
+    "terminal": {
+      "workspace": "터미널",
+      "localTerminal": "로컬 터미널",
+      "savedCommands": "저장한 명령",
+      "saveCommand": "명령 저장",
+      "commandKeywords": "키워드",
+      "searchLibrary": "명령 또는 키워드 검색",
+      "libraryEmpty": "저장한 명령이 없습니다. 터미널에 명령을 입력하고 ↓ 키를 눌러 저장하세요.",
+      "libraryWriteError": "저장하지 못했습니다. 다시 시도하세요.",
+      "expandCommand": "명령 펼치기 {{command}}",
+      "collapseCommand": "명령 접기 {{command}}",
+      "expandOutput": "출력 펼치기",
+      "collapseOutput": "출력 접기",
+      "blockActions": "추가 작업",
+      "copyCommand": "명령 복사",
+      "copyOutput": "출력 복사",
+      "directories": "디렉터리 검색…",
+      "parentDirectory": ".. (상위 디렉터리)",
+      "directoryError": "디렉터리를 열 수 없습니다. 다시 시도",
+      "noMatches": "일치 항목 없음",
+      "recentCommands": "최근 명령",
+      "completions": "완성 후보",
+      "new": "새 터미널",
+      "closeTab": "터미널 탭 닫기",
+      "collapse": "패널 접기",
+      "maximize": "패널 확장",
+      "restore": "패널 복원",
+      "resize": "패널 높이 조절 (위/아래 방향키)",
+      "resizeWidth": "패널 너비 조절 (왼쪽/오른쪽 방향키)",
+      "position": "패널 위치",
+      "dock": {
+        "bottom": "아래",
+        "left": "왼쪽",
+        "right": "오른쪽"
+      },
+      "input": "터미널 입력",
+      "loading": "터미널을 불러오는 중…",
+      "cancel": "취소",
+      "command": "명령",
+      "phase": {
+        "running": "연결됨"
+      },
+      "copyAll": "모두 복사"
+    },
+    "tunnel": {
+      "save": "저장",
+      "edit": "편집",
+      "delete": "삭제",
+      "removeTag": "태그 {{tag}} 제거",
+      "createTag": "태그 “{{tag}}” 만들기",
+      "tagsPlaceholder": "태그를 선택하거나 새로 만들기…"
+    },
+    "files": {
+      "path": "폴더 경로",
+      "collapsedPaths": "더 많은 폴더"
+    }
+  },
+  "zh-TW": {
+    "terminal": {
+      "workspace": "終端機",
+      "localTerminal": "本機終端機",
+      "savedCommands": "已儲存的命令",
+      "saveCommand": "儲存命令",
+      "commandKeywords": "關鍵字",
+      "searchLibrary": "搜尋命令或關鍵字",
+      "libraryEmpty": "尚無已儲存的命令。在終端輸入命令後按 ↓ 儲存。",
+      "libraryWriteError": "無法儲存命令，請重試。",
+      "expandCommand": "展開命令 {{command}}",
+      "collapseCommand": "摺疊命令 {{command}}",
+      "expandOutput": "展開輸出",
+      "collapseOutput": "摺疊輸出",
+      "blockActions": "更多操作",
+      "copyCommand": "複製命令",
+      "copyOutput": "複製輸出",
+      "directories": "搜尋目錄…",
+      "parentDirectory": "..（上一層）",
+      "directoryError": "無法開啟目錄，點擊重試",
+      "noMatches": "沒有相符項目",
+      "recentCommands": "最近命令",
+      "completions": "補全選項",
+      "new": "新增終端機",
+      "closeTab": "關閉終端機標籤",
+      "collapse": "摺疊面板",
+      "maximize": "展開面板",
+      "restore": "還原面板",
+      "resize": "調整面板高度（上/下方向鍵）",
+      "resizeWidth": "調整面板寬度（左/右方向鍵）",
+      "position": "面板位置",
+      "dock": {
+        "bottom": "靠下",
+        "left": "靠左",
+        "right": "靠右"
+      },
+      "input": "終端機輸入",
+      "loading": "正在載入終端機…",
+      "cancel": "取消",
+      "command": "命令",
+      "phase": {
+        "running": "已連線"
+      },
+      "copyAll": "複製全部"
+    },
+    "tunnel": {
+      "save": "儲存",
+      "edit": "編輯",
+      "delete": "刪除",
+      "removeTag": "移除標籤 {{tag}}",
+      "createTag": "建立標籤「{{tag}}」",
+      "tagsPlaceholder": "選擇已有標籤或輸入新標籤…"
+    },
+    "files": {
+      "path": "目錄路徑",
+      "collapsedPaths": "更多目錄"
+    }
+  }
+}

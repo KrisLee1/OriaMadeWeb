@@ -1081,9 +1081,13 @@
   "Remote services": "Удалённые сервисы",
   "SSH tunnels": "SSH-туннели",
   "Search": "Поиск",
-  "Manage SSH tunnels, transfer files and open a VNC remote desktop from one workspace on Windows or macOS.": "Управляйте SSH-туннелями, передавайте файлы и открывайте удалённый рабочий стол VNC в одном рабочем пространстве на Windows или macOS.",
+  "Manage SSH tunnels, work in local and remote terminals, transfer files over SFTP and open VNC desktops on Windows or macOS.": "Управляйте SSH-туннелями, работайте в локальных и удалённых терминалах, передавайте файлы по SFTP и открывайте рабочие столы VNC в Windows и macOS.",
   "SSH tunnels, VNC desktops and SFTP transfers in one workspace.": "SSH-туннели, рабочие столы VNC и передача файлов по SFTP в одном окне.",
   "Import a host, start a local forward and open the remote desktop from the listening VNC rule.": "Импортируйте SSH-хост, запустите локальный проброс и откройте удалённый рабочий стол из активного правила VNC.",
   "Start the VNC rule on port 5900, then select Open VNC to explore the sample desktop.": "Запустите правило VNC на порту 5900 и выберите «Открыть VNC», чтобы посмотреть пример рабочего стола.",
-  "Open the desktop from a listening VNC forward. Use the keyboard and mouse, zoom in or work full screen.": "Откройте рабочий стол из активного правила VNC. Управляйте им с клавиатуры и мыши, меняйте масштаб или включите полноэкранный режим."
+  "Open the desktop from a listening VNC forward. Use the keyboard and mouse, zoom in or work full screen.": "Откройте рабочий стол из активного правила VNC. Управляйте им с клавиатуры и мыши, меняйте масштаб или включите полноэкранный режим.",
+  "A workspace for SSH tunnels": "Рабочее пространство для SSH-туннелей",
+  "Local connections and credentials": "Локальные подключения и учётные данные",
+  "SSH connections originate on your device. You control host verification, credentials and configuration exports.": "SSH-подключения устанавливаются с вашего устройства. Вы управляете проверкой хостов, хранением учётных данных и экспортом конфигурации.",
+  "Interactive workspace": "Интерактивное рабочее пространство"
 }

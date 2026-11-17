@@ -1,37 +1,23 @@
-import {ArrowUpRight, Clipboard, Terminal} from 'lucide-react'
-import type {Locale} from '@/i18n/config'
-import {VncDesktopDemo} from './vnc-desktop-demo'
-import {downloadCopy} from './download-copy'
-import {tunnelRelease} from './release'
-import {vncUpdateCopy, vncVersion} from './vnc-update-copy'
+'use client'
 
-const icons = [Clipboard, Terminal]
+import {Reveal} from '@/components/ui/reveal'
+import {FeatureTour} from './feature-tour'
+import type {Locale} from '@/i18n/config'
+import {VncDesktopDemo, vncScenes} from './vnc-desktop-demo'
+import {vncUpdateCopy} from './vnc-update-copy'
+
 
 export function TunnelVncUpdate({locale}: {locale: Locale}) {
   const copy = vncUpdateCopy[locale]
   return (
-    <section id="vnc" className="tunnel-section tunnel-vnc-update">
+    <Reveal as="section" id="vnc" tabIndex={-1} aria-labelledby="vnc-title" className="tunnel-section tunnel-vnc-update">
       <header className="tunnel-section-heading">
-        <p className="tunnel-eyebrow">{vncVersion} · {copy.status}</p>
-        <h2 id="release-notes">{copy.title}</h2>
+        <h2 id="vnc-title">{copy.title}</h2>
         <p>{copy.intro}</p>
       </header>
-      <VncDesktopDemo locale={locale} copy={copy.demo}/>
-      <div className="file-update-details">
-        {copy.details.map(({title, description}, index) => {
-          const Icon = icons[index]
-          return (
-            <article key={title}>
-              <Icon size={20} aria-hidden="true"/>
-              <h3>{title}</h3>
-              <p>{description}</p>
-            </article>
-          )
-        })}
-      </div>
-      <div className="file-update-availability">
-        <a href={tunnelRelease.releaseUrl}>{downloadCopy[locale].releaseNotes} · GitHub <ArrowUpRight size={14} aria-hidden="true"/></a>
-      </div>
-    </section>
+      <FeatureTour features={copy.details} scenes={vncScenes}>
+        {index => <VncDesktopDemo locale={locale} copy={copy.demo} scene={vncScenes[index]}/>}
+      </FeatureTour>
+    </Reveal>
   )
 }

@@ -1081,9 +1081,13 @@
   "Remote services": "遠端服務",
   "SSH tunnels": "SSH 通道",
   "Search": "搜尋",
-  "Manage SSH tunnels, transfer files and open a VNC remote desktop from one workspace on Windows or macOS.": "在 Windows 或 macOS 上管理 SSH 通道、傳輸檔案，並從同一個工作區開啟 VNC 遠端桌面。",
+  "Manage SSH tunnels, work in local and remote terminals, transfer files over SFTP and open VNC desktops on Windows or macOS.": "在 Windows 或 macOS 上管理 SSH 通道、切換本機與遠端終端機、透過 SFTP 傳輸檔案或開啟 VNC 桌面。",
   "SSH tunnels, VNC desktops and SFTP transfers in one workspace.": "在同一個工作區管理 SSH 通道、操作 VNC 桌面並透過 SFTP 傳輸檔案。",
   "Import a host, start a local forward and open the remote desktop from the listening VNC rule.": "匯入 SSH 主機並啟動本機轉送，再從監聽中的 VNC 規則開啟遠端桌面。",
   "Start the VNC rule on port 5900, then select Open VNC to explore the sample desktop.": "啟動連接埠 5900 的 VNC 規則，再點選「開啟 VNC」體驗範例桌面。",
-  "Open the desktop from a listening VNC forward. Use the keyboard and mouse, zoom in or work full screen.": "從監聽中的 VNC 轉送開啟桌面，使用鍵盤和滑鼠操作，也可縮放或切換全螢幕。"
+  "Open the desktop from a listening VNC forward. Use the keyboard and mouse, zoom in or work full screen.": "從監聽中的 VNC 轉送開啟桌面，使用鍵盤和滑鼠操作，也可縮放或切換全螢幕。",
+  "A workspace for SSH tunnels": "SSH 通道\n工作區",
+  "Local connections and credentials": "本機連線與憑證",
+  "SSH connections originate on your device. You control host verification, credentials and configuration exports.": "SSH 連線由本機發起。你可以核對主機指紋、選擇憑證的儲存方式，並匯出設定。",
+  "Interactive workspace": "互動工作區"
 }

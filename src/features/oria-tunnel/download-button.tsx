@@ -23,5 +23,5 @@ export function TunnelDownloadButton({locale}:{locale:Locale}) {
   const c=downloadCopy[locale]
   const system=platform.installer?.label??(platform.os==='macos'?'macOS':platform.os==='windows'?'Windows':null)
   const href=platform.installer?installerAsset(platform.installer).url:localizedPath(locale,'/oria-tunnel/download')+(platform.os?'#'+platform.os:'#platforms')
-  return <a className="tunnel-button tunnel-button-primary tunnel-download-button" href={href} data-download-platform={platform.installer?.id??platform.os??'choose'}><Download size={17}/>{system?c.downloadFor.replace('{platform}',system):c.download} · {tunnelRelease.version}</a>
+  return <a className="tunnel-button tunnel-button-primary tunnel-download-button tunnel-download-action" href={href} data-download-platform={platform.installer?.id??platform.os??'choose'}><Download size={17}/>{system?c.downloadFor.replace('{platform}',system):c.download} · {tunnelRelease.version}</a>
 }

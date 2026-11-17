@@ -4,7 +4,7 @@ body {
  font-weight:var(--oria-font-weight-normal);
 }
 
-#main-content :is(.oria-product-card,.oria-hero-index,.home-theme-preview,.home-feature-card,.home-start,.tab-feature,.tab-detail-grid article,.tab-install-manual,.tab-release-entry,.tab-policy-overview,.tunnel-feature,.tunnel-detail-grid article,.file-update-details article,.tunnel-release-panel,.tunnel-installer,.tunnel-download-install article) {
+#main-content :is(.oria-product-card,.oria-hero-index,.home-theme-preview,.home-feature-card,.home-start,.tab-feature,.tab-detail-grid article,.tab-install-manual,.tab-release-entry,.tab-policy-overview,.tunnel-release-panel) {
  border-width:var(--oria-border-width-default);
  border-color:var(--oria-color-border);
  border-radius:var(--oria-radius-xl);
@@ -12,16 +12,16 @@ body {
  box-shadow:var(--oria-shadow-md);
 }
 
-#main-content :is(.oria-hero,.home-hero,.tab-hero,.tunnel-hero,.tunnel-download-hero,.tab-subpage-hero,.docs-hero,.docs-article-header) h1 {
+#main-content :is(.oria-hero,.home-hero,.tab-hero,.tunnel-product-intro,.tunnel-download-heading,.tab-subpage-hero,.docs-hero,.docs-article-header) h1 {
  font-family:var(--oria-font-sans);
  font-weight:var(--oria-font-weight-semibold);
  letter-spacing:var(--oria-tracking-tighter);
 }
-#main-content :is(.oria-section-heading,.oria-manifesto,.home-section,.tab-section-heading,.tab-family,.tab-install,.tunnel-section-heading,.tunnel-final-cta,.tunnel-download-install) h2 {
+#main-content :is(.oria-section-heading,.oria-manifesto,.home-section,.tab-section-heading,.tab-family,.tab-install,.tunnel-section-heading,.tunnel-download-resources) h2 {
  font-weight:var(--oria-font-weight-semibold);
  letter-spacing:var(--oria-tracking-tight);
 }
-#main-content :is(.oria-product-info,.home-feature-card,.tab-feature,.tab-detail-grid,.tunnel-feature,.tunnel-detail-grid,.file-update-details,.tunnel-installer) h3 {
+#main-content :is(.oria-product-info,.home-feature-card,.tab-feature,.tab-detail-grid,.tunnel-platform) h3 {
  font-weight:var(--oria-font-weight-semibold);
 }
 
@@ -30,7 +30,7 @@ body {
  border-radius:var(--oria-radius-lg);
  border-width:var(--oria-border-width-default);
  font-weight:var(--oria-font-weight-semibold);
- box-shadow:var(--oria-shadow-sm);
+ box-shadow:var(--site-action-shadow,var(--oria-shadow-sm));
 }
 #main-content :is(.home-cta-secondary,.tab-button-quiet,.tunnel-button-quiet) {
  border-style:solid;

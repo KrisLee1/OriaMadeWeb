@@ -1,25 +1,48 @@
-.tunnel-download-hero{position:relative;isolation:isolate;padding:145px 24px 76px;text-align:center}
-.tunnel-download-hero>img{display:block;margin:0 auto 24px}.tunnel-download-hero>.tunnel-eyebrow{justify-content:center;margin-bottom:24px}
-.tunnel-download-hero h1{max-width:950px;margin:0 auto;font-size:clamp(38px,5vw,66px);line-height:1.16;letter-spacing:-.05em;font-weight:500;text-wrap:balance;overflow-wrap:anywhere}
-.tunnel-download-intro{max-width:650px;margin:24px auto 0;font-size:15px;line-height:1.9;color:var(--oria-color-muted-fg);text-wrap:balance}
-.tunnel-release-link{display:inline-flex;align-items:center;gap:6px;margin-top:24px;font-size:11px;color:var(--oria-color-muted-fg)}
-.tunnel-release-links{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px 24px;margin-top:24px}.tunnel-release-links .tunnel-release-link{margin-top:0}
-
-.oria-tunnel-shell .tunnel-download-hero{padding-top:116px;padding-bottom:56px}
-.oria-tunnel-shell .tunnel-download-hero h1{font-size:clamp(38px,4.6vw,60px);max-width:920px}
-.oria-tunnel-shell .tunnel-installer{display:flex;flex-direction:column;align-items:start;min-width:0;box-shadow:none}
-.oria-tunnel-shell .tunnel-installer-heading{width:100%}
-.oria-tunnel-shell .tunnel-installer>.tunnel-button{margin-top:auto}
-.oria-tunnel-shell .tunnel-platform-heading{padding-top:22px;border-top:1px solid var(--tunnel-hairline)}
-.oria-tunnel-shell .tunnel-download-install>div{gap:24px}
-.oria-tunnel-shell .tunnel-download-install article{padding:28px;border:1px solid var(--tunnel-hairline);border-radius:var(--oria-radius-lg);background:color-mix(in srgb,var(--oria-color-surface) 65%,transparent)}
-@media(max-width:760px){.oria-tunnel-shell .tunnel-download-hero{padding-top:108px;padding-bottom:38px}.oria-tunnel-shell .tunnel-download-install article{padding:22px}}
-.tunnel-download-platforms,.tunnel-download-install,.tunnel-download-features{max-width:1180px;margin:auto;padding:48px 40px 70px}
-.tunnel-download-platforms .tunnel-section-heading{margin-bottom:42px}.tunnel-platform-group{scroll-margin-top:108px;margin-top:48px}.tunnel-platform-heading{display:flex;align-items:baseline;gap:28px;margin-bottom:20px}.tunnel-platform-heading h3{font-size:28px;font-weight:500;letter-spacing:-.03em;margin:0}.tunnel-platform-heading p{font-size:12px;line-height:1.8;color:var(--oria-color-muted-fg);margin:0}
-.tunnel-installer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.tunnel-installer{padding:28px;border:var(--oria-border-width-default) solid var(--oria-color-border);border-radius:var(--oria-radius-xl);background:var(--oria-color-surface)}
-.tunnel-installer-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}.tunnel-installer h4{font-size:23px;line-height:1.3;font-weight:500;letter-spacing:-.035em;margin:0}.tunnel-installer-heading>span{font-family:var(--oria-font-mono);font-size:11px;color:var(--oria-color-muted-fg)}
-.tunnel-installer-file{font-family:var(--oria-font-mono);font-size:11px;line-height:1.8;color:var(--oria-color-muted-fg);overflow-wrap:anywhere;margin:18px 0 8px}.tunnel-installer-meta{display:flex;gap:16px;font-size:11px;color:var(--oria-color-muted-fg);margin-bottom:26px}.tunnel-installer .tunnel-button{min-height:42px;font-size:12px;max-width:100%;border-radius:var(--oria-radius-lg)}.tunnel-zip-link{display:inline-flex;align-items:center;gap:6px;font-size:11px;margin:14px 0 0 16px;color:var(--oria-color-muted-fg)}
-.tunnel-download-install{border-top:var(--oria-border-width-default) solid var(--oria-color-border)}.tunnel-download-install h2{font-size:30px;font-weight:500;letter-spacing:-.04em;margin:0 0 32px;line-height:1.3}.tunnel-download-install>div{display:grid;grid-template-columns:1fr 1fr;gap:40px}.tunnel-download-install article>span{font-family:var(--oria-font-mono);font-size:11px;color:var(--oria-color-primary)}.tunnel-download-install article>p{font-size:13px;line-height:1.9;color:var(--oria-color-muted-fg);margin:14px 0 0}.tunnel-download-install>a{display:inline-flex;align-items:center;gap:8px;margin-top:26px;font-size:12px}
-.tunnel-download-features>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:42px 34px}.tunnel-download-features article>svg{color:var(--oria-color-primary)}.tunnel-download-features h3{font-size:19px;font-weight:500;line-height:1.5;margin:18px 0 12px;letter-spacing:-.025em}.tunnel-download-features article>p{font-size:12px;line-height:1.9;color:var(--oria-color-muted-fg);margin:0}.tunnel-download-features>.tunnel-button{display:flex;width:fit-content;margin:42px auto 0}
-.tunnel-download-page:lang(ko){word-break:keep-all;overflow-wrap:anywhere}
-@media(max-width:760px){.tunnel-download-hero{padding:125px 22px 45px}.tunnel-download-hero h1{font-size:40px}.tunnel-download-intro{font-size:13px}.tunnel-download-platforms,.tunnel-download-install,.tunnel-download-features{padding:36px 22px 45px}.tunnel-platform-heading{display:block}.tunnel-platform-heading p{margin-top:10px}.tunnel-installer-grid{grid-template-columns:1fr;gap:14px}.tunnel-installer{padding:24px}.tunnel-download-install>div{grid-template-columns:1fr;gap:28px}.tunnel-download-features>div{grid-template-columns:1fr;gap:30px}.tunnel-download-features .tunnel-section-heading h2{font-size:31px}.tunnel-download-features article{display:grid;grid-template-columns:28px minmax(0,1fr);column-gap:16px}.tunnel-download-features article>svg{grid-row:1/3;margin-top:3px}.tunnel-download-features h3{margin-top:0}.tunnel-platform-group{margin-top:34px}.tunnel-zip-link{margin-left:0;display:flex;width:fit-content}}
+.tunnel-download-page {
+  width: var(--tunnel-content-width); margin-inline: auto;
+  padding-block: clamp(110px, 12vw, 164px) 72px;
+}
+.tunnel-download-heading {
+  display: grid; justify-items: center; gap: 22px; text-align: center; margin-bottom: clamp(40px, 5vw, 72px);
+}
+.tunnel-release-version { color: var(--oria-color-primary); font: 13px/1.6 var(--oria-font-mono); margin: 0 0 14px; }
+.tunnel-download-heading h1 { font-size: clamp(38px, 5vw, 70px); letter-spacing: -.05em; line-height: 1.12; font-weight: 550; margin: 0; }
+.tunnel-download-summary, .tunnel-platform-note, .tunnel-install-note p {
+  color: var(--oria-color-muted-fg); font-size: 14px; line-height: 1.7; margin: 12px 0 0;
+}
+.tunnel-download-heading > div { max-width: 65ch; }
+.tunnel-download-page [id] { scroll-margin-top: 94px; }
+.tunnel-download-page h2 { font-size: clamp(24px, 3vw, 34px); line-height: 1.2; letter-spacing: -.035em; font-weight: 550; margin: 0 0 24px; }
+.tunnel-platforms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--tunnel-gutter); }
+.tunnel-platform {
+  display: flex; flex-direction: column; padding: var(--tunnel-card-inset); min-width: 0;
+}
+.tunnel-platform header { display: flex; gap: 12px; align-items: center; }
+.tunnel-platform header svg { color: var(--oria-color-primary); }
+.tunnel-platform h3 { margin: 0; font-size: 25px; font-weight: 550; }
+.tunnel-platform ul { margin: 24px 0; padding: 0; list-style: none; }
+.tunnel-platform li {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding-block: 20px; border-top: 1px solid var(--tunnel-hairline);
+}
+.tunnel-package-architecture { display: flex; gap: 12px; align-items: center; }
+.tunnel-package-architecture img { display: block; flex: none; width: clamp(50px,5vw,64px); height: auto; }
+.tunnel-platform h4 { margin: 0; font-size: 16px; font-weight: 600; }
+.tunnel-platform li small { display: block; margin-top: 5px; color: var(--oria-color-muted-fg); font: 12px/1.5 var(--oria-font-mono); }
+.tunnel-platform li .tunnel-button { gap: 7px; min-height: 38px; padding: 8px 12px; font-size: 13px; }
+.tunnel-download-resources a { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; }
+.tunnel-install-note { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--tunnel-hairline); }
+.tunnel-install-note h4 { font-size: 13px; }
+.tunnel-install-note p { margin-top: 6px; }
+.tunnel-download-resources { margin-top: 42px; }
+.tunnel-download-resources div { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: var(--tunnel-gutter); }
+.tunnel-download-resources a { justify-content: space-between; padding: 16px var(--tunnel-card-inset); font-weight: 550; }
+.tunnel-download-resources a svg { flex-shrink: 0; color: var(--oria-color-muted-fg); }
+.tunnel-download-resources a:is(:hover,:focus-visible) { border-color: var(--oria-color-primary); }
+@media(max-width:960px) { .tunnel-download-resources div { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width:480px) { .tunnel-download-resources div { grid-template-columns: minmax(0,1fr); } }
+.tunnel-download-page a:not(.tunnel-button):hover { text-decoration: underline; text-underline-offset: 3px; }
+@media(max-width:760px) {
+  .tunnel-download-page { padding-block: 108px 50px; }
+  .tunnel-platforms { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,960 @@
+/* OriaTunnel 7c24929, workspace-panel.css, shell-editor.css, globals.css and tunnel.css (GPL-3.0-only). */
+:where(.tunnel-terminal-ui) {
+  .workspace-panel {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+    border: 1px solid var(--oria-color-border);
+    border-radius: var(--oria-radius-xl);
+    overflow: hidden;
+    color: var(--oria-color-fg);
+  }
+  .workspace-panel[data-open="false"] {
+    pointer-events: none;
+  }
+  .workspace-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 36px;
+    padding: 4px 8px;
+    flex: none;
+    font-size: 12px;
+  }
+  .workspace-panel-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+    z-index: 3;
+  }
+  .workspace-panel-resize {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    cursor: ns-resize;
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+    z-index: 2;
+    outline: none;
+  }
+  .workspace-panel-resize::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: calc(50% - 20px);
+    width: 40px;
+    height: 2px;
+    border-radius: var(--oria-radius-sm);
+    background: var(--oria-color-border);
+  }
+  .workspace-panel[data-dock="left"] > .workspace-panel-resize,
+  .workspace-panel[data-dock="right"] > .workspace-panel-resize {
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    height: auto;
+    cursor: ew-resize;
+  }
+  .workspace-panel[data-dock="left"] > .workspace-panel-resize {
+    left: auto;
+    right: 0;
+  }
+  .workspace-panel[data-dock="right"] > .workspace-panel-resize {
+    left: 0;
+    right: auto;
+  }
+  .workspace-panel[data-dock="left"] > .workspace-panel-resize::after,
+  .workspace-panel[data-dock="right"] > .workspace-panel-resize::after {
+    top: calc(50% - 20px);
+    left: 2px;
+    width: 2px;
+    height: 40px;
+  }
+  .workspace-panel-resize:hover::after {
+    background: var(--oria-color-border-strong);
+  }
+  [data-keyboard-navigation="true"] .workspace-panel-resize:focus-visible {
+    outline: 2px solid var(--oria-color-ring);
+    outline-offset: -2px;
+  }
+  .terminal-workspace {
+    --terminal-content-inset: 8px;
+  }
+  .terminal-workspace[data-open="false"] {
+    pointer-events: none;
+  }
+  .terminal-session-panel[hidden],
+  .terminal-session-panel[data-hidden] {
+    display: none;
+  }
+  .terminal-tabs {
+    flex: 1;
+    min-height: 0;
+    gap: 0;
+  }
+  .terminal-tab-list {
+    --terminal-tab-separator-space: 4px;
+    display: flex;
+    justify-content: flex-start;
+    gap: calc(var(--terminal-tab-separator-space) * 2 + 1px);
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    min-height: 32px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 var(--terminal-content-inset) 4px;
+    flex: none;
+    border-bottom: 1px solid var(--oria-color-border);
+  }
+  .terminal-tab-list {
+    --terminal-tab-fade-left: 0px;
+    --terminal-tab-fade-right: 0px;
+  }
+  .terminal-tab-list[data-fade-left="true"] {
+    --terminal-tab-fade-left: 16px;
+  }
+  .terminal-tab-list[data-fade-right="true"] {
+    --terminal-tab-fade-right: 16px;
+  }
+  .terminal-tab-list[data-fade-left="true"],
+  .terminal-tab-list[data-fade-right="true"] {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 var(--terminal-tab-fade-left),
+      #000 calc(100% - var(--terminal-tab-fade-right)),
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 var(--terminal-tab-fade-left),
+      #000 calc(100% - var(--terminal-tab-fade-right)),
+      transparent
+    );
+  }
+  .terminal-tab-entry {
+    position: relative;
+    display: flex;
+    flex: none;
+    min-width: 0;
+    max-width: 300px;
+    align-items: center;
+    padding-right: 2px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    transition: background-color 160ms ease-out;
+  }
+  .terminal-tab-entry + .terminal-tab-entry::before {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    left: calc(0px - var(--terminal-tab-separator-space) - 1px);
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: var(--oria-color-border-strong);
+  }
+  .terminal-tab-entry:has(> [role="tab"][data-active]) {
+    background: color-mix(
+      in srgb,
+      var(--oria-color-fg) 12%,
+      var(--oria-color-bg)
+    );
+  }
+  .terminal-tab-entry > [role="tab"] {
+    height: 28px;
+    max-width: 260px;
+    min-width: 0;
+    padding: 4px 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+  }
+  .terminal-tab-entry > [role="tab"][data-active] {
+    font-weight: 600;
+  }
+  .terminal-tab-entry > [role="tab"]::after {
+    display: none;
+  }
+  .terminal-tab-entry > button:not([role="tab"]) {
+    width: 26px;
+    height: 26px;
+    color: var(--oria-color-muted-fg);
+  }
+  .terminal-tab-entry > button:not([role="tab"]):hover,
+  .terminal-tab-entry:has(> [role="tab"][data-active])
+    > button:not([role="tab"]) {
+    color: var(--oria-color-fg);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .terminal-tab-entry {
+      transition: none;
+    }
+  }
+  @media (forced-colors: active) {
+    .terminal-tab-list {
+      -webkit-mask-image: none !important;
+      mask-image: none !important;
+    }
+    .terminal-tab-entry + .terminal-tab-entry::before {
+      background: CanvasText;
+    }
+    .terminal-tab-entry:has(> [role="tab"][data-active]) {
+      background: Highlight;
+    }
+    .terminal-tab-entry > [role="tab"][data-active],
+    .terminal-tab-entry:has(> [role="tab"][data-active])
+      > button:not([role="tab"]) {
+      color: HighlightText;
+    }
+  }
+  .terminal-tab-label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .terminal-tab-indicator {
+    flex: none;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--oria-color-muted-fg);
+  }
+  .terminal-tab-indicator[data-tone="success"] {
+    background: var(--oria-color-success, var(--oria-color-accent));
+  }
+  .terminal-tab-indicator[data-tone="pending"] {
+    background: var(--oria-color-primary);
+  }
+  .terminal-tab-indicator[data-tone="warning"] {
+    background: var(--oria-color-warning, var(--oria-color-accent));
+  }
+  .terminal-tab-indicator[data-tone="danger"] {
+    background: var(--oria-color-danger);
+  }
+  .terminal-identity {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    height: 28px;
+    padding: 2px var(--terminal-content-inset);
+    font-size: 11px;
+    min-width: 0;
+    min-height: 28px;
+    flex: none;
+  }
+  .terminal-identity code {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    user-select: text;
+  }
+  .terminal-view-area {
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
+    position: relative;
+  }
+  .terminal-session-panel,
+  .ssh-terminal-view {
+    height: 100%;
+    min-height: 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .terminal-start {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding: 6px var(--terminal-content-inset, 8px);
+  }
+  .terminal-target-menu {
+    width: max-content;
+    min-width: min(14rem, 85vw);
+    max-width: min(24rem, 85vw);
+  }
+  .terminal-target {
+    justify-content: flex-start;
+    flex: none;
+    min-width: 0;
+    height: auto;
+    gap: 8px;
+    padding: 6px 8px;
+    text-align: start;
+  }
+  .terminal-target-text {
+    display: grid;
+    min-width: 0;
+  }
+  .terminal-target-text > * {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .terminal-target-text small {
+    color: var(--oria-color-muted-fg);
+    font-size: 12px;
+  }
+  .shell-transcript {
+    container-type: size;
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+    position: relative;
+  }
+  .shell-surface {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+  }
+  .integrated .shell-surface {
+    height: auto;
+    min-height: 100%;
+    position: relative;
+    font:
+      13px/1.45 ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Consolas,
+      monospace;
+    color: var(--oria-color-fg);
+  }
+  .shell-heading {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    padding: 4px 4px 2px var(--terminal-content-inset);
+  }
+  .shell-heading > .shell-environment {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .shell-path {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
+    max-width: 50%;
+    color: var(--oria-color-primary);
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .shell-path [data-slot="breadcrumb-list"] {
+    gap: 2px;
+    color: inherit;
+    font: inherit;
+  }
+  .shell-path [data-slot="breadcrumb-separator"] {
+    flex: none;
+    color: var(--oria-color-muted-fg);
+  }
+  .shell-path [data-slot="breadcrumb-ellipsis"] {
+    width: 16px;
+  }
+  .shell-path button:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: -1px;
+  }
+  .shell-path button:hover {
+    text-decoration: underline;
+  }
+  .shell-path svg,
+  .shell-options svg {
+    flex-shrink: 0;
+  }
+  :is(
+    .shell-block pre,
+    .shell-current-block .shell-command,
+    .shell-current-block .shell-output-measure
+  ) {
+    padding: 0 4px 4px var(--terminal-content-inset);
+    font: inherit;
+    margin: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    user-select: text;
+  }
+  .shell-edit {
+    display: flex;
+    gap: 1ch;
+    position: relative;
+    margin: 0 4px 0 var(--terminal-content-inset);
+  }
+  .shell-dollar {
+    flex: none;
+    color: var(--oria-color-muted-fg);
+    user-select: none;
+  }
+  .shell-input-body {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+  }
+  .shell-edit textarea,
+  .shell-mirror {
+    font: inherit;
+    line-height: inherit;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    tab-size: 8;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    width: 100%;
+  }
+  .shell-edit textarea {
+    display: block;
+    background: transparent;
+    color: inherit;
+    resize: none;
+    outline: none;
+    cursor: text;
+    position: relative;
+    overflow: hidden;
+    min-height: 1.45em;
+  }
+  .shell-mirror {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    color: transparent;
+    user-select: none;
+  }
+  .shell-ghost {
+    color: color-mix(in srgb, var(--oria-color-fg) 48%, transparent);
+  }
+  .shell-options {
+    display: flex;
+    flex-direction: column;
+    max-height: 10em;
+    overflow: auto;
+    overscroll-behavior: contain;
+  }
+  .shell-options button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-align: start;
+    padding: 3px 8px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .shell-options button[aria-selected="true"] {
+    background: var(--oria-color-primary);
+    color: var(--oria-color-on-primary, var(--oria-color-bg));
+  }
+  .shell-candidates {
+    position: absolute;
+    z-index: 5;
+    width: max-content;
+    min-width: min(20ch, 100%);
+    max-width: 100%;
+    border-radius: var(--oria-radius-md);
+  }
+  .shell-directory {
+    max-width: min(22rem, 90vw);
+  }
+  .shell-environment {
+    color: var(--oria-color-success);
+    flex: 0 1 auto;
+    max-width: 32%;
+  }
+  .shell-caret-anchor {
+    display: inline-block;
+    height: 1em;
+    width: 0;
+    vertical-align: text-bottom;
+  }
+  .shell-candidates button {
+    flex: none;
+    min-width: 0;
+  }
+  .shell-candidates button span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .shell-directory > .search-input-control {
+    flex: none;
+    border-block-end: 1px solid var(--oria-color-border);
+  }
+  .shell-directory-viewport {
+    --scroll-fade-t-size: 12px;
+    --scroll-fade-b-size: 12px;
+    --scroll-fade-reveal: 20px;
+    scroll-padding-block: 12px;
+    overscroll-behavior: contain;
+  }
+  .shell-directory .shell-options {
+    max-height: none;
+    overflow: visible;
+  }
+  .shell-directory .shell-options button {
+    flex: none;
+    border-radius: var(--oria-radius-sm);
+    padding-inline: 6px 10px;
+  }
+  .shell-directory-status {
+    display: block;
+    padding: 3px 6px;
+    color: var(--oria-color-muted-fg);
+  }
+  .shell-block pre,
+  .shell-block pre span {
+    -webkit-user-select: text;
+    user-select: text;
+    cursor: text;
+  }
+  .shell-block pre:focus {
+    outline: none;
+  }
+  .shell-surface {
+    position: relative;
+    z-index: 1;
+  }
+  .shell-transcript[data-text-selection]
+    :is(pre, pre span, textarea)::selection {
+    color: var(--oria-color-selection-fg);
+    background-color: transparent;
+  }
+  .shell-current-block {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .integrated .shell-current-block {
+    flex: none;
+  }
+  .shell-block-more {
+    margin-inline-start: auto;
+    flex: none;
+    opacity: 0;
+    transition: opacity 100ms ease-out 350ms;
+  }
+  :is(.shell-block, .shell-current-block):hover
+    > .shell-sticky
+    .shell-block-more,
+  .shell-block-more:focus-visible,
+  .shell-block-more[aria-expanded="true"] {
+    opacity: 1;
+    transition-delay: 0s;
+  }
+  @media (hover: none) {
+    .shell-block-more {
+      opacity: 1;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .shell-block-more {
+      transition-duration: 0s;
+    }
+  }
+  .shell-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  .shell-live-viewport {
+    display: contents;
+  }
+  .shell-current-block[data-live-output] .shell-live-viewport {
+    display: block;
+  }
+  [data-output-folded] > :is(.shell-output-text, .shell-live-viewport) {
+    max-height: min(18lh, 46cqh);
+    overflow-y: auto;
+  }
+  .shell-fold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 20px;
+    height: 20px;
+  }
+  .shell-fold:focus-visible {
+    outline: 1px solid currentColor;
+  }
+  .shell-heading pre.shell-summary {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font: inherit;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: var(--oria-color-muted-fg);
+    user-select: text;
+  }
+  [data-output-folded] > .scroll-fade {
+    --scroll-fade-t-size: 16px;
+    --scroll-fade-b-size: 16px;
+    --scroll-fade-reveal: 24px;
+  }
+  .shell-output-measure {
+    position: absolute;
+    width: 100%;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .search-input-control {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+  }
+  .search-input-control > svg {
+    position: absolute;
+    inset-inline-start: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    width: 16px;
+    height: 16px;
+    color: var(--oria-color-muted-fg);
+    pointer-events: none;
+  }
+  .search-input-control > [data-slot="input"] {
+    height: 28px;
+    padding-inline-start: 32px;
+    font-size: 12px;
+  }
+  .search-input-control[data-embedded] > input {
+    height: 34px;
+  }
+  .search-input-control[data-embedded]:focus-within > svg {
+    color: var(--oria-color-primary);
+  }
+  .combobox-control {
+    position: relative;
+  }
+  .combobox-trigger {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    width: 24px;
+    height: 24px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 5px;
+    background: transparent;
+    color: var(--oria-color-muted-fg);
+    cursor: pointer;
+  }
+  .combobox-trigger:hover,
+  .combobox-chip-remove:hover {
+    color: var(--oria-color-fg);
+    background: color-mix(in srgb, var(--oria-color-muted-fg) 12%, transparent);
+  }
+  .combobox-content {
+    width: var(--anchor-width);
+    max-width: var(--available-width);
+    border-radius: var(--oria-radius-lg);
+    overflow: hidden;
+  }
+  .combobox-list {
+    max-height: min(300px, var(--available-height));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 4px;
+    scrollbar-width: thin;
+  }
+  .combobox-label {
+    padding: 8px 9px 4px;
+    color: var(--oria-color-muted-fg);
+    font-size: 11px;
+    font-weight: 500;
+  }
+  .combobox-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 32px;
+    padding: 7px 32px 7px 9px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: default;
+    outline: none;
+    overflow-wrap: anywhere;
+  }
+  .combobox-item[data-highlighted] {
+    background: color-mix(in srgb, var(--oria-color-accent) 14%, transparent);
+  }
+  .combobox-indicator {
+    position: absolute;
+    right: 9px;
+    color: var(--oria-color-accent);
+  }
+  .combobox-empty {
+    padding: 14px 12px;
+    color: var(--oria-color-muted-fg);
+    font-size: 12px;
+  }
+  .combobox-empty:empty {
+    display: none;
+  }
+  .combobox-chips {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    min-height: 32px;
+    padding: 3px 5px;
+    border: 1px solid var(--oria-color-border);
+    border-radius: var(--oria-radius-lg);
+  }
+  .combobox-chips-input {
+    flex: 1;
+    min-width: 120px;
+    width: 0;
+    height: 24px;
+    padding: 0 4px;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: 12px;
+  }
+  .combobox-chips-input::placeholder {
+    color: var(--oria-color-muted-fg);
+  }
+  .combobox-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    max-width: 100%;
+    padding-left: 6px;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--oria-color-accent) 12%, transparent);
+    font-size: 12px;
+    overflow-wrap: anywhere;
+  }
+  .combobox-chip-remove {
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--oria-color-muted-fg);
+    cursor: pointer;
+  }
+}
+
+.terminal-bounds {
+  position: absolute;
+  inset: 40px 0 0;
+  pointer-events: none;
+  z-index: 6;
+  overflow: hidden;
+  text-align: start;
+  color: var(--oria-color-fg);
+  font-family: var(--oria-font-sans);
+}
+.terminal-bounds .workspace-panel[data-open="true"] {
+  pointer-events: auto;
+}
+.terminal-bounds .terminal-tab-list {
+  background: transparent;
+}
+.terminal-bounds [role="tab"][aria-selected="true"] {
+  box-shadow: none;
+}
+.terminal-bounds .workspace-panel-resize:focus-visible {
+  outline: 2px solid var(--oria-color-ring);
+  outline-offset: -2px;
+}
+.terminal-bounds .workspace-panel-header strong {
+  font-weight: 600;
+}
+.terminal-bounds .terminal-tabs {
+  display: flex;
+  flex-direction: column;
+}
+.terminal-bounds .terminal-workspace {
+  background-color: color-mix(
+    in srgb,
+    var(--oria-color-overlay) calc(var(--oria-opacity-overlay) * 100%),
+    transparent
+  );
+  border: var(--oria-border-width-default) solid
+    color-mix(in srgb, var(--oria-color-border-strong) 28%, transparent);
+  box-shadow: var(--oria-shadow-md);
+  backdrop-filter: blur(var(--oria-backdrop-blur-md))
+    saturate(var(--oria-backdrop-saturate));
+}
+.terminal-bounds[data-standalone] {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  overflow: visible;
+  z-index: 1;
+}
+.terminal-bounds[data-standalone][data-open="false"] {
+  height: 0;
+  overflow: hidden;
+}
+.demo-native-body > .terminal-bounds {
+  top: 0;
+}
+.terminal-showcase {
+  margin: 0 auto;
+  max-width: 1056px;
+}
+.terminal-showcase figcaption {
+  margin: 10px 4px 0;
+  color: var(--oria-color-muted-fg);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.tunnel-terminal-update #release-notes {
+  scroll-margin-top: 100px;
+}
+.oria-tunnel-shell .tunnel-terminal-update .file-update-details {
+  max-width: 1056px;
+  margin-inline: auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 600px) {
+  .oria-tunnel-shell .tunnel-terminal-update .file-update-details {
+    grid-template-columns: 1fr;
+  }
+}
+.tunnel-terminal-ui.terminal-library {
+  position: fixed;
+  z-index: 145;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  width: min(32rem, calc(100vw - 24px));
+  max-height: 80dvh;
+  overflow: auto;
+  padding: 18px;
+  border-radius: var(--oria-radius-xl);
+}
+.terminal-library header,
+.terminal-library footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.terminal-library header {
+  margin-bottom: 12px;
+}
+.terminal-library header h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+.terminal-library .field {
+  display: grid;
+  gap: 6px;
+  margin-block: 12px;
+  font-size: 13px;
+}
+.terminal-library footer {
+  justify-content: flex-end;
+}
+.tunnel-terminal-ui:has(> [data-command-keyword-options]) {
+  z-index: 155;
+}
+
+/* The site's unlayered universal border color overrides Tailwind's transparent border. */
+.terminal-workspace
+  :is(
+    .workspace-panel-actions button,
+    .terminal-tab-entry button,
+    .shell-block-more
+  ) {
+  border-color: transparent;
+}
+.terminal-workspace
+  :is(
+    .workspace-panel-actions button,
+    .terminal-tab-entry button,
+    .shell-block-more
+  ):focus-visible {
+  outline: 2px solid var(--oria-color-ring);
+  outline-offset: -2px;
+}
+.terminal-workspace .terminal-tab-entry > [role="tab"] {
+  background: transparent;
+}
+.terminal-workspace .shell-block-more svg {
+  width: 16px;
+  height: 16px;
+}
+
+.walkthrough-host { position: relative; isolation: isolate; height: 100%; min-height: 0; display: flex; flex-direction: column; }
+.walkthrough-host > .ssh-terminal-view { flex: 1; min-height: 0; }
+.walkthrough-controls {
+  display: flex; flex: none; margin-inline-start: auto; gap: 6px; align-items: center;
+}
+.walkthrough-controls :is(button, kbd) {
+  display: grid; place-items: center; min-height: 22px; padding: 0 6px;
+  border: 1px solid var(--oria-color-border); border-radius: var(--oria-radius-md);
+  background: var(--oria-color-surface); color: var(--oria-color-muted-fg);
+}
+.walkthrough-controls kbd { font: 12px var(--oria-font-mono); color: var(--oria-color-fg); }
+.walkthrough-control { cursor: pointer; pointer-events: auto; }
+.walkthrough-control svg { width: 14px; height: 14px; }
+.walkthrough-control:focus-visible { outline: 2px solid var(--oria-color-primary); }
+.walkthrough-pointer {
+  position: absolute; z-index: 160; inset: 0 auto auto 0; pointer-events: none;
+  color: var(--oria-color-fg); line-height: 1;
+}
+.walkthrough-pointer > svg { fill: var(--oria-color-primary); stroke: var(--oria-color-bg); transform-origin: 1px 1px; }
+.walkthrough-pointer[data-pressed=true] > svg { transform: scale(.82); }
+.walkthrough-host .shell-caret-anchor { position: relative; }
+.walkthrough-host:not([data-playback=manual]) .shell-caret-anchor::after {
+  content: ""; position: absolute; z-index: 2; left: 0; bottom: -.12em;
+  width: 2px; height: 1.18em; background: var(--oria-color-fg);
+}
+.walkthrough-host[data-playback=playing] .shell-edit textarea { caret-color: transparent; }
+.walkthrough-pointer[data-text=true] > svg {
+  transform: translate(-50%, -50%); fill: none; stroke: var(--oria-color-primary);
+}
+.walkthrough-pointer[data-pressed=true]::after {
+  content: ""; position: absolute; left: -9px; top: -9px; width: 18px; height: 18px;
+  border: 2px solid var(--oria-color-primary); border-radius: 50%;
+}
+@keyframes terminal-demo-blink { 0%, 60%, 100% { opacity: 1; } 61%, 99% { opacity: 0; } }
+@keyframes terminal-demo-click { from { transform: scale(.55); opacity: .95; } to { transform: scale(1.45); opacity: 0; } }
+@media (prefers-reduced-motion: no-preference) {
+  .walkthrough-host[data-playback=playing] .shell-caret-anchor::after {
+    animation: terminal-demo-blink 1s step-end infinite;
+  }
+  .walkthrough-pointer[data-pressed=true]::after { animation: terminal-demo-click 650ms ease-out both; }
+  .walkthrough-pointer { transition: transform 420ms ease-in-out; }
+  .walkthrough-pointer > svg { transition: transform 150ms ease; }
+}
+.walkthrough-host[data-scene=copy] [data-copy-example] .shell-block-more { opacity: 1; }
+.guide-copy-menu { width: max-content; min-width: 132px; padding: 4px; }
+.guide-copy-menu button { text-align: start; }

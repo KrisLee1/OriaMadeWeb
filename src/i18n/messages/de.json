@@ -1081,9 +1081,13 @@
   "Remote services": "Remote-Dienste",
   "SSH tunnels": "SSH-Tunnel",
   "Search": "Suche",
-  "Manage SSH tunnels, transfer files and open a VNC remote desktop from one workspace on Windows or macOS.": "Verwalten Sie SSH-Tunnel, übertragen Sie Dateien und öffnen Sie einen VNC-Remotedesktop im selben Arbeitsbereich unter Windows oder macOS.",
+  "Manage SSH tunnels, work in local and remote terminals, transfer files over SFTP and open VNC desktops on Windows or macOS.": "Verwalten Sie SSH-Tunnel, arbeiten Sie in lokalen und entfernten Terminals, übertragen Sie Dateien per SFTP und öffnen Sie VNC-Desktops unter Windows oder macOS.",
   "SSH tunnels, VNC desktops and SFTP transfers in one workspace.": "SSH-Tunnel, VNC-Desktops und SFTP-Übertragungen in einem Arbeitsbereich.",
   "Import a host, start a local forward and open the remote desktop from the listening VNC rule.": "Importieren Sie einen SSH-Host, starten Sie eine lokale Weiterleitung und öffnen Sie den Remotedesktop über die aktive VNC-Regel.",
   "Start the VNC rule on port 5900, then select Open VNC to explore the sample desktop.": "Starten Sie die VNC-Regel auf Port 5900 und wählen Sie „VNC öffnen“, um den Beispiel-Desktop zu erkunden.",
-  "Open the desktop from a listening VNC forward. Use the keyboard and mouse, zoom in or work full screen.": "Öffnen Sie den Desktop über eine aktive VNC-Weiterleitung. Steuern Sie ihn mit Tastatur und Maus, zoomen Sie oder wechseln Sie ins Vollbild."
+  "Open the desktop from a listening VNC forward. Use the keyboard and mouse, zoom in or work full screen.": "Öffnen Sie den Desktop über eine aktive VNC-Weiterleitung. Steuern Sie ihn mit Tastatur und Maus, zoomen Sie oder wechseln Sie ins Vollbild.",
+  "A workspace for SSH tunnels": "Ein Arbeitsbereich für SSH-Tunnel",
+  "Local connections and credentials": "Lokale Verbindungen und Zugangsdaten",
+  "SSH connections originate on your device. You control host verification, credentials and configuration exports.": "SSH-Verbindungen gehen von deinem Gerät aus. Du bestimmst, wie Hosts geprüft, Zugangsdaten gespeichert und Konfigurationen exportiert werden.",
+  "Interactive workspace": "Interaktiver Arbeitsbereich"
 }

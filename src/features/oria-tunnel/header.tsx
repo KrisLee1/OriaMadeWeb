@@ -22,15 +22,19 @@ export function TunnelHeader({locale}:{locale:TunnelLocale}){
   if(downloadPage)return
   const sections=c.nav.map(({id})=>document.getElementById(id)).filter((element):element is HTMLElement=>Boolean(element))
   const observer=new IntersectionObserver(()=>{
-   const current=sections.filter(section=>section.getBoundingClientRect().top<window.innerHeight*.4).at(-1)
+   const marker = window.innerHeight * .30
+   const current = sections.find(section => {
+    const {top, bottom} = section.getBoundingClientRect()
+    return top <= marker + 1 && bottom > marker
+   })
    setActiveSection(current?.id??null)
-  },{rootMargin:'-15% 0px -55% 0px',threshold:0})
+  },{rootMargin:'-30% 0px -69% 0px',threshold:0})
   sections.forEach(section=>observer.observe(section))
   return()=>observer.disconnect()
  },[downloadPage,c.nav])
  useEffect(()=>{const wide=matchMedia('(min-width:1101px)');const close=()=>{if(wide.matches)setOpen(false)};wide.addEventListener('change',close);return()=>wide.removeEventListener('change',close)},[])
  const homeLink=<HomeLink locale={locale} onNavigate={()=>setOpen(false)}/>
- const links=<>{c.nav.map(item=><a key={item.id} href={`${localizedPath(locale,'/oria-tunnel')}#${item.id}`} aria-current={!downloadPage&&activeSection===item.id?'location':undefined} onClick={()=>{setActiveSection(item.id);setOpen(false)}}>{item.label}</a>)}<Link href={localizedPath(locale,'/oria-tunnel/download')} aria-current={downloadPage?'page':undefined} onClick={()=>setOpen(false)}>{downloadCopy[locale].download}</Link></>
+ const links=<>{c.nav.map(item=><a key={item.id} href={`${downloadPage ? localizedPath(locale,'/oria-tunnel') : ''}#${item.id}`} aria-current={!downloadPage&&activeSection===item.id?'location':undefined} onClick={()=>{setActiveSection(item.id);setOpen(false)}}>{item.label}</a>)}<Link href={localizedPath(locale,'/oria-tunnel/download')} aria-current={downloadPage?'page':undefined} onClick={()=>setOpen(false)}>{downloadCopy[locale].download}</Link></>
  return <header ref={anchor} className="tunnel-site-header scroll-reveal-header" data-floating={floating}><div className="tunnel-header-inner">
   <Link className="tunnel-brand" href={localizedPath(locale,'/oria-tunnel')}><img src="/products/oria-tunnel/logo.svg" width={30} height={30} alt=""/><BrandName name="OriaTunnel"/></Link>
   <div className="site-home-group">{homeLink}</div>

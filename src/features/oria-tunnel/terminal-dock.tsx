@@ -1,16 +1,11 @@
-import {Terminal, X} from 'lucide-react'
-import type {DemoCopy} from './demo-copy'
+'use client'
 
-export function TerminalDock({copy, onClose, closeLabel, open}: {
-  copy: DemoCopy
-  onClose: () => void
-  closeLabel?: string
-  open: boolean
-}) {
-  return <aside className="demo-terminal workspace-dock" data-open={open} inert={!open}>
-    <div><span><Terminal size={13}/>{copy.terminal}</span><span>dev-workspace</span>
-      <button type="button" aria-label={closeLabel ?? copy.terminal} onClick={onClose}><X size={15}/></button>
-    </div>
-    <pre><b>developer@dev-workspace</b>{':~$ ls /srv/demo\nassets  config.json  README.md  src'}<span>{'\n\nSSH · 22'}</span></pre>
-  </aside>
+import {useState} from 'react'
+import type {Locale} from '@/i18n/config'
+import {TerminalPreview} from './terminal-preview'
+
+export function TerminalDock({locale, open, onClose, initialDock}: {locale: Locale; open: boolean; initialDock?: "bottom" | "right"; onClose: () => void}) {
+  const [mounted, setMounted] = useState(open)
+  if (open && !mounted) setMounted(true)
+  return mounted ? <TerminalPreview key={locale} locale={locale} initialDock={initialDock} open={open} onClose={onClose}/> : null
 }

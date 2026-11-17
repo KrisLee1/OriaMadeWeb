@@ -993,7 +993,7 @@
   "Switch to {name}?": "Passer à {name} ?",
   "Taupe": "Taupe",
   "Teal": "Sarcelle",
-  "Terminal": "Borne",
+  "Terminal": "Terminal",
   "Text size.": "Taille du texte.",
   "The 26 stable family names.": "Les 26 noms de famille stables.",
   "The Oria way": "La méthode Oria",
@@ -1081,9 +1081,13 @@
   "Remote services": "Services distants",
   "SSH tunnels": "Tunnels SSH",
   "Search": "Recherche",
-  "Manage SSH tunnels, transfer files and open a VNC remote desktop from one workspace on Windows or macOS.": "Gérez vos tunnels SSH, transférez des fichiers et ouvrez un bureau distant VNC depuis le même espace de travail sous Windows ou macOS.",
+  "Manage SSH tunnels, work in local and remote terminals, transfer files over SFTP and open VNC desktops on Windows or macOS.": "Sous Windows et macOS, gérez vos tunnels SSH, passez du terminal local au terminal distant, transférez des fichiers par SFTP et ouvrez un bureau VNC.",
   "SSH tunnels, VNC desktops and SFTP transfers in one workspace.": "Tunnels SSH, bureaux VNC et transferts SFTP dans un même espace de travail.",
   "Import a host, start a local forward and open the remote desktop from the listening VNC rule.": "Importez un hôte SSH, démarrez une redirection locale et ouvrez le bureau distant depuis la règle VNC en écoute.",
   "Start the VNC rule on port 5900, then select Open VNC to explore the sample desktop.": "Démarrez la règle VNC sur le port 5900, puis choisissez « Ouvrir VNC » pour explorer le bureau de démonstration.",
-  "Open the desktop from a listening VNC forward. Use the keyboard and mouse, zoom in or work full screen.": "Ouvrez le bureau depuis une redirection VNC en écoute. Utilisez le clavier et la souris, zoomez ou passez en plein écran."
+  "Open the desktop from a listening VNC forward. Use the keyboard and mouse, zoom in or work full screen.": "Ouvrez le bureau depuis une redirection VNC en écoute. Utilisez le clavier et la souris, zoomez ou passez en plein écran.",
+  "A workspace for SSH tunnels": "Un espace de travail pour vos tunnels SSH",
+  "Local connections and credentials": "Connexions locales et identifiants",
+  "SSH connections originate on your device. You control host verification, credentials and configuration exports.": "Les connexions SSH partent de votre appareil. Vous gérez la vérification des hôtes, les identifiants et l’export de la configuration.",
+  "Interactive workspace": "Espace de travail interactif"
 }

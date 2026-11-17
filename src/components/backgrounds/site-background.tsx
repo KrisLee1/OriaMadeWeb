@@ -6,10 +6,10 @@ import {stripLocale} from '@/i18n/config'
 import {useState, useSyncExternalStore} from 'react'
 import {useOriaTheme} from '@oriatheme/react'
 
+import TunnelDotGrid from './tunnel-dot-grid'
 const Waves = dynamic(() => import('./react-bits-waves'), {ssr:false})
 const Aurora = dynamic(() => import('./react-bits-aurora'), {ssr:false})
 const Particles = dynamic(() => import('./react-bits-particles'), {ssr:false})
-const RippleGrid = dynamic(() => import('./react-bits-ripple-grid'), {ssr:false})
 type Background = 'brand' | 'theme' | 'tab' | 'tunnel'
 
 function subscribeMotion(callback:()=>void) {
@@ -39,7 +39,7 @@ function ProductBackground({variant,reading}:{variant:Background;reading:boolean
 
  return <>
   <div className="site-background" aria-hidden="true" data-background={variant} data-reading={reading} data-ready={ready} data-paused={reduced}>
-   <div className="site-background-glow"/>
+   {variant!=='tunnel'&&<div className="site-background-glow"/>}
    {variant==='brand'&&<Waves {...shared} lineColor={primary} accentColor={accent} spacing={34} amplitude={36} rotation={-24}
     speed={0.24} mouseRadius={180} mouseStrength={0.65} bounce={0.35} returnDuration={1.8}
     opacity={dark?0.22:0.15} fade={0} dpr={1}/>}
@@ -49,9 +49,7 @@ function ProductBackground({variant,reading}:{variant:Background;reading:boolean
     particleBaseSize={60} particleSpread={12} sizeRandomness={0.7} speed={0.06} glow={0.6}
     drift="up" driftSpeed={0.14} hoverEffect="repel" particleHoverFactor={0.6} clickBurst
     shape="circle" opacity={dark?0.65:0.5} lightMode={!dark} pixelRatio={1}/>}
-   {variant==='tunnel'&&<RippleGrid {...shared} color={primary} cellSize={40} lineWidth={0.7}
-    variant="dots" tilt={0} rotation={0} glow={0.2} rippleStrength={0.75} rippleSpeed={0.5}
-    autoRipple="random" rippleInterval={6} opacity={dark?0.5:0.35} fade={0} lightMode={!dark} dpr={1}/>}
+   {variant==='tunnel'&&<TunnelDotGrid/>}
   </div>
 
  </>

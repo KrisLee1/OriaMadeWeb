@@ -2,6 +2,7 @@
 
 import {useEffect,useId,useRef,useState,type CSSProperties} from 'react'
 import {vncUpdateCopy} from './vnc-update-copy'
+import {WorkspaceWalkthrough} from './workspace-walkthrough'
 import {ScreenShare} from 'lucide-react'
 import {TerminalDock} from './terminal-dock'
 import {FileWorkspaceDemo} from './file-demo'
@@ -9,7 +10,7 @@ import {getFileDemoCopy} from './file-demo-copy'
 import {FolderSync} from 'lucide-react'
 import {Tabs} from '@base-ui/react/tabs'
 import {Select,SelectContent,SelectItem,SelectTrigger,SelectValue} from '@/components/ui/select'
-import {ArrowRight,Boxes,ChevronDown,Globe,CopyPlus,ExternalLink,GitPullRequestCreateArrow,Info,KeyRound,ListFilter,Maximize,Monitor,Pause,Play,Plus,Search,Server,ServerPlus,Settings2,ShieldOff,Square,SquareTerminal,Trash2,X,ZoomIn,ZoomOut} from 'lucide-react'
+import {ArrowRight,Boxes,ChevronDown,Globe,CopyPlus,ExternalLink,GitPullRequestCreateArrow,Info,KeyRound,ListFilter,Maximize,Monitor,Play,Plus,Search,Server,ServerPlus,Settings2,ShieldOff,Square,SquareTerminal,Trash2,X,ZoomIn,ZoomOut} from 'lucide-react'
 import type {Locale} from '@/i18n/config'
 import {getDemoCopy,type DemoCopy} from './demo-copy'
 import {NativeAboutIcon,NativeConnectionIcon,NativeGraphStarIcon,NativeTerminalIcon} from './native-icons'
@@ -21,7 +22,7 @@ import {tunnelUpdateCopy} from './updates-copy'
 import {proxyBrowserChoices as proxyBrowsers} from './proxy-browser-options'
 
 export type DemoView='map'|'forwards'|'services'|'hosts'|'logs'
-const views:DemoView[]=['map','forwards','services','hosts','logs']
+export const views:DemoView[]=['map','forwards','services','hosts','logs']
 const hosts=[
  {name:'dev-workspace',address:'developer@dev.example.com:22',tag:'Development',rules:[0,1]},
  {name:'home-lab',address:'demo@lab.example.com:22',tag:'Lab',rules:[2,3]},
@@ -107,12 +108,12 @@ function MapView({copy,statuses,paused,locale,onToggle}:{copy:DemoCopy;statuses:
    ].map(([index,side,offset,label])=><span key={String(index)} className={`demo-local-port demo-port-${side}`} style={{...style(rules[Number(index)].color),[side==='bottom'?'left':'top']:`${offset}%`}}><i/><code>{label}</code></span>)}</div>
 
   </div>
-  <div className="demo-map-controls"><button aria-label={copy.zoomOut} onClick={()=>setZoom(value=>Math.max(.6,value-.15))}><ZoomOut/></button><button aria-label={copy.resetView} onClick={()=>setZoom(1)}><Maximize/></button><button aria-label={copy.zoomIn} onClick={()=>setZoom(value=>Math.min(1.6,value+.15))}><ZoomIn/></button></div>
+  <div className="demo-map-controls"><button aria-label={copy.zoomOut} onClick={()=>setZoom(value=>Math.max(.6,value-.15))}><ZoomOut/></button><button data-zoom="reset" aria-label={copy.resetView} onClick={()=>setZoom(1)}><Maximize/></button><button data-zoom="in" aria-label={copy.zoomIn} onClick={()=>setZoom(value=>Math.min(1.6,value+.15))}><ZoomIn/></button></div>
  </div>
 }
-function RowsView({view,copy,statuses,locale,onToggle}:{view:DemoView;copy:DemoCopy;statuses:DemoStatus[];locale:Locale;onToggle:(index:number)=>void}){
+function RowsView({view,copy,statuses,locale,onToggle,query,setQuery}:{query:string;setQuery:(query:string)=>void;view:DemoView;copy:DemoCopy;statuses:DemoStatus[];locale:Locale;onToggle:(index:number)=>void}){
  const [selectedServices,setSelectedServices]=useState<Set<string>>(()=>new Set())
- const [query,setQuery]=useState(''),[grouped,setGrouped]=useState(view!=='hosts'),update=tunnelUpdateCopy[locale]
+ const [grouped,setGrouped]=useState(view!=='hosts'),update=tunnelUpdateCopy[locale]
  const match=(text:string)=>text.toLowerCase().includes(query.trim().toLowerCase())
  const selectedHosts=hosts.filter(host=>match(host.name+' '+host.address+' '+host.tag))
  const selectedRules=(host:typeof hosts[number])=>host.rules.filter(index=>match(rules[index].name+' '+rules[index].from+' '+rules[index].to+' '+host.name))
@@ -134,17 +135,26 @@ function RowsView({view,copy,statuses,locale,onToggle}:{view:DemoView;copy:DemoC
   </div>
  </div>
 }
-export function WorkspaceDemo({locale,initialView='map',compact=false}:{locale:Locale;initialView?:DemoView;compact?:boolean}){
- const copy=getDemoCopy(locale),sim=getSimulationCopy(locale),[statuses,setStatuses]=useState<DemoStatus[]>(()=>scenarioStatuses(compact?'stopped':'mixed')),[paused,setPaused]=useState(false),[view,setView]=useState<DemoView>(initialView),[terminal,setTerminal]=useState(false),[files,setFiles]=useState(false)
+export function WorkspaceDemo({locale, view, onViewChange}:{locale:Locale; view:DemoView; onViewChange:(view:DemoView)=>void}){
+ const copy=getDemoCopy(locale),sim=getSimulationCopy(locale),[statuses,setStatuses]=useState<DemoStatus[]>(()=>scenarioStatuses('mixed')),[paused,setPaused]=useState(false),[terminal,setTerminal]=useState(false),[files,setFiles]=useState(false)
+ // Changing the guided view also closes any dock covering that view.
+ useEffect(()=>{setFiles(false);setTerminal(false)},[view])
+ const [query,setQuery]=useState('')
+ const guideHost=useRef<HTMLDivElement>(null)
+ useEffect(()=>{setQuery('')},[view])
  const scenario:DemoScenario=statuses.every(status=>status===statuses[0])?statuses[0]:'mixed'
  const onToggle=(index:number)=>setStatuses(current=>toggleDemoForward(current,index))
  const [filesMounted,setFilesMounted]=useState(false)
  const filesButton=useRef<HTMLButtonElement>(null),terminalButton=useRef<HTMLButtonElement>(null)
  const viewport=useRef<HTMLDivElement>(null),[windowScale,setWindowScale]=useState(1)
- useEffect(()=>{const element=viewport.current;if(!element)return;const observer=new ResizeObserver(([entry])=>setWindowScale(entry.contentRect.width/1178));observer.observe(element);return()=>observer.disconnect()},[])
- return <div className="tunnel-demo-composition">{!compact&&<div className="demo-simulation-controls"><div className="demo-state-field"><span>{sim.label}</span><Select value={scenario} onValueChange={value=>{if(value)setStatuses(scenarioStatuses(value as DemoScenario))}}><SelectTrigger aria-label={sim.label} className="demo-state-trigger"><SelectValue>{scenario==='mixed'?sim.mixed:copy[scenario]}</SelectValue></SelectTrigger><SelectContent align="start" alignItemWithTrigger={false} sideOffset={8} className="demo-state-options">{demoScenarios.map(value=><SelectItem key={value} value={value}>{value==='mixed'?sim.mixed:copy[value]}</SelectItem>)}</SelectContent></Select></div><small>{sim.note}</small><button type="button" onClick={()=>setPaused(value=>!value)} aria-pressed={paused}>{paused?<Play size={13}/>:<Pause size={13}/>}<span>{paused?sim.resume:sim.pause}</span></button></div>}<div ref={viewport} className={'tunnel-demo-window'+(compact?' demo-compact':'')} data-motion-paused={paused} data-scenario={scenario} style={{'--native-preview-scale':windowScale} as CSSProperties}>
+ useEffect(()=>{const element=viewport.current;if(!element)return;const observer=new ResizeObserver(([entry])=>{
+   const scale = entry.contentRect.width / 1178
+   if (scale > 0) element.style.setProperty('--workspace-height', (entry.contentRect.height / scale) + 'px')
+   setWindowScale(scale)
+ });observer.observe(element);return()=>observer.disconnect()},[])
+ return <div className="tunnel-demo-composition" ref={guideHost} data-view={view}><div className="demo-simulation-controls"><div className="demo-state-field"><span>{sim.label}</span><Select value={scenario} onValueChange={value=>{if(value)setStatuses(scenarioStatuses(value as DemoScenario))}}><SelectTrigger aria-label={sim.label} className="demo-state-trigger"><SelectValue>{scenario==='mixed'?sim.mixed:copy[scenario]}</SelectValue></SelectTrigger><SelectContent align="start" alignItemWithTrigger={false} sideOffset={8} className="demo-state-options">{demoScenarios.map(value=><SelectItem key={value} value={value}>{value==='mixed'?sim.mixed:copy[value]}</SelectItem>)}</SelectContent></Select></div><small>{sim.note}</small><WorkspaceWalkthrough key={view} view={view} locale={locale} host={guideHost} setQuery={setQuery} setPaused={setPaused}/></div><div ref={viewport} className="tunnel-demo-window" data-motion-paused={paused} data-scenario={scenario} style={{'--native-preview-scale':windowScale} as CSSProperties}>
   <div className="demo-native-surface" style={{transform:`scale(${windowScale})`}}>
-  <Tabs.Root value={view} onValueChange={value=>{setView(value as DemoView);setTerminal(false)}}>
+  <Tabs.Root value={view} onValueChange={value=>{onViewChange(value as DemoView)}}>
    <div className="demo-native-header">
     <div className="demo-header-side"><span className="demo-traffic demo-native-capsule" aria-hidden="true"><i/><i/><i/></span>
      {view!=='logs'&&<span className="demo-add-tools demo-native-capsule" aria-hidden="true">{view==='services'?<span><Plus/></span>:<>{view!=='forwards'&&<span><ServerPlus/></span>}{view!=='hosts'&&<span><GitPullRequestCreateArrow/></span>}</>}</span>}
@@ -155,11 +165,11 @@ export function WorkspaceDemo({locale,initialView='map',compact=false}:{locale:L
      <div className="demo-window-tools demo-native-capsule"><button ref={filesButton} type="button" aria-label={getFileDemoCopy(locale).title} aria-pressed={files} onClick={()=>{setFilesMounted(true);setFiles(value=>!value);setTerminal(false)}}><FolderSync size={16}/></button><button ref={terminalButton} type="button" aria-label={copy.terminalOpen} aria-pressed={terminal} onClick={()=>{setTerminal(value=>!value);setFiles(false)}}><NativeTerminalIcon/></button><span aria-hidden="true"><Settings2/></span><span aria-hidden="true"><NativeAboutIcon/></span></div>
     </div>
    </div>
-   <div className="demo-native-body">{views.map(id=><Tabs.Panel key={id} value={id} className="demo-native-panel">{id==='map'?<MapView copy={copy} statuses={statuses} paused={paused} locale={locale} onToggle={onToggle}/>:<RowsView key={id} view={id} copy={copy} statuses={statuses} locale={locale} onToggle={onToggle}/>}</Tabs.Panel>)}
+   <div className="demo-native-body">{views.map(id=><Tabs.Panel key={id} value={id} className="demo-native-panel">{id==='map'?<MapView copy={copy} statuses={statuses} paused={paused} locale={locale} onToggle={onToggle}/>:<RowsView query={query} setQuery={setQuery} key={id} view={id} copy={copy} statuses={statuses} locale={locale} onToggle={onToggle}/>}</Tabs.Panel>)}
     <aside className="file-demo-dock workspace-dock" data-open={files} inert={!files}>
      {filesMounted&&<FileWorkspaceDemo locale={locale} onClose={()=>{setFiles(false);filesButton.current?.focus({preventScroll:true})}}/>}
     </aside>
-    <TerminalDock open={terminal} copy={copy} closeLabel={getFileDemoCopy(locale).close} onClose={()=>{setTerminal(false);terminalButton.current?.focus({preventScroll:true})}}/>
+    <TerminalDock open={terminal} locale={locale} onClose={()=>{setTerminal(false);terminalButton.current?.focus({preventScroll:true})}}/>
    </div>
    <div className="demo-canvas-status"><NativeGraphStarIcon/><span>{copy.activeCount.replace('{{count}}',String(activeDemoCount(statuses)))}</span><i/>OriaTunnel</div>
   </Tabs.Root>

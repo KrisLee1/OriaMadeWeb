@@ -1,45 +1,59 @@
-import {ArrowDown,ArrowUpRight,Download} from 'lucide-react'
-import {localizedPath,type Locale} from '@/i18n/config'
-import {tunnelContent} from './content'
+import {Reveal} from '@/components/ui/reveal'
+import {ArrowUpRight, Download, Laptop, Monitor} from 'lucide-react'
+import {localizedPath, type Locale} from '@/i18n/config'
 import {downloadCopy} from './download-copy'
+import {CardArt} from './card-art'
 import {TunnelDownloadButton} from './download-button'
-import {fileSize,installerAsset,installers,tunnelRelease} from './release'
-import {fileReleaseId, fileReleaseVersion} from './file-update-copy'
-import {TunnelFileUpdate} from './file-update'
-import {getTunnelFeatures} from './feature-cards'
-import {TunnelVncUpdate} from './vnc-update'
-import {vncUpdateCopy, vncVersion} from './vnc-update-copy'
+import {fileSize, installerAsset, installers, tunnelRelease} from './release'
+import {terminalUpdateCopy, terminalVersion} from './terminal-update-copy'
 
-export function TunnelDownloadPage({locale}:{locale:Locale}) {
- const c=downloadCopy[locale],product=tunnelContent[locale]
- return <main className="tunnel-main tunnel-download-page">
-  <section className="tunnel-download-hero">
-   <div className="tunnel-hero-haze" aria-hidden="true"/>
-   <img src="/products/oria-tunnel/logo.svg" alt="" width={64} height={64}/>
-   <p className="tunnel-eyebrow">OriaTunnel <i/>{tunnelRelease.version}</p>
-   <h1>{c.title}</h1><p className="tunnel-download-intro">{c.intro}</p><p className="tunnel-download-notice">{vncVersion} · {vncUpdateCopy[locale].title} · {vncUpdateCopy[locale].status}</p>
-   <div className="tunnel-hero-actions"><TunnelDownloadButton locale={locale}/><a className="tunnel-button tunnel-button-quiet" href="#platforms">{c.allDownloads}</a></div>
-   <div className="tunnel-release-links"><a className="tunnel-release-link" href="#release-notes">{vncVersion} · {c.releaseNotes}<ArrowDown size={13}/></a><a className="tunnel-release-link" href={'#'+fileReleaseId}>{c.previousReleases} · {fileReleaseVersion}<ArrowDown size={13}/></a></div>
-  </section>
-  <section id="platforms" className="tunnel-download-platforms">
-   <header className="tunnel-section-heading"><h2>{c.choose}</h2><p>{c.chooseNote}</p></header>
-   {(['macos','windows'] as const).map(os=><div key={os} id={os} className="tunnel-platform-group">
-    <div className="tunnel-platform-heading"><h3>{os==='macos'?'macOS':'Windows'}</h3><p>{os==='macos'?c.macNote:c.winNote}</p></div>
-    <div className="tunnel-installer-grid">{installers.filter(item=>item.os===os).map(item=>{
-     const asset=installerAsset(item)
-     return <article className="tunnel-installer" key={item.id}>
-      <div className="tunnel-installer-heading"><h4>{item.architecture}</h4><span>{tunnelRelease.version}</span></div>
-      <p className="tunnel-installer-file">{item.file}</p>
-      <div className="tunnel-installer-meta"><span>{fileSize(asset.size)}</span><span>{os==='macos'?'DMG':'EXE · NSIS'}</span></div>
-      <a className="tunnel-button tunnel-button-primary" href={asset.url} aria-label={`${c.installer} · ${item.label}`}><Download size={16}/>{c.installer}</a>
-      {'zip' in item&&<a className="tunnel-zip-link" href={tunnelRelease.assets[item.zip].url}>{c.zip}<ArrowUpRight size={13}/></a>}
-     </article>
-    })}</div>
-   </div>)}
-  </section>
-  <section className="tunnel-download-install"><h2>{c.installTitle}</h2><div><article><span>01 / macOS</span><p>{c.macInstall}</p></article><article><span>02 / Windows</span><p>{c.winInstall}</p></article></div><a href={locale==='zh-CN'?'https://github.com/KrisLee1/OriaTunnel#快速上手':`https://github.com/KrisLee1/OriaTunnel/blob/master/docs/readme/README.${locale}.md`}>{c.guide}<ArrowUpRight size={15}/></a></section>
-  <TunnelVncUpdate locale={locale}/>
-  <TunnelFileUpdate locale={locale} releaseNotes/>
-  <section className="tunnel-download-features"><header className="tunnel-section-heading"><h2>{c.featuresTitle}</h2><p>{c.featuresIntro}</p></header><div>{getTunnelFeatures(locale).map(({icon:Icon,...feature})=>{return <article key={feature.title}><Icon size={23}/><h3>{feature.title}</h3><p>{feature.description}</p></article>})}</div><a className="tunnel-button tunnel-button-quiet" href={localizedPath(locale,'/oria-tunnel')}>{product.hero.primary}<ArrowUpRight size={16}/></a></section>
- </main>
+export function TunnelDownloadPage({locale}: {locale: Locale}) {
+  const c = downloadCopy[locale]
+  const preview = terminalUpdateCopy[locale]
+  const guideUrl = locale === 'zh-CN'
+    ? 'https://github.com/KrisLee1/OriaTunnel#快速上手'
+    : `https://github.com/KrisLee1/OriaTunnel/blob/master/docs/readme/README.${locale}.md`
+
+  return <main className="tunnel-main tunnel-download-page">
+    <Reveal as="header" immediate className="tunnel-download-heading">
+      <div>
+        <p className="tunnel-release-version">{tunnelRelease.version} · macOS / Windows</p>
+        <h1>{c.title}</h1>
+        <p className="tunnel-download-summary">{c.chooseNote}</p>
+      </div>
+      <TunnelDownloadButton locale={locale}/>
+    </Reveal>
+    <section id="platforms" tabIndex={-1} aria-labelledby="platforms-title">
+      <h2 id="platforms-title">{c.choose}</h2>
+      <div className="tunnel-platforms">{(['macos', 'windows'] as const).map(os => {
+        const mac = os === 'macos'
+        const Icon = mac ? Laptop : Monitor
+        return <Reveal as="section" key={os} id={os} tabIndex={-1} className="tunnel-platform tunnel-card" aria-labelledby={os + '-title'}>
+          <CardArt scene={os}/><div className="tunnel-card-copy">
+          <header><Icon size={24} aria-hidden="true"/><h3 id={os + '-title'}>{mac ? 'macOS' : 'Windows'}</h3></header>
+          <p className="tunnel-platform-note">{mac ? c.macNote : c.winNote}</p>
+          <ul>{installers.filter(item => item.os === os).map(item => {
+            const asset = installerAsset(item)
+            return <li key={item.id}>
+              <div className="tunnel-package-architecture">
+                <img src={`/products/oria-tunnel/chips/${item.id}.svg`} width={64} height={64} alt=""/>
+                <div><h4>{item.architecture}</h4><small>{mac ? 'DMG' : 'EXE'} · {fileSize(asset.size)}</small></div>
+              </div>
+              <a className="tunnel-button tunnel-button-primary tunnel-download-action" href={asset.url} aria-label={`${c.installer} · ${item.label}`}><Download size={15}/>{c.installer}</a>
+            </li>
+          })}</ul>
+          <div className="tunnel-install-note"><h4>{c.installTitle}</h4><p>{mac ? c.macInstall : c.winInstall}</p></div>
+        </div></Reveal>
+      })}</div>
+    </section>
+    <Reveal as="section" id="release-notes" className="tunnel-download-resources" aria-labelledby="release-title">
+      <h2 id="release-title">{c.releaseNotes}</h2>
+      <div>
+        <a className="tunnel-card" href={tunnelRelease.releaseUrl}>{tunnelRelease.version} · {c.releaseNotes}<ArrowUpRight size={15}/></a>
+        <a className="tunnel-card" href="https://github.com/KrisLee1/OriaTunnel/releases">{c.previousReleases}<ArrowUpRight size={15}/></a>
+        <a className="tunnel-card" href={guideUrl}>{c.guide}<ArrowUpRight size={15}/></a>
+        <a className="tunnel-card" href={localizedPath(locale, '/oria-tunnel') + '#terminal'}>{terminalVersion} · {preview.title}<ArrowUpRight size={15}/></a>
+      </div>
+    </Reveal>
+  </main>
 }

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <defs>
+    <linearGradient id="rim" x2=".86" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#e6cfff"/><stop offset=".32" stop-color="#653997"/><stop offset=".63" stop-color="#de9bff"/><stop offset="1" stop-color="#301548"/>
+    </linearGradient>
+    <radialGradient id="flare" cx=".01" cy="1.05" r=".89">
+      <stop stop-color="#ffd9f5"/><stop offset=".17" stop-color="#c37afd"/><stop offset=".4" stop-color="#7132c6"/><stop offset=".68" stop-color="#260d51"/><stop offset="1" stop-color="#09080e"/>
+    </radialGradient>
+    <radialGradient id="corner" cx="1" cy="0" r=".64">
+      <stop stop-color="#782bcd" stop-opacity=".88"/><stop offset=".48" stop-color="#351264" stop-opacity=".35"/><stop offset="1" stop-color="#190c2e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="2" y="2" width="92" height="92" rx="2" fill="url(#rim)"/>
+  <rect x="3.6" y="3.6" width="88.8" height="88.8" rx="1" fill="url(#flare)"/>
+  <rect x="3.6" y="3.6" width="88.8" height="88.8" rx="1" fill="url(#corner)"/>
+  <g fill="#f8f4ff">
+    <path d="M49 29c-.6-4.9 3.7-9.5 8.3-10.2.5 4.7-3.6 9.7-8.3 10.2Zm13 19.2c-1 3.4-4.3 9.3-7.6 9.3-2.4 0-3.6-1.5-6.3-1.5s-4.1 1.5-6.2 1.5c-3.9 0-10.1-9.6-10.1-17.1 0-6.3 3.8-10.5 8.9-10.5 2.9 0 5 1.7 7.3 1.7 2.1 0 4.7-1.9 7.8-1.8 2.8.1 5 1.3 6.7 3.6-6 3.7-6.7 11  -.5 14.8Z"/>
+    <text x="48" y="75" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="18" font-weight="650" letter-spacing="-.65">Silicon</text>
+  </g>
+</svg>
