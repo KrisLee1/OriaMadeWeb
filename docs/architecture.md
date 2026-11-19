@@ -57,7 +57,7 @@ OriaTheme 是全站唯一持久主题状态源。44 个 OriaTheme 预设与迁�
 
 首页、Theme 与 Tunnel 共用滚动材质状态，始终固定可见。顶栏页顶透明，滚动后成为主题悬浮层；产品导航内容仍归各模块。Positioner 层级高于顶栏和移动导航。品牌字由 BrandName 统一管理。
 
-`/oria-tunnel/download` 使用静态清单，当前固定为 GitHub v0.4.0，不在访问时请求 latest。页面列出 Windows x64/ARM64 的 EXE 和 macOS Apple Silicon/Intel 的 DMG。系统和架构识别仅在浏览器本地选择链接，不上传设备信息；信息不足时进入平台选择区，不猜测 Mac 芯片。首页、顶栏和页脚均提供八语言下载入口。
+`/oria-tunnel/download` 使用静态清单，当前固定为 GitHub v0.5.0，不在访问时请求 latest。页面列出 Windows x64/ARM64 的 EXE 和 macOS Apple Silicon/Intel 的 DMG。系统和架构识别仅在浏览器本地选择链接，不上传设备信息；信息不足时进入平台选择区，不猜测 Mac 芯片。首页和顶栏提供八语言下载入口；页脚提供发布说明、历史版本和产品导航。
 
 ## 浏览器标签
 
@@ -73,6 +73,6 @@ OriaTab 首页提供服务端产品分区与六场景客户端预览，继续复
 
 ## OriaTunnel 文件工作区预览
 
-官网对照 `/Volumes/T7/Projects/OriaTunnel` 的正式标签 v0.2.0（源提交 `f8ccbe7`）同步文件工作区演示。`file-update-copy.ts` 管理八语言正式发布与功能说明，`file-update.tsx` 在首页展示五项文件操作。首页按连接图、智能终端、文件传输和 VNC 排序，下载页只使用发布数据和平台选择组件，提供各架构安装说明与发布链接。v0.4.0 智能终端预览由 `terminal-update-copy.ts` 和 `terminal-update.tsx` 提供，与正式下载清单独立。三个功能区共用产品内的 `FeatureTour` 选择场景。功能卡响应滚动、悬停、聚焦与点选，终端切换场景仅更新会话示例，保留面板尺寸和命令库。
+官网对照 `/Volumes/T7/Projects/OriaTunnel` 的正式标签 v0.2.0（源提交 `f8ccbe7`）同步文件工作区演示。`file-update-copy.ts` 管理八语言正式发布与功能说明，`file-update.tsx` 在首页展示文件操作与日期分组。首页按连接图、智能终端、文件传输和 VNC 排序，下载页只使用发布数据和平台选择组件，提供各架构安装说明与发布链接。v0.5.0 智能终端演示由 `terminal-update-copy.ts` 和 `terminal-update.tsx` 提供，与正式下载清单独立。三个功能区共用产品内的 `FeatureTour` 选择场景。功能卡响应滚动、悬停、聚焦与点选，终端切换场景仅更新会话示例，保留面板尺寸和命令库。
 
 `file-demo.tsx` 在新功能区与原生窗口的文件按钮中复用。`native-file-artwork` 保留原文件/文件夹/磁盘/批次图标的完整几何、类型颜色、主题圆角和减少动态效果分支；`native-file-path`、`native-file-breadcrumb` 与 `native-file-options` 仅适配语言与纯路径数据。`native-files.css` 来自原样式，限定在 `.file-demo`，不加载原生桥接。浏览、筛选、多选、队列操作、文本草稿与保存均只处理页面内示例状态，不读取本机文件、不连接 SSH、不执行命令、不持久保存演示内容。来源版本、工作区状态与逐文件摘要见 `migration-sources.json`。

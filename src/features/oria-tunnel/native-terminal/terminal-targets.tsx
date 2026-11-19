@@ -1,5 +1,6 @@
 // OriaTunnel features/terminal/terminal-targets.tsx, 7c24929 (GPL-3.0-only).
-import { Monitor, Server, SquarePlusIcon } from "lucide-react";
+import {DemoEmpty} from "../demo-empty";
+import { Monitor, Server, SquarePlusIcon, SquareTerminal } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import {
@@ -50,7 +51,7 @@ export function TerminalTargets({
         {content}
       </DropdownMenuItem>
     ) : (
-      <Button key={host?.id ?? ""} type="button" variant="ghost" {...props}>
+      <Button key={host?.id ?? ""} type="button" variant="outline" {...props}>
         {content}
       </Button>
     );
@@ -62,7 +63,8 @@ export function TerminalTargets({
         data-terminal-start=""
         aria-label={t("new")}
       >
-        {targets}
+        <DemoEmpty icon={<SquareTerminal/>} title={t("new")} className="my-auto flex-none"
+          action={<div className="grid w-full gap-2">{targets}</div>}/>
       </div>
     );
   return (

@@ -40,7 +40,7 @@ const layoutOptions = [
  {value:'auto',Icon:Columns3Cog,label:'layoutAuto'}, {value:'columns',Icon:Columns3,label:'layoutColumns'},
  {value:'rows',Icon:Rows3,label:'layoutRows'}, {value:'split',Icon:FileSplitIcon,label:'layoutSplit'},
 ] as const
-export const fileScenes = ['browse', 'queue', 'preview', 'layout', 'drop'] as const
+export const fileScenes = ['browse', 'queue', 'preview', 'layout', 'drop', 'dates'] as const
 type FileScene = typeof fileScenes[number]
 const previewFile = sampleFiles.find(file => file.name === 'README.md')!
 const previewPath = 'local:/Projects/demo/README.md'
@@ -131,12 +131,12 @@ export function FileWorkspaceDemo({locale,onClose,scene,showNotice=true,initialL
     onClose={()=>setInlinePreview(false)} onSave={value=>setDocuments(current=>({...current,[previewPath]:value}))}/>}
    {!collapsed&&!inlinePreview&&<div className="files-body" style={{[outerVertical?'gridTemplateRows':'gridTemplateColumns']:split(browserRatio)} as CSSProperties}>
     <div className="file-demo-browser" style={{[innerVertical?'gridTemplateRows':'gridTemplateColumns']:split(paneRatio)} as CSSProperties}>
-     <FileDemoPane key={scene} drag={drag} locale={locale} side="source" copy={copy} target={source} onTarget={setSource} remoteTransfer={source!=='local'} onTransfer={(files,path)=>transfer(files,path)} onPreview={(file,key)=>setPreview({...file,key,content:documents[key]??file.content})}/>
+     <FileDemoPane dateScene={scene==='dates'} key={scene} drag={drag} locale={locale} side="source" copy={copy} target={source} onTarget={setSource} remoteTransfer={source!=='local'} onTransfer={(files,path)=>transfer(files,path)} onPreview={(file,key)=>setPreview({...file,key,content:documents[key]??file.content})}/>
      <FileDemoSeparator label={copy.resize} vertical={!innerVertical} value={paneRatio} onChange={setPaneRatio}/>
-     <FileDemoPane drag={drag} key={(scene??'')+'-target'} locale={locale} side="target" copy={copy} target={target} onTarget={setTarget} remoteTransfer={source!=='local'} onTransfer={(files,path)=>transfer(files,path,true)} onPreview={(file,key)=>setPreview({...file,key,content:documents[key]??file.content})}/>
+     <FileDemoPane dateScene={scene==='dates'} drag={drag} key={(scene??'')+'-target'} locale={locale} side="target" copy={copy} target={target} onTarget={setTarget} remoteTransfer={source!=='local'} onTransfer={(files,path)=>transfer(files,path,true)} onPreview={(file,key)=>setPreview({...file,key,content:documents[key]??file.content})}/>
     </div>
     <FileDemoSeparator label={copy.resizeQueue} vertical={!outerVertical} value={browserRatio} onChange={setBrowserRatio}/>
-    <FileDemoQueue key={scene} showBatch={scene === 'queue'} copy={copy} tasks={tasks} onAction={action} onClear={id=>setTasks(current=>current.filter(task=>id?task.id!==id:!['completed','cancelled'].includes(task.phase)))}/>
+    <FileDemoQueue locale={locale} dateScene={scene==='dates'} key={scene} showBatch={scene === 'queue'} copy={copy} tasks={tasks} onAction={action} onClear={id=>setTasks(current=>current.filter(task=>id?task.id!==id:!['completed','cancelled'].includes(task.phase)))}/>
    </div>}
   </div>
   {showNotice && <p className="file-demo-disclosure">{notice}</p>}<span className="sr-only" role="status">{announcement}</span>

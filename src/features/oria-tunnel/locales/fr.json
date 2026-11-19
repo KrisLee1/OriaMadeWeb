@@ -72,5 +72,6 @@
   "bindError": "Échec de l’écoute",
   "forwardError": "Redirection refusée",
   "hostKeyError": "Vérifier la clé d’hôte",
-  "commandError": "Commande à vérifier"
+  "commandError": "Commande à vérifier",
+  "noActivity": "Aucun événement correspondant"
 }

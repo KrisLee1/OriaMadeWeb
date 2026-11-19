@@ -3,7 +3,9 @@
 import {useEffect,useId,useRef,useState,type CSSProperties} from 'react'
 import {vncUpdateCopy} from './vnc-update-copy'
 import {WorkspaceWalkthrough} from './workspace-walkthrough'
-import {ScreenShare} from 'lucide-react'
+import {DemoEmpty} from './demo-empty'
+import {Button} from '@/components/ui/button'
+import {SearchX,ScreenShare} from 'lucide-react'
 import {TerminalDock} from './terminal-dock'
 import {FileWorkspaceDemo} from './file-demo'
 import {getFileDemoCopy} from './file-demo-copy'
@@ -131,7 +133,9 @@ function RowsView({view,copy,statuses,locale,onToggle,query,setQuery}:{query:str
    {rules[index].kind==='D'&&<div className="demo-proxy-services"><ProxyBrowserPreview locale={locale} copy={copy} status={statuses[index]} name={rules[index].name}/>{ruleServices[index].map(id=><ProxyBrowserPreview key={id} locale={locale} copy={copy} status={statuses[index]} name={recipes[id].name} service={recipes[id]}/>)}</div>}<ToolIcons/><ForwardAction copy={copy} status={statuses[index]} name={rules[index].name} onToggle={()=>onToggle(index)}/></div></div>)}</section>})}
    {view==='services'&&serviceGroups.filter(group=>group.recipes.length>0).map(group=><section className="demo-list-group" key={group.name}>{grouped&&<div className="demo-group-label"><ChevronDown size={13}/><Server size={13}/>{group.name}<small>{group.recipes.length}</small></div>}{group.recipes.map(recipe=><div className="demo-native-row" key={recipe.name}><input className="demo-row-checkbox" type="checkbox" aria-label={`${copy.services} ${recipe.name} ${group.name}`} checked={selectedServices.has(recipe.name)} onChange={event=>setSelectedServices(current=>{const next=new Set(current);if(event.target.checked)next.add(recipe.name);else next.delete(recipe.name);return next})}/><div><strong><NativeConnectionIcon name={recipe.icon} color={recipe.color}/>{recipe.name}</strong><div className="demo-service-summary"><small>{copy.commandCount.replace('{{count}}',String(recipe.count))}</small>{[copy.start,copy.stop,copy.restart,copy.status,copy.logs].slice(0,recipe.count).map(label=><span key={label}>{label}</span>)}</div></div><ToolIcons service/></div>)}</section>)}
    {view==='logs'&&hosts.map(host=>{const selected=selectedRules(host);return selected.length>0&&<section className="demo-list-group" key={host.name}>{grouped&&<div className="demo-group-label"><ChevronDown size={13}/>{host.name}<small>{selected.length}</small></div>}{selected.map(index=><div className="demo-log-row" key={index}><div><Stopped copy={copy} status={statuses[index]}/><time>2026/10/25 13:22:35</time></div><div><span>{host.name} · {rules[index].name}</span><code>{copy.retryCount+' 2'} · b437aa15</code></div></div>)}</section>})}
-   {count===0&&<div className="demo-empty" role="status"><Search size={20}/><span>{view==='hosts'?copy.emptyResult:copy[view]+': 0'}</span></div>}
+   {count===0&&view==='logs'&&<DemoEmpty fullSize className="min-h-70" icon={<SearchX/>} title={copy.noActivity}
+    action={<Button size="sm" variant="outline" onClick={()=>setQuery('')}>{getFileDemoCopy(locale).clearFilters}</Button>}/>}
+   {count===0&&view!=='logs'&&<div className="demo-empty" role="status"><Search size={20}/><span>{view==='hosts'?copy.emptyResult:copy[view]+': 0'}</span></div>}
   </div>
  </div>
 }

@@ -1,4 +1,4 @@
-import {ArrowLeft, ArrowRight, Check, ChevronRight, Clipboard, Code2, Database, FileKey, FileText, Fingerprint, Folder, MousePointer2, KeyRound, Laptop, LockKeyhole, Monitor, Network, Server, SquareTerminal} from 'lucide-react'
+import {ArrowLeft, ArrowRight, Check, ChevronRight, Clipboard, CalendarDays, Code2, Database, FileKey, FileText, Fingerprint, Folder, MousePointer2, KeyRound, Laptop, LockKeyhole, Monitor, Network, Server, SquareTerminal} from 'lucide-react'
 
 function Keys({keys}: {keys: string[]}) {
   return <span className="art-keys">{keys.map(key => <kbd key={key}>{key}</kbd>)}</span>
@@ -15,12 +15,14 @@ function Illustration({scene}: {scene: string}) {
     case 'services': return <><Server/><i className="art-route"/><Database/></>
     case 'hosts': return <><Server/><code>home-lab</code></>
     case 'logs': return <><span className="art-lines"><i/><i/><i/></span><Check/></>
+    case 'split': return <><SquareTerminal/><MousePointer2/><Panes/></>
     case 'completion': return <><code>git <em>status</em></code><Keys keys={['→']}/></>
     case 'directory': return <><ArrowLeft/><Folder/><code>~/src</code></>
     case 'library': return <><FileText/><code>git pull</code></>
     case 'multiline': return <><code>❯ ▏</code><Keys keys={['⇧','↵']}/></>
     case 'output': return <><span className="art-lines"><i/><i/><i/></span><code>···</code></>
     case 'copy': return <><SquareTerminal/><ArrowRight/><Clipboard/></>
+    case 'dates': return <><CalendarDays/><Folder/></>
     case 'browse': return <><Folder/><i className="art-route"/><Folder/></>
     case 'queue': return <><span className="art-progress"><i/><i/></span><Check/></>
     case 'preview': return <><FileText/><code>.md</code></>
@@ -40,7 +42,7 @@ function Illustration({scene}: {scene: string}) {
       <rect x="2" y="25" width="21" height="21" color="#00a4ef"/>
       <rect x="25" y="25" width="21" height="21" color="#ffb900"/>
     </svg>
-    case 'download': return <><Laptop/><i className="art-route"/><img src="/products/oria-tunnel/logo.svg" width="42" height="42" alt=""/><i className="art-route"/><Monitor/></>
+    case 'footer': return <><Laptop/><i className="art-route"/><img src="/products/oria-tunnel/logo.svg" width="42" height="42" alt=""/><i className="art-route"/><Monitor/></>
     default: return <Code2/>
   }
 }

@@ -214,6 +214,7 @@ export function FilePathNavigation({
       )}
       <Button
         ref={action}
+        className="files-path-action"
         variant="ghost"
         size="icon-sm"
         disabled={disabled || loading}

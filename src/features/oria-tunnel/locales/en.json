@@ -72,5 +72,6 @@
   "bindError": "Listener failed",
   "forwardError": "Forwarding denied",
   "hostKeyError": "Verify host key",
-  "commandError": "Command needs attention"
+  "commandError": "Command needs attention",
+  "noActivity": "No matching events"
 }

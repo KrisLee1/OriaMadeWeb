@@ -42,7 +42,11 @@
       "phase": {
         "running": "接続済み"
       },
-      "copyAll": "すべてコピー"
+      "copyAll": "すべてコピー",
+      "detachPane": "ペインをドラッグ、またはクリックしてタブバーに戻す",
+      "closeGroup": "ターミナルグループを閉じる",
+      "groupCloseHint": "以下の {{count}} 個のターミナルを閉じます。実行中のコマンドが中断される場合があります。",
+      "terminalGroup": "ターミナルグループ"
     },
     "tunnel": {
       "save": "保存",
@@ -100,7 +104,11 @@
       "phase": {
         "running": "Verbunden"
       },
-      "copyAll": "Alles kopieren"
+      "copyAll": "Alles kopieren",
+      "detachPane": "Bereich ziehen oder per Klick in die Tableiste verschieben",
+      "closeGroup": "Terminalgruppe schließen",
+      "groupCloseHint": "Zu schließende Terminals: {{count}}. Laufende Befehle können unterbrochen werden.",
+      "terminalGroup": "Terminalgruppe"
     },
     "tunnel": {
       "save": "Speichern",
@@ -158,7 +166,11 @@
       "phase": {
         "running": "Подключено"
       },
-      "copyAll": "Копировать всё"
+      "copyAll": "Копировать всё",
+      "detachPane": "Перетащить панель или нажать, чтобы вернуть её на панель вкладок",
+      "closeGroup": "Закрыть группу терминалов",
+      "groupCloseHint": "Будет закрыто терминалов: {{count}}. Выполняющиеся команды могут быть прерваны.",
+      "terminalGroup": "Группа терминалов"
     },
     "tunnel": {
       "save": "Сохранить",
@@ -216,7 +228,11 @@
       "phase": {
         "running": "已连接"
       },
-      "copyAll": "复制全部"
+      "copyAll": "复制全部",
+      "detachPane": "拖动面板，或点击移回标签栏",
+      "closeGroup": "关闭组合终端",
+      "groupCloseHint": "将关闭以下 {{count}} 个终端。正在运行的前台命令可能会中断。",
+      "terminalGroup": "组合终端"
     },
     "tunnel": {
       "save": "保存",
@@ -274,7 +290,11 @@
       "phase": {
         "running": "Connected"
       },
-      "copyAll": "Copy all"
+      "copyAll": "Copy all",
+      "detachPane": "Drag pane, or click to move it to the tab bar",
+      "closeGroup": "Close terminal group",
+      "groupCloseHint": "Terminals to close: {{count}}. Closing these sessions may interrupt running commands.",
+      "terminalGroup": "Terminal group"
     },
     "tunnel": {
       "save": "Save",
@@ -332,7 +352,11 @@
       "phase": {
         "running": "Connecté"
       },
-      "copyAll": "Tout copier"
+      "copyAll": "Tout copier",
+      "detachPane": "Faire glisser le volet ou cliquer pour le remettre dans la barre d’onglets",
+      "closeGroup": "Fermer le groupe de terminaux",
+      "groupCloseHint": "Terminaux à fermer : {{count}}. Les commandes en cours peuvent être interrompues.",
+      "terminalGroup": "Groupe de terminaux"
     },
     "tunnel": {
       "save": "Enregistrer",
@@ -390,7 +414,11 @@
       "phase": {
         "running": "연결됨"
       },
-      "copyAll": "모두 복사"
+      "copyAll": "모두 복사",
+      "detachPane": "창을 드래그하거나 클릭하여 탭 표시줄로 이동",
+      "closeGroup": "터미널 그룹 닫기",
+      "groupCloseHint": "아래 터미널 {{count}}개를 닫습니다. 실행 중인 명령이 중단될 수 있습니다.",
+      "terminalGroup": "터미널 그룹"
     },
     "tunnel": {
       "save": "저장",
@@ -448,7 +476,11 @@
       "phase": {
         "running": "已連線"
       },
-      "copyAll": "複製全部"
+      "copyAll": "複製全部",
+      "detachPane": "拖曳面板，或點擊移回分頁列",
+      "closeGroup": "關閉組合終端機",
+      "groupCloseHint": "將關閉以下 {{count}} 個終端機。正在前景執行的指令可能會中斷。",
+      "terminalGroup": "組合終端機"
     },
     "tunnel": {
       "save": "儲存",

@@ -118,10 +118,24 @@ export function FeatureTour({features, scenes, reverse, strip = false, children}
 
   useEffect(() => {
     const viewport = track.current!, group = tour.current!
+    const demo = stage.current!
+    let interacting = false
+    // Moving a focused editor between panes can scroll the surrounding sticky
+    // track. Keep its scene until the reader actually scrolls or picks a card.
+    const keepScene = () => { interacting = true }
+    const allowScroll = () => { interacting = false }
+    const scrollKey = (event: KeyboardEvent) => {
+      if (event.target === viewport && ['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '].includes(event.key)) allowScroll()
+    }
     // The scroll distance lives inside the preview. It adds no space between chapters.
     function sync() {
       const distance = viewport.scrollHeight - viewport.clientHeight
       if (!distance) return
+      if (interacting) {
+        const expected = distance * progress.current
+        if (Math.abs(viewport.scrollTop - expected) > 1) viewport.scrollTop = expected
+        return
+      }
       progress.current = Math.max(0, Math.min(1, viewport.scrollTop / distance))
       const index = Math.round(progress.current * (features.length - 1))
       if (current.current !== index) { current.current = index; setActive(index) }
@@ -138,12 +152,22 @@ export function FeatureTour({features, scenes, reverse, strip = false, children}
     }
     const observer = new ResizeObserver(size)
     observer.observe(pin.current!)
+    demo.addEventListener('pointerdown', keepScene, true)
+    demo.addEventListener('focusin', keepScene)
+    viewport.addEventListener('wheel', allowScroll, {passive: true})
+    viewport.addEventListener('touchmove', allowScroll, {passive: true})
+    viewport.addEventListener('keydown', scrollKey)
     viewport.addEventListener('scroll', sync, {passive: true})
     window.addEventListener('scroll', arm, {passive: true})
     window.addEventListener('resize', arm)
     size()
     return () => {
       observer.disconnect()
+      demo.removeEventListener('pointerdown', keepScene, true)
+      demo.removeEventListener('focusin', keepScene)
+      viewport.removeEventListener('wheel', allowScroll)
+      viewport.removeEventListener('touchmove', allowScroll)
+      viewport.removeEventListener('keydown', scrollKey)
       viewport.removeEventListener('scroll', sync)
       window.removeEventListener('scroll', arm)
       window.removeEventListener('resize', arm)

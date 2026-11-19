@@ -72,5 +72,6 @@
   "bindError": "待ち受けに失敗",
   "forwardError": "転送が拒否されました",
   "hostKeyError": "ホスト鍵を確認",
-  "commandError": "コマンドの確認が必要"
+  "commandError": "コマンドの確認が必要",
+  "noActivity": "該当するイベントがありません"
 }

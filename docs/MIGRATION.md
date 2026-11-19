@@ -96,3 +96,7 @@ VNC 预览参照同一提交的 `src/features/vnc/VncHeader.tsx`、`VncDesktop.t
 迁移源为 [OriaTunnel 7c24929](https://github.com/KrisLee1/OriaTunnel/tree/7c24929b765f88dab4983e131d84674c395ae508)。`src/features/oria-tunnel/native-terminal/` 保留来源路径，沿用 [GPL-3.0-only](licenses/OriaTunnel-GPL-3.0.txt)。面板、标签、可折叠命令、面包屑、目录选择、保存弹层与命令库对应上游 `src/components/ui/` 和 `src/features/terminal/`。样式取自该提交的 workspace-panel.css、shell-editor.css、globals.css 与 tunnel.css，界面词取自八种语言的 terminal、files 与 tunnel 命名空间。
 
 官网用页面内示例目录和命令输出替换 PTY，用内存命令库替换 Tauri 持久化。面板可在独立近景、主工作区和 VNC 查看器中操作。Windows 本地 PowerShell 与命令块的三个复制选项对照[上游 123fd36](https://github.com/KrisLee1/OriaTunnel/tree/123fd36677167d6a64c686809dc4c485414eae85)。用户主动点击「复制命令」「复制输出」或「复制全部」可写入浏览器剪贴板。自动演示使用页面内示例文本。
+
+## OriaTunnel v0.5.0 组合面板和文件工作区（2026-11-19）
+
+官网使用发布准备提交 90da190 的终端分组树、四边停靠判断和指针手势。分组标签、会话标题栏、分隔线、拖放预览和关闭确认沿用对应组件的结构、图标和主题变量。网站用稳定的 React portal 容纳各会话的示例编辑器，重排与拆分时保留草稿和输出。文件日期标题、传输指标、扫描提示、空状态和八语言控件取自同一修订。来源路径和摘要见 migration-sources.json。[上游源码](https://github.com/KrisLee1/OriaTunnel/tree/90da190374824fd7dd553702c5849923f85fd0f6) · [GPL-3.0-only](licenses/OriaTunnel-GPL-3.0.txt)

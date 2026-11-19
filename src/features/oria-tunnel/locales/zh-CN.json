@@ -72,5 +72,6 @@
   "bindError": "端口监听失败",
   "forwardError": "转发被拒绝",
   "hostKeyError": "需核对指纹",
-  "commandError": "命令需确认"
+  "commandError": "命令需确认",
+  "noActivity": "没有匹配的日志"
 }

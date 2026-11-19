@@ -9,7 +9,7 @@ import {terminalUpdateCopy, terminalVersion} from './terminal-update-copy'
 
 export function TunnelDownloadPage({locale}: {locale: Locale}) {
   const c = downloadCopy[locale]
-  const preview = terminalUpdateCopy[locale]
+  const terminal = terminalUpdateCopy[locale]
   const guideUrl = locale === 'zh-CN'
     ? 'https://github.com/KrisLee1/OriaTunnel#快速上手'
     : `https://github.com/KrisLee1/OriaTunnel/blob/master/docs/readme/README.${locale}.md`
@@ -52,7 +52,7 @@ export function TunnelDownloadPage({locale}: {locale: Locale}) {
         <a className="tunnel-card" href={tunnelRelease.releaseUrl}>{tunnelRelease.version} · {c.releaseNotes}<ArrowUpRight size={15}/></a>
         <a className="tunnel-card" href="https://github.com/KrisLee1/OriaTunnel/releases">{c.previousReleases}<ArrowUpRight size={15}/></a>
         <a className="tunnel-card" href={guideUrl}>{c.guide}<ArrowUpRight size={15}/></a>
-        <a className="tunnel-card" href={localizedPath(locale, '/oria-tunnel') + '#terminal'}>{terminalVersion} · {preview.title}<ArrowUpRight size={15}/></a>
+        <a className="tunnel-card" href={localizedPath(locale, '/oria-tunnel') + '#terminal'}>{terminalVersion} · {terminal.title}<ArrowUpRight size={15}/></a>
       </div>
     </Reveal>
   </main>

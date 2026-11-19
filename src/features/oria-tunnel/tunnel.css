@@ -140,30 +140,43 @@
   background: var(--tunnel-card-surface);
 }
 .product-footer.tunnel-footer {
-  display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+  display: block;
   width: var(--tunnel-content-width); max-width: none;
-  margin: 0 auto; padding: 0 0 clamp(32px, 5vw, 64px); gap: var(--tunnel-gutter);
+  margin: 0 auto; padding: 0 0 clamp(32px, 5vw, 64px);
   border: 0; background: transparent;
 }
-.tunnel-footer-download, .tunnel-footer-directory, .tunnel-security .tunnel-trust-grid article {
+.tunnel-security .tunnel-trust-grid article {
   position: relative; isolation: isolate; overflow: hidden; padding: var(--tunnel-card-inset);
 }
-.tunnel-footer-download { display: grid; align-content: center; justify-items: start; min-height: 218px; }
-.tunnel-footer-download .tunnel-dots { z-index: -1; mask-image: linear-gradient(95deg, transparent 20%, #0006 55%, #000); }
-.tunnel-footer-download > img { width: 32px; height: 32px; margin-bottom: 12px; }
-.tunnel-footer-download h2 { margin: 0; font-size: clamp(22px, 2.6vw, 36px); line-height: 1.2; font-weight: 600; letter-spacing: -.04em; }
-.tunnel-footer-download p { margin: 7px 0 18px; color: var(--oria-color-muted-fg); font-size: 13px; }
-.tunnel-footer-directory { display: grid; grid-template-columns: 1fr 1fr; align-content: center; gap: 18px 24px; }
-.tunnel-footer-brand { grid-column: 1/-1; width: fit-content; font-size: 22px; letter-spacing: -.05em; }
-.tunnel-footer nav { display: flex; align-items: flex-start; flex-direction: column; gap: 6px; }
-.tunnel-footer nav h2 { margin: 0 0 3px; font-size: 13px; font-weight: 600; }
-.tunnel-footer nav a { font-size: 13px; color: var(--oria-color-muted-fg); }
-.tunnel-footer nav a:hover { color: var(--oria-color-fg); text-decoration: underline; text-underline-offset: 3px; }
+.tunnel-footer-card { padding: var(--tile-inset); }
+.tunnel-footer-directory {
+  display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 76px); padding: clamp(24px, 3vw, 42px) var(--tunnel-card-inset);
+}
+.tunnel-footer-about { display: flex; flex-direction: column; align-items: flex-start; }
+.tunnel-footer-brand {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: clamp(22px, 2.1vw, 30px); letter-spacing: -.05em; line-height: 1.15;
+}
+.tunnel-footer-about p { max-width: 40ch; margin: 14px 0 0; text-wrap: pretty; }
+.tunnel-footer-credits {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px;
+  margin-top: auto; padding-top: 28px; font-size: 12px; color: var(--oria-color-muted-fg);
+}
+.tunnel-footer-links {
+  display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px;
+  align-items: start; overflow-wrap: anywhere;
+}
+.tunnel-footer nav { display: flex; align-items: flex-start; flex-direction: column; gap: 8px; }
+.tunnel-footer nav h2 { margin: 0 0 6px; font-size: 13px; font-weight: 600; color: var(--oria-color-fg); }
+.tunnel-footer nav a { font-size: 13px; color: var(--oria-color-muted-fg); line-height: 1.5; }
+.tunnel-footer :is(nav, .tunnel-footer-credits) a:hover { color: var(--oria-color-fg); text-decoration: underline; text-underline-offset: 3px; }
 .tunnel-security .tunnel-trust-grid { gap: var(--tunnel-gutter); }
 .tunnel-product-page > .tunnel-security { padding-bottom: var(--tunnel-gutter); }
 @media(max-width:760px) {
-  .product-footer.tunnel-footer { grid-template-columns: minmax(0,1fr); }
-  .tunnel-footer-download { min-height: 172px; }
+  .tunnel-footer-directory { grid-template-columns: minmax(0,1fr); }
+  .tunnel-footer-links { grid-template-columns: repeat(auto-fit, minmax(min(100%, 7rem), 1fr)); gap: 20px 12px; }
+  .tunnel-footer-credits { padding-top: 16px; }
 }
 @media(min-width:761px) {
  .tunnel-spotlight .tunnel-demo-window { height: clamp(280px, 52svh, 610px); aspect-ratio: auto; }
@@ -199,15 +212,24 @@
 .art-panes i { border: 1px solid currentColor; border-radius: 2px; background: color-mix(in srgb,var(--oria-color-primary) 10%,var(--oria-color-surface)); }
 .art-panes i:first-child { grid-row: span 2; }.art-panes[data-stack=true] i:first-child { grid-row: auto; }.art-panes[data-stack=true] i:last-child { grid-column: span 2; }
 .tunnel-card-art .art-display { width: 50px; height: 38px; }
-.oria-tunnel-shell .tunnel-trust-grid article.tunnel-card,.tunnel-platform.tunnel-card,.tunnel-footer-download.tunnel-card { display: flex; flex-direction: column; padding: var(--tile-inset); }
-.tunnel-trust-grid .tunnel-card-art,.tunnel-platform .tunnel-card-art,.tunnel-footer-download .tunnel-card-art { height: clamp(100px,10vw,148px); }
-.tunnel-trust-grid .tunnel-card-art svg,.tunnel-footer-download .tunnel-card-art svg { width: 32px; }
+.oria-tunnel-shell .tunnel-trust-grid article.tunnel-card,.tunnel-platform.tunnel-card { display: flex; flex-direction: column; padding: var(--tile-inset); }
+.tunnel-trust-grid .tunnel-card-art,.tunnel-platform .tunnel-card-art { height: clamp(100px,10vw,148px); }
+.tunnel-trust-grid .tunnel-card-art svg { width: 32px; }
 .tunnel-card-copy { padding: 12px clamp(12px,1.3vw,20px) 15px; }
 .tunnel-card-copy h3 { margin: 0 0 5px; }
-.tunnel-footer-download .tunnel-card-copy { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-.tunnel-footer-download .tunnel-card-copy h2 { font-size: clamp(17px,1.65vw,24px); }
-.tunnel-footer-download .tunnel-card-copy p { margin: 2px 0 0; }
-.tunnel-footer-download { min-height: 0; }
+/* The wordmark and the device chain share one illustration surface. */
+.tunnel-footer-card .tunnel-card-art {
+  height: clamp(96px, 16vw, 184px);
+  background: var(--tunnel-art-bg, var(--oria-color-bg));
+}
+.tunnel-footer-card .tunnel-card-art > svg { width: 32px; }
+.tunnel-footer-card .tunnel-card-art::before { content: none; }
+.tunnel-footer-card .tunnel-card-art::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: color-mix(in srgb, var(--oria-color-muted-fg) 74%, var(--oria-color-primary));
+  opacity: .2;
+  mask: url("/products/oria-tunnel/wordmark-dots.svg") center / 100% 100% no-repeat;
+}
 .tunnel-platform .tunnel-card-art { background: var(--tunnel-art-bg,var(--oria-color-bg)); }
 .tunnel-platform .platform-mark { width: clamp(52px, 5vw, 72px); height: auto; overflow: visible; }
 .platform-mark-apple { color: #000; }

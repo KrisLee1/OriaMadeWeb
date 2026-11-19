@@ -265,3 +265,12 @@
     height: min(49svh,440px);
   }
 }
+
+@media (min-width: 761px) {
+  .tunnel-terminal-update .tunnel-tour:not([data-strip]) {
+    min-height: min(clamp(430px, 64svh, 638px), max(320px, calc(100svh - 160px)));
+  }
+}
+@media (max-width: 760px) {
+  .tunnel-terminal-update .tunnel-tour-card .tunnel-card-art { height: 60px; min-height: 60px; }
+}

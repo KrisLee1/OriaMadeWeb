@@ -958,3 +958,104 @@
 .walkthrough-host[data-scene=copy] [data-copy-example] .shell-block-more { opacity: 1; }
 .guide-copy-menu { width: max-content; min-width: 132px; padding: 4px; }
 .guide-copy-menu button { text-align: start; }
+
+/* OriaTunnel v0.5.0 workspace panes and resizable handles, GPL-3.0-only. */
+:where(.tunnel-terminal-ui) {
+.terminal-group-panel, .terminal-pane-slot, .terminal-pane-host { height: 100%; min-width: 0; min-height: 0; }
+.terminal-group-panel[data-split] { position: relative; padding: var(--terminal-content-inset); }
+.terminal-group-panel[hidden] { display: none; }
+.terminal-session-panel { position: relative; overflow: hidden; }
+.terminal-session-panel > .ssh-terminal-view { flex: 1; }
+.terminal-draggable-tab, .terminal-pane-grip { cursor: grab; touch-action: none; -webkit-user-select: none; user-select: none; }
+.terminal-draggable-tab:active, .terminal-pane-grip:active { cursor: grabbing; }
+.terminal-session-panel[data-grouped="true"][data-active="true"] { border-color: color-mix(in srgb, var(--oria-color-primary) 55%, var(--oria-color-border)); }
+:is(.terminal-session-panel, .terminal-group-panel)[data-drop]::after { content: ""; position: absolute; inset: 0; z-index: 5; pointer-events: none; border: 2px solid var(--oria-color-primary); border-radius: var(--oria-radius-sm); background: color-mix(in srgb, var(--oria-color-primary) 16%, transparent); }
+:is(.terminal-session-panel, .terminal-group-panel)[data-drop="left"]::after { right: auto; width: var(--terminal-drop-size, 50%); }
+:is(.terminal-session-panel, .terminal-group-panel)[data-drop="right"]::after { left: auto; width: var(--terminal-drop-size, 50%); }
+:is(.terminal-session-panel, .terminal-group-panel)[data-drop="top"]::after { bottom: auto; height: var(--terminal-drop-size, 50%); }
+:is(.terminal-session-panel, .terminal-group-panel)[data-drop="bottom"]::after { top: auto; height: var(--terminal-drop-size, 50%); }
+.terminal-tab-list[data-drop] { box-shadow: inset 0 -2px var(--oria-color-primary); background: color-mix(in srgb, var(--oria-color-primary) 10%, transparent); }
+.files-resize-handle {
+  position: relative;
+  background: transparent;
+  flex-shrink: 0;
+  outline: none;
+}
+.files-resize-handle[aria-orientation="vertical"] {
+  width: 8px;
+  cursor: col-resize;
+}
+.files-resize-handle[aria-orientation="horizontal"] {
+  height: 8px;
+  cursor: row-resize;
+}
+
+.files-resize-handle::after {
+  position: absolute;
+  content: "";
+  border-radius: var(--oria-radius-sm);
+  background: var(--oria-color-border);
+}
+.files-resize-handle[aria-orientation="vertical"]::after {
+  width: 2px;
+  height: 24px;
+  left: 3px;
+  top: calc(50% - 12px);
+}
+.files-resize-handle[aria-orientation="horizontal"]::after {
+  width: 24px;
+  height: 2px;
+  top: 3px;
+  left: calc(50% - 12px);
+}
+.files-resize-handle:hover::after {
+  background: var(--oria-color-border-strong);
+}
+.files-resize-handle:focus-visible::after {
+  background: var(--oria-color-ring);
+}
+.workspace-pane-card {
+  border: var(--oria-border-width-default) solid var(--oria-color-border);
+  border-radius: var(--oria-radius-xl);
+  overflow: hidden;
+  background: transparent;
+}
+.workspace-pane-card::before {
+  background: var(--oria-color-surface);
+}
+
+  .terminal-split { display: grid; width: 100%; height: 100%; min-width: 0; min-height: 0; }
+  .terminal-split > [role=separator] { touch-action: none; }
+  .terminal-session-panel > .walkthrough-host { flex: 1; }
+  .terminal-start .terminal-target { width: 100%; min-height: 48px; gap: 12px; padding: 8px 12px; border-radius: var(--oria-radius-xl); }
+}
+/* The site-wide border color otherwise overrides the native ghost buttons. */
+.tunnel-terminal-ui .terminal-session-panel[data-grouped="true"] > .terminal-identity > button {
+  border-color: transparent;
+}
+.tunnel-terminal-ui .terminal-session-panel[data-grouped="true"] > .terminal-identity > button:focus-visible {
+  outline: 2px solid var(--oria-color-ring);
+  outline-offset: -2px;
+  box-shadow: none;
+}
+
+.terminal-drag-overlay { position: absolute; z-index: 160; pointer-events: none; }
+.terminal-drag-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: var(--oria-radius-md);
+  background: var(--oria-color-surface);
+  box-shadow: var(--oria-shadow-md);
+  color: var(--oria-color-fg);
+  font-size: 12px;
+  line-height: 18px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.terminal-split-pointer > svg { position: absolute; left: -3px; top: -3px; }

@@ -83,7 +83,7 @@ export function TerminalWalkthrough({scene, visible, children}: {
   const [run, setRun] = useState(0);
   const [controls, setControls] = useState<Element | null>(null);
   useLayoutEffect(() => {
-    setControls(visible ? host.current?.closest(".terminal-tabs")?.querySelector(".terminal-identity") ?? null : null);
+    setControls(visible ? host.current?.closest(".terminal-session-panel")?.querySelector(".terminal-identity") ?? null : null);
   }, [visible]);
   const [pointer, setPointer] = useState<Pointer | null>(null);
   const {mode, step, toggle} = useDemoPlayback({

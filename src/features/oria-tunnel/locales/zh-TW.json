@@ -72,5 +72,6 @@
   "bindError": "連接埠監聽失敗",
   "forwardError": "轉發被拒絕",
   "hostKeyError": "需核對指紋",
-  "commandError": "命令需確認"
+  "commandError": "命令需確認",
+  "noActivity": "沒有符合的記錄"
 }

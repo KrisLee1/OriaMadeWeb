@@ -1,37 +1,37 @@
 {
-  "version": "v0.4.0",
-  "publishedAt": "2026-11-17T10:32:33Z",
-  "releaseUrl": "https://github.com/KrisLee1/OriaTunnel/releases/tag/v0.4.0",
+  "version": "v0.5.0",
+  "publishedAt": "2026-11-19T01:51:32Z",
+  "releaseUrl": "https://github.com/KrisLee1/OriaTunnel/releases/tag/v0.5.0",
   "assets": {
-    "OriaTunnel_0.4.0_aarch64.dmg": {
-      "url": "https://github.com/KrisLee1/OriaTunnel/releases/download/v0.4.0/OriaTunnel_0.4.0_aarch64.dmg",
-      "size": 16687033,
-      "sha256": "da68fd2d6a6833585e43138f1979eff7bc277c16d7f5e4ca6e639dd844899a0f"
+    "OriaTunnel_0.5.0_aarch64.dmg": {
+      "url": "https://github.com/KrisLee1/OriaTunnel/releases/download/v0.5.0/OriaTunnel_0.5.0_aarch64.dmg",
+      "size": 16826661,
+      "sha256": "013027268078f4f2495d6fbb88643f15dc037352c08307d54370360d19438874"
     },
-    "OriaTunnel_0.4.0_aarch64.zip": {
-      "url": "https://github.com/KrisLee1/OriaTunnel/releases/download/v0.4.0/OriaTunnel_0.4.0_aarch64.zip",
-      "size": 18185583,
-      "sha256": "2fdd4c153d3ffe3f6ea80daa08a2e295d403d84b9c40a1fc2625e264bc543b47"
+    "OriaTunnel_0.5.0_aarch64.zip": {
+      "url": "https://github.com/KrisLee1/OriaTunnel/releases/download/v0.5.0/OriaTunnel_0.5.0_aarch64.zip",
+      "size": 18343138,
+      "sha256": "8c4034fbad06eb0242b806a0be637222f9a1dc701336e6f8dcaf3c8ac0d3dde1"
     },
-    "OriaTunnel_0.4.0_arm64-setup.exe": {
-      "url": "https://github.com/KrisLee1/OriaTunnel/releases/download/v0.4.0/OriaTunnel_0.4.0_arm64-setup.exe",
-      "size": 13295542,
-      "sha256": "65a7dba196f12dfd28e4a68c2098abe12295346751330f14e57b7f22e531cf3f"
+    "OriaTunnel_0.5.0_arm64-setup.exe": {
+      "url": "https://github.com/KrisLee1/OriaTunnel/releases/download/v0.5.0/OriaTunnel_0.5.0_arm64-setup.exe",
+      "size": 13695515,
+      "sha256": "0a39b1c807885a0ea54de683706ff5d29bf631d056c5d472b8892e5574ec223e"
     },
-    "OriaTunnel_0.4.0_x64-setup.exe": {
-      "url": "https://github.com/KrisLee1/OriaTunnel/releases/download/v0.4.0/OriaTunnel_0.4.0_x64-setup.exe",
-      "size": 13918260,
-      "sha256": "d5e9889973cab27395d1c7c73ebefa53b38cebe428404d5353ba95457ca8e0d8"
+    "OriaTunnel_0.5.0_x64-setup.exe": {
+      "url": "https://github.com/KrisLee1/OriaTunnel/releases/download/v0.5.0/OriaTunnel_0.5.0_x64-setup.exe",
+      "size": 14248692,
+      "sha256": "dc30d980bf334daf34fa09921417d9f905dc4caa35099ff14f97ad1160ea3d95"
     },
-    "OriaTunnel_0.4.0_x64.dmg": {
-      "url": "https://github.com/KrisLee1/OriaTunnel/releases/download/v0.4.0/OriaTunnel_0.4.0_x64.dmg",
-      "size": 17451183,
-      "sha256": "e4a6b3f70c525a38e4370c1ac1c4c4bfcfb6be548cd2b0cce21afb755fd064c3"
+    "OriaTunnel_0.5.0_x64.dmg": {
+      "url": "https://github.com/KrisLee1/OriaTunnel/releases/download/v0.5.0/OriaTunnel_0.5.0_x64.dmg",
+      "size": 17587887,
+      "sha256": "472bbc1dcacb5596c0bf50765acd32e9d98e7792fc0ad6fe3db64d57881c7264"
     },
-    "OriaTunnel_0.4.0_x64.zip": {
-      "url": "https://github.com/KrisLee1/OriaTunnel/releases/download/v0.4.0/OriaTunnel_0.4.0_x64.zip",
-      "size": 18950393,
-      "sha256": "e19002ddedd033a403352afe20b7fae1f98b2d2cc635c41b863b34703c69e821"
+    "OriaTunnel_0.5.0_x64.zip": {
+      "url": "https://github.com/KrisLee1/OriaTunnel/releases/download/v0.5.0/OriaTunnel_0.5.0_x64.zip",
+      "size": 19058165,
+      "sha256": "264774272058999c1478cd2efbbb49672d6d90b0273ce8ae4c37a51e4f83e672"
     }
   }
 }

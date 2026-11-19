@@ -10,7 +10,7 @@ import {TunnelDownloadButton} from './download-button'
 import {downloadCopy} from './download-copy'
 import {TunnelFileUpdate} from './file-update'
 import {TunnelTerminalUpdate} from './terminal-update'
-import {terminalUpdateCopy, terminalVersion} from './terminal-update-copy'
+import {terminalUpdateCopy} from './terminal-update-copy'
 import {TunnelVncUpdate} from './vnc-update'
 
 const trustScenes = ['trust', 'credentials', 'export']
@@ -22,7 +22,7 @@ export function TunnelPage({locale}: {locale: TunnelLocale}) {
     <section id="workspace" tabIndex={-1} className="tunnel-spotlight" aria-labelledby="workspace-title">
     <header className="tunnel-product-intro">
       <Reveal immediate className="tunnel-intro-title">
-        <a className="tunnel-preview-link" href={tunnelRelease.releaseUrl}>{terminalVersion} · {terminalUpdateCopy[locale].status}<ArrowUpRight size={13}/></a>
+        <a className="tunnel-preview-link" href={tunnelRelease.releaseUrl}>{tunnelRelease.version} · {terminalUpdateCopy[locale].status}<ArrowUpRight size={13}/></a>
         <h1 id="workspace-title">{c.hero.title.replace('\n','')}</h1>
       </Reveal>
       <div className="tunnel-intro-actions">

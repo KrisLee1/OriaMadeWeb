@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 144" preserveAspectRatio="none">
+  <title>OriaTunnel</title>
+  <defs>
+    <pattern id="triangles" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M4 1 7.3 7H.7Z"/>
+    </pattern>
+    <pattern id="circles" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="3"/>
+    </pattern>
+    <pattern id="squares" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect x="1" y="1" width="6" height="6" rx=".4"/>
+    </pattern>
+    <linearGradient id="fade" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="black"/>
+      <stop offset=".24" stop-color="#555"/>
+      <stop offset=".53" stop-color="#d2d2d2"/>
+      <stop offset="1" stop-color="white"/>
+    </linearGradient>
+    <mask id="lettering" maskUnits="userSpaceOnUse" x="0" y="0" width="1024" height="144">
+      <rect width="1024" height="144" fill="url(#fade)"/>
+      <text x="512" y="120" text-anchor="middle" textLength="956" lengthAdjust="spacingAndGlyphs"
+            font-family="Arial Black, Helvetica Neue, Arial, sans-serif" font-size="134" font-weight="900" fill="black">OriaTunnel</text>
+    </mask>
+  </defs>
+  <g mask="url(#lettering)">
+    <path d="M0 0h240l-48 144H0zM624 0h56l64 144H624zM808 0h128v144h-64z" fill="url(#triangles)"/>
+    <path d="M240 0h208l-48 144H192zM680 0h128l64 144H744z" fill="url(#circles)"/>
+    <path d="M448 0h176v144H400zM936 0h88v144h-88z" fill="url(#squares)"/>
+  </g>
+</svg>

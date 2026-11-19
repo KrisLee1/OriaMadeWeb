@@ -1,36 +1,52 @@
-import {Reveal} from '@/components/ui/reveal'
 import Link from 'next/link'
-import {ArrowRight} from 'lucide-react'
 import {BrandName} from '@/components/site/brand-name'
-import {CardArt} from './card-art'
+import {Reveal} from '@/components/ui/reveal'
+import {products} from '@/content/products'
 import {localizedPath, type Locale} from '@/i18n/config'
 import {localize} from '@/i18n/localize'
-import {products} from '@/content/products'
+import {CardArt} from './card-art'
+import {tunnelContent} from './content'
 import {downloadCopy} from './download-copy'
 import {tunnelRelease} from './release'
 
+const repository = 'https://github.com/KrisLee1/OriaTunnel'
+
 export function TunnelFooter({locale}: {locale: Locale}) {
   const home = localizedPath(locale, '/oria-tunnel')
-  const support = localize(locale, 'Product and support', '产品与支持')
+  const features = localize(locale, 'Features')
+  const support = localize(locale, 'Support')
   const collection = localize(locale, 'Oria collection', 'Oria 系列')
   const c = downloadCopy[locale]
   return <Reveal as="footer" className="product-footer tunnel-footer" id="tunnel-footer">
-    <div className="tunnel-footer-download tunnel-card">
-      <CardArt scene="download"/>
-      <div className="tunnel-card-copy"><div><h2>{c.title}</h2><p>macOS · Windows</p></div>
-      <Link className="tunnel-button tunnel-button-primary" href={home+'/download#platforms'}>{c.choose}<ArrowRight size={15}/></Link></div>
-    </div>
-    <div className="tunnel-footer-directory tunnel-card">
-      <Link className="tunnel-footer-brand" href={home}><BrandName name="OriaTunnel"/></Link>
-      <nav aria-label={support}><h2>{support}</h2>
-        <a href={tunnelRelease.releaseUrl}>{c.releaseNotes}</a>
-        <a href="https://github.com/KrisLee1/OriaTunnel/releases">{c.previousReleases}</a>
-        <a href="https://github.com/KrisLee1/OriaTunnel">GitHub</a>
-      </nav>
-      <nav aria-label={collection}><h2>{collection}</h2>
-        <Link href={localizedPath(locale)}>{localize(locale,'Oria home','Oria 首页')}</Link>
-        {products.filter(p=>p.slug!=='oria-tunnel').map(p=><Link key={p.slug} href={localizedPath(locale,'/'+p.slug)}>{p.name}</Link>)}
-      </nav>
+    <div className="tunnel-footer-card tunnel-card">
+      <CardArt scene="footer"/>
+      <div className="tunnel-footer-directory">
+        <div className="tunnel-footer-about">
+          <Link className="tunnel-footer-brand" href={home}>
+            <img src="/products/oria-tunnel/logo.svg" width={32} height={32} alt=""/>
+            <BrandName name="OriaTunnel"/>
+          </Link>
+          <p>{localize(locale, 'Manage SSH tunnels, remote services, terminals, file transfers and remote desktops together in OriaTunnel.')}</p>
+          <small className="tunnel-footer-credits">
+            <span>© 2026 KrisLee</span><span aria-hidden="true">·</span>
+            <a rel="license" href={repository+'/blob/master/LICENSE'}>GPL-3.0-only</a>
+          </small>
+        </div>
+        <div className="tunnel-footer-links">
+          <nav aria-label={features}><h2>{features}</h2>
+            {tunnelContent[locale].nav.map(({id,label})=><Link key={id} href={home+'#'+id}>{label}</Link>)}
+          </nav>
+          <nav aria-label={support}><h2>{support}</h2>
+            <a href={tunnelRelease.releaseUrl}>{c.releaseNotes}</a>
+            <a href={repository+'/releases'}>{c.previousReleases}</a>
+            <a href={repository}>GitHub</a>
+          </nav>
+          <nav aria-label={collection}><h2>{collection}</h2>
+            <Link href={localizedPath(locale)}>{localize(locale,'Oria home','Oria 首页')}</Link>
+            {products.filter(p=>p.slug!=='oria-tunnel').map(p=><Link key={p.slug} href={localizedPath(locale,'/'+p.slug)}>{p.name}</Link>)}
+          </nav>
+        </div>
+      </div>
     </div>
   </Reveal>
 }

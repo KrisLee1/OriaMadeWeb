@@ -4,7 +4,7 @@ import {
   ArrowUpNarrowWide,
   ArrowDownWideNarrow,
   Check,
-  Clock,
+  Clock, CalendarDays, CalendarPlus,
   Eye,
   EyeOff,
   FolderPlus,
@@ -34,6 +34,8 @@ interface Props {
   hidden: boolean;
   sort: string;
   descending: boolean;
+  grouped: boolean;
+  onGroupChange: (value: boolean) => void;
   canCreate: boolean;
   canUpload: boolean;
   onHiddenChange: (hidden: boolean) => void;
@@ -55,7 +57,7 @@ export function FileSortOptions(
   return (
     <>
       <DropdownMenuGroup>
-        {["name", "type", "size", "modified"].map((sort) => (
+        {["name", "type", "size", "modified", "created"].map((sort) => (
           <DropdownMenuItem
             key={sort}
             role="menuitemradio"
@@ -69,7 +71,7 @@ export function FileSortOptions(
             ) : sort === "size" ? (
               <Ruler />
             ) : (
-              <Clock />
+              sort === "created" ? <CalendarPlus/> : <Clock />
             )}
             {t(sort)}
             {props.sort === sort && <Check className="ml-auto" />}
@@ -146,6 +148,9 @@ export function FileOptionsMenu(props: Props) {
     <>
       <DropdownMenuGroup>
         <DropdownMenuLabel>{t("viewOptions")}</DropdownMenuLabel>
+        <DropdownMenuItem role="menuitemcheckbox" aria-checked={props.grouped} onClick={() => props.onGroupChange(!props.grouped)}>
+          <CalendarDays/>{copy.groupTime}<Check className={props.grouped ? "ml-auto" : "invisible ml-auto"}/>
+        </DropdownMenuItem>
         <DropdownMenuItem onClick={() => props.onHiddenChange(!props.hidden)}>
           {props.hidden ? <EyeOff /> : <Eye />}
           {t(props.hidden ? "hideHidden" : "showHidden")}

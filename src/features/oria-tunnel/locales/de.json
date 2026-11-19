@@ -72,5 +72,6 @@
   "bindError": "Listener fehlgeschlagen",
   "forwardError": "Weiterleitung abgelehnt",
   "hostKeyError": "Hostschlüssel prüfen",
-  "commandError": "Befehl prüfen"
+  "commandError": "Befehl prüfen",
+  "noActivity": "Keine passenden Ereignisse"
 }

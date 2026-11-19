@@ -108,7 +108,7 @@ test('Download selection handles architecture hints, reduced user agents and mob
 })
 
 test('All installer links match the configured release and download copy covers eight languages',()=>{
- assert.equal(tunnelRelease.version,'v0.4.0')
+ assert.equal(tunnelRelease.version,'v0.5.0')
  assert.equal(installers.length,4)
  assert.ok(Number.isFinite(Date.parse(tunnelRelease.publishedAt)))
  assert.equal(Object.keys(tunnelRelease.assets).length,6)
@@ -133,16 +133,16 @@ test('Terminal preview, VNC notes and file workspace cover every locale',()=>{
   const copy=fileUpdateCopy[locale]
   const vnc=vncUpdateCopy[locale]
   assert.equal(vncVersion,'v0.3.0')
-  assert.equal(terminalVersion,'v0.4.0')
+  assert.equal(terminalVersion,'v0.5.0')
   assert.match(terminalUpdateCopy[locale].shells,/PowerShell/)
-  assert.equal(terminalUpdateCopy[locale].features.length,6)
+  assert.equal(terminalUpdateCopy[locale].features.length,7)
   assert.match(vnc.title,/VNC/)
   assert.match(vnc.intro,/vnc:\/\//)
   assert.equal(vnc.status,copy.status,locale)
   assert.equal(vnc.details.length,4,locale)
   assert.deepEqual(Object.keys(vnc.demo),Object.keys(vncUpdateCopy.en.demo),locale)
   assert.equal(copy.highlights.length,copy.changes.length,locale)
-  assert.equal(copy.changes.length,5,locale)
+  assert.equal(copy.changes.length,6,locale)
   assert.deepEqual(Object.keys(getFileDemoCopy(locale)),Object.keys(getFileDemoCopy('en')),locale)
   assert.ok(copy.demoNotice.trim(),locale)
  }
@@ -174,4 +174,24 @@ test('Browser titles and favicons follow the product across locales and nested p
   }
   assert.deepEqual(pageMetadata(locale,'/oria-tunnel/download',downloadCopy[locale].download,'').title,{absolute:`${downloadCopy[locale].download} · OriaTunnel`})
  }
+})
+
+test('Regrouping a demo terminal preserves session identities across nested splits and detach', async () => {
+ const {movePane, paneKeys, reconcileGroups} = await import('../src/features/oria-tunnel/native-terminal/terminal-splits')
+ const tabs = reconcileGroups([], ['local', 'ssh', 'logs'])
+ const pair = movePane(tabs, 'ssh', {scope:'pane', target:'local', side:'right'}, 'columns')
+ const nested = movePane(pair, 'logs', {scope:'pane', target:'ssh', side:'bottom'}, 'rows')
+ assert.deepEqual(paneKeys(nested[0].tree), ['local', 'ssh', 'logs'])
+ const detached = movePane(nested, 'ssh', 'tabs', '')
+ assert.deepEqual(detached.map(group => paneKeys(group.tree)), [['local', 'logs'], ['ssh']])
+ assert.deepEqual(reconcileGroups(detached, ['ssh', 'logs']).map(group => group.tab), ['logs', 'ssh'])
+})
+
+test('Date sections keep missing SFTP creation dates last in both sort directions', async () => {
+ const {groupByTime, sampleDay, sampleTime} = await import('../src/features/oria-tunnel/file-time-groups')
+ const times = [undefined, sampleTime(4), sampleTime(1), sampleTime(0), sampleTime(30)]
+ const keys = (newest:boolean) => groupByTime(times, time => time, sampleDay, newest).map(group => group.time.key)
+ assert.deepEqual(keys(true).slice(0,3), ['today', 'yesterday', 'pastWeek'])
+ assert.equal(keys(true).at(-1), 'unknownTime')
+ assert.deepEqual(keys(false), [...keys(true).slice(0,-1).reverse(),'unknownTime'])
 })
